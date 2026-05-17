@@ -7,10 +7,10 @@
 
 
 <!-- DASHBOARD_META
-  version: 1.0.1
+  version: 1.0.2
   last_updated: 2026-05-17
-  updated_by: Claude (Kemi session — live push validated)
-  change: Corrected repo owner to kemiao-dotcom, confirmed git push workflow
+  updated_by: Claude (Kemi session)
+  change: Spatial planning section rebuilt with full SVG floor plan, world-class references (NewCold/Kool-Ex/Lineage), zone breakdown table, design principles and pre-construction checklist
   sections_count: 8
   live_url: https://kemiao-dotcom.github.io/agrovault-dashboard
 -->
@@ -706,6 +706,45 @@
     .section-title { font-size: 28px; }
     .decision-entry { grid-template-columns: 1fr; gap: 4px; }
   }
+
+  /* ─── SPATIAL PLAN STYLES (scoped to .sp-wrap) ─── */
+  .sp-wrap{font-size:13px;color:#1A1A1A}
+  .sp-wrap .brief-banner{background:#1B5E20;color:white;padding:20px 28px;border-radius:4px;font-size:14px;line-height:1.7;margin-bottom:24px}
+  .sp-wrap .brief-banner strong{font-weight:700}
+  .sp-wrap .ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+  .sp-wrap .ref-card{border:1px solid #E0E0E0;border-radius:4px;border-left:4px solid;padding:16px}
+  .sp-wrap .ref-card h3{font-size:14px;font-weight:700;margin-bottom:4px}
+  .sp-wrap .ref-card .ref-sub{font-size:11px;color:#757575;font-style:italic;margin-bottom:10px}
+  .sp-wrap .ref-card p{font-size:12px;color:#424242;line-height:1.6;margin-bottom:8px}
+  .sp-wrap .ref-card .borrow{font-size:12px;line-height:1.6}
+  .sp-wrap .sp-section{padding:20px 0;border-bottom:1px solid #E8E8E8}
+  .sp-wrap .sp-section:last-child{border-bottom:none}
+  .sp-wrap .sp-section-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#757575;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #1B5E20;display:inline-block}
+  .sp-wrap .plan-container{background:#F5F5F5;border:1px solid #E0E0E0;border-radius:4px;overflow-x:auto;padding:20px;margin-bottom:8px}
+  .sp-wrap .plan-caption{font-size:11px;color:#757575;font-style:italic;margin-top:8px;margin-bottom:20px}
+  .sp-wrap table.sp-table{width:100%;border-collapse:collapse;font-size:12px}
+  .sp-wrap table.sp-table th{background:#1B5E20;color:white;padding:8px 12px;text-align:left;font-size:11px;font-weight:600;letter-spacing:.04em}
+  .sp-wrap table.sp-table td{padding:9px 12px;vertical-align:top;border-bottom:1px solid #EEEEEE;line-height:1.5}
+  .sp-wrap table.sp-table tr:last-child td{border-bottom:none}
+  .sp-wrap .zone-badge{display:inline-block;width:10px;height:10px;border-radius:2px;vertical-align:middle;margin-right:6px}
+  .sp-wrap .temp-badge{font-family:'Courier New',monospace;font-size:11px;font-weight:700;white-space:nowrap}
+  .sp-wrap .pallet-count{font-weight:700;font-size:13px}
+  .sp-wrap .principles-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
+  .sp-wrap .principle-card{border:1px solid #E0E0E0;border-radius:4px;border-top:3px solid;padding:18px 20px}
+  .sp-wrap .principle-card h3{font-size:13px;font-weight:700;margin-bottom:12px}
+  .sp-wrap .principle-card ul{list-style:none;padding:0}
+  .sp-wrap .principle-card ul li{font-size:12px;color:#424242;line-height:1.6;padding-left:14px;position:relative;margin-bottom:4px}
+  .sp-wrap .principle-card ul li::before{content:"–";position:absolute;left:0;color:#9E9E9E}
+  .sp-wrap .checklist-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;margin-bottom:24px}
+  .sp-wrap .checklist-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid #F0F0F0;font-size:12px;color:#424242;line-height:1.5}
+  .sp-wrap .checklist-item:last-child{border-bottom:none}
+  .sp-wrap .check-box{width:16px;height:16px;border:1.5px solid #BDBDBD;border-radius:2px;flex-shrink:0;margin-top:1px}
+  .sp-wrap .disclaimer{background:#FFF3E0;border-left:4px solid #E65100;padding:14px 20px;border-radius:0 4px 4px 0;font-size:12px;color:#424242;line-height:1.6}
+  @media(max-width:900px){
+    .sp-wrap .ref-grid,.sp-wrap .principles-grid{grid-template-columns:1fr}
+    .sp-wrap .checklist-grid{grid-template-columns:1fr}
+    .sp-wrap .plan-container{overflow-x:auto}
+  }
 </style>
 </head>
 <body>
@@ -1149,83 +1188,393 @@
     <div>
       <div class="section-tag">05 — Spatial Planning</div>
       <h1 class="section-title">Hub 1 — Lagos.<br>3,800 sqm. 4,500 pallets.</h1>
-      <p class="section-subtitle">World-class design references applied to tropical-climate, GDP-compliant cold storage. Every design decision made for 38–42°C ambient temperature.</p>
+      <p class="section-subtitle">World-class design references applied to tropical-climate, GDP-compliant cold storage. Every design decision made for 38–42°C ambient temperature and NAFDAC compliance.</p>
     </div>
     <div class="section-meta">
       Source: AgroVault_SpatialPlan.html<br>
-      Last updated: 2026-05-16<br>
+      Last updated: 2026-05-17<br>
       Status: <span class="tag tag-live">Live</span>
     </div>
   </div>
 
-  <!-- ZONE SUMMARY -->
-  <div class="section-label">Zone Breakdown — Hub 1</div>
-  <div class="card gap-32">
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Zone</th>
-          <th>Temperature</th>
-          <th>Area</th>
-          <th>Pallet Positions</th>
-          <th>Primary Use</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td><strong style="color:var(--text)">Office / Admin</strong></td><td class="mono">Ambient</td><td class="mono">400 sqm (10m×40m)</td><td class="mono">—</td><td>Staff welfare, security, client meeting room</td></tr>
-        <tr><td><strong style="color:var(--text)">Processing Hall</strong></td><td class="mono">Ambient / pre-cool</td><td class="mono">720 sqm (18m×40m)</td><td class="mono">—</td><td>Blast freeze tunnel · AI grading · washing · MAP packaging · RPC pool</td></tr>
-        <tr><td><strong style="color:var(--text)">Cool Zone</strong></td><td class="mono" style="color:#93C5FD">+8°C to +15°C</td><td class="mono">720 sqm (18m×40m)</td><td class="mono rev-positive">~1,080</td><td>Produce aggregation · yam, cassava, cocoa · banana ripening · export staging</td></tr>
-        <tr><td><strong style="color:var(--text)">Chilled Zone</strong></td><td class="mono" style="color:#60A5FA">+2°C to +8°C</td><td class="mono">880 sqm (22m×40m)</td><td class="mono rev-positive">~1,800</td><td>Supermarket supply · FMCG fresh · GDP pharma sub-zone enclosed within</td></tr>
-        <tr><td style="padding-left:28px">↳ GDP Pharma Sub-Zone</td><td class="mono" style="color:#60A5FA">+2°C to +8°C</td><td class="mono">300 sqm</td><td class="mono rev-positive">~480</td><td>Room-within-room · NAFDAC GDP · full excursion audit trail · D5 dock dedicated</td></tr>
-        <tr><td><strong style="color:var(--text)">Frozen Zone</strong></td><td class="mono" style="color:#C4B5FD">−18°C to −24°C</td><td class="mono">560 sqm (14m×40m)</td><td class="mono rev-positive">~840</td><td>Proteins, fish, ice cream · blast-freeze output staging</td></tr>
-        <tr><td><strong style="color:var(--text)">Plant Room</strong></td><td class="mono">+20°C controlled</td><td class="mono">360 sqm (9m×40m)</td><td class="mono">—</td><td>Refrigeration plant · solar inverters · battery room · NERC metering</td></tr>
-        <tr><td style="color:var(--text);font-weight:600" colspan="2"><strong>TOTAL HUB 1</strong></td><td class="mono"><strong>3,800 sqm gross</strong></td><td class="mono" style="color:var(--accent3)"><strong>~4,500 pallets</strong></td><td>6 dock bays · 4 loading bays · one-way truck flow</td></tr>
-      </tbody>
-    </table>
+  <div class="sp-wrap">
+<div class="sp-section">
+  <div class="brief-banner">
+    <strong>Design intent:</strong> The hub is designed at the intersection of three world-class cold storage references &mdash; NewCold&rsquo;s vertical storage density and dark-warehouse energy philosophy, Kool-Ex Nairobi&rsquo;s tropical-climate specification and pharma GDP zone model, and Lineage Logistics&rsquo; dock design and energy management practice. Every design decision is made to function reliably at 38&ndash;42&deg;C ambient temperature, to meet NAFDAC GDP certification requirements for the pharmaceutical zone, and to be expanded to Phase 2 without structural modification to the Phase 1 building.
   </div>
+</div>
 
-  <!-- DESIGN REFERENCES -->
-  <div class="divider"></div>
-  <div class="section-label">World-Class Design References</div>
-  <div class="grid-3 gap-24">
-    <div class="card">
-      <div class="layer-title">NewCold (Netherlands)</div>
-      <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:10px">World's 3rd-largest refrigerated operator</div>
-      <div class="layer-thesis">High-bay automated, dark-warehouse design (no human in cold zone routinely). 35–40% less energy per pallet than conventional equivalent.</div>
-      <div class="layer-price">Key borrow: zone segregation · 3.6m automation-ready aisles · battery room +20°C</div>
+<!-- REFERENCES -->
+<div class="sp-section">
+  <div class="sp-section-title">World-class design references</div>
+  <div class="ref-grid">
+    <div class="ref-card" style="border-left-color:#1D9E75">
+      <h3 style="color:#0F6E56">NewCold</h3>
+      <div class="ref-sub">Netherlands / Global &nbsp;&middot;&nbsp; World&rsquo;s 3rd-largest refrigerated operator</div>
+      <p>High-bay automated, vertical storage density, dark-warehouse design (no human in cold zone routinely), 35&ndash;40% less energy than conventional equivalent per pallet stored.</p>
+      <div class="borrow"><strong style="color:#0F6E56">Key borrow:</strong> Zone segregation, automation-ready aisle widths (3.6m), dark-warehouse LED motion sensor protocol, battery room maintained at +20&deg;C to extend cell life.</div>
     </div>
-    <div class="card">
-      <div class="layer-title">Kool-Ex Cold Chain (Nairobi)</div>
-      <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:10px">Most comparable emerging market operator · profitable</div>
-      <div class="layer-thesis">4,000-pallet capacity, solar-powered, tropical climate design, pharmaceutical GDP zone. East Africa is 3–5 years ahead of West Africa.</div>
-      <div class="layer-price">Key borrow: 120mm+ PIR panel · GDP room-within-room · vapour barrier @ 60–90% RH</div>
+    <div class="ref-card" style="border-left-color:#185FA5">
+      <h3 style="color:#0C447C">Kool-Ex Cold Chain</h3>
+      <div class="ref-sub">Nairobi, Kenya &nbsp;&middot;&nbsp; Most comparable emerging market operator</div>
+      <p>4,000-pallet capacity, solar-powered, tropical climate design, pharmaceutical GDP zone. Operational and profitable. East Africa is 3&ndash;5 years ahead of West Africa in cold chain infrastructure development.</p>
+      <div class="borrow"><strong style="color:#0C447C">Key borrow:</strong> 120mm+ PIR panel spec for tropical humidity, GDP zone as enclosed room-within-room, multi-client SLA model, vapour barrier specification at 60&ndash;90% RH.</div>
     </div>
-    <div class="card">
-      <div class="layer-title">Lineage Logistics (US)</div>
-      <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:10px">World's largest cold chain operator · S-1 2024</div>
-      <div class="layer-thesis">Best-in-class energy management, dock design, and pallet density. Variable-speed compressors, waste heat recovery, comprehensive IoT sensor networks.</div>
-      <div class="layer-price">Key borrow: dock bay design · energy monitoring architecture · IoT sensor protocol</div>
+    <div class="ref-card" style="border-left-color:#E65100">
+      <h3 style="color:#BF360C">Lineage Logistics</h3>
+      <div class="ref-sub">US / Global &nbsp;&middot;&nbsp; World&rsquo;s largest cold chain operator (S-1 2024)</div>
+      <p>Best-in-class energy management, dock design, and pallet density. Variable-speed compressors, waste heat recovery, lights-out operation, comprehensive IoT sensor networks.</p>
+      <div class="borrow"><strong style="color:#BF360C">Key borrow:</strong> Dock bay design with levellers, energy monitoring architecture, pallet density targets, IoT sensor placement protocol at zone transitions.</div>
     </div>
   </div>
+</div>
 
-  <!-- SITE PRINCIPLES -->
-  <div class="divider"></div>
-  <div class="section-label">Site Selection Principles</div>
-  <div class="grid-2">
-    <div class="card">
-      <div class="layer-title" style="margin-bottom:12px">Non-Negotiables</div>
-      <div class="phase-item"><div class="phase-dot"></div><div>Commission catchment analysis before any site shortlisted — map produce flows, buyer locations, road quality within 60km radius</div></div>
-      <div class="phase-item"><div class="phase-dot"></div><div>Require operations cofounder sign-off before site commitment</div></div>
-      <div class="phase-item"><div class="phase-dot"></div><div>Peri-urban logistics corridor — strategic proximity to major produce aggregation point</div></div>
-      <div class="phase-item"><div class="phase-dot"></div><div>10-year leasehold minimum — 5 acres at $250K</div></div>
+<!-- FLOOR PLAN -->
+<div class="sp-section">
+  <div class="sp-section-title">Schematic floor plan &mdash; Hub 1</div>
+  <div class="plan-container">
+    <svg width="100%" viewBox="0 0 1020 420" xmlns="http://www.w3.org/2000/svg" style="min-width:700px">
+      <!-- COMPASS -->
+      <text x="980" y="30" font-family="Arial" font-size="13" font-weight="700" fill="#9E9E9E" text-anchor="middle">N&#x2191;</text>
+      
+      <!-- EXPANSION ZONE -->
+      <rect x="8" y="80" width="110" height="280" rx="3" fill="none" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="6 3"/>
+      <text x="63" y="200" font-family="Arial" font-size="11" fill="#9E9E9E" text-anchor="middle">Phase 2</text>
+      <text x="63" y="215" font-family="Arial" font-size="11" fill="#9E9E9E" text-anchor="middle">expansion</text>
+      <text x="63" y="230" font-family="Arial" font-size="11" fill="#9E9E9E" text-anchor="middle">+2,000 sqm</text>
+      <text x="63" y="248" font-family="Arial" font-size="10" fill="#BDBDBD" font-style="italic" text-anchor="middle">connects west</text>
+      <!-- Arrow from expansion -->
+      <line x1="118" y1="220" x2="130" y2="220" stroke="#BDBDBD" stroke-width="1" marker-end="url(#arr)"/>
+
+      <!-- SITE BOUNDARY -->
+      <rect x="125" y="20" width="862" height="380" rx="3" fill="none" stroke="#BDBDBD" stroke-width="0.8" stroke-dasharray="5 3"/>
+      <text x="131" y="34" font-family="Arial" font-size="10" fill="#BDBDBD">Site boundary &mdash; approx. 5 acres &middot; 200m &times; 100m</text>
+
+      <!-- TRUCK APRON -->
+      <rect x="130" y="44" width="850" height="36" fill="#ECEFF1" stroke="#B0BEC5" stroke-width="0.8"/>
+      <text x="555" y="67" font-family="Arial" font-size="11" fill="#607D8B" text-anchor="middle">Truck apron &mdash; 10m turning radius &middot; one-way flow west &#x2192; east &middot; no reversing</text>
+
+      <!-- TRUCK ARROWS -->
+      <line x1="50" y1="62" x2="128" y2="62" stroke="#607D8B" stroke-width="1.2" marker-end="url(#arr)"/>
+      <text x="20" y="58" font-family="Arial" font-size="10" fill="#607D8B">Trucks</text>
+      <text x="20" y="70" font-family="Arial" font-size="10" fill="#607D8B">enter</text>
+      <line x1="980" y1="62" x2="1005" y2="62" stroke="#607D8B" stroke-width="1.2" marker-end="url(#arr)"/>
+      <text x="1008" y="66" font-family="Arial" font-size="10" fill="#607D8B">Exit</text>
+
+      <!-- DOCK BAYS INDICATOR -->
+      <!-- Each zone: Office(95), Processing(171), Cool(171), AL(19), Chilled(209), AL(19), Frozen(133), Plant(86) = 903, start at x=130 -->
+      <!-- 6 docks: D1,D2 over processing; D3,D4 over cool; D5 over chilled; D6 over frozen -->
+      <!-- D1 -->
+      <rect x="241" y="54" width="76" height="26" rx="2" fill="white" stroke="#FF8A65" stroke-width="1"/>
+      <text x="279" y="70" font-family="Arial" font-size="10" fill="#E65100" font-weight="600" text-anchor="middle">D1 &#x25a1;</text>
+      <!-- D2 -->
+      <rect x="321" y="54" width="76" height="26" rx="2" fill="white" stroke="#FF8A65" stroke-width="1"/>
+      <text x="359" y="70" font-family="Arial" font-size="10" fill="#E65100" font-weight="600" text-anchor="middle">D2 &#x25a1;</text>
+      <!-- D3 -->
+      <rect x="413" y="54" width="76" height="26" rx="2" fill="white" stroke="#42A5F5" stroke-width="1"/>
+      <text x="451" y="70" font-family="Arial" font-size="10" fill="#0D47A1" font-weight="600" text-anchor="middle">D3 &#x25a1;</text>
+      <!-- D4 -->
+      <rect x="493" y="54" width="76" height="26" rx="2" fill="white" stroke="#42A5F5" stroke-width="1"/>
+      <text x="531" y="70" font-family="Arial" font-size="10" fill="#0D47A1" font-weight="600" text-anchor="middle">D4 &#x25a1;</text>
+      <!-- D5 -->
+      <rect x="601" y="54" width="96" height="26" rx="2" fill="white" stroke="#1565C0" stroke-width="1.5"/>
+      <text x="649" y="70" font-family="Arial" font-size="10" fill="#0D47A1" font-weight="600" text-anchor="middle">D5 &#x25a1; Pharma</text>
+      <!-- D6 -->
+      <rect x="762" y="54" width="76" height="26" rx="2" fill="white" stroke="#7B1FA2" stroke-width="1"/>
+      <text x="800" y="70" font-family="Arial" font-size="10" fill="#4A148C" font-weight="600" text-anchor="middle">D6 &#x25a1;</text>
+
+      <!-- BUILDING OUTLINE -->
+      <rect x="130" y="80" width="850" height="260" rx="3" fill="none" stroke="#424242" stroke-width="1.5"/>
+
+      <!-- SOLAR PANELS PATTERN ON ROOF (subtle) -->
+      <defs>
+        <pattern id="solar" patternUnits="userSpaceOnUse" width="16" height="16">
+          <rect width="16" height="16" fill="none"/>
+          <rect x="1" y="1" width="6" height="6" fill="#1B5E20" fill-opacity=".08" rx="0.5"/>
+          <rect x="9" y="1" width="6" height="6" fill="#1B5E20" fill-opacity=".08" rx="0.5"/>
+          <rect x="1" y="9" width="6" height="6" fill="#1B5E20" fill-opacity=".08" rx="0.5"/>
+          <rect x="9" y="9" width="6" height="6" fill="#1B5E20" fill-opacity=".08" rx="0.5"/>
+        </pattern>
+        <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+      <rect x="131" y="81" width="848" height="258" fill="url(#solar)"/>
+
+      <!-- ZONE 1: OFFICE (95px = ~11m) -->
+      <rect x="130" y="80" width="95" height="260" fill="#E8F5E9" stroke="#2E7D32" stroke-width="0.8"/>
+      <text transform="translate(177,210) rotate(-90)" font-family="Arial" font-size="12" font-weight="700" fill="#1B5E20" text-anchor="middle">Office / Admin</text>
+      <text transform="translate(177,230)" font-family="Arial" font-size="10" fill="#2E7D32" text-anchor="middle">Welfare</text>
+      <text transform="translate(177,244)" font-family="Arial" font-size="10" fill="#2E7D32" text-anchor="middle">Security</text>
+      <text transform="translate(177,268)" font-family="Arial" font-size="10" fill="#388E3C" text-anchor="middle">10m &times; 40m</text>
+      <text transform="translate(177,282)" font-family="Arial" font-size="10" fill="#388E3C" text-anchor="middle">400 sqm</text>
+
+      <!-- ZONE 2: PROCESSING (171px = ~20m) -->
+      <rect x="225" y="80" width="171" height="260" fill="#FFF3E0" stroke="#E65100" stroke-width="0.8"/>
+      <!-- Sub-zones -->
+      <rect x="225" y="80" width="85" height="72" fill="#FFE0CC" stroke="#FF7043" stroke-width="0.5"/>
+      <text x="267" y="112" font-family="Arial" font-size="10" font-weight="600" fill="#BF360C" text-anchor="middle">Blast freeze</text>
+      <text x="267" y="125" font-family="Arial" font-size="9" fill="#BF360C" text-anchor="middle">tunnel</text>
+      <rect x="310" y="80" width="86" height="72" fill="#FFE8D0" stroke="#FF7043" stroke-width="0.5"/>
+      <text x="353" y="112" font-family="Arial" font-size="10" font-weight="600" fill="#BF360C" text-anchor="middle">AI grading</text>
+      <text x="353" y="125" font-family="Arial" font-size="9" fill="#BF360C" text-anchor="middle">&amp; sorting</text>
+      <rect x="225" y="152" width="85" height="68" fill="#FFF8E1" stroke="#FF8A65" stroke-width="0.5"/>
+      <text x="267" y="183" font-family="Arial" font-size="10" font-weight="600" fill="#E65100" text-anchor="middle">Washing &amp;</text>
+      <text x="267" y="195" font-family="Arial" font-size="9" fill="#E65100" text-anchor="middle">sanitising</text>
+      <rect x="310" y="152" width="86" height="68" fill="#FFF8E1" stroke="#FF8A65" stroke-width="0.5"/>
+      <text x="353" y="183" font-family="Arial" font-size="10" font-weight="600" fill="#E65100" text-anchor="middle">MAP</text>
+      <text x="353" y="196" font-family="Arial" font-size="9" fill="#E65100" text-anchor="middle">packaging</text>
+      <rect x="225" y="220" width="171" height="120" fill="#FFF3E0" stroke="#FF8A65" stroke-width="0.5"/>
+      <text x="310" y="264" font-family="Arial" font-size="10" font-weight="600" fill="#E65100" text-anchor="middle">Pre-cooling vestibule</text>
+      <text x="310" y="278" font-family="Arial" font-size="9" fill="#E65100" text-anchor="middle">&amp; RPC crate pool</text>
+      <text x="310" y="300" font-family="Arial" font-size="10" fill="#BF360C" text-anchor="middle">18m &times; 40m &middot; 720 sqm</text>
+      <!-- Produce intake arrow -->
+      <line x1="310" y1="390" x2="310" y2="342" stroke="#E65100" stroke-width="1.2" stroke-dasharray="4 2" marker-end="url(#arr)"/>
+      <text x="310" y="403" font-family="Arial" font-size="9" fill="#E65100" text-anchor="middle">Produce intake</text>
+
+      <!-- ZONE 3: COOL (+8 to +15) (171px) -->
+      <rect x="396" y="80" width="171" height="260" fill="#E3F2FD" stroke="#1565C0" stroke-width="0.8"/>
+      <text x="481" y="155" font-family="Arial" font-size="13" font-weight="700" fill="#0D47A1" text-anchor="middle">Cool zone</text>
+      <text x="481" y="172" font-family="Arial" font-size="11" fill="#1565C0" text-anchor="middle">+8&#176;C to +15&#176;C</text>
+      <text x="481" y="195" font-family="Arial" font-size="10" fill="#1976D2" text-anchor="middle">Produce aggregation</text>
+      <text x="481" y="208" font-family="Arial" font-size="10" fill="#1976D2" text-anchor="middle">Yam &middot; cassava &middot; cocoa</text>
+      <text x="481" y="221" font-family="Arial" font-size="10" fill="#1976D2" text-anchor="middle">Banana ripening</text>
+      <text x="481" y="234" font-family="Arial" font-size="10" fill="#1976D2" text-anchor="middle">Export staging</text>
+      <text x="481" y="280" font-family="Arial" font-size="12" font-weight="700" fill="#0D47A1" text-anchor="middle">~1,080 pallets</text>
+      <text x="481" y="295" font-family="Arial" font-size="10" fill="#1565C0" text-anchor="middle">18m &times; 40m &middot; 720 sqm</text>
+
+      <!-- AIRLOCK 1 -->
+      <rect x="567" y="80" width="20" height="260" fill="#ECEFF1" stroke="#90A4AE" stroke-width="0.8"/>
+      <text transform="translate(577,210) rotate(-90)" font-family="Arial" font-size="9" fill="#607D8B" text-anchor="middle">AIRLOCK</text>
+
+      <!-- ZONE 4: CHILLED (+2 to +8) (209px) -->
+      <rect x="587" y="80" width="209" height="260" fill="#BBDEFB" stroke="#0D47A1" stroke-width="1.2"/>
+      <!-- GDP Pharma sub-zone -->
+      <rect x="686" y="96" width="106" height="120" rx="2" fill="#E3F2FD" stroke="#01579B" stroke-width="1.5" stroke-dasharray="4 2"/>
+      <text x="739" y="124" font-family="Arial" font-size="11" font-weight="700" fill="#01579B" text-anchor="middle">GDP Pharma</text>
+      <text x="739" y="138" font-family="Arial" font-size="10" fill="#01579B" text-anchor="middle">sub-zone</text>
+      <text x="739" y="155" font-family="Arial" font-size="9" fill="#0277BD" text-anchor="middle">Enclosed room</text>
+      <text x="739" y="167" font-family="Arial" font-size="9" fill="#0277BD" text-anchor="middle">within room</text>
+      <text x="739" y="179" font-family="Arial" font-size="9" fill="#0277BD" text-anchor="middle">NAFDAC GDP</text>
+      <text x="739" y="194" font-family="Arial" font-size="9" fill="#0277BD" text-anchor="middle">~480 pallets</text>
+      <text x="630" y="160" font-family="Arial" font-size="13" font-weight="700" fill="#0D47A1" text-anchor="middle">Chilled</text>
+      <text x="630" y="176" font-family="Arial" font-size="11" fill="#1565C0" text-anchor="middle">+2&#176;C to +8&#176;C</text>
+      <text x="630" y="196" font-family="Arial" font-size="10" fill="#1976D2" text-anchor="middle">Supermarkets</text>
+      <text x="630" y="209" font-family="Arial" font-size="10" fill="#1976D2" text-anchor="middle">FMCG &middot; Fresh</text>
+      <text x="630" y="222" font-family="Arial" font-size="10" fill="#1976D2" text-anchor="middle">Export staging</text>
+      <text x="691" y="285" font-family="Arial" font-size="12" font-weight="700" fill="#0D47A1" text-anchor="middle">~1,800 pallets</text>
+      <text x="691" y="300" font-family="Arial" font-size="10" fill="#1565C0" text-anchor="middle">22m &times; 40m &middot; 880 sqm</text>
+      <text x="691" y="315" font-family="Arial" font-size="9" fill="#1565C0" text-anchor="middle">incl. 300 sqm GDP zone</text>
+
+      <!-- AIRLOCK 2 -->
+      <rect x="796" y="80" width="20" height="260" fill="#ECEFF1" stroke="#90A4AE" stroke-width="0.8"/>
+      <text transform="translate(806,210) rotate(-90)" font-family="Arial" font-size="9" fill="#607D8B" text-anchor="middle">AIRLOCK</text>
+
+      <!-- ZONE 5: FROZEN (-18) (133px) -->
+      <rect x="816" y="80" width="133" height="260" fill="#EDE7F6" stroke="#4A148C" stroke-width="0.8"/>
+      <text x="882" y="165" font-family="Arial" font-size="13" font-weight="700" fill="#4A148C" text-anchor="middle">Frozen zone</text>
+      <text x="882" y="182" font-family="Arial" font-size="11" fill="#6A1B9A" text-anchor="middle">&#x2212;18&#176;C to &#x2212;24&#176;C</text>
+      <text x="882" y="204" font-family="Arial" font-size="10" fill="#7B1FA2" text-anchor="middle">Proteins &middot; fish</text>
+      <text x="882" y="217" font-family="Arial" font-size="10" fill="#7B1FA2" text-anchor="middle">Ice cream</text>
+      <text x="882" y="230" font-family="Arial" font-size="10" fill="#7B1FA2" text-anchor="middle">Blast-freeze</text>
+      <text x="882" y="275" font-family="Arial" font-size="12" font-weight="700" fill="#4A148C" text-anchor="middle">~840 pallets</text>
+      <text x="882" y="290" font-family="Arial" font-size="10" fill="#6A1B9A" text-anchor="middle">14m &times; 40m &middot; 560 sqm</text>
+
+      <!-- ZONE 6: PLANT ROOM (86px) -->
+      <rect x="949" y="80" width="86" height="260" fill="#ECEFF1" stroke="#607D8B" stroke-width="0.8"/>
+      <text transform="translate(992,210) rotate(-90)" font-family="Arial" font-size="11" font-weight="700" fill="#455A64" text-anchor="middle">Plant room</text>
+      <text transform="translate(992,234)" font-family="Arial" font-size="9" fill="#607D8B" text-anchor="middle">Refrigeration</text>
+      <text transform="translate(992,248)" font-family="Arial" font-size="9" fill="#607D8B" text-anchor="middle">Solar inverters</text>
+      <text transform="translate(992,262)" font-family="Arial" font-size="9" fill="#607D8B" text-anchor="middle">Battery +20&#176;C</text>
+      <text transform="translate(992,276)" font-family="Arial" font-size="9" fill="#607D8B" text-anchor="middle">NERC metering</text>
+      <text transform="translate(992,296)" font-family="Arial" font-size="9" fill="#607D8B" text-anchor="middle">9m &times; 40m</text>
+
+      <!-- SOUTH SERVICE CORRIDOR -->
+      <rect x="130" y="340" width="850" height="40" fill="#ECEFF1" stroke="#B0BEC5" stroke-width="0.8"/>
+      <text x="555" y="365" font-family="Arial" font-size="11" fill="#607D8B" text-anchor="middle">South service corridor &mdash; produce intake from south &middot; staff access &middot; solid waste egress</text>
+
+      <!-- Staff entry arrow -->
+      <line x1="177" y1="390" x2="177" y2="342" stroke="#2E7D32" stroke-width="1.2" stroke-dasharray="4 2" marker-end="url(#arr)"/>
+      <text x="177" y="403" font-family="Arial" font-size="9" fill="#2E7D32" text-anchor="middle">Staff entry</text>
+
+      <!-- SOLAR NOTE -->
+      <text x="555" y="415" font-family="Arial" font-size="11" fill="#1B5E20" font-weight="600" text-anchor="middle">&#x2600; 750kW solar PV array covers full 3,800 sqm roof &middot; 1,500kWh lithium battery storage &middot; fully off-grid</text>
+
+      <!-- DIMENSION LINES -->
+      <!-- Building width -->
+      <line x1="130" y1="22" x2="980" y2="22" stroke="#9E9E9E" stroke-width="0.8"/>
+      <line x1="130" y1="18" x2="130" y2="26" stroke="#9E9E9E" stroke-width="0.8"/>
+      <line x1="980" y1="18" x2="980" y2="26" stroke="#9E9E9E" stroke-width="0.8"/>
+      <text x="555" y="20" font-family="Arial" font-size="10" fill="#9E9E9E" text-anchor="middle" dominant-baseline="auto">95m</text>
+    </svg>
+    <div class="plan-caption">Schematic floor plan &mdash; not to precise scale &middot; North face carries all 6 loading docks &middot; Dashed outline west = Phase 2 expansion zone &middot; Solar panel grid pattern covers full roof area</div>
+  </div>
+</div>
+
+<!-- ZONE TABLE -->
+<div class="sp-section">
+  <div class="sp-section-title">Zone area &amp; pallet allocation</div>
+  <table class="sp-table">
+    <tr>
+      <th style="width:18%">Zone</th>
+      <th style="width:11%">Temperature</th>
+      <th style="width:9%">Floor area</th>
+      <th style="width:8%">Pallets</th>
+      <th style="width:24%">Primary clients</th>
+      <th>Design notes</th>
+    </tr>
+    <tr>
+      <td><span class="zone-badge" style="background:#1B5E20"></span><strong>Office / Admin / Welfare</strong></td>
+      <td><span class="temp-badge" style="color:#2E7D32">Ambient</span></td>
+      <td>400 sqm</td>
+      <td style="color:#9E9E9E">&mdash;</td>
+      <td>Hub GM, admin, welfare, security control room</td>
+      <td>2-storey option available in Phase 2 for added staff capacity without increasing footprint</td>
+    </tr>
+    <tr style="background:#FAFAFA">
+      <td><span class="zone-badge" style="background:#E65100"></span><strong>Processing area</strong></td>
+      <td><span class="temp-badge" style="color:#E65100">+10&ndash;18&deg;C</span></td>
+      <td>720 sqm</td>
+      <td style="color:#9E9E9E">&mdash;</td>
+      <td>All streams &mdash; washing, grading, blast freeze, MAP packaging, crate pool</td>
+      <td>Sub-divided into 5 functional areas. Blast freeze tunnel at north (dock-adjacent). Pre-cooling vestibule at south (produce intake). Expandable east into Phase 2.</td>
+    </tr>
+    <tr>
+      <td><span class="zone-badge" style="background:#1565C0"></span><strong>Cool zone</strong></td>
+      <td><span class="temp-badge" style="color:#1565C0">+8&deg;C to +15&deg;C</span></td>
+      <td>720 sqm</td>
+      <td><span class="pallet-count" style="color:#0D47A1">~1,080</span></td>
+      <td>Produce aggregation, cocoa, cassava, yam, banana ripening</td>
+      <td>Banana ripening sub-cell with ethylene control at east end. 2 dedicated loading docks (D3, D4). Airlock to chilled zone.</td>
+    </tr>
+    <tr style="background:#FAFAFA">
+      <td><span class="zone-badge" style="background:#1976D2"></span><strong>Chilled zone</strong></td>
+      <td><span class="temp-badge" style="color:#1565C0">+2&deg;C to +8&deg;C</span></td>
+      <td>880 sqm</td>
+      <td><span class="pallet-count" style="color:#0D47A1">~1,800</span></td>
+      <td>Supermarkets, FMCG, fresh produce, dairy, export staging</td>
+      <td>Largest storage zone &mdash; drives anchor LOI economics. GDP pharma sub-zone enclosed within. 1 dedicated dock (D5). Double airlock to cool and frozen.</td>
+    </tr>
+    <tr>
+      <td style="padding-left:24px"><span class="zone-badge" style="background:#01579B;border:1px dashed #01579B"></span><em>&#x2514; GDP pharma sub-zone</em></td>
+      <td><span class="temp-badge" style="color:#01579B">+2&deg;C to +8&deg;C</span></td>
+      <td>300 sqm</td>
+      <td><span class="pallet-count" style="color:#01579B">~480</span></td>
+      <td>May &amp; Baker, Emzor, Fidson Healthcare, Haleon Nigeria</td>
+      <td>Enclosed room-within-room. Separate access door with keycard. Independent temp/humidity logging. NAFDAC GDP audit trail. Own RFID reader. Separate dock (D5).</td>
+    </tr>
+    <tr style="background:#FAFAFA">
+      <td><span class="zone-badge" style="background:#4A148C"></span><strong>Frozen zone</strong></td>
+      <td><span class="temp-badge" style="color:#4A148C">&#x2212;18&deg;C to &#x2212;24&deg;C</span></td>
+      <td>560 sqm</td>
+      <td><span class="pallet-count" style="color:#4A148C">~840</span></td>
+      <td>Proteins, fish, ice cream, blast-freeze export products</td>
+      <td>Heated floor slab &mdash; anti-heave at sustained sub-zero. Adjacent to plant room for short refrigerant pipe runs. Dedicated dock (D6).</td>
+    </tr>
+    <tr>
+      <td><span class="zone-badge" style="background:#607D8B"></span><strong>Plant room</strong></td>
+      <td><span class="temp-badge" style="color:#607D8B">Mechanical</span></td>
+      <td>360 sqm</td>
+      <td style="color:#9E9E9E">&mdash;</td>
+      <td>Refrigeration compressors, solar inverters, battery room, NERC metering</td>
+      <td>Oversized 20% at build &mdash; spare compressor slots and inverter capacity pre-installed for Phase 2. Battery room climate-controlled at +20&deg;C.</td>
+    </tr>
+    <tr style="background:#FAFAFA">
+      <td><span class="zone-badge" style="background:#90A4AE"></span><strong>Docks, airlocks, corridors</strong></td>
+      <td><span class="temp-badge" style="color:#607D8B">Buffer</span></td>
+      <td>160 sqm</td>
+      <td style="color:#9E9E9E">&mdash;</td>
+      <td>All zones</td>
+      <td>6 dock bays with mechanical levellers. Double-door airlock at every zone transition (cool/chilled and chilled/frozen). South service corridor for produce intake.</td>
+    </tr>
+    <tr style="border-top:2px solid #E0E0E0; background:#F1F8E9">
+      <td colspan="2"><strong style="color:#1B5E20">Total &mdash; 4,500+ pallet positions</strong></td>
+      <td><strong>3,800 sqm</strong></td>
+      <td><strong style="color:#1B5E20">4,500+</strong></td>
+      <td colspan="2" style="color:#2E7D32; font-size:11px">At 5-high drive-in racking &middot; 3 pallets deep &middot; floor loading spec 6 T/sqm &middot; automation-ready aisle width 3.6m throughout</td>
+    </tr>
+  </table>
+</div>
+
+<!-- DESIGN PRINCIPLES -->
+<div class="sp-section">
+  <div class="sp-section-title">Design principles</div>
+  <div class="principles-grid">
+    <div class="principle-card" style="border-top-color:#1B5E20">
+      <h3 style="color:#1B5E20">Building envelope &amp; insulation</h3>
+      <ul>
+        <li>120mm PIR insulated panel minimum &mdash; Nigeria tropical spec (100mm is temperate standard, insufficient at 42&deg;C ambient differential)</li>
+        <li>Long axis runs E&ndash;W: long north/south walls minimise afternoon solar gain on primary storage wall faces</li>
+        <li>Reflective white TPO/PVC roof membrane reduces radiant heat load by 25&ndash;35% vs dark roof at Lagos solar irradiance</li>
+        <li>Vapour barrier on the warm face of every panel &mdash; critical at Lagos humidity 60&ndash;90% RH, harmattan dust sealing also required</li>
+        <li>Raised heated floor slab in frozen zone &mdash; prevents ground heave from sustained &minus;18&deg;C soil temperature</li>
+        <li>Zero windows in any cold zone. Every zone transition has a double-door airlock vestibule &mdash; reduces heat ingress by 60%+ vs direct-access doors</li>
+      </ul>
     </div>
-    <div class="card">
-      <div class="layer-title" style="margin-bottom:12px">Phase 2 Expansion</div>
-      <div class="layer-thesis" style="margin-bottom:12px">Hub 1 design connects to west — +2,000 sqm Phase 2 expansion without structural modification to Phase 1 building. No redesign CapEx.</div>
-      <div class="phase-item"><div class="phase-dot"></div><div>Lagos corridor → Hub 1 pilot</div></div>
-      <div class="phase-item"><div class="phase-dot"></div><div>Ibadan → Hub 2 (Year 3)</div></div>
-      <div class="phase-item"><div class="phase-dot"></div><div>Kano / Abuja → Hub 3 (Year 3–4)</div></div>
+    <div class="principle-card" style="border-top-color:#E65100">
+      <h3 style="color:#E65100">Refrigeration &amp; energy systems</h3>
+      <ul>
+        <li>Variable-speed compressors throughout &mdash; 30&ndash;40% energy saving at part-load vs fixed-speed (critical: hub rarely runs at full load in early years)</li>
+        <li>Distributed evaporator coils in every zone &mdash; no single point of failure; any coil can be isolated without zone shutdown</li>
+        <li>Ammonia/HFC hybrid: ammonia primary plant room, HFC in GDP pharma zone (ammonia excluded from pharma for regulatory compliance)</li>
+        <li>Waste heat from compressors routed to pre-cooling vestibule and hot water for welfare facilities &mdash; heat recovery reduces OPEX</li>
+        <li>LEDs on motion sensors only inside cold zones &mdash; &lsquo;dark warehouse&rsquo; design reduces internal heat gain and electricity cost</li>
+        <li>Battery room climate-controlled at +20&deg;C constant &mdash; extends lithium cell cycle life by 40%+ vs ambient storage in Lagos heat</li>
+      </ul>
     </div>
+    <div class="principle-card" style="border-top-color:#0D47A1">
+      <h3 style="color:#0D47A1">Material flow &amp; movement of goods</h3>
+      <ul>
+        <li>One-way truck flow west&#x2192;east across north apron &mdash; eliminates reversing conflicts at dock, reduces accident risk</li>
+        <li>Produce enters south face &#x2192; processing &#x2192; cold storage (flows north) &mdash; linear flow with no product crossing pathways</li>
+        <li>Separate dock levellers and airlocks per temperature zone &mdash; prevents zone contamination and temperature bleed between zones</li>
+        <li>3.6m minimum aisle width throughout &mdash; reach truck plus passing clearance, meets AS/RS automation retrofit specification</li>
+        <li>Drive-in racking: 3 pallets deep, 5 high &mdash; FIFO with depth lanes, designed for AS/RS retrofit from Phase 2 without racking replacement</li>
+        <li>Fixed UHF RFID reader at every dock gate and every zone transition &mdash; chain-of-custody recorded at each physical handoff point</li>
+      </ul>
+    </div>
+    <div class="principle-card" style="border-top-color:#4A148C">
+      <h3 style="color:#4A148C">Expansion &amp; future-proofing</h3>
+      <ul>
+        <li>Phase 2 expansion zone reserved west of building &mdash; 50m &times; 40m = 2,000 sqm connects directly to existing cool and processing zones via new airlock panels</li>
+        <li>Plant room oversized 20% at build &mdash; spare compressor slots and inverter capacity pre-installed; no plant room expansion required for Phase 2</li>
+        <li>Battery room conduit pre-run to western expansion boundary during original construction &mdash; saves significant retrofit cost</li>
+        <li>AS/RS automation pre-designed: floor loading at 6 T/sqm and 3.6m aisle width meet full automation requirements throughout</li>
+        <li>Modular cold room panel construction &mdash; any zone can be subdivided, enlarged, or re-temperatured at relatively low cost</li>
+        <li>NERC surplus energy connection sized for combined Phase 1+2 load from day one &mdash; no metering upgrade at Phase 2</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKLIST -->
+<div class="sp-section">
+  <div class="sp-section-title">Pre-construction validation checklist</div>
+  <p style="font-size:12px;color:#757575;margin-bottom:16px">The following items require field validation and professional sign-off before any capital commitment or construction drawings are finalised.</p>
+  <div class="checklist-grid">
+    <div>
+      <div class="checklist-item"><div class="check-box"></div><div>Engage Thermosystems Nigeria or Frigoglass for cold room construction quotation and insulation spec sign-off &mdash; confirm 120mm vs 150mm PIR for frozen zone at 42&deg;C ambient differential</div></div>
+      <div class="checklist-item"><div class="check-box"></div><div>Commission Arnergy Solar or Daystar Power for budgetary EPC quote: 750kW PV + 1,500kWh BESS, all-in installed cost, degradation warranty in tropical climate</div></div>
+      <div class="checklist-item"><div class="check-box"></div><div>Engage quantity surveyor (Diya Fatimilehin &amp; Co or CBRE Nigeria) to verify $2.47M construction estimate against Nigeria-adjusted cost benchmarks and current contractor rates</div></div>
+      <div class="checklist-item"><div class="check-box"></div><div>Verify 3.6m aisle width against target racking supplier (SSI Schaefer or Mecalux Africa) for drive-in 3-deep, 5-high specification &mdash; confirm AS/RS compatibility</div></div>
+      <div class="checklist-item"><div class="check-box"></div><div>Confirm floor slab loading specification (6 T/sqm) and heated slab requirement for frozen zone with structural engineer at chosen site (soil type dependent)</div></div>
+    </div>
+    <div>
+      <div class="checklist-item"><div class="check-box"></div><div>Confirm NAFDAC GDP pharmaceutical storage documentation requirements for the pharma sub-zone with regulatory counsel (Templars or AELEX) &mdash; what certifications, what audit frequency, what deviation reporting format</div></div>
+      <div class="checklist-item"><div class="check-box"></div><div>Verify NERC mini-grid operating licence process and realistic timeline with All On Nigeria before site is selected &mdash; get official checklist and pre-application guidance</div></div>
+      <div class="checklist-item"><div class="check-box"></div><div>Obtain Lagos State Planning Permit Authority (LASPPPA) pre-application guidance before any site is committed &mdash; planning consent is often the longest single item and should run in parallel with all others</div></div>
+      <div class="checklist-item"><div class="check-box"></div><div>Confirm battery room temperature specification with BESS supplier (CATL, BYD, or REPT) for tropical climate warranty &mdash; +20&deg;C constant cooling is the spec but confirm this is achievable at build cost</div></div>
+      <div class="checklist-item"><div class="check-box"></div><div>Commission site catchment analysis before committing to land &mdash; map produce flows, anchor client locations, and road quality within 60km radius to confirm hub location is optimal for logistics economics</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="sp-section">
+  <div class="disclaimer">
+    <strong>&#x26A0; Preliminary design intent only.</strong> All dimensions, specifications, and cost estimates in this document are directional and require professional validation before construction drawings or capital commitments are made. This document should be read alongside the AgroVault financial model and CapEx breakdown. Final specifications require engagement of a qualified cold room contractor, a licensed solar EPC, a structural engineer, a quantity surveyor, and regulatory counsel familiar with NAFDAC, NERC, and Lagos State planning requirements.
+  </div>
+</div>
   </div>
 
   <div class="section-footer">
@@ -1234,6 +1583,7 @@
   </div>
 
 </div>
+
 <!-- /SECTION:spatial -->
 
 
