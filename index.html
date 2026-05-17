@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AgroVault Nigeria — Strategy Dashboard</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
 
 <!-- DASHBOARD_META
   version: 1.0.1
@@ -19,29 +17,29 @@
 
 <style>
   :root {
-    --bg:       #0C0C10;
-    --bg2:      #111116;
-    --bg3:      #17171D;
-    --card:     #15151B;
-    --card2:    #1B1B22;
-    --border:   #26262F;
-    --border2:  #34343F;
-    --accent:   #5B7CF6;
-    --accent2:  #3D5CE0;
-    --accent3:  #8BA4FF;
-    --green:    #22C55E;
-    --green2:   #16A34A;
-    --green3:   #4ADE80;
-    --amber:    #F59E0B;
-    --red:      #EF4444;
-    --blue:     #3B82F6;
-    --purple:   #A855F7;
-    --text:     #EEEEF2;
-    --text2:    #A6A6B8;
-    --text3:    #66667A;
-    --mono:     'DM Mono', monospace;
-    --serif:    'Playfair Display', Georgia, serif;
-    --sans:     'Instrument Sans', system-ui, sans-serif;
+    --bg:       #FFFFFF;
+    --bg2:      #F7F8FA;
+    --bg3:      #EEF0F4;
+    --card:     #FFFFFF;
+    --card2:    #F7F8FA;
+    --border:   #E2E5EA;
+    --border2:  #CDD1D8;
+    --accent:   #1D4ED8;
+    --accent2:  #1E40AF;
+    --accent3:  #2563EB;
+    --green:    #15803D;
+    --green2:   #166534;
+    --green3:   #16A34A;
+    --amber:    #B45309;
+    --red:      #DC2626;
+    --blue:     #1D4ED8;
+    --purple:   #6D28D9;
+    --text:     #0F172A;
+    --text2:    #374151;
+    --text3:    #6B7280;
+    --mono:     'Courier New', Courier, monospace;
+    --serif:    Arial, Helvetica, sans-serif;
+    --sans:     Arial, Helvetica, sans-serif;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -51,28 +49,19 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: var(--sans);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     line-height: 1.65;
     min-height: 100vh;
     overflow-x: hidden;
   }
 
-  /* GRAIN TEXTURE OVERLAY */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 1000;
-    opacity: 0.4;
-  }
+
 
   /* ─── TOP HEADER ─── */
   .top-header {
-    background: linear-gradient(135deg, #0C0C10 0%, #111116 50%, #0C0C10 100%);
-    border-bottom: 1px solid var(--border2);
+    background: #FFFFFF;
+    border-bottom: 2px solid var(--border2);
     padding: 0 40px;
     position: sticky;
     top: 0;
@@ -94,15 +83,15 @@
   .logo-mark {
     width: 36px;
     height: 36px;
-    background: linear-gradient(135deg, var(--accent2), var(--accent));
+    background: linear-gradient(135deg, var(--accent2), var(--accent3));
     border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--serif);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     font-weight: 700;
-    color: #0C0C10;
+    color: #FFFFFF;
     flex-shrink: 0;
   }
 
@@ -112,7 +101,7 @@
   }
 
   .logo-name {
-    font-family: var(--serif);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     font-weight: 700;
     color: var(--text);
@@ -121,11 +110,12 @@
   }
 
   .logo-sub {
-    font-family: var(--mono);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 9px;
     color: var(--accent);
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
+    font-weight: 600;
   }
 
   /* NAV TABS */
@@ -149,17 +139,17 @@
     border: none;
     background: none;
     color: var(--text3);
-    font-family: var(--sans);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
+    font-weight: 600;
+    letter-spacing: 0.01em;
     border-bottom: 2px solid transparent;
     transition: all 0.2s;
     white-space: nowrap;
     flex-shrink: 0;
   }
 
-  .nav-tab:hover { color: var(--text2); }
+  .nav-tab:hover { color: var(--accent); }
 
   .nav-tab.active {
     color: var(--accent3);
@@ -187,20 +177,21 @@
   }
 
   .conf-badge {
-    font-family: var(--mono);
-    font-size: 9px;
-    letter-spacing: 0.12em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--amber);
-    background: rgba(245,158,11,0.1);
-    border: 1px solid rgba(245,158,11,0.2);
+    color: #92400E;
+    background: #FEF3C7;
+    border: 1px solid #FDE68A;
     padding: 3px 8px;
     border-radius: 3px;
+    font-weight: 600;
   }
 
   .version-badge {
-    font-family: var(--mono);
-    font-size: 9px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
     color: var(--text3);
   }
 
@@ -235,36 +226,38 @@
   }
 
   .section-tag {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.15em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 10px;
   }
 
   .section-title {
-    font-family: var(--serif);
-    font-size: 38px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 34px;
     font-weight: 700;
-    color: var(--text);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    color: #0F172A;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
   }
 
   .section-subtitle {
-    font-size: 15px;
+    font-size: 16px;
     color: var(--text2);
     margin-top: 10px;
     max-width: 600px;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   .section-meta {
-    font-family: var(--mono);
-    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
     color: var(--text3);
     text-align: right;
+    line-height: 1.7;
   }
 
   /* ─── CARDS & GRIDS ─── */
@@ -277,6 +270,7 @@
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
   }
 
   .card-sm {
@@ -284,6 +278,7 @@
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 18px 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
   }
 
   .card-accent {
@@ -302,10 +297,10 @@
   }
 
   .stat-value {
-    font-family: var(--serif);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 36px;
     font-weight: 700;
-    color: var(--accent3);
+    color: var(--accent);
     line-height: 1;
     letter-spacing: -0.02em;
   }
@@ -314,11 +309,13 @@
   .stat-value.red   { color: var(--red); }
   .stat-value.blue  { color: var(--blue); }
   .stat-value.white { color: var(--text); }
+  .stat-value.green { color: var(--green); }
 
   .stat-label {
-    font-family: var(--mono);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 10px;
-    letter-spacing: 0.1em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text3);
     margin-top: 6px;
@@ -333,18 +330,19 @@
 
   /* ─── CALLOUT ─── */
   .callout {
-    background: rgba(91,124,246,0.06);
-    border: 1px solid rgba(91,124,246,0.15);
-    border-left: 3px solid var(--accent);
+    background: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    border-left: 4px solid var(--accent);
     border-radius: 0 8px 8px 0;
     padding: 20px 24px;
     margin: 24px 0;
   }
 
   .callout-label {
-    font-family: var(--mono);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 10px;
-    letter-spacing: 0.12em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 8px;
@@ -352,7 +350,7 @@
 
   .callout p {
     font-size: 14px;
-    color: var(--text2);
+    color: #1E3A5F;
     line-height: 1.7;
   }
 
@@ -360,7 +358,7 @@
   .risk-table { width: 100%; border-collapse: separate; border-spacing: 0 6px; }
 
   .risk-row td {
-    background: var(--card);
+    background: #FAFAFA;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     padding: 14px 16px;
@@ -382,8 +380,8 @@
 
   .risk-name {
     font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
+    font-weight: 700;
+    color: #0F172A;
     margin-bottom: 4px;
   }
 
@@ -398,14 +396,14 @@
     text-transform: uppercase;
   }
 
-  .tag-critical { background: rgba(239,68,68,0.15); color: #FCA5A5; border: 1px solid rgba(239,68,68,0.25); }
-  .tag-high     { background: rgba(245,158,11,0.12); color: #FCD34D; border: 1px solid rgba(245,158,11,0.2); }
-  .tag-medium   { background: rgba(59,130,246,0.12); color: #93C5FD; border: 1px solid rgba(59,130,246,0.2); }
-  .tag-usd      { background: rgba(91,124,246,0.1);  color: #A5BEFF; border: 1px solid rgba(91,124,246,0.2); }
-  .tag-ngn      { background: rgba(120,113,108,0.2); color: #A8A29E; border: 1px solid rgba(120,113,108,0.3); }
-  .tag-core     { background: rgba(91,124,246,0.1);  color: #A5BEFF; border: 1px solid rgba(91,124,246,0.2); }
-  .tag-live     { background: rgba(59,130,246,0.12); color: #93C5FD; border: 1px solid rgba(59,130,246,0.2); }
-  .tag-planned  { background: rgba(120,113,108,0.15); color: #A8A29E; border: 1px solid rgba(120,113,108,0.25); }
+  .tag-critical { background: #FEE2E2; color: #B91C1C; border: 1px solid #FECACA; }
+  .tag-high     { background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; }
+  .tag-medium   { background: #DBEAFE; color: #1E40AF; border: 1px solid #BFDBFE; }
+  .tag-usd      { background: #DCFCE7; color: #166534; border: 1px solid #BBF7D0; }
+  .tag-ngn      { background: #F3F4F6; color: #4B5563; border: 1px solid #D1D5DB; }
+  .tag-core     { background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; }
+  .tag-live     { background: #F0FDF4; color: #166534; border: 1px solid #BBF7D0; }
+  .tag-planned  { background: #F9FAFB; color: #6B7280; border: 1px solid #E5E7EB; }
 
   /* ─── DATA TABLE ─── */
   .data-table {
@@ -415,15 +413,16 @@
   }
 
   .data-table th {
-    background: var(--bg3);
-    color: var(--text3);
-    font-family: var(--mono);
-    font-size: 9px;
-    letter-spacing: 0.12em;
+    background: #F1F5F9;
+    color: #475569;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     padding: 10px 14px;
     text-align: left;
-    border-bottom: 1px solid var(--border2);
+    border-bottom: 2px solid var(--border2);
   }
 
   .data-table td {
@@ -432,14 +431,16 @@
     color: var(--text2);
     vertical-align: top;
     line-height: 1.5;
+    font-size: 13px;
   }
 
-  .data-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .data-table tr:hover td { background: #F8FAFC; }
 
   .data-table td.mono {
-    font-family: var(--mono);
-    font-size: 11px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
     color: var(--text);
+    font-weight: 500;
   }
 
   .data-table td.right { text-align: right; }
@@ -448,10 +449,11 @@
   .phase-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
 
   .phase-card {
-    background: var(--card);
+    background: #FFFFFF;
     border: 1px solid var(--border);
     border-radius: 8px;
     overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
   }
 
   .phase-header {
@@ -471,10 +473,10 @@
   }
 
   .phase-name {
-    font-family: var(--serif);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     font-weight: 700;
-    color: var(--text);
+    color: #0F172A;
     margin: 4px 0;
   }
 
@@ -498,17 +500,17 @@
     border-radius: 50%;
     background: var(--accent);
     flex-shrink: 0;
-    margin-top: 6px;
+    margin-top: 7px;
   }
 
   .phase-gate {
     margin: 16px 20px 0;
     padding: 12px 16px;
-    background: rgba(245,158,11,0.07);
-    border: 1px solid rgba(245,158,11,0.15);
+    background: #FFFBEB;
+    border: 1px solid #FDE68A;
     border-radius: 6px;
     font-size: 11px;
-    color: var(--amber);
+    color: #92400E;
     line-height: 1.5;
   }
 
@@ -522,12 +524,12 @@
   }
 
   /* ─── REVENUE TABLE ─── */
-  .rev-positive { color: var(--green3) !important; }
-  .rev-negative { color: #FCA5A5 !important; }
+  .rev-positive { color: #15803D !important; font-weight: 600; }
+  .rev-negative { color: #DC2626 !important; }
 
   /* ─── FINANCIAL CHART BARS ─── */
   .chart-wrap {
-    background: var(--bg2);
+    background: #F8FAFC;
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 24px;
@@ -561,18 +563,19 @@
   .bar:hover { opacity: 0.8; }
 
   .bar-label {
-    font-family: var(--mono);
-    font-size: 9px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
     color: var(--text3);
     text-align: center;
-    letter-spacing: 0.05em;
+    font-weight: 600;
   }
 
   .bar-val {
-    font-family: var(--mono);
+    font-family: 'Courier New', Courier, monospace;
     font-size: 10px;
     color: var(--text2);
     text-align: center;
+    font-weight: 600;
   }
 
   /* ─── SPATIAL PLAN EMBED ─── */
@@ -585,18 +588,18 @@
 
   /* ─── LAYER CARDS ─── */
   .layer-num {
-    font-family: var(--serif);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 48px;
     font-weight: 900;
-    color: var(--border2);
+    color: #D1D5DB;
     line-height: 1;
     margin-bottom: 8px;
   }
 
   .layer-title {
     font-size: 15px;
-    font-weight: 600;
-    color: var(--text);
+    font-weight: 700;
+    color: #0F172A;
     margin-bottom: 8px;
   }
 
@@ -608,10 +611,10 @@
 
   .layer-price {
     margin-top: 12px;
-    font-family: var(--mono);
+    font-family: 'Courier New', Courier, monospace;
     font-size: 11px;
     color: var(--accent);
-    letter-spacing: 0.05em;
+    font-weight: 600;
   }
 
   /* ─── DECISION LOG ─── */
@@ -627,17 +630,20 @@
   .decision-entry:last-child { border-bottom: none; }
 
   .decision-date {
-    font-family: var(--mono);
-    font-size: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11px;
     color: var(--text3);
     padding-top: 2px;
   }
 
   .decision-section-tag {
-    font-family: var(--mono);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 10px;
+    font-weight: 700;
     color: var(--accent);
     padding-top: 2px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
   .decision-summary {
@@ -654,9 +660,10 @@
   }
 
   .section-label {
-    font-family: var(--mono);
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 10px;
-    letter-spacing: 0.15em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--text3);
     margin-bottom: 16px;
@@ -673,17 +680,16 @@
   }
 
   .update-badge {
-    font-family: var(--mono);
-    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
     color: var(--amber);
-    letter-spacing: 0.05em;
+    letter-spacing: 0em;
   }
 
   .conf-footer {
-    font-family: var(--mono);
-    font-size: 9px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
     color: var(--text3);
-    letter-spacing: 0.08em;
   }
 
   /* GAP UTILITY */
@@ -720,7 +726,7 @@
 
   <div class="header-right">
     <span class="conf-badge">⚑ Confidential</span>
-    <span class="version-badge">v1.0.0 · 2026-05-16</span>
+    <span class="version-badge">v1.0.2 · 2026-05-17</span>
   </div>
 </header>
 
@@ -1095,18 +1101,18 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td colspan="7" style="background:var(--bg3);color:var(--text3);font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px">REVENUE</td></tr>
+        <tr><td colspan="7" style="background:#F1F5F9;color:#475569;font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px">REVENUE</td></tr>
         <tr><td>Cold Storage SLA</td><td class="mono right">—</td><td class="mono right">$812K</td><td class="mono right">$950K</td><td class="mono right">$2.10M</td><td class="mono right">$3.38M</td><td class="mono right rev-positive">$6.00M</td></tr>
         <tr><td>Processing Services</td><td class="mono right">—</td><td class="mono right">$73K</td><td class="mono right">$114K</td><td class="mono right">$301K</td><td class="mono right">$539K</td><td class="mono right rev-positive">$1.04M</td></tr>
         <tr><td>Logistics & Distribution</td><td class="mono right">$36K</td><td class="mono right">$78K</td><td class="mono right">$122K</td><td class="mono right">$336K</td><td class="mono right">$604K</td><td class="mono right rev-positive">$1.16M</td></tr>
         <tr><td>Technology & Data</td><td class="mono right">—</td><td class="mono right">$25K</td><td class="mono right">$86K</td><td class="mono right">$424K</td><td class="mono right">$904K</td><td class="mono right rev-positive">$1.95M</td></tr>
         <tr><td style="color:var(--text);font-weight:600"><strong>TOTAL REVENUE</strong></td><td class="mono right"><strong>$36K</strong></td><td class="mono right"><strong>$987K</strong></td><td class="mono right"><strong>$1.27M</strong></td><td class="mono right"><strong>$3.16M</strong></td><td class="mono right"><strong>$5.42M</strong></td><td class="mono right" style="color:var(--green3)"><strong>$10.16M</strong></td></tr>
-        <tr><td colspan="7" style="background:var(--bg3);color:var(--text3);font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px">PROFITABILITY</td></tr>
+        <tr><td colspan="7" style="background:#F1F5F9;color:#475569;font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px">PROFITABILITY</td></tr>
         <tr><td>Gross Profit</td><td class="mono right">$14K</td><td class="mono right">$604K</td><td class="mono right">$796K</td><td class="mono right">$2.04M</td><td class="mono right">$3.58M</td><td class="mono right rev-positive">$6.85M</td></tr>
         <tr><td>Gross Margin %</td><td class="mono right">38%</td><td class="mono right">61%</td><td class="mono right">63%</td><td class="mono right">64%</td><td class="mono right">66%</td><td class="mono right rev-positive">67%</td></tr>
         <tr><td>EBITDA</td><td class="mono right rev-negative">($74K)</td><td class="mono right rev-negative">($109K)</td><td class="mono right rev-positive">$84K</td><td class="mono right rev-positive">$613K</td><td class="mono right rev-positive">$1.46M</td><td class="mono right rev-positive">$3.32M</td></tr>
         <tr><td>EBITDA Margin %</td><td class="mono right rev-negative">(209%)</td><td class="mono right rev-negative">(11%)</td><td class="mono right rev-positive">7%</td><td class="mono right rev-positive">19%</td><td class="mono right rev-positive">27%</td><td class="mono right rev-positive">33%</td></tr>
-        <tr><td colspan="7" style="background:var(--bg3);color:var(--text3);font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px">BELOW EBITDA</td></tr>
+        <tr><td colspan="7" style="background:#F1F5F9;color:#475569;font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px">BELOW EBITDA</td></tr>
         <tr><td>Depreciation (USD, non-cash)</td><td class="mono right">—</td><td class="mono right rev-negative">($290K)</td><td class="mono right rev-negative">($305K)</td><td class="mono right rev-negative">($640K)</td><td class="mono right rev-negative">($990K)</td><td class="mono right rev-negative">($1.75M)</td></tr>
         <tr><td>Interest Expense (DFI loan)</td><td class="mono right">—</td><td class="mono right rev-negative">($185K)</td><td class="mono right rev-negative">($175K)</td><td class="mono right rev-negative">($330K)</td><td class="mono right rev-negative">($465K)</td><td class="mono right rev-negative">($725K)</td></tr>
         <tr><td style="color:var(--text);font-weight:600">Net Profit / (Loss)</td><td class="mono right rev-negative"><strong>($74K)</strong></td><td class="mono right rev-negative"><strong>($584K)</strong></td><td class="mono right rev-negative"><strong>($396K)</strong></td><td class="mono right rev-negative"><strong>($357K)</strong></td><td class="mono right rev-positive"><strong>$1K</strong></td><td class="mono right rev-positive"><strong>$590K</strong></td></tr>
@@ -1371,7 +1377,7 @@
   </div>
 
   <!-- CRITICAL RISKS -->
-  <div class="section-label" style="color:var(--red)">Critical Risks — Threaten Business Viability</div>
+  <div class="section-label" style="color:#B91C1C">Critical Risks — Threaten Business Viability</div>
   <table class="risk-table gap-32">
     <tbody>
       <tr class="risk-row">
@@ -1398,7 +1404,7 @@
   </table>
 
   <!-- HIGH RISKS -->
-  <div class="section-label" style="color:var(--amber);margin-top:32px">High Risks — Material Impact on Timeline or Returns</div>
+  <div class="section-label" style="color:#92400E;margin-top:32px">High Risks — Material Impact on Timeline or Returns</div>
   <table class="risk-table gap-32">
     <tbody>
       <tr class="risk-row">
@@ -1430,7 +1436,7 @@
   </table>
 
   <!-- MEDIUM RISKS -->
-  <div class="section-label" style="color:var(--blue);margin-top:32px">Medium Risks — Manageable with Early Action</div>
+  <div class="section-label" style="color:#1D4ED8;margin-top:32px">Medium Risks — Manageable with Early Action</div>
   <table class="risk-table gap-24">
     <tbody>
       <tr class="risk-row">
