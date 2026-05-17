@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgroVault Nigeria — Strategy Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- DASHBOARD_META
+  version: 1.0.0
+  last_updated: 2026-05-16
+  updated_by: Claude (Kemi session — initialization)
+  sections_count: 8
+  live_url: https://kemiao.github.io/agrovault-dashboard
+-->
+
+<style>
+  :root {
+    --bg:       #0A1A0F;
+    --bg2:      #0F2318;
+    --bg3:      #142D1E;
+    --card:     #162A1E;
+    --card2:    #1C3326;
+    --border:   #1E3D27;
+    --border2:  #2A5038;
+    --green:    #22C55E;
+    --green2:   #16A34A;
+    --green3:   #4ADE80;
+    --amber:    #F59E0B;
+    --red:      #EF4444;
+    --blue:     #3B82F6;
+    --purple:   #A855F7;
+    --text:     #F0EBE1;
+    --text2:    #B8C4B0;
+    --text3:    #7A9080;
+    --mono:     'DM Mono', monospace;
+    --serif:    'Playfair Display', Georgia, serif;
+    --sans:     'Instrument Sans', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.65;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* GRAIN TEXTURE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* ─── TOP HEADER ─── */
+  .top-header {
+    background: linear-gradient(135deg, #0A1A0F 0%, #0D2419 50%, #0A1A0F 100%);
+    border-bottom: 1px solid var(--border2);
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .logo-area {
+    padding: 16px 32px 16px 0;
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--green2), var(--green));
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 700;
+    color: #0A1A0F;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-name {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+  }
+
+  .logo-sub {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--green);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* NAV TABS */
+  .nav-tabs {
+    display: flex;
+    align-items: stretch;
+    flex: 1;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-left: 8px;
+  }
+
+  .nav-tabs::-webkit-scrollbar { display: none; }
+
+  .nav-tab {
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: var(--text3);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .nav-tab:hover { color: var(--text2); }
+
+  .nav-tab.active {
+    color: var(--green3);
+    border-bottom-color: var(--green);
+  }
+
+  .nav-tab .tab-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.6;
+  }
+
+  .nav-tab.active .tab-dot { opacity: 1; }
+
+  /* HEADER RIGHT */
+  .header-right {
+    padding: 0 0 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-left: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .conf-badge {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+    background: rgba(245,158,11,0.1);
+    border: 1px solid rgba(245,158,11,0.2);
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+
+  .version-badge {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--text3);
+  }
+
+  /* ─── MAIN CONTENT ─── */
+  .main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+
+  .section-panel {
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .section-panel.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── SECTION HEADER ─── */
+  .section-header {
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: end;
+  }
+
+  .section-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .section-subtitle {
+    font-size: 15px;
+    color: var(--text2);
+    margin-top: 10px;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  .section-meta {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text3);
+    text-align: right;
+  }
+
+  /* ─── CARDS & GRIDS ─── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  .card-sm {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+  }
+
+  .card-accent {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--green);
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  /* ─── STAT BLOCKS ─── */
+  .stat-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-value {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--green3);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .stat-value.amber { color: var(--amber); }
+  .stat-value.red   { color: var(--red); }
+  .stat-value.blue  { color: var(--blue); }
+  .stat-value.white { color: var(--text); }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-top: 6px;
+  }
+
+  .stat-sub {
+    font-size: 12px;
+    color: var(--text2);
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+
+  /* ─── CALLOUT ─── */
+  .callout {
+    background: rgba(34,197,94,0.06);
+    border: 1px solid rgba(34,197,94,0.15);
+    border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+
+  .callout-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 8px;
+  }
+
+  .callout p {
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+
+  /* ─── RISK REGISTER ─── */
+  .risk-table { width: 100%; border-collapse: separate; border-spacing: 0 6px; }
+
+  .risk-row td {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 16px;
+    vertical-align: top;
+    font-size: 13px;
+    color: var(--text2);
+  }
+
+  .risk-row td:first-child {
+    border-left: 1px solid var(--border);
+    border-radius: 6px 0 0 6px;
+    width: 180px;
+  }
+
+  .risk-row td:last-child {
+    border-right: 1px solid var(--border);
+    border-radius: 0 6px 6px 0;
+  }
+
+  .risk-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-family: var(--mono);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .tag-critical { background: rgba(239,68,68,0.15); color: #FCA5A5; border: 1px solid rgba(239,68,68,0.25); }
+  .tag-high     { background: rgba(245,158,11,0.12); color: #FCD34D; border: 1px solid rgba(245,158,11,0.2); }
+  .tag-medium   { background: rgba(59,130,246,0.12); color: #93C5FD; border: 1px solid rgba(59,130,246,0.2); }
+  .tag-usd      { background: rgba(34,197,94,0.1);   color: #86EFAC; border: 1px solid rgba(34,197,94,0.2); }
+  .tag-ngn      { background: rgba(120,113,108,0.2); color: #A8A29E; border: 1px solid rgba(120,113,108,0.3); }
+  .tag-core     { background: rgba(34,197,94,0.1);   color: #86EFAC; border: 1px solid rgba(34,197,94,0.2); }
+  .tag-live     { background: rgba(59,130,246,0.12); color: #93C5FD; border: 1px solid rgba(59,130,246,0.2); }
+  .tag-planned  { background: rgba(120,113,108,0.15); color: #A8A29E; border: 1px solid rgba(120,113,108,0.25); }
+
+  /* ─── DATA TABLE ─── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .data-table th {
+    background: var(--bg3);
+    color: var(--text3);
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border2);
+  }
+
+  .data-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text2);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  .data-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .data-table td.mono {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--green3);
+  }
+
+  .data-table td.right { text-align: right; }
+
+  /* ─── PHASE CARDS ─── */
+  .phase-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+
+  .phase-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .phase-header {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .phase-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text3);
+  }
+
+  .phase-name {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 4px 0;
+  }
+
+  .phase-body { padding: 20px; }
+
+  .phase-item {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.5;
+  }
+
+  .phase-item:last-child { border-bottom: none; }
+
+  .phase-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  .phase-gate {
+    margin: 16px 20px 0;
+    padding: 12px 16px;
+    background: rgba(245,158,11,0.07);
+    border: 1px solid rgba(245,158,11,0.15);
+    border-radius: 6px;
+    font-size: 11px;
+    color: var(--amber);
+    line-height: 1.5;
+  }
+
+  .phase-gate strong {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* ─── REVENUE TABLE ─── */
+  .rev-positive { color: var(--green3) !important; }
+  .rev-negative { color: #FCA5A5 !important; }
+
+  /* ─── FINANCIAL CHART BARS ─── */
+  .chart-wrap {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  .bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    height: 200px;
+    padding-top: 16px;
+  }
+
+  .bar-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
+    justify-content: flex-end;
+  }
+
+  .bar {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    transition: opacity 0.2s;
+    min-height: 2px;
+  }
+
+  .bar:hover { opacity: 0.8; }
+
+  .bar-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--text3);
+    text-align: center;
+    letter-spacing: 0.05em;
+  }
+
+  .bar-val {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text2);
+    text-align: center;
+  }
+
+  /* ─── SPATIAL PLAN EMBED ─── */
+  .spatial-embed {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  /* ─── LAYER CARDS ─── */
+  .layer-num {
+    font-family: var(--serif);
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--border2);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .layer-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .layer-thesis {
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+
+  .layer-price {
+    margin-top: 12px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--green);
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── DECISION LOG ─── */
+  .decision-entry {
+    display: grid;
+    grid-template-columns: 100px 120px 1fr;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+
+  .decision-entry:last-child { border-bottom: none; }
+
+  .decision-date {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text3);
+    padding-top: 2px;
+  }
+
+  .decision-section-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--green);
+    padding-top: 2px;
+  }
+
+  .decision-summary {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 32px 0;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-bottom: 16px;
+  }
+
+  /* ─── FOOTER ─── */
+  .section-footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .update-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--amber);
+    letter-spacing: 0.05em;
+  }
+
+  .conf-footer {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--text3);
+    letter-spacing: 0.08em;
+  }
+
+  /* GAP UTILITY */
+  .gap-16 { margin-bottom: 16px; }
+  .gap-24 { margin-bottom: 24px; }
+  .gap-32 { margin-bottom: 32px; }
+  .gap-40 { margin-bottom: 40px; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .top-header { padding: 0 20px; }
+    .main { padding: 24px 20px 60px; }
+    .grid-2, .grid-3, .grid-4, .phase-grid { grid-template-columns: 1fr; }
+    .section-title { font-size: 28px; }
+    .decision-entry { grid-template-columns: 1fr; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── TOP HEADER ─── -->
+<header class="top-header">
+  <div class="logo-area">
+    <div class="logo-mark">A</div>
+    <div class="logo-text">
+      <div class="logo-name">AgroVault Nigeria</div>
+      <div class="logo-sub">Strategy Dashboard v1.0</div>
+    </div>
+  </div>
+
+  <nav class="nav-tabs" id="navTabs">
+    <!-- Generated by JS from SECTION_REGISTRY -->
+  </nav>
+
+  <div class="header-right">
+    <span class="conf-badge">⚑ Confidential</span>
+    <span class="version-badge">v1.0.0 · 2026-05-16</span>
+  </div>
+</header>
+
+<!-- ─── MAIN CONTENT ─── -->
+<main class="main" id="mainContent">
+
+<!-- ============================================================ -->
+<!-- SECTION:vision -->
+<div class="section-panel" id="section-vision">
+
+  <div class="section-header">
+    <div>
+      <div class="section-tag">01 — Vision & Strategic Thesis</div>
+      <h1 class="section-title">Not a warehouse.<br>A platform.</h1>
+      <p class="section-subtitle">Africa's cold chain infrastructure backbone at the intersection of logistics, renewable energy, and intelligent systems.</p>
+    </div>
+    <div class="section-meta">
+      Source: Vision_Refined.pdf<br>
+      Last updated: 2026-05-16<br>
+      Status: <span class="tag tag-core">Core</span>
+    </div>
+  </div>
+
+  <!-- CORE STATEMENT -->
+  <div class="callout gap-32">
+    <div class="callout-label">The Thesis</div>
+    <p>We are building Africa's climate-controlled infrastructure backbone — a fully integrated platform that transforms fragmented, extractive supply chains into productive, resilient, and data-driven ecosystems. Starting as the Lineage Logistics of Africa. Evolving into something Amazon Essential never reached.</p>
+  </div>
+
+  <!-- SIX LAYERS -->
+  <div class="section-label">The Six-Layer Platform Model</div>
+  <div class="grid-3 gap-32">
+    <div class="card">
+      <div class="layer-num">01</div>
+      <div class="layer-title">Storage & Distribution Backbone</div>
+      <div class="layer-thesis">4,500+ pallet climate-controlled storage per hub. Multi-temp zones 0°C to 15°C. Sited at high-density logistics corridors. The anchor that fills the hub.</div>
+      <div class="layer-price">₦22K – ₦68K / pallet / month</div>
+    </div>
+    <div class="card">
+      <div class="layer-num">02</div>
+      <div class="layer-title">Energy-Resilient Infrastructure</div>
+      <div class="layer-thesis">750kW solar PV + 1,500kWh battery per hub. Zero marginal energy cost. Structural FX hedge — when naira weakens, energy cost doesn't rise. Surplus sold at ₦80–120/kWh.</div>
+      <div class="layer-price">Zero marginal cost · surplus revenue line</div>
+    </div>
+    <div class="card">
+      <div class="layer-num">03</div>
+      <div class="layer-title">Logistics Orchestration Network</div>
+      <div class="layer-thesis">Retrofit-first approach. Farm collection → hub-to-buyer delivery → port reefer staging. Fleet SLA retainers convert logistics from variable to contracted recurring.</div>
+      <div class="layer-price">₦35K – ₦350K per run as network scales</div>
+    </div>
+    <div class="card">
+      <div class="layer-num">04</div>
+      <div class="layer-title">Traceability & Compliance System</div>
+      <div class="layer-thesis">RFID tagging every pallet at intake. Farm-to-table chain-of-custody. Export compliance SaaS — EUDR declarations, phytosanitary docs, buyer QR certs. The crown jewel: 88% gross margin.</div>
+      <div class="layer-price">$480/month per exporter · 88% GM · 10–12× exit</div>
+    </div>
+    <div class="card">
+      <div class="layer-num">05</div>
+      <div class="layer-title">Data & Transaction Engine</div>
+      <div class="layer-thesis">Proprietary dataset no competitor can replicate without operating the same physical network. AI market intelligence. Commodity price signals, spoilage curves, demand patterns. SaaS above 15% of revenue re-rates the exit multiple.</div>
+      <div class="layer-price">Platform exit: 10–12× vs 7× infrastructure</div>
+    </div>
+    <div class="card">
+      <div class="layer-num">06</div>
+      <div class="layer-title">Export & Premium Market Gateway</div>
+      <div class="layer-thesis">Model A: infrastructure provider — grade, comply, cold-stage, load. Zero produce risk. USD-denominated revenue. UK (yam/pepper), UAE (ginger/sesame), EU (cocoa). Long-term: own the trade margin.</div>
+      <div class="layer-price">$1,230 all-in per container · USD-denominated</div>
+    </div>
+  </div>
+
+  <!-- PURPOSE -->
+  <div class="divider"></div>
+  <div class="section-label">Purpose & Compounding Logic</div>
+  <div class="grid-2">
+    <div class="card-accent">
+      <div class="stat-label">Purpose</div>
+      <p style="font-size:14px;color:var(--text2);margin-top:12px;line-height:1.7">We empower productivity across the value chain — from smallholder farmer to large-scale producer — by solving for seasonality, spoilage, and market access, while improving freshness, affordability, and value capture. Going from extractive to productive. Owning the Whole Foods. Making possible what was previously impossible for those starting from nothing.</p>
+    </div>
+    <div class="card-accent">
+      <div class="stat-label">The Compounding Logic</div>
+      <p style="font-size:14px;color:var(--text2);margin-top:12px;line-height:1.7">Each layer reinforces the next. Storage fills the hub. Energy makes it resilient and currency-proof. Logistics creates the network. Data builds the moat. Export captures global value. <strong style="color:var(--text)">SaaS above 15% of revenue triggers a multiple re-rate from 7× infrastructure to 10–12× platform — worth $25–40M on Year 5 EBITDA alone.</strong></p>
+    </div>
+  </div>
+
+  <!-- TARGET OFFTAKERS -->
+  <div class="divider"></div>
+  <div class="section-label">Target Offtakers & Anchor Clients</div>
+  <div class="grid-4 gap-24">
+    <div class="card-sm"><div class="stat-label">FMCG & Food Mfg</div><p style="font-size:12px;color:var(--text2);margin-top:6px">Processed food manufacturers requiring consistent cold-chain input supply</p></div>
+    <div class="card-sm"><div class="stat-label">Supermarket Chains</div><p style="font-size:12px;color:var(--text2);margin-top:6px">Ebeano, Shoprite, Spar — anchor B2B SLA contracts with minimum volume clauses</p></div>
+    <div class="card-sm"><div class="stat-label">Pharma Distributors</div><p style="font-size:12px;color:var(--text2);margin-top:6px">GDP-compliant pharmaceutical zone — NAFDAC-ready with full excursion audit trail</p></div>
+    <div class="card-sm"><div class="stat-label">Export Principals</div><p style="font-size:12px;color:var(--text2);margin-top:6px">International agricultural exporters — yam, ginger, sesame, cocoa, pepper corridors</p></div>
+  </div>
+
+  <div class="section-footer">
+    <span class="update-badge">⚠ Ideation stage — directional only</span>
+    <span class="conf-footer">AgroVault Nigeria · Confidential · Not for distribution</span>
+  </div>
+
+</div>
+<!-- /SECTION:vision -->
+
+
+<!-- ============================================================ -->
+<!-- SECTION:opportunity -->
+<div class="section-panel" id="section-opportunity">
+
+  <div class="section-header">
+    <div>
+      <div class="section-tag">02 — The Opportunity</div>
+      <h1 class="section-title">A structural gap.<br>An infrastructure crisis.</h1>
+      <p class="section-subtitle">Nigeria's cold chain market is failing at scale. The numbers are not statistics — they are the business case.</p>
+    </div>
+    <div class="section-meta">
+      Source: Vision_Refined.pdf<br>
+      Last updated: 2026-05-16<br>
+      Status: <span class="tag tag-core">Core</span>
+    </div>
+  </div>
+
+  <!-- HEADLINE STATS -->
+  <div class="grid-4 gap-32">
+    <div class="card">
+      <div class="stat-block">
+        <div class="stat-value amber">₦3.5–5T</div>
+        <div class="stat-label">Lost annually to food waste in Nigeria</div>
+        <div class="stat-sub">Source: Terroso Group / Daily Post Nigeria, March 2026</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="stat-block">
+        <div class="stat-value">$1.2B</div>
+        <div class="stat-label">Nigeria cold chain market size</div>
+        <div class="stat-sub">Growing 12–15% p.a. — fastest-expanding infrastructure segment</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="stat-block">
+        <div class="stat-value red">40–60%</div>
+        <div class="stat-label">Of perishables spoil before reaching market</div>
+        <div class="stat-sub">FAO Sub-Saharan Africa Post-Harvest Loss Estimates; ScienceDirect 2023</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="stat-block">
+        <div class="stat-value amber">1K vs 25K</div>
+        <div class="stat-label">Refrigerated trucks: existing vs needed</div>
+        <div class="stat-sub">Terroso Group Cold Chain Infrastructure Report, March 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECONDARY STATS -->
+  <div class="grid-3 gap-32">
+    <div class="card">
+      <div class="stat-block">
+        <div class="stat-value white" style="font-size:28px">24.8M tonnes</div>
+        <div class="stat-label">Food wasted annually in Nigeria</div>
+        <div class="stat-sub">UNEP Food Waste Index 2024 / World Population Review</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="stat-block">
+        <div class="stat-value white" style="font-size:28px">225,000 MT</div>
+        <div class="stat-label">National cold storage capacity — critically insufficient</div>
+        <div class="stat-sub">Federal Ministry of Agriculture & Rural Development, 2023</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="stat-block">
+        <div class="stat-value white" style="font-size:28px">5.5–6.5 hrs</div>
+        <div class="stat-label">Peak sun hours per day — Nigeria's solar advantage</div>
+        <div class="stat-sub">30–40% more output than equivalent European systems. IRENA / NASA POWER</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY NOW -->
+  <div class="divider"></div>
+  <div class="section-label">Why the Moment Is Now</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="layer-title" style="margin-bottom:12px">Policy Tailwind</div>
+      <p style="font-size:13px;color:var(--text2);line-height:1.7">Nigeria's National Agriculture Policy (2021) sets a 30% post-harvest loss reduction target. NIRSAL's mandate creates a funding pathway. EU Deforestation Regulation (EUDR) December 2025 makes RFID compliance SaaS a regulatory necessity, not a premium feature.</p>
+    </div>
+    <div class="card">
+      <div class="layer-title" style="margin-bottom:12px">Capital Activation</div>
+      <p style="font-size:13px;color:var(--text2);line-height:1.7">DP World has a $1B African cold chain mandate. Solar investment in Nigeria exceeds $900M since 2018 (World Bank ESMAP, March 2025). DFIs are actively deploying into agricultural infrastructure — the window for first-mover positioning is open now, not in 3 years.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Competitive Landscape</div>
+    <p>ColdHubs, Ecotutu, NovaChill, and Coldtivate operate in Nigeria — none at institutional B2B scale with solar resilience and a data layer. East Africa (Kool-Ex Kenya) is 3–5 years ahead. The window to establish the infrastructure standard in West Africa is open. First-mover network effects in premium logistics corridors are the moat.</p>
+  </div>
+
+  <div class="section-footer">
+    <span class="update-badge">⚠ Ideation stage — directional only</span>
+    <span class="conf-footer">AgroVault Nigeria · Confidential · Not for distribution</span>
+  </div>
+
+</div>
+<!-- /SECTION:opportunity -->
+
+
+<!-- ============================================================ -->
+<!-- SECTION:economics -->
+<div class="section-panel" id="section-economics">
+
+  <div class="section-header">
+    <div>
+      <div class="section-tag">03 — Economics & Capital</div>
+      <h1 class="section-title">$6M unlocks<br>the network.</h1>
+      <p class="section-subtitle">Phase 0 proves the model before breaking ground. Phase 1 deploys on signed anchor LOI only.</p>
+    </div>
+    <div class="section-meta">
+      Source: Vision_Refined.pdf + AgroVault_Phased_Model_1.xlsx<br>
+      Last updated: 2026-05-16<br>
+      Status: <span class="tag tag-core">Core</span>
+    </div>
+  </div>
+
+  <!-- PHASE TOTALS -->
+  <div class="grid-3 gap-32">
+    <div class="card">
+      <div class="stat-label">Total Raise</div>
+      <div class="stat-value" style="font-size:44px;margin-top:8px">$6.0M</div>
+      <div class="stat-sub" style="margin-top:10px">Phase 0 proof-of-concept + Phase 1 full hub build-out. Blended capital: founder equity, DFI concessional, green debt, grant.</div>
+    </div>
+    <div class="card">
+      <div class="stat-label">Phase 0 — Proof of Concept</div>
+      <div class="stat-value white" style="font-size:32px;margin-top:8px">$586K</div>
+      <div class="stat-sub" style="margin-top:10px">Trucks + data MVP. Revenue-generating within 60–90 days. Logistics breakeven target: 9 months.</div>
+    </div>
+    <div class="card">
+      <div class="stat-label">Phase 1 — Hub Build-Out</div>
+      <div class="stat-value white" style="font-size:32px;margin-top:8px">$5.42M</div>
+      <div class="stat-sub" style="margin-top:10px">Full hub. Solar + storage + processing. Deploys only on signed minimum-volume anchor LOI.</div>
+    </div>
+  </div>
+
+  <!-- PHASE 0 BREAKDOWN -->
+  <div class="divider"></div>
+  <div class="section-label">Phase 0 — CapEx Breakdown</div>
+  <div class="card gap-24">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Detail</th>
+          <th class="right">Total (USD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong style="color:var(--text)">Clean-fuel truck acquisition</strong></td><td>5 units · Isuzu NQR CNG/LPG variant · CFAO/Innoson</td><td class="mono right">$250,000</td></tr>
+        <tr><td>Refrigeration unit retrofit</td><td>5 units · Carrier Transicold / Thermo King · Nigeria install</td><td class="mono right">$80,000</td></tr>
+        <tr><td>GPS + temperature monitoring</td><td>5 units · Real-time geofence + cold logger</td><td class="mono right">$30,000</td></tr>
+        <tr><td><strong style="color:var(--text)">Fleet subtotal</strong></td><td></td><td class="mono right rev-positive">$360,000</td></tr>
+        <tr><td>RFID readers (UHF fixed + handheld)</td><td>4 units · Zebra FX9600 / Impinj</td><td class="mono right">$20,000</td></tr>
+        <tr><td>Passive RFID tags (bulk)</td><td>50,000 tags · ₦70–100/tag · UHF EPC Gen2</td><td class="mono right">$3,500</td></tr>
+        <tr><td>WMS / data MVP platform</td><td>Browser-based · Mintsoft or custom build</td><td class="mono right">$45,000</td></tr>
+        <tr><td>IoT SIM + 12-month data</td><td>5 trucks · cellular GPS + temperature</td><td class="mono right">$3,000</td></tr>
+        <tr><td><strong style="color:var(--text)">Technology subtotal</strong></td><td></td><td class="mono right rev-positive">$75,500</td></tr>
+        <tr><td>Operating float — 6 months WC</td><td>Drivers, fuel, insurance, admin pre-breakeven</td><td class="mono right">$140,000</td></tr>
+        <tr><td>Insurance + driver training + regulatory</td><td>Fleet, cargo, K&R basic · transport licences</td><td class="mono right">$10,500</td></tr>
+        <tr><td style="color:var(--text);font-weight:600" colspan="2"><strong>PHASE 0 TOTAL</strong></td><td class="mono right" style="color:var(--green3);font-size:14px"><strong>$585,998</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PHASE 1 BREAKDOWN -->
+  <div class="divider"></div>
+  <div class="section-label">Phase 1 — Hub Build-Out CapEx</div>
+  <div class="card gap-24">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Key Items</th>
+          <th class="right">Subtotal (USD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong style="color:var(--text)">Land & Cold Storage Construction</strong></td><td>5-acre site · 3,800sqm · multi-temp zones · pharma GDP zone · $650/sqm Nigeria-adjusted</td><td class="mono right rev-positive">$3,670,000</td></tr>
+        <tr><td><strong style="color:var(--text)">Solar Energy System</strong></td><td>750kW PV + 1,500kWh lithium · smart metering · NERC compliance · EPC install</td><td class="mono right rev-positive">$1,455,000</td></tr>
+        <tr><td>Technology, Data & Compliance</td><td>IoT sensors · WMS + RFID · full stack + compliance SaaS module · AI grading</td><td class="mono right">$255,000</td></tr>
+        <tr><td>Fleet Expansion</td><td>3 additional trucks → 8 total · purpose-built 10-tonne · GPS + cold-chain certified</td><td class="mono right">$300,000</td></tr>
+        <tr><td>Working Capital + Contingency</td><td>6-month operating float + 12% hard CapEx contingency + regulatory + legal</td><td class="mono right">$662,000</td></tr>
+        <tr><td style="color:var(--text);font-weight:600" colspan="2"><strong>PHASE 1 TOTAL</strong></td><td class="mono right" style="color:var(--green3);font-size:14px"><strong>$5,420,000</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- CAPITAL STRUCTURE -->
+  <div class="divider"></div>
+  <div class="section-label">Capital Structure</div>
+  <div class="grid-4 gap-24">
+    <div class="card-sm">
+      <div class="stat-label">Founder + Angel Equity</div>
+      <div style="font-family:var(--mono);font-size:22px;color:var(--text);margin:8px 0">20%</div>
+      <div style="font-family:var(--mono);font-size:12px;color:var(--green)">$1.2M</div>
+    </div>
+    <div class="card-sm">
+      <div class="stat-label">DFI Concessional</div>
+      <div style="font-family:var(--mono);font-size:22px;color:var(--text);margin:8px 0">40%</div>
+      <div style="font-family:var(--mono);font-size:12px;color:var(--green)">$2.4M · AFC, AFDB, All On</div>
+    </div>
+    <div class="card-sm">
+      <div class="stat-label">Green Debt / Infra Bond</div>
+      <div style="font-family:var(--mono);font-size:22px;color:var(--text);margin:8px 0">30%</div>
+      <div style="font-family:var(--mono);font-size:12px;color:var(--green)">$1.8M</div>
+    </div>
+    <div class="card-sm">
+      <div class="stat-label">Grant / Climate Co-Finance</div>
+      <div style="font-family:var(--mono);font-size:22px;color:var(--text);margin:8px 0">10%</div>
+      <div style="font-family:var(--mono);font-size:12px;color:var(--green)">$600K</div>
+    </div>
+  </div>
+
+  <div class="callout gap-24">
+    <div class="callout-label">Target Returns</div>
+    <p>IRR: 22–28% · Equity multiple: 3–4× · Investment horizon: 7 years · Hub 1 breakeven: 24–30 months · Year 1 revenue at 45% utilisation: $987K · Year 1 EBITDA: ($109K) — negative due to depreciation and DFI interest; EBITDA turns positive Year 2 at $84K.</p>
+  </div>
+
+  <div class="section-footer">
+    <span class="update-badge">⚠ Ideation stage — directional only</span>
+    <span class="conf-footer">AgroVault Nigeria · Confidential · Not for distribution</span>
+  </div>
+
+</div>
+<!-- /SECTION:economics -->
+
+
+<!-- ============================================================ -->
+<!-- SECTION:financial -->
+<div class="section-panel" id="section-financial">
+
+  <div class="section-header">
+    <div>
+      <div class="section-tag">04 — Financial Model</div>
+      <h1 class="section-title">Six-year phased<br>revenue model.</h1>
+      <p class="section-subtitle">Live data from AgroVault_Phased_Model_1.xlsx — five revenue streams across five hubs. USD base.</p>
+    </div>
+    <div class="section-meta">
+      Source: AgroVault_Phased_Model_1.xlsx<br>
+      Last updated: 2026-05-16<br>
+      Status: <span class="tag tag-live">Live</span>
+    </div>
+  </div>
+
+  <!-- REVENUE CHART (visual bars) -->
+  <div class="chart-wrap gap-32">
+    <div class="section-label" style="margin-bottom:20px">Total Annual Revenue — Year 0 to Year 5 (USD)</div>
+    <div class="bar-chart" id="revenueChart">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+
+  <!-- FULL P&L -->
+  <div class="section-label">P&L Summary — 6-Year Phased (USD)</div>
+  <div class="card gap-32">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Line Item</th>
+          <th class="right">Year 0</th>
+          <th class="right">Year 1</th>
+          <th class="right">Year 2</th>
+          <th class="right">Year 3</th>
+          <th class="right">Year 4</th>
+          <th class="right">Year 5</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td colspan="7" style="background:var(--bg3);color:var(--text3);font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px">REVENUE</td></tr>
+        <tr><td>Cold Storage SLA</td><td class="mono right">—</td><td class="mono right">$812K</td><td class="mono right">$950K</td><td class="mono right">$2.10M</td><td class="mono right">$3.38M</td><td class="mono right rev-positive">$6.00M</td></tr>
+        <tr><td>Processing Services</td><td class="mono right">—</td><td class="mono right">$73K</td><td class="mono right">$114K</td><td class="mono right">$301K</td><td class="mono right">$539K</td><td class="mono right rev-positive">$1.04M</td></tr>
+        <tr><td>Logistics & Distribution</td><td class="mono right">$36K</td><td class="mono right">$78K</td><td class="mono right">$122K</td><td class="mono right">$336K</td><td class="mono right">$604K</td><td class="mono right rev-positive">$1.16M</td></tr>
+        <tr><td>Technology & Data</td><td class="mono right">—</td><td class="mono right">$25K</td><td class="mono right">$86K</td><td class="mono right">$424K</td><td class="mono right">$904K</td><td class="mono right rev-positive">$1.95M</td></tr>
+        <tr><td style="color:var(--text);font-weight:600"><strong>TOTAL REVENUE</strong></td><td class="mono right"><strong>$36K</strong></td><td class="mono right"><strong>$987K</strong></td><td class="mono right"><strong>$1.27M</strong></td><td class="mono right"><strong>$3.16M</strong></td><td class="mono right"><strong>$5.42M</strong></td><td class="mono right" style="color:var(--green3)"><strong>$10.16M</strong></td></tr>
+        <tr><td colspan="7" style="background:var(--bg3);color:var(--text3);font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px">PROFITABILITY</td></tr>
+        <tr><td>Gross Profit</td><td class="mono right">$14K</td><td class="mono right">$604K</td><td class="mono right">$796K</td><td class="mono right">$2.04M</td><td class="mono right">$3.58M</td><td class="mono right rev-positive">$6.85M</td></tr>
+        <tr><td>Gross Margin %</td><td class="mono right">38%</td><td class="mono right">61%</td><td class="mono right">63%</td><td class="mono right">64%</td><td class="mono right">66%</td><td class="mono right rev-positive">67%</td></tr>
+        <tr><td>EBITDA</td><td class="mono right rev-negative">($74K)</td><td class="mono right rev-negative">($109K)</td><td class="mono right rev-positive">$84K</td><td class="mono right rev-positive">$613K</td><td class="mono right rev-positive">$1.46M</td><td class="mono right rev-positive">$3.32M</td></tr>
+        <tr><td>EBITDA Margin %</td><td class="mono right rev-negative">(209%)</td><td class="mono right rev-negative">(11%)</td><td class="mono right rev-positive">7%</td><td class="mono right rev-positive">19%</td><td class="mono right rev-positive">27%</td><td class="mono right rev-positive">33%</td></tr>
+        <tr><td colspan="7" style="background:var(--bg3);color:var(--text3);font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px">BELOW EBITDA</td></tr>
+        <tr><td>Depreciation (USD, non-cash)</td><td class="mono right">—</td><td class="mono right rev-negative">($290K)</td><td class="mono right rev-negative">($305K)</td><td class="mono right rev-negative">($640K)</td><td class="mono right rev-negative">($990K)</td><td class="mono right rev-negative">($1.75M)</td></tr>
+        <tr><td>Interest Expense (DFI loan)</td><td class="mono right">—</td><td class="mono right rev-negative">($185K)</td><td class="mono right rev-negative">($175K)</td><td class="mono right rev-negative">($330K)</td><td class="mono right rev-negative">($465K)</td><td class="mono right rev-negative">($725K)</td></tr>
+        <tr><td style="color:var(--text);font-weight:600">Net Profit / (Loss)</td><td class="mono right rev-negative"><strong>($74K)</strong></td><td class="mono right rev-negative"><strong>($584K)</strong></td><td class="mono right rev-negative"><strong>($396K)</strong></td><td class="mono right rev-negative"><strong>($357K)</strong></td><td class="mono right rev-positive"><strong>$1K</strong></td><td class="mono right rev-positive"><strong>$590K</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- KEY ASSUMPTIONS -->
+  <div class="divider"></div>
+  <div class="section-label">Model Key Assumptions</div>
+  <div class="grid-3">
+    <div class="card-sm"><div class="stat-label">FX Rate (USD/NGN)</div><p style="font-family:var(--mono);font-size:13px;color:var(--text);margin-top:6px">₦1,500 Y0-Y1 → ₦1,900 Y5</p><p style="font-size:11px;color:var(--text3);margin-top:4px">+₦100/yr from Y2 — escalating naira weakness built in</p></div>
+    <div class="card-sm"><div class="stat-label">Hub Utilisation</div><p style="font-family:var(--mono);font-size:13px;color:var(--text);margin-top:6px">45% Y1 → 73% Y5</p><p style="font-size:11px;color:var(--text3);margin-top:4px">4,500 pallet capacity per hub · ramp driven by anchor LOI</p></div>
+    <div class="card-sm"><div class="stat-label">Hubs Open</div><p style="font-family:var(--mono);font-size:13px;color:var(--text);margin-top:6px">0 → 1 → 1 → 2 → 3 → 5</p><p style="font-size:11px;color:var(--text3);margin-top:4px">Base case 3 hubs / 5 years. 5 hubs is the upside case.</p></div>
+    <div class="card-sm"><div class="stat-label">Tier 3 SLA Rate</div><p style="font-family:var(--mono);font-size:13px;color:var(--text);margin-top:6px">₦68K/pallet/month Y1</p><p style="font-size:11px;color:var(--text3);margin-top:4px">Anchor supermarket/pharma pricing — requires LOI before hub opens</p></div>
+    <div class="card-sm"><div class="stat-label">RFID SaaS (Crown Jewel)</div><p style="font-family:var(--mono);font-size:13px;color:var(--text);margin-top:6px">$480/month per exporter</p><p style="font-size:11px;color:var(--text3);margin-top:4px">88% GM · USD-denominated · 2 clients Y1 → scales Y3+ with export hub</p></div>
+    <div class="card-sm"><div class="stat-label">Tech/Data as % Revenue</div><p style="font-family:var(--mono);font-size:13px;color:var(--text);margin-top:6px">2.5% Y1 → 19% Y5</p><p style="font-size:11px;color:var(--text3);margin-top:4px">15% triggers 10–12× exit multiple. Crossed in Year 4 (16.6%).</p></div>
+  </div>
+
+  <div class="section-footer">
+    <span class="update-badge">⚠ Ideation stage — directional only · Update when assumptions change</span>
+    <span class="conf-footer">AgroVault Nigeria · Confidential · Not for distribution</span>
+  </div>
+
+</div>
+<!-- /SECTION:financial -->
+
+
+<!-- ============================================================ -->
+<!-- SECTION:spatial -->
+<div class="section-panel" id="section-spatial">
+
+  <div class="section-header">
+    <div>
+      <div class="section-tag">05 — Spatial Planning</div>
+      <h1 class="section-title">Hub 1 — Lagos.<br>3,800 sqm. 4,500 pallets.</h1>
+      <p class="section-subtitle">World-class design references applied to tropical-climate, GDP-compliant cold storage. Every design decision made for 38–42°C ambient temperature.</p>
+    </div>
+    <div class="section-meta">
+      Source: AgroVault_SpatialPlan.html<br>
+      Last updated: 2026-05-16<br>
+      Status: <span class="tag tag-live">Live</span>
+    </div>
+  </div>
+
+  <!-- ZONE SUMMARY -->
+  <div class="section-label">Zone Breakdown — Hub 1</div>
+  <div class="card gap-32">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Zone</th>
+          <th>Temperature</th>
+          <th>Area</th>
+          <th>Pallet Positions</th>
+          <th>Primary Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong style="color:var(--text)">Office / Admin</strong></td><td class="mono">Ambient</td><td class="mono">400 sqm (10m×40m)</td><td class="mono">—</td><td>Staff welfare, security, client meeting room</td></tr>
+        <tr><td><strong style="color:var(--text)">Processing Hall</strong></td><td class="mono">Ambient / pre-cool</td><td class="mono">720 sqm (18m×40m)</td><td class="mono">—</td><td>Blast freeze tunnel · AI grading · washing · MAP packaging · RPC pool</td></tr>
+        <tr><td><strong style="color:var(--text)">Cool Zone</strong></td><td class="mono" style="color:#93C5FD">+8°C to +15°C</td><td class="mono">720 sqm (18m×40m)</td><td class="mono rev-positive">~1,080</td><td>Produce aggregation · yam, cassava, cocoa · banana ripening · export staging</td></tr>
+        <tr><td><strong style="color:var(--text)">Chilled Zone</strong></td><td class="mono" style="color:#60A5FA">+2°C to +8°C</td><td class="mono">880 sqm (22m×40m)</td><td class="mono rev-positive">~1,800</td><td>Supermarket supply · FMCG fresh · GDP pharma sub-zone enclosed within</td></tr>
+        <tr><td style="padding-left:28px">↳ GDP Pharma Sub-Zone</td><td class="mono" style="color:#60A5FA">+2°C to +8°C</td><td class="mono">300 sqm</td><td class="mono rev-positive">~480</td><td>Room-within-room · NAFDAC GDP · full excursion audit trail · D5 dock dedicated</td></tr>
+        <tr><td><strong style="color:var(--text)">Frozen Zone</strong></td><td class="mono" style="color:#C4B5FD">−18°C to −24°C</td><td class="mono">560 sqm (14m×40m)</td><td class="mono rev-positive">~840</td><td>Proteins, fish, ice cream · blast-freeze output staging</td></tr>
+        <tr><td><strong style="color:var(--text)">Plant Room</strong></td><td class="mono">+20°C controlled</td><td class="mono">360 sqm (9m×40m)</td><td class="mono">—</td><td>Refrigeration plant · solar inverters · battery room · NERC metering</td></tr>
+        <tr><td style="color:var(--text);font-weight:600" colspan="2"><strong>TOTAL HUB 1</strong></td><td class="mono"><strong>3,800 sqm gross</strong></td><td class="mono" style="color:var(--green3)"><strong>~4,500 pallets</strong></td><td>6 dock bays · 4 loading bays · one-way truck flow</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- DESIGN REFERENCES -->
+  <div class="divider"></div>
+  <div class="section-label">World-Class Design References</div>
+  <div class="grid-3 gap-24">
+    <div class="card">
+      <div class="layer-title">NewCold (Netherlands)</div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:10px">World's 3rd-largest refrigerated operator</div>
+      <div class="layer-thesis">High-bay automated, dark-warehouse design (no human in cold zone routinely). 35–40% less energy per pallet than conventional equivalent.</div>
+      <div class="layer-price">Key borrow: zone segregation · 3.6m automation-ready aisles · battery room +20°C</div>
+    </div>
+    <div class="card">
+      <div class="layer-title">Kool-Ex Cold Chain (Nairobi)</div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:10px">Most comparable emerging market operator · profitable</div>
+      <div class="layer-thesis">4,000-pallet capacity, solar-powered, tropical climate design, pharmaceutical GDP zone. East Africa is 3–5 years ahead of West Africa.</div>
+      <div class="layer-price">Key borrow: 120mm+ PIR panel · GDP room-within-room · vapour barrier @ 60–90% RH</div>
+    </div>
+    <div class="card">
+      <div class="layer-title">Lineage Logistics (US)</div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:10px">World's largest cold chain operator · S-1 2024</div>
+      <div class="layer-thesis">Best-in-class energy management, dock design, and pallet density. Variable-speed compressors, waste heat recovery, comprehensive IoT sensor networks.</div>
+      <div class="layer-price">Key borrow: dock bay design · energy monitoring architecture · IoT sensor protocol</div>
+    </div>
+  </div>
+
+  <!-- SITE PRINCIPLES -->
+  <div class="divider"></div>
+  <div class="section-label">Site Selection Principles</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="layer-title" style="margin-bottom:12px">Non-Negotiables</div>
+      <div class="phase-item"><div class="phase-dot"></div><div>Commission catchment analysis before any site shortlisted — map produce flows, buyer locations, road quality within 60km radius</div></div>
+      <div class="phase-item"><div class="phase-dot"></div><div>Require operations cofounder sign-off before site commitment</div></div>
+      <div class="phase-item"><div class="phase-dot"></div><div>Peri-urban logistics corridor — strategic proximity to major produce aggregation point</div></div>
+      <div class="phase-item"><div class="phase-dot"></div><div>10-year leasehold minimum — 5 acres at $250K</div></div>
+    </div>
+    <div class="card">
+      <div class="layer-title" style="margin-bottom:12px">Phase 2 Expansion</div>
+      <div class="layer-thesis" style="margin-bottom:12px">Hub 1 design connects to west — +2,000 sqm Phase 2 expansion without structural modification to Phase 1 building. No redesign CapEx.</div>
+      <div class="phase-item"><div class="phase-dot"></div><div>Lagos corridor → Hub 1 pilot</div></div>
+      <div class="phase-item"><div class="phase-dot"></div><div>Ibadan → Hub 2 (Year 3)</div></div>
+      <div class="phase-item"><div class="phase-dot"></div><div>Kano / Abuja → Hub 3 (Year 3–4)</div></div>
+    </div>
+  </div>
+
+  <div class="section-footer">
+    <span class="update-badge">⚠ Schematic only — subject to site-specific engineering review</span>
+    <span class="conf-footer">AgroVault Nigeria · Confidential · Not for distribution</span>
+  </div>
+
+</div>
+<!-- /SECTION:spatial -->
+
+
+<!-- ============================================================ -->
+<!-- SECTION:roadmap -->
+<div class="section-panel" id="section-roadmap">
+
+  <div class="section-header">
+    <div>
+      <div class="section-tag">06 — Phase Roadmap</div>
+      <h1 class="section-title">Each phase must pay<br>for the next.</h1>
+      <p class="section-subtitle">No phase deploys before the prior gate is met. Phase 0 trucks generate cash before the hub is built. The hub funds the energy and data layers.</p>
+    </div>
+    <div class="section-meta">
+      Source: Vision_Refined.pdf<br>
+      Last updated: 2026-05-16<br>
+      Status: <span class="tag tag-core">Core</span>
+    </div>
+  </div>
+
+  <div class="phase-grid gap-32">
+
+    <!-- TODAY -->
+    <div class="phase-card">
+      <div class="phase-header">
+        <div>
+          <div class="phase-label">Today — Years 1–2</div>
+          <div class="phase-name">Prove & Build</div>
+        </div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--green)">$586K → $6M</div>
+      </div>
+      <div class="phase-body">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">Cold Logistics</div>
+        <div class="phase-item"><div class="phase-dot"></div><div>3–5 clean-fuel trucks retrofitted for refrigeration</div></div>
+        <div class="phase-item"><div class="phase-dot"></div><div>Farm collection, hub-to-buyer delivery, port staging</div></div>
+        <div class="phase-item"><div class="phase-dot"></div><div>Revenue-generating within 60–90 days</div></div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin:16px 0 12px">Cold Storage</div>
+        <div class="phase-item"><div class="phase-dot"></div><div>3,800sqm hub · 4,500 pallet positions · multi-temp + pharma GDP</div></div>
+        <div class="phase-item"><div class="phase-dot"></div><div>Target 45% Year 1 utilisation · 78%+ by Year 3</div></div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin:16px 0 12px">Basic Data Layer</div>
+        <div class="phase-item"><div class="phase-dot"></div><div>RFID tagging at hub intake gate — moat starts accumulating</div></div>
+        <div class="phase-item"><div class="phase-dot"></div><div>Lightweight WMS and client dashboard</div></div>
+      </div>
+      <div class="phase-gate">
+        <strong>Gate Condition</strong>
+        Minimum-volume anchor LOI signed before Phase 1 CapEx deploys. Logistics revenue breakeven within 9 months.
+      </div>
+    </div>
+
+    <!-- NEXT -->
+    <div class="phase-card">
+      <div class="phase-header">
+        <div>
+          <div class="phase-label">Next — Years 3–4</div>
+          <div class="phase-name">Activate Layers</div>
+        </div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--green)">2–3 hubs open</div>
+      </div>
+      <div class="phase-body">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">Energy Monetisation</div>
+        <div class="phase-item"><div class="phase-dot"></div><div>Full off-grid solar + battery at each hub — zero NEPA dependency</div></div>
+        <div class="phase-item"><div class="phase-dot"></div><div>Surplus energy sold to neighbouring businesses at ₦80–120/kWh</div></div>
+        <div class="phase-item"><div class="phase-dot"></div><div>NERC-compliant smart metering — recurring revenue line</div></div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin:16px 0 12px">Traceability SaaS</div>
+        <div class="phase-item"><div class="phase-dot"></div><div>B2B SaaS portal activated — live inventory, excursion alerts</div></div>
+        <div class="phase-item"><div class="phase-dot"></div><div>Export compliance SaaS: EUDR, phytosanitary, buyer QR certs</div></div>
+        <div class="phase-item"><div class="phase-dot"></div><div>AI market intelligence reports sold to exporters and agri-lenders</div></div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin:16px 0 12px">Export Enablement</div>
+        <div class="phase-item"><div class="phase-dot"></div><div>Model A export hub: grade, comply, cold-stage, load — $1,230/container</div></div>
+        <div class="phase-item"><div class="phase-dot"></div><div>AI vision sorting to EU/UK/UAE export specification</div></div>
+      </div>
+      <div class="phase-gate">
+        <strong>Gate Condition</strong>
+        SaaS revenue above 10% of total hub revenue. Export hub processing minimum 20 containers/month.
+      </div>
+    </div>
+
+    <!-- LATER -->
+    <div class="phase-card">
+      <div class="phase-header">
+        <div>
+          <div class="phase-label">Later — Year 5+</div>
+          <div class="phase-name">Platform Scale</div>
+        </div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--green)">5+ hubs · exit ready</div>
+      </div>
+      <div class="phase-body">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">SaaS & Data Platform</div>
+        <div class="phase-item"><div class="phase-dot"></div><div>Full AI analytics: spoilage prediction, demand forecasting, price intelligence</div></div>
+        <div class="phase-item"><div class="phase-dot"></div><div>Multi-hub inventory orchestration as enterprise SaaS</div></div>
+        <div class="phase-item"><div class="phase-dot"></div><div>SaaS above 15% → exit multiple re-rates to 10–12×</div></div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin:16px 0 12px">Marketplace</div>
+        <div class="phase-item"><div class="phase-dot"></div><div>Buyers and sellers transact through AgroVault platform</div></div>
+        <div class="phase-item"><div class="phase-dot"></div><div>Commodity spot and forward contracts anchored to verified inventory</div></div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin:16px 0 12px">Retail & Ecosystem</div>
+        <div class="phase-item"><div class="phase-dot"></div><div>White-label fulfilment for Jumia, Chowdeck, food delivery platforms</div></div>
+        <div class="phase-item"><div class="phase-dot"></div><div>Own-brand retail: AgroVault-certified fresh produce to premium buyers</div></div>
+        <div class="phase-item"><div class="phase-dot"></div><div>First export corridors: yam to UK, ginger to UAE, cocoa to EU</div></div>
+      </div>
+      <div class="phase-gate">
+        <strong>Gate Condition</strong>
+        Exit optionality: acquisition target for Lineage Logistics, DP World, or a DFI-backed pan-African infrastructure fund.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- HEADLINE NUMBERS -->
+  <div class="divider"></div>
+  <div class="grid-4">
+    <div class="card-sm"><div class="stat-label">Phase 0 Capital</div><div class="stat-value white" style="font-size:28px;margin-top:6px">$586K</div><div class="stat-sub">Required to begin generating revenue</div></div>
+    <div class="card-sm"><div class="stat-label">Year 1 Revenue</div><div class="stat-value" style="font-size:28px;margin-top:6px">$987K</div><div class="stat-sub">Hub 1 at 45% utilisation</div></div>
+    <div class="card-sm"><div class="stat-label">Year 5 Network Revenue</div><div class="stat-value" style="font-size:28px;margin-top:6px">$10.2M</div><div class="stat-sub">Across 5 hubs · platform scale</div></div>
+    <div class="card-sm"><div class="stat-label">Exit Multiple (Platform)</div><div class="stat-value amber" style="font-size:28px;margin-top:6px">10–12×</div><div class="stat-sub">When SaaS exceeds 15% of revenue</div></div>
+  </div>
+
+  <div class="section-footer">
+    <span class="update-badge">⚠ Ideation stage — gates must be verified by operations cofounder</span>
+    <span class="conf-footer">AgroVault Nigeria · Confidential · Not for distribution</span>
+  </div>
+
+</div>
+<!-- /SECTION:roadmap -->
+
+
+<!-- ============================================================ -->
+<!-- SECTION:risks -->
+<div class="section-panel" id="section-risks">
+
+  <div class="section-header">
+    <div>
+      <div class="section-tag">07 — Risk Register</div>
+      <h1 class="section-title">An honest account of<br>what can go wrong.</h1>
+      <p class="section-subtitle">Ratings reflect inherent risk before mitigation. This register should be reviewed and updated quarterly by the founding team.</p>
+    </div>
+    <div class="section-meta">
+      Source: Vision_Refined.pdf<br>
+      Last updated: 2026-05-16<br>
+      Status: <span class="tag tag-core">Core</span>
+    </div>
+  </div>
+
+  <!-- CRITICAL RISKS -->
+  <div class="section-label" style="color:var(--red)">Critical Risks — Threaten Business Viability</div>
+  <table class="risk-table gap-32">
+    <tbody>
+      <tr class="risk-row">
+        <td><div class="tag tag-critical">Critical</div><div class="risk-name" style="margin-top:8px">FX & Currency Volatility</div></td>
+        <td><strong style="color:var(--text)">Risk:</strong> Naira has lost 70%+ against USD in three years. DFI debt, equipment replacement, and investor IRR all USD-denominated. Sharp devaluation widens the gap faster than the model can absorb.</td>
+        <td><strong style="color:var(--text)">Mitigation:</strong> Solar-first design eliminates the largest naira cost (energy). 30–40% of revenue architected as USD-indexed — export services, RFID SaaS, AI grading. Natural hedge: naira opex falls in dollar terms when naira weakens.</td>
+      </tr>
+      <tr class="risk-row">
+        <td><div class="tag tag-critical">Critical</div><div class="risk-name" style="margin-top:8px">Logistics Theft & Hijacking</div></td>
+        <td><strong style="color:var(--text)">Risk:</strong> Armed robbery of refrigerated trucks on Nigerian highways is documented and recurring — Lagos–Ibadan, Kano–Kaduna, Southeast routes. A single hijacking destroys cargo, vehicle, potentially a driver.</td>
+        <td><strong style="color:var(--text)">Mitigation:</strong> Route risk assessment, curfew protocols, no night driving in high-risk corridors. Real-time GPS geofencing. Armed escort for pharma loads. Cargo insurance from day one. Driver non-resistance training.</td>
+      </tr>
+      <tr class="risk-row">
+        <td><div class="tag tag-critical">Critical</div><div class="risk-name" style="margin-top:8px">Power Infrastructure Failure</div></td>
+        <td><strong style="color:var(--text)">Risk:</strong> Inverter faults and battery degradation can create temperature excursions. In 38–42°C ambient, a 4-hour power failure in a cold room is a total produce loss event.</td>
+        <td><strong style="color:var(--text)">Mitigation:</strong> Redundant design: solar primary, battery secondary, diesel generator tertiary. Auto transfer switch &lt;30 second failover. 24/7 monitoring, SMS alerts. Maintenance SLA with refrigeration OEM.</td>
+      </tr>
+      <tr class="risk-row">
+        <td><div class="tag tag-critical">Critical</div><div class="risk-name" style="margin-top:8px">Cofounder Gap</div></td>
+        <td><strong style="color:var(--text)">Risk:</strong> The single most common failure mode in African infrastructure plays — visionary founder, wrong or absent operational cofounder. Every assumption is a single point of failure until the operations seat is filled.</td>
+        <td><strong style="color:var(--text)">Mitigation:</strong> Non-negotiable condition: no Phase 1 capital deployment without cofounder in seat. Use Phase 0 truck programme as a live test — cofounder should be running it, not observing it.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- HIGH RISKS -->
+  <div class="section-label" style="color:var(--amber);margin-top:32px">High Risks — Material Impact on Timeline or Returns</div>
+  <table class="risk-table gap-32">
+    <tbody>
+      <tr class="risk-row">
+        <td><div class="tag tag-high">High</div><div class="risk-name" style="margin-top:8px">Hub Underutilisation</div></td>
+        <td>An LOI is not a volume commitment. Anchor clients reduce bookings during slow seasons without penalty if contract is poorly structured.</td>
+        <td>Minimum monthly volume clause in every SLA. Tiered pricing rewards consistent commitment. Do not break ground without signed minimum-volume contract.</td>
+      </tr>
+      <tr class="risk-row">
+        <td><div class="tag tag-high">High</div><div class="risk-name" style="margin-top:8px">Anchor Client Concentration</div></td>
+        <td>One or two clients representing 60%+ of hub revenue. An exit or volume reduction puts the hub below breakeven — structural risk in the early model.</td>
+        <td>Minimum volume clauses + penalties. Target 4–5 anchors before 80% utilisation. No single client above 35% of revenue. Diversify: supermarket + processor + pharma + cooperative blocks.</td>
+      </tr>
+      <tr class="risk-row">
+        <td><div class="tag tag-high">High</div><div class="risk-name" style="margin-top:8px">Regulatory & Licensing Delays</div></td>
+        <td>NAFDAC pharma accreditation, NERC surplus licence, Lagos State planning consent can each take 12–24 months and involve informal facilitation demands.</td>
+        <td>Engage specialist regulatory counsel before site selection. Map and file all licences in parallel. Budget 12% hard CapEx contingency. NIRSAL partnership accelerates federal alignment.</td>
+      </tr>
+      <tr class="risk-row">
+        <td><div class="tag tag-high">High</div><div class="risk-name" style="margin-top:8px">Talent Scarcity — Cold Chain Technicians</div></td>
+        <td>Nigeria has a critical shortage of trained refrigeration engineers. A compressor failure with no qualified technician within 4 hours is a product loss event.</td>
+        <td>Partner with refrigeration OEM for training and certification programme. Retain two trained technicians per hub. Preventive maintenance schedule to reduce reactive repair frequency.</td>
+      </tr>
+      <tr class="risk-row">
+        <td><div class="tag tag-high">High</div><div class="risk-name" style="margin-top:8px">Fuel Price Volatility</div></td>
+        <td>Post-subsidy diesel price volatility is severe and unpredictable. A 40–60% diesel spike directly erodes logistics margins and hub backup costs.</td>
+        <td>Solar-first limits diesel to backup use only. CNG/LPG fleet retrofit reduces diesel dependency. Logistics pricing includes fuel escalation clause tied to published pump prices.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- MEDIUM RISKS -->
+  <div class="section-label" style="color:var(--blue);margin-top:32px">Medium Risks — Manageable with Early Action</div>
+  <table class="risk-table gap-24">
+    <tbody>
+      <tr class="risk-row">
+        <td><div class="tag tag-medium">Medium</div><div class="risk-name" style="margin-top:8px">Behavioural Adoption Lag</div></td>
+        <td>Smallholder farmers and market traders have adapted to spoilage as accepted loss. Changing post-harvest behaviour takes 3–5× longer than projected.</td>
+        <td>Do not model farmer/cooperative volumes as anchor revenue in Year 1. Institutional B2B carries the hub economics. Farmer adoption is the social impact story and Year 3+ uplift.</td>
+      </tr>
+      <tr class="risk-row">
+        <td><div class="tag tag-medium">Medium</div><div class="risk-name" style="margin-top:8px">Solar Degradation & Battery Replacement</div></td>
+        <td>In Nigerian heat, humidity, and harmattan dust, lithium cells degrade faster than temperate benchmarks. A capacity shortfall at Year 5 is a capital event the model may understate.</td>
+        <td>Annual battery capacity testing from Year 2. Budget battery replacement reserve from Year 3 as sinking fund. Specify tropical climate ratings. 10-year performance warranty from EPC partner.</td>
+      </tr>
+      <tr class="risk-row">
+        <td><div class="tag tag-medium">Medium</div><div class="risk-name" style="margin-top:8px">Data Platform Adoption</div></td>
+        <td>Enterprise clients have IT resistance, legacy systems, procurement bureaucracy. Low portal adoption limits the data moat and delays SaaS revenue.</td>
+        <td>Design for zero-integration — browser-based, no API required. First 90 days portal access at no cost builds habit. RFID tagging at hub gate regardless of portal adoption — data accumulates either way.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-footer">
+    <span class="update-badge">⚠ Review quarterly — ratings reflect inherent risk before mitigation</span>
+    <span class="conf-footer">AgroVault Nigeria · Confidential · Not for distribution</span>
+  </div>
+
+</div>
+<!-- /SECTION:risks -->
+
+
+<!-- ============================================================ -->
+<!-- SECTION:updates -->
+<div class="section-panel" id="section-updates">
+
+  <div class="section-header">
+    <div>
+      <div class="section-tag">08 — Decision Log</div>
+      <h1 class="section-title">Strategic decisions,<br>timestamped.</h1>
+      <p class="section-subtitle">Every material decision, model update, or strategic direction change recorded here for cofounder and advisor reference.</p>
+    </div>
+    <div class="section-meta">
+      Last entry: 2026-05-16<br>
+      Status: <span class="tag tag-live">Live</span>
+    </div>
+  </div>
+
+  <div class="card" style="padding:8px 24px">
+    <div class="decision-entry">
+      <div class="decision-date">2026-05-16</div>
+      <div class="decision-section-tag">INIT · All Sections</div>
+      <div class="decision-summary">Dashboard initialized from founding documents: Vision_Refined.pdf, AgroVault_Phased_Model_1.xlsx, AgroVault_SpatialPlan.html. Core sections populated — Vision, Opportunity, Economics, Financial Model, Spatial Planning, Roadmap, Risk Register. GitHub Pages deployment under kemiao/agrovault-dashboard. Version 1.0.0.</div>
+    </div>
+    <div class="decision-entry">
+      <div class="decision-date">2026-05-16</div>
+      <div class="decision-section-tag">STRATEGY · Export Hub</div>
+      <div class="decision-summary">Model A confirmed as the only export hub model — infrastructure provider, not principal trader. Revenue: $1,230 all-in per container. No produce price risk. Positions for principal economics over time without carry risk in early stage.</div>
+    </div>
+    <div class="decision-entry">
+      <div class="decision-date">2026-05-16</div>
+      <div class="decision-section-tag">CAPITAL · DFI</div>
+      <div class="decision-summary">Patient USD equity from DFIs (IFC, Proparco, AIIB — 7–10 year horizons) confirmed as structurally more appropriate than short-tenor dollar debt given the naira-revenue reality. Targeting All On and NIRSAL first for faster approval cycles.</div>
+    </div>
+    <div class="decision-entry">
+      <div class="decision-date">2026-05-16</div>
+      <div class="decision-section-tag">PRICING · Revenue Model</div>
+      <div class="decision-summary">Pallet-based SLA pricing confirmed (replacing crate-level). Three named client tiers: AgroVault Harvest (cooperatives, ₦24K/pallet/month), AgroVault Trade (agro-processors, ₦38K), AgroVault Anchor (supermarkets/pharma, ₦68K). RFID compliance SaaS identified as highest-margin line at 88% GM — the crown jewel.</div>
+    </div>
+    <div class="decision-entry">
+      <div class="decision-date">2026-05-16</div>
+      <div class="decision-section-tag">GROWTH · Rollout</div>
+      <div class="decision-summary">3 hubs in 5 years confirmed as the credible base case. 5 hubs as the upside. Base case matches the financial model. At least one anchor client LOI required before breaking ground — non-negotiable gate condition.</div>
+    </div>
+    <div class="decision-entry">
+      <div class="decision-date">2026-05-16</div>
+      <div class="decision-section-tag">INFRA · Deployment</div>
+      <div class="decision-summary">Dashboard deployed to GitHub Pages (kemiao/agrovault-dashboard, private repository). Skill spec created for future update protocol. Network restriction on api.github.com in Claude's bash environment confirmed — manual file upload workflow adopted for pushes.</div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:32px">
+    <div class="callout-label">Open Questions — Unresolved Strategic Risks</div>
+    <p><strong style="color:var(--text)">Cofounder:</strong> The most urgent unresolved risk. Operations seat must be filled before Phase 1 capital deployment. Phase 0 truck programme is the live test. <br><br>
+    <strong style="color:var(--text)">Operating Model Specificity:</strong> Biggest gap in current materials. Hub-level operating procedures, staffing structure, and SLA enforcement mechanisms need detailed documentation before investor meetings. <br><br>
+    <strong style="color:var(--text)">Anchor LOI Pipeline:</strong> No LOIs secured yet. This is the single most important near-term deliverable — investor credibility depends on demonstrated demand.</p>
+  </div>
+
+  <div class="section-footer">
+    <span class="update-badge">⚑ Updated each session — request Claude to log decisions</span>
+    <span class="conf-footer">AgroVault Nigeria · Confidential · Not for distribution</span>
+  </div>
+
+</div>
+<!-- /SECTION:updates -->
+
+</main>
+
+<script>
+// ─── SECTION REGISTRY ───
+const SECTION_REGISTRY = [
+  { key: 'vision',      label: 'Vision & Thesis',    status: 'core'    },
+  { key: 'opportunity', label: 'The Opportunity',     status: 'core'    },
+  { key: 'economics',   label: 'Economics & Capital', status: 'core'    },
+  { key: 'financial',   label: 'Financial Model',     status: 'live'    },
+  { key: 'spatial',     label: 'Spatial Planning',    status: 'live'    },
+  { key: 'roadmap',     label: 'Phase Roadmap',       status: 'core'    },
+  { key: 'risks',       label: 'Risk Register',       status: 'core'    },
+  { key: 'updates',     label: 'Decision Log',        status: 'live'    },
+];
+
+// ─── BUILD NAV ───
+const nav = document.getElementById('navTabs');
+SECTION_REGISTRY.forEach((s, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'nav-tab' + (i === 0 ? ' active' : '');
+  btn.dataset.key = s.key;
+  btn.innerHTML = `<span class="tab-dot"></span>${s.label}`;
+  btn.addEventListener('click', () => switchTab(s.key));
+  nav.appendChild(btn);
+});
+
+// ─── TAB SWITCHING ───
+function switchTab(key) {
+  document.querySelectorAll('.section-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  const panel = document.getElementById('section-' + key);
+  const tab = document.querySelector(`[data-key="${key}"]`);
+  if (panel) panel.classList.add('active');
+  if (tab) tab.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ─── ACTIVATE FIRST TAB ───
+switchTab('vision');
+
+// ─── REVENUE BAR CHART ───
+const revenueData = [
+  { year: 'Y0', val: 35600 },
+  { year: 'Y1', val: 987267 },
+  { year: 'Y2', val: 1272746 },
+  { year: 'Y3', val: 3158409 },
+  { year: 'Y4', val: 5423983 },
+  { year: 'Y5', val: 10157874 },
+];
+
+function buildChart() {
+  const chart = document.getElementById('revenueChart');
+  if (!chart) return;
+  const max = Math.max(...revenueData.map(d => d.val));
+  revenueData.forEach(d => {
+    const pct = (d.val / max) * 100;
+    const fmt = d.val >= 1000000 ? '$' + (d.val/1000000).toFixed(2) + 'M' : '$' + Math.round(d.val/1000) + 'K';
+    const group = document.createElement('div');
+    group.className = 'bar-group';
+    group.innerHTML = `
+      <div class="bar-val">${fmt}</div>
+      <div class="bar" style="height:${Math.max(pct,1)}%;background:linear-gradient(to top,var(--green2),var(--green3));"></div>
+      <div class="bar-label">${d.year}</div>
+    `;
+    chart.appendChild(group);
+  });
+}
+
+buildChart();
+</script>
+
+</body>
+</html>
