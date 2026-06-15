@@ -7,10 +7,10 @@
 
 
 <!-- DASHBOARD_META
-  version: 1.6.0
+  version: 1.6.1
   last_updated: 2026-06-15
   updated_by: Claude (Kemi session)
-  change: v1.6.0 — Roadmap tab removed (content in Vision). Decision Gates moved to Opportunity. Financial model rebuilt for Phase 0 unit economics. Spatial tab: Seasons node floor plan added, hub reframed as Phase 2. All dates updated to 2026-06-15.
+  change: v1.6.1 — 10-year architecture diagram added to Vision tab. TRACE → Coordination Layer → Logistics/Intelligence/Infrastructure with phase annotations.
   sections_count: 9
   live_url: https://kemiao-dotcom.github.io/agrovault-dashboard
 -->
@@ -950,6 +950,81 @@
           </div>
           <div class="phase-gate"><strong>Gate</strong>Data identifies specific infrastructure ROI · DFI investor conversations backed by evidence</div>
         </div>
+      </div>
+    </div>
+
+
+    <div class="sp-section">
+      <div class="sp-section-title">The 10-year architecture</div>
+      <div class="plan-container">
+        <svg width="100%" viewBox="0 0 760 390" xmlns="http://www.w3.org/2000/svg" style="min-width:600px">
+          <defs>
+            <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M1 2L8 5L1 8" fill="none" stroke="#424242" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+
+          <!-- TRACE top box -->
+          <rect x="295" y="12" width="170" height="48" rx="6" fill="#1B5E20"/>
+          <text x="380" y="42" font-family="Arial" font-size="17" font-weight="700" fill="white" text-anchor="middle" letter-spacing="4">TRACE</text>
+
+          <!-- Arrow down to coordination layer -->
+          <line x1="380" y1="60" x2="380" y2="82" stroke="#424242" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+          <!-- Coordination Layer box -->
+          <rect x="190" y="82" width="380" height="58" rx="5" fill="white" stroke="#424242" stroke-width="1.5"/>
+          <text x="380" y="108" font-family="Arial" font-size="14" font-weight="600" fill="#1A1A1A" text-anchor="middle">Coordination Layer</text>
+          <text x="380" y="128" font-family="Arial" font-size="12" fill="#6B6B6B" text-anchor="middle">Connecting demand and supply across the food chain</text>
+
+          <!-- Trunk down from Coordination Layer -->
+          <line x1="380" y1="140" x2="380" y2="162" stroke="#424242" stroke-width="1.5"/>
+          <!-- Horizontal bar -->
+          <line x1="120" y1="162" x2="640" y2="162" stroke="#424242" stroke-width="1.5"/>
+          <!-- Three drops -->
+          <line x1="120" y1="162" x2="120" y2="182" stroke="#E65100" stroke-width="1.5" marker-end="url(#arr2)"/>
+          <line x1="380" y1="162" x2="380" y2="182" stroke="#0D47A1" stroke-width="1.5" marker-end="url(#arr2)"/>
+          <line x1="640" y1="162" x2="640" y2="182" stroke="#4A148C" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+          <!-- ── LOGISTICS column ── -->
+          <rect x="22" y="182" width="196" height="42" rx="5" fill="#E65100"/>
+          <text x="120" y="209" font-family="Arial" font-size="13" font-weight="700" fill="white" text-anchor="middle">Logistics</text>
+          <rect x="22" y="228" width="196" height="96" rx="0 0 5 5" fill="white" stroke="#E65100" stroke-width="1"/>
+          <text x="42" y="252" font-family="Arial" font-size="12" fill="#424242">•  Routing &amp; route optimization</text>
+          <text x="42" y="272" font-family="Arial" font-size="12" fill="#424242">•  B2B distribution</text>
+          <text x="42" y="292" font-family="Arial" font-size="12" fill="#424242">•  Fleet management</text>
+          <text x="42" y="312" font-family="Arial" font-size="12" fill="#424242">•  Farm collection network</text>
+          <!-- Phase tag -->
+          <rect x="22" y="328" width="196" height="28" rx="0 0 5 5" fill="#FFF3E0"/>
+          <text x="120" y="347" font-family="Arial" font-size="11" font-weight="600" fill="#E65100" text-anchor="middle">Phase 0 — Starting now</text>
+
+          <!-- ── INTELLIGENCE column ── -->
+          <rect x="282" y="182" width="196" height="42" rx="5" fill="#0D47A1"/>
+          <text x="380" y="209" font-family="Arial" font-size="13" font-weight="700" fill="white" text-anchor="middle">Intelligence</text>
+          <rect x="282" y="228" width="196" height="96" rx="0 0 5 5" fill="white" stroke="#0D47A1" stroke-width="1"/>
+          <text x="302" y="252" font-family="Arial" font-size="12" fill="#424242">•  Demand forecasting</text>
+          <text x="302" y="272" font-family="Arial" font-size="12" fill="#424242">•  Supplier scoring</text>
+          <text x="302" y="292" font-family="Arial" font-size="12" fill="#424242">•  Pricing intelligence</text>
+          <text x="302" y="312" font-family="Arial" font-size="12" fill="#424242">•  Inventory &amp; quality tracking</text>
+          <!-- Phase tag -->
+          <rect x="282" y="328" width="196" height="28" rx="0 0 5 5" fill="#EFF6FF"/>
+          <text x="380" y="347" font-family="Arial" font-size="11" font-weight="600" fill="#0D47A1" text-anchor="middle">Phase 1 — 12–24 months</text>
+
+          <!-- ── INFRASTRUCTURE column ── -->
+          <rect x="542" y="182" width="196" height="42" rx="5" fill="#4A148C"/>
+          <text x="640" y="209" font-family="Arial" font-size="13" font-weight="700" fill="white" text-anchor="middle">Infrastructure</text>
+          <rect x="542" y="228" width="196" height="96" rx="0 0 5 5" fill="white" stroke="#4A148C" stroke-width="1"/>
+          <text x="562" y="252" font-family="Arial" font-size="12" fill="#424242">•  Aggregation hubs</text>
+          <text x="562" y="272" font-family="Arial" font-size="12" fill="#424242">•  Cold rooms &amp; processing</text>
+          <text x="562" y="292" font-family="Arial" font-size="12" fill="#424242">•  Clean energy (solar)</text>
+          <text x="562" y="312" font-family="Arial" font-size="12" fill="#424242">•  Cross-docking facilities</text>
+          <!-- Phase tag -->
+          <rect x="542" y="328" width="196" height="28" rx="0 0 5 5" fill="#F5F3FF"/>
+          <text x="640" y="347" font-family="Arial" font-size="11" font-weight="600" fill="#4A148C" text-anchor="middle">Phase 2 — 24–36 months</text>
+
+          <!-- Bottom note -->
+          <text x="380" y="382" font-family="Arial" font-size="11" fill="#9E9E9E" text-anchor="middle" font-style="italic">Infrastructure is a response to what Logistics and Intelligence reveal — not the starting assumption</text>
+        </svg>
+        <div class="plan-caption">The Coordination Layer sits at the centre — connecting supply (farmers, logistics, grading) with demand (consumers, B2B accounts, export buyers). Logistics activates in Phase 0. Intelligence builds through Phase 1. Infrastructure deploys in Phase 2 only where data shows it creates measurable value.</div>
       </div>
     </div>
 
@@ -2387,12 +2462,7 @@
     <div class="sp-section">
       <div class="sp-section-title">Decision log — newest entries first</div>
       <div class="plan-container">
-                            <div class="log-row">
-      <div class="log-date">2026-06-15</div>
-      <div class="log-tag">STRUCTURE · All tabs</div>
-      <div class="log-body">v1.6.0 — Dashboard restructured and financial model rebuilt. Roadmap tab removed (content consolidated into Vision). Decision Gates moved to Opportunity tab, replacing 'What must be proven before scale' (H0-H11 hypothesis framework retained in Seasons tab). Financial model completely rebuilt: Phase 0 unit economics for Seasons by TRACE node (₦7.1M/month target revenue, breakeven Month 6-8, 58% COGS, 40-42% GM target), monthly revenue trajectory chart, Phase 1 TBD pending Phase 0 data, Phase 2 ~$5-6M infrastructure reference. Spatial tab updated: Seasons by TRACE retail node floor plan added (1,500 sqft, 5 zones, SVG layout), hub design reframed as Phase 2 reference (24-36 months). All dates updated to 2026-06-15.</div>
-    </div>
-        <div class="log-row">
+                        <div class="log-row">
       <div class="log-date">2026-06-15</div>
       <div class="log-tag">THESIS · All sections</div>
       <div class="log-body">v1.5.0 — Major thesis evolution. Original AgroVault infrastructure-led thesis superseded by TRACE coordination-led thesis. Core reframe: "Better coordination → Better logistics → Less waste → Lower costs → Smarter infrastructure investment." Three-phase model: Phase 0 Discovery (Seasons by TRACE, $70-100K, 0-12 months) → Phase 1 Intelligence Layer (12-24 months, data advantage) → Phase 2 Infrastructure (24-36 months, cold storage only where data justifies). Vision rebuilt with old vs new thesis comparison. Roadmap rebuilt around three-phase model. Economics updated: Phase 0 at $70-100K with full breakdown (rent, fit-out, cool room, 2 vans, inventory, WC). Cold storage repositioned as Phase 2 response to observed bottlenecks, not Phase 0 assumption. Opportunity reframed as food movement problem. Phase 1 capital TBD pending Phase 0 data.</div>
