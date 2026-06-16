@@ -7,10 +7,10 @@
 
 
 <!-- DASHBOARD_META
-  version: 1.7.0
+  version: 1.7.1
   last_updated: 2026-06-15
   updated_by: Claude (Kemi session)
-  change: v1.7.0 — Opportunity tab rebuilt. Coordination-failure framing. Human capital cascade (60% food spend, 35.4% inflation, HCD 0.53). Five Strategic Advantages (two-column with thesis). Capabilities not starting points. Why now + closing line.
+  change: v1.7.1 — Opportunity tab refinements: retail framing fixed (inventory utilization not freshness premium), farm specificity softened, Intelligence thesis strengthened (better decisions), coordination flywheel SVG added.
   sections_count: 9
   live_url: https://kemiao-dotcom.github.io/agrovault-dashboard
 -->
@@ -1200,13 +1200,80 @@
     <div class="sp-section">
       <div class="sp-section-title">Build the network first. Build infrastructure second.</div>
       <p style="font-size:13px;color:#424242;line-height:1.7;margin-bottom:16px">TRACE starts by coordinating supply and demand through direct sourcing, quality standards, logistics, and operational data. Infrastructure becomes a targeted response to proven bottlenecks — not the first assumption.</p>
+
+      <div style="margin-bottom:20px">
+        <svg width="100%" viewBox="0 0 660 378" xmlns="http://www.w3.org/2000/svg" style="min-width:480px">
+          <defs>
+            <marker id="fw-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M1 2L8 5L1 8" fill="none" stroke="#424242" stroke-width="1.5" stroke-linecap="round"/>
+            </marker>
+            <marker id="fw-ret" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M1 2L8 5L1 8" fill="none" stroke="#E65100" stroke-width="1.5" stroke-linecap="round"/>
+            </marker>
+          </defs>
+
+          <!-- ── LEFT COLUMN: operational flow ──────────────────────── -->
+          <rect x="70" y="28" width="172" height="36" rx="5" fill="#1B5E20"/>
+          <text x="156" y="51" font-family="Arial" font-size="12" font-weight="600" fill="white" text-anchor="middle">Farmers</text>
+
+          <rect x="70" y="108" width="172" height="36" rx="5" fill="#1B5E20"/>
+          <text x="156" y="131" font-family="Arial" font-size="12" font-weight="600" fill="white" text-anchor="middle">Product Movement</text>
+
+          <rect x="70" y="188" width="172" height="36" rx="5" fill="#0D47A1"/>
+          <text x="156" y="211" font-family="Arial" font-size="12" font-weight="600" fill="white" text-anchor="middle">Operational Data</text>
+
+          <rect x="70" y="268" width="172" height="36" rx="5" fill="#0D47A1"/>
+          <text x="156" y="291" font-family="Arial" font-size="12" font-weight="600" fill="white" text-anchor="middle">Better Decisions</text>
+
+          <!-- ── RIGHT COLUMN: outcomes (read bottom → top) ─────────── -->
+          <rect x="418" y="268" width="172" height="36" rx="5" fill="#0D47A1"/>
+          <text x="504" y="282" font-family="Arial" font-size="11" font-weight="600" fill="white" text-anchor="middle">Lower Cost</text>
+          <text x="504" y="296" font-family="Arial" font-size="11" font-weight="600" fill="white" text-anchor="middle">&amp; Less Waste</text>
+
+          <rect x="418" y="188" width="172" height="36" rx="5" fill="#2E7D32"/>
+          <text x="504" y="211" font-family="Arial" font-size="12" font-weight="600" fill="white" text-anchor="middle">More Demand</text>
+
+          <rect x="418" y="108" width="172" height="36" rx="5" fill="#E65100"/>
+          <text x="504" y="131" font-family="Arial" font-size="12" font-weight="600" fill="white" text-anchor="middle">Denser Network</text>
+
+          <rect x="418" y="28" width="172" height="36" rx="5" fill="#4A148C"/>
+          <text x="504" y="51" font-family="Arial" font-size="12" font-weight="600" fill="white" text-anchor="middle">Targeted Infrastructure</text>
+
+          <!-- ── CENTER DIVIDER LABEL ───────────────────────────────── -->
+          <text x="330" y="172" font-family="Arial" font-size="10" fill="#BDBDBD" text-anchor="middle" letter-spacing="2" text-transform="uppercase">THE</text>
+          <text x="330" y="188" font-family="Arial" font-size="14" font-weight="700" fill="#E0E0E0" text-anchor="middle">TRACE</text>
+          <text x="330" y="204" font-family="Arial" font-size="10" fill="#BDBDBD" text-anchor="middle" letter-spacing="1">COORDINATION</text>
+          <text x="330" y="218" font-family="Arial" font-size="10" fill="#BDBDBD" text-anchor="middle" letter-spacing="1">FLYWHEEL</text>
+
+          <!-- ── DOWN ARROWS: left column ───────────────────────────── -->
+          <line x1="156" y1="66" x2="156" y2="100" stroke="#424242" stroke-width="1.5" marker-end="url(#fw-arr)"/>
+          <line x1="156" y1="146" x2="156" y2="180" stroke="#424242" stroke-width="1.5" marker-end="url(#fw-arr)"/>
+          <line x1="156" y1="226" x2="156" y2="260" stroke="#424242" stroke-width="1.5" marker-end="url(#fw-arr)"/>
+
+          <!-- ── BOTTOM CONNECTOR: Better Decisions → Lower Cost ────── -->
+          <path d="M 156 304 L 156 350 L 504 350 L 504 312" fill="none" stroke="#424242" stroke-width="1.5" marker-end="url(#fw-arr)"/>
+
+          <!-- ── UP ARROWS: right column ────────────────────────────── -->
+          <line x1="504" y1="260" x2="504" y2="232" stroke="#424242" stroke-width="1.5" marker-end="url(#fw-arr)"/>
+          <line x1="504" y1="180" x2="504" y2="152" stroke="#424242" stroke-width="1.5" marker-end="url(#fw-arr)"/>
+          <line x1="504" y1="100" x2="504" y2="72" stroke="#424242" stroke-width="1.5" marker-end="url(#fw-arr)"/>
+
+          <!-- ── RETURN: Targeted Infrastructure → Product Movement ─── -->
+          <path d="M 504 28 L 504 12 L 156 12 L 156 100" fill="none" stroke="#E65100" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#fw-ret)"/>
+
+          <!-- Return label -->
+          <text x="330" y="9" font-family="Arial" font-size="9" fill="#E65100" text-anchor="middle" font-style="italic">infrastructure enables better product movement</text>
+        </svg>
+        <div style="font-size:11px;color:#9E9E9E;text-align:center;margin-top:6px;font-style:italic">The flywheel compounds with scale — every transaction makes the next one cheaper, faster, and less wasteful</div>
+      </div>
+
       <div style="display:flex;flex-direction:column;gap:12px">
 
         <div class="ref-card" style="border-left-color:#1B5E20;display:grid;grid-template-columns:1fr 1fr;gap:20px">
           <div>
             <h3 style="color:#1B5E20">01 — Demand Network</h3>
             <div class="ref-sub">Build recurring demand before building assets</div>
-            <p>Develop a base of recurring B2B customers — restaurants, QSRs, hotels, caterers — who need reliable, graded, consistently supplied produce. Retail consumers validate the freshness premium and build the consumer brand.</p>
+            <p>Develop a base of recurring B2B customers — restaurants, QSRs, hotels, caterers — who need reliable, graded, consistently supplied produce. Retail complements B2B by improving inventory utilization, generating consumer demand insights, and accelerating learning around pricing, quality, and purchasing behavior.</p>
           </div>
           <div style="background:#F0FDF4;padding:14px 16px;border-radius:4px;font-size:12px;line-height:1.65">
             <strong style="color:#1B5E20">The thesis:</strong> Demand density lowers unit costs and makes infrastructure investable. No hub gets built without recurring demand that justifies the utilisation. LOIs come after demonstrated reliability, not before.
@@ -1217,7 +1284,7 @@
           <div>
             <h3 style="color:#0D47A1">02 — Trusted Supply Network</h3>
             <div class="ref-sub">Verified farmer relationships and supplier scorecards</div>
-            <p>Build direct relationships with 5–8 farms across key corridors. Grade every lot. Score every supplier. Know which farms deliver quality consistently, which are improving, and which need intervention before a large order is placed.</p>
+            <p>Build direct relationships with an initial network of strategically selected farms across priority corridors. Grade every lot. Score every supplier. Know which farms deliver quality consistently, which are improving, and which need intervention before a large order is placed.</p>
           </div>
           <div style="background:#EFF6FF;padding:14px 16px;border-radius:4px;font-size:12px;line-height:1.65">
             <strong style="color:#0D47A1">The thesis:</strong> The long-term moat is not farmer access alone — it is knowing which suppliers deliver quality reliably. That knowledge is built through volume and data, not through contracts alone.
@@ -1242,7 +1309,7 @@
             <p>Capture operational data on every lot, every route, every transaction, and every spoilage event. Build supplier scorecards, demand forecasting, route optimization, and quality tracking that compound over time.</p>
           </div>
           <div style="background:#F5F3FF;padding:14px 16px;border-radius:4px;font-size:12px;line-height:1.65">
-            <strong style="color:#4A148C">The thesis:</strong> Every kilogram moved makes TRACE smarter. The intelligence layer is the moat — it becomes more valuable with network density and cannot be replicated without operating the same physical network.
+            <strong style="color:#4A148C">The thesis:</strong> Every kilogram moved makes TRACE smarter. The intelligence layer compounds with every transaction. Better data leads to better sourcing, forecasting, routing, pricing, and infrastructure decisions — creating a durable advantage that is difficult to replicate.
           </div>
         </div>
 
@@ -2585,12 +2652,7 @@
     <div class="sp-section">
       <div class="sp-section-title">Decision log — newest entries first</div>
       <div class="plan-container">
-                            <div class="log-row">
-      <div class="log-date">2026-06-15</div>
-      <div class="log-tag">OPPORTUNITY · Full rebuild</div>
-      <div class="log-body">v1.7.0 — Opportunity tab fully rebuilt around coordination-led thesis. Headline: "Food is expensive because coordination is expensive." Brief banner opens with human cost framing — 60% household food spend, 35.4% 2024 food inflation (ScienceDirect 2025). Six coordination-failure cards (fragmented supply, fragmented demand, inefficient movement, waste priced in, human capital at stake, solvable problem). Four evidence stat cards + human capital cascade callout (HCD 0.53/1, 116th of 174 nations, 1 in 12 out-of-school children, 31.5% stunted growth — WDI 2023). Five Strategic Advantages replacing Five Strategic Plays — each with two-column format showing the advantage and the thesis (01 Demand Network, 02 Trusted Supply Network, 03 Efficient Movement, 04 Intelligence Layer, 05 Targeted Infrastructure). Capabilities-not-starting-points section: 6 cards (cold storage, clean energy, traceability, exports, processing, pharma) explicitly positioned as later-phase capabilities. Why Now section: two principle cards + dark green closing banner with the closing line. Decision Gates removed from Opportunity (live in Vision). Sources cited throughout.</div>
-    </div>
-        <div class="log-row">
+                        <div class="log-row">
       <div class="log-date">2026-06-15</div>
       <div class="log-tag">THESIS · All sections</div>
       <div class="log-body">v1.5.0 — Major thesis evolution. Original AgroVault infrastructure-led thesis superseded by TRACE coordination-led thesis. Core reframe: "Better coordination → Better logistics → Less waste → Lower costs → Smarter infrastructure investment." Three-phase model: Phase 0 Discovery (Seasons by TRACE, $70-100K, 0-12 months) → Phase 1 Intelligence Layer (12-24 months, data advantage) → Phase 2 Infrastructure (24-36 months, cold storage only where data justifies). Vision rebuilt with old vs new thesis comparison. Roadmap rebuilt around three-phase model. Economics updated: Phase 0 at $70-100K with full breakdown (rent, fit-out, cool room, 2 vans, inventory, WC). Cold storage repositioned as Phase 2 response to observed bottlenecks, not Phase 0 assumption. Opportunity reframed as food movement problem. Phase 1 capital TBD pending Phase 0 data.</div>
