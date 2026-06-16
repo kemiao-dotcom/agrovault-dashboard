@@ -7,10 +7,10 @@
 
 
 <!-- DASHBOARD_META
-  version: 1.7.1
+  version: 1.8.0
   last_updated: 2026-06-15
   updated_by: Claude (Kemi session)
-  change: v1.7.1 — Opportunity tab refinements: retail framing fixed (inventory utilization not freshness premium), farm specificity softened, Intelligence thesis strengthened (better decisions), coordination flywheel SVG added.
+  change: v1.8.0 — Business Model tab: Economics & Capital + Financial Model merged into one section. Quarterly P&L (Q1-Q4 Year 1 + Q5-Q8 Year 2 directional), both currencies, Phase 0 capital breakdown, Phase 1 A+B+C model, Phase 2 hub reference, capital structure by phase. Financial section removed from nav and HTML.
   sections_count: 9
   live_url: https://kemiao-dotcom.github.io/agrovault-dashboard
 -->
@@ -1430,12 +1430,13 @@
 
   <div class="section-header">
     <div>
-      <div class="section-tag">03 — Economics & Capital</div>
-      <h1 class="section-title">Start lean.<br>Build on evidence.</h1>
-      <p class="section-subtitle">Phase 0 is bootstrappable. Phase 2 infrastructure is earned through data — not assumed into a model.</p>
+      <div class="section-tag">03 — Business Model</div>
+      <h1 class="section-title">Simple at Phase 0.<br>Compounding through Phase 1 and 2.</h1>
+      <p class="section-subtitle">TRACE earns through direct food sales and distribution. The model scales by expanding the network, deepening the intelligence layer, and deploying infrastructure only where data confirms the ROI.</p>
     </div>
     <div class="section-meta">
       Updated: 2026-06-15<br>
+      Exchange rate: ₦1,600/$<br>
       Status: <span class="tag tag-core">Core</span>
     </div>
   </div>
@@ -1443,115 +1444,328 @@
   <div class="sp-wrap">
 
     <div class="brief-banner">
-      <strong>The old thesis required $6M before generating evidence.</strong> The new thesis generates evidence first — at $70–100K — and deploys infrastructure capital only where that evidence points. Phase 0 is lean by design. Phase 2 infrastructure is funded by a track record, not a pitch deck.
+      <strong>The old model required $6M of infrastructure before generating a dollar of evidence.</strong> The new model generates evidence first — at $70–100K — through Seasons by TRACE. Phase 1 scales what works: more routes, more B2B accounts, a second node, and the early intelligence layer. Infrastructure capital comes in Phase 2, backed by two years of operating data.
     </div>
 
+    <!-- ── REVENUE STREAMS OVERVIEW ─────────────────────────────────── -->
     <div class="sp-section">
-      <div class="sp-section-title">Capital by phase</div>
-      <div class="ref-grid">
-        <div class="ref-card" style="border-left-color:#E65100">
-          <h3 style="color:#E65100">Phase 0 — Seasons by TRACE</h3>
-          <div class="ref-sub">0–12 months · bootstrappable · no DFI</div>
-          <div style="font-size:36px;font-weight:700;color:#E65100;line-height:1;margin:12px 0">$70–100K</div>
-          <p>Retail node in Lekki. Prove the coordination thesis. Generate the operational data that justifies everything that follows.</p>
-          <div class="borrow"><strong style="color:#E65100">Gate:</strong> Operating breakeven · 10+ B2B accounts · demand hotspots clear</div>
+      <div class="sp-section-title">Revenue streams by phase</div>
+      <div class="phase-row">
+        <div class="phase-col">
+          <div class="phase-head" style="background:#F0FDF4;border-bottom-color:#BBF7D0">
+            <div class="phase-tag">Phase 0 · 0–12 months</div>
+            <div class="phase-name">Seasons by TRACE</div>
+            <div class="phase-sub">₦75–90M Year 1 · $47–56K</div>
+          </div>
+          <div class="phase-body">
+            <div class="phase-sub-head">Revenue streams</div>
+            <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div><strong>B2B wholesale</strong> — restaurants, QSRs, hotels, caterers. Recurring weekly orders. Target 13 accounts by Month 12.</div></div>
+            <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div><strong>Consumer retail</strong> — 500+ customers at Seasons node. Accessible pricing, high inventory turns.</div></div>
+            <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div><strong>Frozen B2B (Grade C)</strong> — juice bars and smoothie shops. Activates Month 3–4 as cascade matures.</div></div>
+          </div>
+          <div class="phase-gate"><strong>Capital:</strong> $70–100K · ₦112–160M · bootstrapped / angel</div>
         </div>
-        <div class="ref-card" style="border-left-color:#0D47A1">
-          <h3 style="color:#0D47A1">Phase 1 — Intelligence Layer</h3>
-          <div class="ref-sub">12–24 months · angel or early institutional</div>
-          <div style="font-size:36px;font-weight:700;color:#0D47A1;line-height:1;margin:12px 0">TBD</div>
-          <p>Scale the network, deepen the data layer. Supplier scorecards, route optimization, demand forecasting, quality tracking. Capital requirement sized once Phase 0 identifies the priority bottlenecks.</p>
-          <div class="borrow"><strong style="color:#0D47A1">Gate:</strong> Infrastructure ROI identified from data · institutional LOI in hand</div>
+        <div class="phase-col">
+          <div class="phase-head" style="background:#EFF6FF;border-bottom-color:#BFDBFE">
+            <div class="phase-tag">Phase 1 · 12–24 months</div>
+            <div class="phase-name">Scale the Network</div>
+            <div class="phase-sub">₦180–220M Year 2 · $113–138K</div>
+          </div>
+          <div class="phase-body">
+            <div class="phase-sub-head">Revenue streams</div>
+            <div class="phase-item"><div class="phase-dot" style="background:#0D47A1"></div><div><strong>Expanded B2B routes</strong> — Node 1 B2B grows to 20+ accounts. New van routes as density justifies.</div></div>
+            <div class="phase-item"><div class="phase-dot" style="background:#0D47A1"></div><div><strong>Second Seasons node</strong> — opens Month 15–18 once Phase 0 demand data identifies location. Same model, proven playbook.</div></div>
+            <div class="phase-item"><div class="phase-dot" style="background:#0D47A1"></div><div><strong>Intelligence (early)</strong> — supplier scorecards, basic route data. Starts trickling. Not the primary revenue line yet.</div></div>
+          </div>
+          <div class="phase-gate"><strong>Capital:</strong> TBD · sized from Phase 0 bottleneck data · angel or early institutional</div>
         </div>
-        <div class="ref-card" style="border-left-color:#1B5E20">
-          <h3 style="color:#1B5E20">Phase 2 — Infrastructure</h3>
-          <div class="ref-sub">24–36 months · DFI concessional · green debt</div>
-          <div style="font-size:36px;font-weight:700;color:#1B5E20;line-height:1;margin:12px 0">Data-led</div>
-          <p>Cold storage hubs, aggregation centres, cross-docking facilities, processing capabilities. Built only where Phase 0 and Phase 1 data shows measurable ROI. DFI capital is appropriate here — not before.</p>
-          <div class="borrow"><strong style="color:#1B5E20">Gate:</strong> 2 years of operating data · track record · institutional buyers committed</div>
+        <div class="phase-col">
+          <div class="phase-head" style="background:#F5F3FF;border-bottom-color:#DDD6FE">
+            <div class="phase-tag">Phase 2 · 24–36 months</div>
+            <div class="phase-name">Infrastructure</div>
+            <div class="phase-sub">~$1.5–2.2M hub revenue at scale</div>
+          </div>
+          <div class="phase-body">
+            <div class="phase-sub-head">Revenue streams</div>
+            <div class="phase-item"><div class="phase-dot" style="background:#4A148C"></div><div><strong>Cold storage SLAs</strong> — institutional B2B and export clients on pallet-based contracts.</div></div>
+            <div class="phase-item"><div class="phase-dot" style="background:#4A148C"></div><div><strong>Processing services</strong> — grading, packing, blast-freeze at hub scale.</div></div>
+            <div class="phase-item"><div class="phase-dot" style="background:#4A148C"></div><div><strong>Intelligence platform</strong> — route optimisation, demand forecasting, supplier data — for third-party buyers and farmers.</div></div>
+            <div class="phase-item"><div class="phase-dot" style="background:#4A148C"></div><div><strong>Export gateway</strong> — USD-denominated. Activates when domestic grading discipline is proven.</div></div>
+          </div>
+          <div class="phase-gate"><strong>Capital:</strong> ~$5–6M · DFI concessional + green debt · backed by 2yr operating track record</div>
         </div>
       </div>
     </div>
 
+    <!-- ── PHASE 0 CAPITAL ───────────────────────────────────────────── -->
     <div class="sp-section">
-      <div class="sp-section-title">Phase 0 — Seasons by TRACE cost breakdown</div>
+      <div class="sp-section-title">Phase 0 — startup capital · Seasons by TRACE</div>
       <div class="plan-container">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
           <div style="padding-right:24px;border-right:1px solid #E0E0E0">
-            <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#E65100;margin-bottom:12px">Fixed costs</div>
-            <div class="capex-row"><div><div class="capex-label">Rent — Freedom Way, Lekki</div><div class="capex-detail">~40% of total · 1–2 years upfront typical · prime commercial location</div></div><div class="capex-val" style="color:#E65100">$28–40K</div></div>
-            <div class="capex-row"><div><div class="capex-label">Store fit-out</div><div class="capex-detail">Display shelving, crates, lighting, signage · clean and operational</div></div><div class="capex-val">$8–12K</div></div>
-            <div class="capex-row"><div><div class="capex-label">Cool room (200 sqft, +8–12°C)</div><div class="capex-detail">Prefab panel build · leafy veg, herbs, tomatoes, peppers</div></div><div class="capex-val">$6–9K</div></div>
-            <div class="capex-row"><div><div class="capex-label">2–3 reach-in display units</div><div class="capex-detail">Retail floor · avocado, premium herbs, leafy display</div></div><div class="capex-val">$3–5K</div></div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#1B5E20;margin-bottom:12px">Fixed investment</div>
+            <div class="capex-row"><div><div class="capex-label">Rent — Freedom Way, Lekki</div><div class="capex-detail">~40% of total · 1–2 years upfront · prime commercial</div></div><div class="capex-val" style="color:#1B5E20">$28–40K<br><span style="font-size:10px;color:#9E9E9E">₦45–64M</span></div></div>
+            <div class="capex-row"><div><div class="capex-label">Store fit-out</div><div class="capex-detail">Display, shelving, crates, lighting, signage</div></div><div class="capex-val">$8–12K<br><span style="font-size:10px;color:#9E9E9E">₦13–19M</span></div></div>
+            <div class="capex-row"><div><div class="capex-label">Cool room (200 sqft, +8–12°C)</div><div class="capex-detail">Prefab panel build with refrigeration unit</div></div><div class="capex-val">$6–9K<br><span style="font-size:10px;color:#9E9E9E">₦10–14M</span></div></div>
+            <div class="capex-row"><div><div class="capex-label">2–3 reach-in display units</div><div class="capex-detail">Retail cold display — avocado, leafy, herbs</div></div><div class="capex-val">$3–5K<br><span style="font-size:10px;color:#9E9E9E">₦5–8M</span></div></div>
           </div>
           <div style="padding-left:24px">
-            <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#1B5E20;margin-bottom:12px">Fleet & working capital</div>
-            <div class="capex-row"><div><div class="capex-label">2 refrigerated vans</div><div class="capex-detail">1 CNG (in-city B2B delivery) + 1 petrol/diesel (farm collection corridors) · refrigeration unit included</div></div><div class="capex-val" style="color:#1B5E20">$18–28K</div></div>
-            <div class="capex-row"><div><div class="capex-label">Opening inventory</div><div class="capex-detail">First 2–3 weeks across 35 SKUs from 5 farm corridors</div></div><div class="capex-val">$3–5K</div></div>
-            <div class="capex-row"><div><div class="capex-label">Working capital (3 months)</div><div class="capex-detail">4–5 staff, fuel, utilities, operations before B2B revenue stabilises</div></div><div class="capex-val">$6–10K</div></div>
-            <div class="capex-row"><div><div class="capex-label">Contingency</div><div class="capex-detail">Nigeria always adds time and cost</div></div><div class="capex-val">$4–6K</div></div>
-            <div class="capex-row" style="border-top:2px solid #1B5E20;margin-top:8px;padding-top:14px"><div><div class="capex-label" style="font-size:14px;color:#1B5E20">Phase 0 Total</div></div><div class="capex-val" style="color:#1B5E20;font-size:18px">$70–100K</div></div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0D47A1;margin-bottom:12px">Fleet &amp; working capital</div>
+            <div class="capex-row"><div><div class="capex-label">2 refrigerated vans</div><div class="capex-detail">1 CNG (city B2B) + 1 petrol/diesel (farm runs)</div></div><div class="capex-val" style="color:#0D47A1">$18–28K<br><span style="font-size:10px;color:#9E9E9E">₦29–45M</span></div></div>
+            <div class="capex-row"><div><div class="capex-label">Opening inventory</div><div class="capex-detail">First 2–3 weeks · 35 SKUs · 5 corridors</div></div><div class="capex-val">$3–5K<br><span style="font-size:10px;color:#9E9E9E">₦5–8M</span></div></div>
+            <div class="capex-row"><div><div class="capex-label">Working capital (3 months)</div><div class="capex-detail">Staff, fuel, utilities before B2B stabilises</div></div><div class="capex-val">$6–10K<br><span style="font-size:10px;color:#9E9E9E">₦10–16M</span></div></div>
+            <div class="capex-row"><div><div class="capex-label">Contingency</div><div class="capex-detail">Nigeria always adds time and cost</div></div><div class="capex-val">$4–6K<br><span style="font-size:10px;color:#9E9E9E">₦6–10M</span></div></div>
+            <div class="capex-row" style="border-top:2px solid #1B5E20;margin-top:8px;padding-top:14px">
+              <div><div class="capex-label" style="font-size:14px;color:#1B5E20;font-weight:700">Total Phase 0</div></div>
+              <div class="capex-val" style="color:#1B5E20;font-size:16px;font-weight:700">$70–100K<br><span style="font-size:11px;color:#9E9E9E">₦112–160M</span></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- ── PHASE 0 P&L ───────────────────────────────────────────────── -->
     <div class="sp-section">
-      <div class="sp-section-title">Vehicle notes — CNG considerations</div>
-      <div class="principles-grid">
-        <div class="principle-card" style="border-top-color:#1B5E20">
-          <h3 style="color:#1B5E20">Van 1 — CNG · in-city B2B deliveries</h3>
-          <ul>
-            <li>Short runs within Lekki, Victoria Island, Oniru — CNG fueling accessible</li>
-            <li>Lower running cost vs petrol — meaningful for daily delivery routes</li>
-            <li>Fits the low-emissions positioning of Seasons by TRACE</li>
-            <li>Toyota Hiace CNG or equivalent with refrigeration retrofit</li>
-          </ul>
+      <div class="sp-section-title">Phase 0 P&amp;L — quarterly snapshots · Year 1</div>
+      <div class="plan-container" style="overflow-x:auto">
+        <div style="font-size:11px;color:#9E9E9E;margin-bottom:12px;font-style:italic">Key assumptions: ₦120K/week avg B2B account spend · ₦2,000 avg retail basket · 40 daily transactions at maturity · ₦1,600/$ · COGS declining 60%→55% as grading channels activate. All figures directional — update from operating data monthly.</div>
+        <table class="sp-table" style="min-width:640px">
+          <thead>
+            <tr>
+              <th style="min-width:170px">₦ millions / $ thousands</th>
+              <th style="text-align:right;min-width:110px">Q1<br><span style="font-weight:400;font-size:10px">Months 1–3</span></th>
+              <th style="text-align:right;min-width:110px">Q2<br><span style="font-weight:400;font-size:10px">Months 4–6</span></th>
+              <th style="text-align:right;min-width:110px">Q3<br><span style="font-weight:400;font-size:10px">Months 7–9</span></th>
+              <th style="text-align:right;min-width:110px">Q4<br><span style="font-weight:400;font-size:10px">Months 10–12</span></th>
+              <th style="text-align:right;min-width:110px;background:#F0FDF4">Year 1<br><span style="font-weight:400;font-size:10px">Total</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:#FAFAFA"><td colspan="6" style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#1B5E20;padding:8px 12px">Revenue</td></tr>
+            <tr>
+              <td>B2B wholesale<br><span style="font-size:10px;color:#9E9E9E">3 → 7 → 11 → 13 accounts</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦4.3M<br><span style="font-size:10px;color:#9E9E9E">$2.7K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦10.1M<br><span style="font-size:10px;color:#9E9E9E">$6.3K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦15.8M<br><span style="font-size:10px;color:#9E9E9E">$9.9K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦18.7M<br><span style="font-size:10px;color:#9E9E9E">$11.7K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;background:#F0FDF4;font-weight:600">₦48.9M<br><span style="font-size:10px;color:#9E9E9E">$30.6K</span></td>
+            </tr>
+            <tr>
+              <td>Consumer retail<br><span style="font-size:10px;color:#9E9E9E">20 → 35 → 45 → 55 transactions/day</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦3.1M<br><span style="font-size:10px;color:#9E9E9E">$1.9K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦5.5M<br><span style="font-size:10px;color:#9E9E9E">$3.4K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦7.0M<br><span style="font-size:10px;color:#9E9E9E">$4.4K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦8.6M<br><span style="font-size:10px;color:#9E9E9E">$5.4K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;background:#F0FDF4;font-weight:600">₦24.2M<br><span style="font-size:10px;color:#9E9E9E">$15.1K</span></td>
+            </tr>
+            <tr>
+              <td>Frozen B2B — Grade C<br><span style="font-size:10px;color:#9E9E9E">Activates Month 4</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;color:#BDBDBD">—</td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦400K<br><span style="font-size:10px;color:#9E9E9E">$250</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦600K<br><span style="font-size:10px;color:#9E9E9E">$375</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦600K<br><span style="font-size:10px;color:#9E9E9E">$375</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;background:#F0FDF4;font-weight:600">₦1.6M<br><span style="font-size:10px;color:#9E9E9E">$1.0K</span></td>
+            </tr>
+            <tr style="border-top:2px solid #1B5E20">
+              <td style="font-weight:700;color:#1B5E20">Total Revenue</td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:700;color:#1B5E20">₦7.4M<br><span style="font-size:10px;color:#9E9E9E">$4.6K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:700;color:#1B5E20">₦16.0M<br><span style="font-size:10px;color:#9E9E9E">$10.0K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:700;color:#1B5E20">₦23.4M<br><span style="font-size:10px;color:#9E9E9E">$14.6K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:700;color:#1B5E20">₦27.9M<br><span style="font-size:10px;color:#9E9E9E">$17.4K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:700;color:#1B5E20;background:#F0FDF4">₦74.7M<br><span style="font-size:10px;color:#9E9E9E">$46.7K</span></td>
+            </tr>
+            <tr style="background:#FAFAFA"><td colspan="6" style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#A32D2D;padding:8px 12px">Costs</td></tr>
+            <tr>
+              <td>COGS<br><span style="font-size:10px;color:#9E9E9E">60% → 58% → 57% → 55%</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;color:#A32D2D">₦4.4M<br><span style="font-size:10px;color:#9E9E9E">60%</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;color:#A32D2D">₦9.3M<br><span style="font-size:10px;color:#9E9E9E">58%</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;color:#A32D2D">₦13.3M<br><span style="font-size:10px;color:#9E9E9E">57%</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;color:#A32D2D">₦15.3M<br><span style="font-size:10px;color:#9E9E9E">55%</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;color:#A32D2D;background:#F0FDF4">₦42.3M</td>
+            </tr>
+            <tr style="border-top:1px solid #E0E0E0">
+              <td style="font-weight:600">Gross Profit</td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:600">₦3.0M<br><span style="font-size:10px;color:#9E9E9E">40% GM</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:600">₦6.7M<br><span style="font-size:10px;color:#9E9E9E">42% GM</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:600">₦10.1M<br><span style="font-size:10px;color:#9E9E9E">43% GM</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:600">₦12.6M<br><span style="font-size:10px;color:#9E9E9E">45% GM</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:600;background:#F0FDF4">₦32.4M<br><span style="font-size:10px;color:#9E9E9E">43% blended</span></td>
+            </tr>
+            <tr>
+              <td>Fixed costs<br><span style="font-size:10px;color:#9E9E9E">Staff · rent amortized · fuel · utilities</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;color:#A32D2D">₦5.1M<br><span style="font-size:10px;color:#9E9E9E">$3.2K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;color:#A32D2D">₦5.3M<br><span style="font-size:10px;color:#9E9E9E">$3.3K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;color:#A32D2D">₦5.5M<br><span style="font-size:10px;color:#9E9E9E">$3.4K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;color:#A32D2D">₦5.7M<br><span style="font-size:10px;color:#9E9E9E">$3.6K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;color:#A32D2D;background:#F0FDF4">₦21.6M<br><span style="font-size:10px;color:#9E9E9E">$13.5K</span></td>
+            </tr>
+            <tr style="border-top:2px solid #424242">
+              <td style="font-weight:700">EBITDA</td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:700;color:#A32D2D">-₦2.1M<br><span style="font-size:10px">-$1.3K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:700;color:#1B5E20">+₦1.4M<br><span style="font-size:10px">+$875</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:700;color:#1B5E20">+₦4.6M<br><span style="font-size:10px">+$2.9K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:700;color:#1B5E20">+₦6.9M<br><span style="font-size:10px">+$4.3K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:700;color:#1B5E20;background:#F0FDF4">+₦10.8M<br><span style="font-size:10px">+$6.75K</span></td>
+            </tr>
+            <tr>
+              <td style="font-size:11px;color:#9E9E9E">EBITDA margin</td>
+              <td style="text-align:right;font-size:11px;color:#A32D2D">-28%</td>
+              <td style="text-align:right;font-size:11px;color:#1B5E20">+9%</td>
+              <td style="text-align:right;font-size:11px;color:#1B5E20">+20%</td>
+              <td style="text-align:right;font-size:11px;color:#1B5E20">+25%</td>
+              <td style="text-align:right;font-size:11px;color:#1B5E20;background:#F0FDF4">+14% blended</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px">
+        <div style="padding:12px 14px;background:#FDF0F0;border-radius:4px;border-left:3px solid #A32D2D">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#A32D2D;margin-bottom:6px">Q1 — launch mode</div>
+          <div style="font-size:12px;color:#5C1A1A;line-height:1.6">Expected to be in the red. 3 B2B accounts ramping. Working capital covers the gap. This is the cost of learning before scaling.</div>
         </div>
-        <div class="principle-card" style="border-top-color:#E65100">
-          <h3 style="color:#E65100">Van 2 — Petrol/diesel · farm collection corridors</h3>
-          <ul>
-            <li>Farm runs to Ogun (3×/week), Oyo (2×/week), Ekiti (weekly) — CNG fueling not guaranteed en route</li>
-            <li>Reliability on rural roads is more important than fuel type at this stage</li>
-            <li>Convert to CNG when CNG infrastructure along Sagamu–Ore and Lagos–Ibadan corridors is confirmed</li>
-            <li>Refrigeration unit sized for farm collection volumes (3.5–5 tonne capacity)</li>
-          </ul>
+        <div style="padding:12px 14px;background:#F0FDF4;border-radius:4px;border-left:3px solid #1B5E20">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#1B5E20;margin-bottom:6px">Q2 — breakeven achieved</div>
+          <div style="font-size:12px;color:#1A3A1A;line-height:1.6">B2B reaches 7 accounts. Frozen B2B activates. Node turns EBITDA positive. Gate condition for Phase 1 planning begins.</div>
+        </div>
+        <div style="padding:12px 14px;background:#EFF6FF;border-radius:4px;border-left:3px solid #0D47A1">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0D47A1;margin-bottom:6px">Q4 — Phase 1 gate</div>
+          <div style="font-size:12px;color:#0A1A3A;line-height:1.6">Node at 25% EBITDA margin. 13 B2B accounts. Run-rate ₦2.3M/month EBITDA. Phase 1 capital conversation can begin.</div>
         </div>
       </div>
     </div>
 
+    <!-- ── PHASE 1 DIRECTIONAL ───────────────────────────────────────── -->
     <div class="sp-section">
-      <div class="sp-section-title">Capital structure — by phase</div>
-      <div class="principles-grid">
-        <div class="principle-card" style="border-top-color:#E65100">
-          <h3 style="color:#E65100">Phase 0 — $70–100K</h3>
-          <ul>
-            <li><strong>Founder / personal capital</strong> — bootstrappable at this scale</li>
-            <li><strong>Angel investors</strong> — 1–2 individuals who understand Nigerian food systems</li>
-            <li><strong>No DFI, no institutional capital</strong> — too early, wrong stage</li>
-            <li>The goal is to generate the evidence that makes Phase 2 fundable</li>
-          </ul>
+      <div class="sp-section-title">Phase 1 — directional · Year 2 (12–24 months)</div>
+      <div class="plan-container">
+        <div style="font-size:11px;color:#9E9E9E;margin-bottom:14px;font-style:italic">Directional only. Phase 1 revenue model confirmed by Phase 0 data. Capital sized once bottlenecks are identified. All figures estimated.</div>
+        <div style="overflow-x:auto">
+        <table class="sp-table" style="min-width:640px">
+          <thead>
+            <tr>
+              <th style="min-width:170px">₦ millions / $ thousands</th>
+              <th style="text-align:right;min-width:110px">Q5<br><span style="font-weight:400;font-size:10px">Months 13–15</span></th>
+              <th style="text-align:right;min-width:110px">Q6<br><span style="font-weight:400;font-size:10px">Months 16–18</span></th>
+              <th style="text-align:right;min-width:110px">Q7<br><span style="font-weight:400;font-size:10px">Months 19–21</span></th>
+              <th style="text-align:right;min-width:110px">Q8<br><span style="font-weight:400;font-size:10px">Months 22–24</span></th>
+              <th style="text-align:right;min-width:110px;background:#EFF6FF">Year 2<br><span style="font-weight:400;font-size:10px">Total</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Node 1 — expanded B2B + retail<br><span style="font-size:10px;color:#9E9E9E">20+ B2B accounts · more routes</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦34M<br><span style="font-size:10px;color:#9E9E9E">$21.3K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦36M<br><span style="font-size:10px;color:#9E9E9E">$22.5K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦38M<br><span style="font-size:10px;color:#9E9E9E">$23.8K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦40M<br><span style="font-size:10px;color:#9E9E9E">$25.0K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;background:#EFF6FF;font-weight:600">₦148M<br><span style="font-size:10px;color:#9E9E9E">$92.5K</span></td>
+            </tr>
+            <tr>
+              <td>Node 2 — second Seasons node<br><span style="font-size:10px;color:#9E9E9E">Opens Month 16–18 · same playbook</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;color:#BDBDBD">—</td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦3M<br><span style="font-size:10px;color:#9E9E9E">$1.9K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦12M<br><span style="font-size:10px;color:#9E9E9E">$7.5K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦20M<br><span style="font-size:10px;color:#9E9E9E">$12.5K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;background:#EFF6FF;font-weight:600">₦35M<br><span style="font-size:10px;color:#9E9E9E">$21.9K</span></td>
+            </tr>
+            <tr>
+              <td>Intelligence (trickling)<br><span style="font-size:10px;color:#9E9E9E">Scorecards · early data services</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;color:#BDBDBD">—</td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦300K<br><span style="font-size:10px;color:#9E9E9E">$188</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦500K<br><span style="font-size:10px;color:#9E9E9E">$313</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace">₦800K<br><span style="font-size:10px;color:#9E9E9E">$500</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;background:#EFF6FF;font-weight:600">₦1.6M<br><span style="font-size:10px;color:#9E9E9E">$1.0K</span></td>
+            </tr>
+            <tr style="border-top:2px solid #0D47A1">
+              <td style="font-weight:700;color:#0D47A1">Total Revenue</td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:700;color:#0D47A1">₦34M<br><span style="font-size:10px;color:#9E9E9E">$21.3K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:700;color:#0D47A1">₦39.3M<br><span style="font-size:10px;color:#9E9E9E">$24.6K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:700;color:#0D47A1">₦50.5M<br><span style="font-size:10px;color:#9E9E9E">$31.6K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:700;color:#0D47A1">₦60.8M<br><span style="font-size:10px;color:#9E9E9E">$38.0K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:700;color:#0D47A1;background:#EFF6FF">₦184.6M<br><span style="font-size:10px;color:#9E9E9E">$115.4K</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight:600">Directional EBITDA</td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:600;color:#1B5E20">~₦11M<br><span style="font-size:10px;color:#9E9E9E">~$6.9K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:600;color:#E65100">~₦9M<br><span style="font-size:10px;color:#9E9E9E">~$5.6K ↓ Node 2 opens</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:600;color:#1B5E20">~₦16M<br><span style="font-size:10px;color:#9E9E9E">~$10.0K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:600;color:#1B5E20">~₦21M<br><span style="font-size:10px;color:#9E9E9E">~$13.1K</span></td>
+              <td style="text-align:right;font-family:'Courier New',monospace;font-weight:600;color:#1B5E20;background:#EFF6FF">~₦57M<br><span style="font-size:10px;color:#9E9E9E">~$35.6K</span></td>
+            </tr>
+          </tbody>
+        </table>
         </div>
-        <div class="principle-card" style="border-top-color:#1B5E20">
-          <h3 style="color:#1B5E20">Phase 2 — Infrastructure (24–36 months)</h3>
-          <ul>
-            <li><strong>DFI concessional</strong> — IFC, BII, All On · appropriate with track record</li>
-            <li><strong>Green debt</strong> — solar-first design qualifies for climate finance</li>
-            <li><strong>Grant / climate co-finance</strong> — food waste reduction, farmer income impact</li>
-            <li>Sized to specific infrastructure identified from data — not a fixed $6M assumption</li>
-          </ul>
+        <div style="margin-top:12px;padding:12px 16px;background:#EFF6FF;border-radius:4px;border-left:3px solid #0D47A1;font-size:12px;color:#0A1A3A;line-height:1.65">
+          <strong style="color:#0D47A1">Note on Q6 EBITDA dip:</strong> Node 2 opens in Q6 with its own startup costs (rent deposit, fit-out, initial inventory) which compress the overall EBITDA temporarily. By Q7 Node 2 is ramping and the combined model returns to growth. This is the expected pattern — it mirrors the Phase 0 ramp.
         </div>
+      </div>
+    </div>
+
+    <!-- ── PHASE 2 REFERENCE ─────────────────────────────────────────── -->
+    <div class="sp-section">
+      <div class="sp-section-title">Phase 2 — infrastructure reference · 24–36 months</div>
+      <div class="stat-grid">
+        <div class="stat-card" style="border-left-color:#4A148C">
+          <div class="l">Infrastructure capital</div>
+          <div class="n" style="color:#4A148C">~$5–6M</div>
+          <div class="s">Cold storage hub · solar · processing · DFI concessional debt + green finance. Sized from Phase 0–1 demand data, not assumed.</div>
+        </div>
+        <div class="stat-card" style="border-left-color:#1B5E20">
+          <div class="l">Hub revenue at 45% utilisation</div>
+          <div class="n" style="color:#1B5E20">~$1.5M/yr</div>
+          <div class="s">Cold storage SLAs · processing services · Seasons nodes as anchor tenants. Grows to $2.2M/yr at 65% utilisation.</div>
+        </div>
+        <div class="stat-card" style="border-left-color:#0D47A1">
+          <div class="l">DFI capital rationale</div>
+          <div class="n" style="color:#0D47A1">Month 24+</div>
+          <div class="s">By Month 24: 2 years operating data, proven demand network, B2B clients able to commit minimum volumes. The DFI investment committee conversation that can be had with evidence.</div>
+        </div>
+        <div class="stat-card" style="border-left-color:#E65100">
+          <div class="l">Solar energy advantage</div>
+          <div class="n" style="color:#E65100">750kW PV</div>
+          <div class="s">Zero marginal energy cost at hub scale. Structural FX hedge — when naira weakens, hub operating cost does not rise. Nigeria's solar advantage is quantifiable.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CAPITAL STRUCTURE ─────────────────────────────────────────── -->
+    <div class="sp-section">
+      <div class="sp-section-title">Capital structure — who funds what</div>
+      <div class="plan-container" style="overflow-x:auto">
+        <table class="sp-table">
+          <thead><tr><th style="min-width:120px">Phase</th><th style="min-width:120px">Amount</th><th>Source</th><th>Rationale</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Phase 0</strong><br><span style="font-size:10px;color:#9E9E9E">0–12 months</span></td>
+              <td style="font-family:'Courier New',monospace;font-weight:700;color:#1B5E20">$70–100K<br>₦112–160M</td>
+              <td>Founder capital · angel investors · F&amp;F round</td>
+              <td>Bootstrappable. No DFI or institutional capital appropriate at pre-evidence stage. 1–2 angel investors who understand Nigerian food systems.</td>
+            </tr>
+            <tr>
+              <td><strong>Phase 1</strong><br><span style="font-size:10px;color:#9E9E9E">12–24 months</span></td>
+              <td style="font-family:'Courier New',monospace;font-weight:700;color:#0D47A1">TBD<br>Data-sized</td>
+              <td>Retained earnings from Phase 0 · angel follow-on · early institutional</td>
+              <td>Capital sized once Phase 0 identifies the priority bottlenecks. Less capital-intensive than infrastructure — second node + logistics scaling is operationally achievable.</td>
+            </tr>
+            <tr>
+              <td><strong>Phase 2</strong><br><span style="font-size:10px;color:#9E9E9E">24–36 months</span></td>
+              <td style="font-family:'Courier New',monospace;font-weight:700;color:#4A148C">~$5–6M</td>
+              <td>IFC · BII · All On · Proparco · green debt instruments</td>
+              <td>DFI capital appropriate here. 2 years of operating data, verified demand, proven unit economics, anchor B2B clients on minimum volume commitments. Solar-first design qualifies for climate finance co-investment.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
     <div class="disclaimer">
-      <strong>⚠ Phase 1 capital TBD.</strong> The Phase 1 intelligence layer capital requirement will be sized once Phase 0 identifies the priority bottlenecks. Building software and scaling logistics is less capital-intensive than building cold storage — the exact number depends on what Phase 0 data shows needs solving first.
+      <strong>⚠ All Phase 0 figures are directional assumptions.</strong> Key inputs: ₦120K/week avg B2B account spend · ₦2,000 avg retail basket · 40 daily transactions at maturity · ₦1,600/$ exchange rate · COGS declining 60%→55% as grading channels activate. Update from Seasons by TRACE operating data from Month 1. Phase 1 and Phase 2 figures are indicative only — confirm from Phase 0 evidence before committing capital.
     </div>
 
   </div>
 
   <div class="section-footer">
-    <span class="update-badge">⚠ Phase 2 infrastructure capital sized from data — not assumed</span>
+    <span class="update-badge">⚠ Update Phase 0 figures monthly from Seasons operating data</span>
     <span class="conf-footer">TRACE · Confidential · Not for distribution</span>
   </div>
 
@@ -1815,217 +2029,6 @@
 
 
 <!-- ============================================================ -->
-<!-- SECTION:financial -->
-<div class="section-panel" id="section-financial">
-
-  <div class="section-header">
-    <div>
-      <div class="section-tag">04 — Financial Model</div>
-      <h1 class="section-title">Prove unit economics first.<br>Then invest in infrastructure.</h1>
-      <p class="section-subtitle">Phase 0 is designed to reach operating breakeven before committing infrastructure capital. The numbers below are directional — Phase 0 data will sharpen them.</p>
-    </div>
-    <div class="section-meta">
-      Updated: 2026-06-15<br>
-      Status: <span class="tag tag-live">Live</span>
-    </div>
-  </div>
-
-  <div class="sp-wrap">
-
-    <div class="brief-banner">
-      <strong>The old financial model assumed hub revenue from Year 1. That model is superseded.</strong> The new model starts with the unit economics of Seasons by TRACE — a retail node that must cover its own costs before Phase 2 infrastructure is funded. What matters now is: does the node reach breakeven, does B2B become the engine, and does the data justify the next capital commitment?
-    </div>
-
-    <div class="sp-section">
-      <div class="sp-section-title">Phase 0 unit economics — Seasons by TRACE node</div>
-      <div class="plan-container">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
-          <div style="padding-right:24px;border-right:1px solid #E0E0E0">
-            <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#1B5E20;margin-bottom:12px">Revenue model</div>
-            <div class="capex-row">
-              <div><div class="capex-label">Consumer retail</div><div class="capex-detail">~40 transactions/day · ₦2,000 avg basket · 26 operating days/month</div></div>
-              <div class="capex-val" style="color:#1B5E20">₦2.1M/mo</div>
-            </div>
-            <div class="capex-row">
-              <div><div class="capex-label">B2B accounts (target 10)</div><div class="capex-detail">Avg ₦120K/week per account · restaurants, QSRs, hotels</div></div>
-              <div class="capex-val" style="color:#1B5E20">₦4.8M/mo</div>
-            </div>
-            <div class="capex-row">
-              <div><div class="capex-label">Frozen B2B (Grade C channel)</div><div class="capex-detail">Juice bars, smoothie shops · activates Month 3–4</div></div>
-              <div class="capex-val" style="color:#1B5E20">₦200K/mo</div>
-            </div>
-            <div class="capex-row" style="border-top:2px solid #1B5E20;margin-top:8px;padding-top:10px">
-              <div><div class="capex-label" style="font-size:13px">Monthly revenue (target Month 6)</div></div>
-              <div class="capex-val" style="color:#1B5E20;font-size:16px">₦7.1M</div>
-            </div>
-            <div style="font-size:11px;color:#757575;margin-top:8px;font-style:italic">~$4,440/month at ₦1,600/$<br>Revenue split target: 40% retail / 60% B2B</div>
-          </div>
-          <div style="padding-left:24px">
-            <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#A32D2D;margin-bottom:12px">Cost structure</div>
-            <div class="capex-row">
-              <div><div class="capex-label">COGS (produce, packaging)</div><div class="capex-detail">~58% of revenue — improves with grade recovery</div></div>
-              <div class="capex-val" style="color:#A32D2D">₦4.1M/mo</div>
-            </div>
-            <div class="capex-row">
-              <div><div class="capex-label">Staff (4–5 people)</div><div class="capex-detail">Node manager, 2 floor, 1 driver/farm liaison, 1 B2B pt</div></div>
-              <div class="capex-val">₦800K/mo</div>
-            </div>
-            <div class="capex-row">
-              <div><div class="capex-label">Fuel — 2 vans</div><div class="capex-detail">Farm runs + B2B deliveries + contingency</div></div>
-              <div class="capex-val">₦300K/mo</div>
-            </div>
-            <div class="capex-row">
-              <div><div class="capex-label">Rent amortized</div><div class="capex-detail">₦32–40K upfront / 24 months</div></div>
-              <div class="capex-val">₦340K/mo</div>
-            </div>
-            <div class="capex-row">
-              <div><div class="capex-label">Utilities, maintenance, misc</div><div class="capex-detail">Cold room power, van maintenance, packaging</div></div>
-              <div class="capex-val">₦200K/mo</div>
-            </div>
-            <div class="capex-row" style="border-top:2px solid #A32D2D;margin-top:8px;padding-top:10px">
-              <div><div class="capex-label" style="font-size:13px">Total monthly costs</div></div>
-              <div class="capex-val" style="color:#A32D2D;font-size:16px">₦5.7M</div>
-            </div>
-          </div>
-        </div>
-        <div style="margin-top:16px;padding-top:16px;border-top:1px solid #E0E0E0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
-          <div style="text-align:center;padding:12px;background:#F0FDF4;border-radius:4px">
-            <div style="font-size:11px;color:#757575;margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em">Monthly EBITDA (Month 6)</div>
-            <div style="font-size:24px;font-weight:600;color:#1B5E20">₦1.4M</div>
-            <div style="font-size:11px;color:#757575">~$875/month · 20% margin</div>
-          </div>
-          <div style="text-align:center;padding:12px;background:#EFF6FF;border-radius:4px">
-            <div style="font-size:11px;color:#757575;margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em">Breakeven target</div>
-            <div style="font-size:24px;font-weight:600;color:#0D47A1">Month 6–8</div>
-            <div style="font-size:11px;color:#757575">Gate condition for Phase 1</div>
-          </div>
-          <div style="text-align:center;padding:12px;background:#FFF3E0;border-radius:4px">
-            <div style="font-size:11px;color:#757575;margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em">Gross margin target</div>
-            <div style="font-size:24px;font-weight:600;color:#E65100">40–42%</div>
-            <div style="font-size:11px;color:#757575">Improves as B2B mix grows</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="sp-section">
-      <div class="sp-section-title">Phase 0 ramp — monthly revenue trajectory</div>
-      <div class="bar-wrap">
-        <div style="font-size:11px;color:#757575;margin-bottom:12px">Directional only — based on 10 B2B accounts ramping over 6 months + retail consumer base building. Adjust from actual data.</div>
-        <div class="bars" id="revenueChart">
-          <div class="bar-grp"><div class="bar-val">₦1.2M</div><div class="bar-bar" style="height:17%"></div><div class="bar-lbl">M1</div></div>
-          <div class="bar-grp"><div class="bar-val">₦2.4M</div><div class="bar-bar" style="height:34%"></div><div class="bar-lbl">M2</div></div>
-          <div class="bar-grp"><div class="bar-val">₦3.8M</div><div class="bar-bar" style="height:54%"></div><div class="bar-lbl">M3</div></div>
-          <div class="bar-grp"><div class="bar-val">₦5.1M</div><div class="bar-bar" style="height:72%"></div><div class="bar-lbl">M4</div></div>
-          <div class="bar-grp"><div class="bar-val">₦6.2M</div><div class="bar-bar" style="height:87%"></div><div class="bar-lbl">M5</div></div>
-          <div class="bar-grp"><div class="bar-val">₦7.1M</div><div class="bar-bar" style="height:100%"></div><div class="bar-lbl">M6 ✓</div></div>
-          <div class="bar-grp"><div class="bar-val">₦8.5M</div><div class="bar-bar" style="height:100%;opacity:.6"></div><div class="bar-lbl">M9</div></div>
-          <div class="bar-grp"><div class="bar-val">₦11M</div><div class="bar-bar" style="height:100%;opacity:.4"></div><div class="bar-lbl">M12</div></div>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px;font-size:11px;color:#757575">
-          <div><strong style="color:#A32D2D">Monthly fixed costs: ~₦1.6M</strong><br>Staff + rent + utilities + fuel</div>
-          <div><strong style="color:#E65100">Variable breakeven: Month 3–4</strong><br>When revenue covers COGS + variable</div>
-          <div><strong style="color:#1B5E20">Full breakeven: Month 6–8</strong><br>Gate condition before Phase 1 capital</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="sp-section">
-      <div class="sp-section-title">Key financial assumptions — Phase 0</div>
-      <div class="principles-grid">
-        <div class="principle-card" style="border-top-color:#1B5E20">
-          <h3 style="color:#1B5E20">Revenue assumptions</h3>
-          <ul>
-            <li><strong>Exchange rate:</strong> ₦1,600/$ throughout Phase 0</li>
-            <li><strong>Consumer transactions:</strong> 20/day Month 1 → 50+/day Month 6 as word-of-mouth builds</li>
-            <li><strong>Avg basket:</strong> ₦2,000 consumer · ₦120,000/week per B2B account</li>
-            <li><strong>B2B ramp:</strong> 2 accounts Month 1 → 10 accounts Month 4 → 15+ Month 12</li>
-            <li><strong>Pricing:</strong> At or below Mile 12 informal market rates — accessible, not premium</li>
-            <li><strong>Frozen B2B:</strong> Activates Month 3–4 once Grade C volume is consistent</li>
-          </ul>
-        </div>
-        <div class="principle-card" style="border-top-color:#A32D2D">
-          <h3 style="color:#A32D2D">Cost assumptions</h3>
-          <ul>
-            <li><strong>COGS:</strong> 58% of revenue · improves to 55% as grade B/C channels activate</li>
-            <li><strong>Staff:</strong> ₦800K/month for 4–5 people · rising 10–15% annually</li>
-            <li><strong>Rent:</strong> Amortized over lease term · $32–40K upfront for 2 years = ₦340K/month equivalent</li>
-            <li><strong>Fuel:</strong> ₦300K/month for 2 vans (CNG + petrol mix) · rises with route expansion</li>
-            <li><strong>Spoilage target:</strong> &lt;5% of COGS by Month 6 · grading and cascade system managing waste</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="sp-section">
-      <div class="sp-section-title">Phase 1 — Intelligence layer (12–24 months)</div>
-      <div class="plan-container">
-        <p style="font-size:13px;color:#424242;line-height:1.7;margin-bottom:12px">Phase 1 capital and revenue model will be sized from Phase 0 data. What is known now:</p>
-        <div class="principles-grid" style="margin-bottom:0">
-          <div class="principle-card" style="border-top-color:#0D47A1">
-            <h3 style="color:#0D47A1">What Phase 1 adds</h3>
-            <ul>
-              <li>More B2B accounts beyond Lekki catchment</li>
-              <li>Additional van(s) as route density grows</li>
-              <li>Software layer: route optimization, demand forecasting, supplier scorecards</li>
-              <li>Potentially a second Seasons node if Phase 0 demand data justifies it</li>
-            </ul>
-          </div>
-          <div class="principle-card" style="border-top-color:#757575">
-            <h3 style="color:#757575">What we don't know yet</h3>
-            <ul>
-              <li>Exact capital requirement — depends on which bottlenecks Phase 0 surfaces</li>
-              <li>Whether a second node or more logistics is the priority investment</li>
-              <li>Revenue model — driven by which B2B segments prove most valuable</li>
-              <li><strong>Phase 0 data answers these questions. Not a model.</strong></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="sp-section">
-      <div class="sp-section-title">Phase 2 — Infrastructure (24–36 months)</div>
-      <div class="plan-container">
-        <p style="font-size:13px;color:#424242;line-height:1.7;margin-bottom:12px">Cold storage hubs, aggregation centres, processing capabilities — built where data shows measurable ROI. The hub design in the Spatial tab is the reference model. Capital at Phase 2 is DFI-appropriate because a track record exists.</p>
-        <div class="stat-grid">
-          <div class="stat-card" style="border-left-color:#1B5E20">
-            <div class="l">Hub 1 CapEx (reference)</div>
-            <div class="n" style="font-size:20px;color:#1B5E20">~$5–6M</div>
-            <div class="s">Cold storage + solar + processing + logistics expansion · sized from Phase 0 demand data</div>
-          </div>
-          <div class="stat-card" style="border-left-color:#0D47A1">
-            <div class="l">DFI capital structure</div>
-            <div class="n" style="font-size:20px;color:#0D47A1">Phase 2 only</div>
-            <div class="s">IFC, BII, All On · appropriate with 2 years of operating data and proven demand</div>
-          </div>
-          <div class="stat-card" style="border-left-color:#E65100">
-            <div class="l">Hub timeline</div>
-            <div class="n" style="font-size:20px;color:#E65100">24–36 mo</div>
-            <div class="s">From Seasons launch. Only built where demand hotspots confirm location and B2B clients commit volumes.</div>
-          </div>
-          <div class="stat-card" style="border-left-color:#4A148C">
-            <div class="l">Solar energy</div>
-            <div class="n" style="font-size:20px;color:#4A148C">Phase 2</div>
-            <div class="s">750kW PV + 1,500kWh battery per hub · zero marginal energy cost · structural FX hedge</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="disclaimer">
-      <strong>⚠ Phase 0 numbers are directional assumptions.</strong> Actual revenue and cost figures will be updated monthly from Seasons by TRACE operational data from Month 1. The Phase 1 model is TBD pending Phase 0 results. Phase 2 infrastructure capital is explicitly not sized until Phase 1 data identifies the specific bottlenecks and ROI case.
-    </div>
-
-  </div>
-
-  <div class="section-footer">
-    <span class="update-badge">⚠ Update monthly from Seasons by TRACE operating data</span>
-    <span class="conf-footer">TRACE · Confidential · Not for distribution</span>
-  </div>
-
-</div>
-<!-- /SECTION:financial -->
 
 
 <!-- ============================================================ -->
@@ -2751,8 +2754,7 @@
 const SECTION_REGISTRY = [
   { key: 'vision',      label: 'Vision & Thesis',    status: 'core'    },
   { key: 'opportunity', label: 'The Opportunity',     status: 'core'    },
-  { key: 'economics',   label: 'Economics & Capital', status: 'core'    },
-  { key: 'financial',   label: 'Financial Model',     status: 'live'    },
+  { key: 'economics',   label: 'Business Model',      status: 'core'    },
   { key: 'retail',     label: 'Fresh Outlet',        status: 'live'    },
   { key: 'spatial',     label: 'Spatial Planning',    status: 'live'    },
   { key: 'risks',       label: 'Risk Register',       status: 'core'    },
