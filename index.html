@@ -7,10 +7,10 @@
 
 
 <!-- DASHBOARD_META
-  version: 1.6.1
+  version: 1.7.0
   last_updated: 2026-06-15
   updated_by: Claude (Kemi session)
-  change: v1.6.1 — 10-year architecture diagram added to Vision tab. TRACE → Coordination Layer → Logistics/Intelligence/Infrastructure with phase annotations.
+  change: v1.7.0 — Opportunity tab rebuilt. Coordination-failure framing. Human capital cascade (60% food spend, 35.4% inflation, HCD 0.53). Five Strategic Advantages (two-column with thesis). Capabilities not starting points. Why now + closing line.
   sections_count: 9
   live_url: https://kemiao-dotcom.github.io/agrovault-dashboard
 -->
@@ -1109,127 +1109,250 @@
 <!-- ============================================================ -->
 <!-- SECTION:opportunity -->
 <div class="section-panel" id="section-opportunity">
+
   <div class="section-header">
     <div>
       <div class="section-tag">02 — The Opportunity</div>
-      <h1 class="section-title">A food movement problem.<br>Not just a storage gap.</h1>
-      <p class="section-subtitle">Consumers pay too much. Farmers earn too little. The problem is coordination and movement — not just the absence of cold rooms.</p>
+      <h1 class="section-title">Food is expensive<br>because coordination is expensive.</h1>
+      <p class="section-subtitle">Africa does not simply need more cold rooms. It needs a more efficient path between farmers and demand. TRACE reduces cost and waste by improving coordination, logistics, and decision-making — then deploys physical infrastructure where data proves it creates durable value.</p>
     </div>
     <div class="section-meta">
-      Source: Vision_Refined.pdf<br>
-      Last updated: 2026-06-15<br>
+      Updated: 2026-06-15<br>
       Status: <span class="tag tag-core">Core</span>
     </div>
   </div>
+
   <div class="sp-wrap">
 
     <div class="brief-banner">
-      <strong>Africa's food problem is a movement and coordination problem, not just a storage problem.</strong> Every intermediary between farmer and consumer prices in uncertainty, spoilage, and risk. The result is a system where everyone loses value — farmers earn less than they should, consumers pay more than they need to, and food is wasted in the gaps between them. The numbers below describe the scale of the coordination failure. National cold storage capacity stands at 225,000 MT against a requirement orders of magnitude larger. This is not a market opportunity — it is a structural failure the private sector has not yet solved at scale. TRACE is the infrastructure response.
+      Food takes nearly <strong>60% of household income</strong> in Nigeria. In 2024, food inflation hit <strong>35.4%</strong> — an all-time high. The consequence is not simply that families eat less well. When food becomes more expensive, children leave school, healthcare is deferred, and future earnings are compressed. The food system's inefficiency is not an abstract economic problem. It is a direct constraint on human development. TRACE starts by asking: how much of this cost is coordination failure — and how much of it can be removed?
     </div>
 
     <div class="sp-section">
-      <div class="sp-section-title">Market size — the numbers</div>
+      <div class="sp-section-title">The coordination failure</div>
+      <p style="font-size:13px;color:#424242;line-height:1.7;margin-bottom:16px">Food loses value at every handoff. Farmers lack predictable demand. Buyers lack reliable supply. Consumers absorb the cost of spoilage, inefficiency, and uncertainty. Every participant prices in risk because the system lacks visibility and coordination.</p>
+      <div class="ref-grid">
+        <div class="ref-card" style="border-left-color:#A32D2D">
+          <h3 style="color:#A32D2D">Fragmented supply</h3>
+          <div class="ref-sub">Farmers without reliable demand signals</div>
+          <p>Smallholder farmers produce without knowing who will buy, at what price, or at what quality standard. The absence of forward demand forces short-term, reactive decision-making that compounds waste and reduces farmer income.</p>
+        </div>
+        <div class="ref-card" style="border-left-color:#854F0B">
+          <h3 style="color:#854F0B">Fragmented demand</h3>
+          <div class="ref-sub">Buyers sourcing through opaque, inconsistent channels</div>
+          <p>Institutional buyers — restaurants, hotels, processors — source through informal channels with no quality standards, no price transparency, and no reliability guarantees. Uncertainty is the norm, not the exception.</p>
+        </div>
+        <div class="ref-card" style="border-left-color:#1B5E20">
+          <h3 style="color:#1B5E20">Inefficient movement</h3>
+          <div class="ref-sub">Too many hands between farm and demand</div>
+          <p>Produce passes through aggregators, wholesalers, and traders — each pricing in their own uncertainty and handling risk. Every additional handoff adds time, cost, and spoilage. The consumer pays for all of it.</p>
+        </div>
+      </div>
+      <div class="ref-grid" style="margin-top:12px">
+        <div class="ref-card" style="border-left-color:#0D47A1">
+          <h3 style="color:#0D47A1">Waste priced in</h3>
+          <div class="ref-sub">Spoilage and uncertainty passed downstream</div>
+          <p>Because no participant can predict spoilage, demand, or price, every participant buffers with margin. Waste is not absorbed by the supply chain — it is systematically passed to the end consumer as higher prices.</p>
+        </div>
+        <div class="ref-card" style="border-left-color:#4A148C">
+          <h3 style="color:#4A148C">Human capital at stake</h3>
+          <div class="ref-sub">Food affordability is a development crisis</div>
+          <p>Food inflation erodes real income for low-income households disproportionately. Research links food price shocks directly to reduced education spending, child nutrition gaps, stunted growth, and compressed future earnings. This is not a market friction — it is a development emergency.</p>
+        </div>
+        <div class="ref-card" style="border-left-color:#006064">
+          <h3 style="color:#006064">A solvable problem</h3>
+          <div class="ref-sub">Better coordination, not just more storage</div>
+          <p>Much of the value lost in Africa's food system is not a function of insufficient infrastructure. It is a function of poor coordination, insufficient information, and inefficient movement. That is a logistics and data problem before it is a capital problem.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sp-section">
+      <div class="sp-section-title">The cost of inefficiency — what coordination failure produces</div>
       <div class="stat-grid">
-        <div class="stat-card" style="border-left-color:#B45309">
-          <div class="l">Annual food waste</div>
-          <div class="n" style="color:#B45309">₦3.5–5T</div>
-          <div class="s">Lost annually in Nigeria. 24.8M tonnes food wasted per year. Source: UNEP / Terroso Group, March 2026</div>
+        <div class="stat-card" style="border-left-color:#A32D2D">
+          <div class="l">Household food spend</div>
+          <div class="n" style="color:#A32D2D">~60%</div>
+          <div class="s">Share of household income spent on food in Nigeria. Among the highest in the world. Source: ScienceDirect, 2025</div>
+        </div>
+        <div class="stat-card" style="border-left-color:#854F0B">
+          <div class="l">Food inflation — 2024 peak</div>
+          <div class="n" style="color:#854F0B">35.4%</div>
+          <div class="s">All-time high. Rising food costs are the primary driver of Nigeria's overall inflation pressure. Source: ScienceDirect, 2025</div>
         </div>
         <div class="stat-card" style="border-left-color:#1B5E20">
-          <div class="l">Cold chain market size</div>
-          <div class="n" style="color:#1B5E20">$1.2B</div>
-          <div class="s">Nigeria cold chain market today. Growing 12–15% p.a. — fastest-expanding infrastructure segment in the country.</div>
-        </div>
-        <div class="stat-card" style="border-left-color:#DC2626">
           <div class="l">Perishable spoilage rate</div>
-          <div class="n" style="color:#DC2626">40–60%</div>
-          <div class="s">Of perishables spoil before reaching market. Source: FAO Sub-Saharan Africa Post-Harvest Loss Estimates; ScienceDirect 2023</div>
+          <div class="n" style="color:#1B5E20">40–60%</div>
+          <div class="s">Of perishables spoil before reaching market — not because cold rooms are missing, but because coordination and movement fail. Source: FAO / ScienceDirect 2023</div>
         </div>
         <div class="stat-card" style="border-left-color:#0D47A1">
-          <div class="l">Truck infrastructure gap</div>
+          <div class="l">Logistics infrastructure gap</div>
           <div class="n" style="color:#0D47A1">1K vs 25K</div>
-          <div class="s">Refrigerated trucks existing vs needed. A structural gap no operator has yet closed at scale. Source: Terroso Group, 2026</div>
+          <div class="s">Refrigerated trucks existing vs estimated need. A symptom of the coordination failure — demand for reliable cold movement has never been aggregated. Source: Terroso Group, 2026</div>
         </div>
+      </div>
+      <div style="margin-top:14px;padding:18px 22px;background:#FDF0F0;border-radius:4px;border-left:3px solid #A32D2D">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#A32D2D;margin-bottom:10px">The human capital cascade</div>
+        <p style="font-size:13px;color:#5C1A1A;line-height:1.75">When food inflation erodes real income, the consequences extend beyond the household budget. Research documents a direct link from food price shocks to reduced education spending, compromised child nutrition, stunted growth, and compressed future earnings. Nigeria's Human Capital Development Index stands at <strong>0.53 out of 1</strong> — <strong>116th of 174 nations</strong>. The country is home to <strong>1 in 12 out-of-school children worldwide</strong> and records <strong>31.5% stunted growth</strong> in children under five. Reducing the cost of food in Nigeria is not a supply chain optimisation exercise. It is a human development intervention. Source: ScienceDirect 2025 / World Bank Development Indicators 2023</p>
       </div>
     </div>
 
     <div class="sp-section">
-      <div class="sp-section-title">Five strategic plays — thesis per layer</div>
+      <div class="sp-section-title">Build the network first. Build infrastructure second.</div>
+      <p style="font-size:13px;color:#424242;line-height:1.7;margin-bottom:16px">TRACE starts by coordinating supply and demand through direct sourcing, quality standards, logistics, and operational data. Infrastructure becomes a targeted response to proven bottlenecks — not the first assumption.</p>
       <div style="display:flex;flex-direction:column;gap:12px">
+
         <div class="ref-card" style="border-left-color:#1B5E20;display:grid;grid-template-columns:1fr 1fr;gap:20px">
-          <div><h3 style="color:#1B5E20">01 — Storage & Distribution</h3><div class="ref-sub">₦22K–₦68K / pallet / month · Tier 1 to Tier 3</div><p>4,500+ pallet climate-controlled storage per hub across multi-temp zones. Anchor B2B SLA contracts with supermarkets, agro-processors, and pharmaceutical distributors — minimum volume clauses, monthly invoice, GDP pharma sub-zone.</p></div>
-          <div><div class="borrow" style="background:#F0FDF4;padding:14px 16px;border-radius:4px;font-size:12px;line-height:1.65"><strong style="color:#1B5E20">The thesis:</strong> Cold storage at premium logistics corridors is the anchor. The hub needs 8–12 institutional B2B clients to reach 85%+ utilisation. Cooperatives and smallholder traders fill the margin zones.</div></div>
+          <div>
+            <h3 style="color:#1B5E20">01 — Demand Network</h3>
+            <div class="ref-sub">Build recurring demand before building assets</div>
+            <p>Develop a base of recurring B2B customers — restaurants, QSRs, hotels, caterers — who need reliable, graded, consistently supplied produce. Retail consumers validate the freshness premium and build the consumer brand.</p>
+          </div>
+          <div style="background:#F0FDF4;padding:14px 16px;border-radius:4px;font-size:12px;line-height:1.65">
+            <strong style="color:#1B5E20">The thesis:</strong> Demand density lowers unit costs and makes infrastructure investable. No hub gets built without recurring demand that justifies the utilisation. LOIs come after demonstrated reliability, not before.
+          </div>
         </div>
-        <div class="ref-card" style="border-left-color:#E65100;display:grid;grid-template-columns:1fr 1fr;gap:20px">
-          <div><h3 style="color:#E65100">02 — Renewable Energy</h3><div class="ref-sub">Zero marginal cost · surplus sold at ₦80–120/kWh</div><p>750kW solar PV + 1,500kWh lithium battery per hub. Nigeria's 5.5–6.5 peak sun hours produce 30–40% more output than equivalent European systems. Surplus sold to neighbouring SMEs once hub is stabilised.</p></div>
-          <div><div class="borrow" style="background:#FFF8F5;padding:14px 16px;border-radius:4px;font-size:12px;line-height:1.65"><strong style="color:#E65100">The thesis:</strong> Off-grid solar is a structural FX hedge. Zero marginal energy cost removes the largest variable cost from currency exposure. Energy resilience is also an SLA differentiator — clients pay for reliability.</div></div>
-        </div>
+
         <div class="ref-card" style="border-left-color:#0D47A1;display:grid;grid-template-columns:1fr 1fr;gap:20px">
-          <div><h3 style="color:#0D47A1">03 — Logistics & Distribution</h3><div class="ref-sub">Retrofit-first · fleet SLA retainers</div><p>Retrofit-first approach proves the network before committing capital to a purpose-built fleet. Phase 0 trucks generate data, customer relationships, and cash before the hub opens.</p></div>
-          <div><div class="borrow" style="background:#EFF6FF;padding:14px 16px;border-radius:4px;font-size:12px;line-height:1.65"><strong style="color:#0D47A1">The thesis:</strong> Once routes are dense and anchor clients committed, the economics of purpose-built refrigerated vehicles become compelling. Phase 0 is the discovery engine for that density.</div></div>
+          <div>
+            <h3 style="color:#0D47A1">02 — Trusted Supply Network</h3>
+            <div class="ref-sub">Verified farmer relationships and supplier scorecards</div>
+            <p>Build direct relationships with 5–8 farms across key corridors. Grade every lot. Score every supplier. Know which farms deliver quality consistently, which are improving, and which need intervention before a large order is placed.</p>
+          </div>
+          <div style="background:#EFF6FF;padding:14px 16px;border-radius:4px;font-size:12px;line-height:1.65">
+            <strong style="color:#0D47A1">The thesis:</strong> The long-term moat is not farmer access alone — it is knowing which suppliers deliver quality reliably. That knowledge is built through volume and data, not through contracts alone.
+          </div>
         </div>
+
+        <div class="ref-card" style="border-left-color:#E65100;display:grid;grid-template-columns:1fr 1fr;gap:20px">
+          <div>
+            <h3 style="color:#E65100">03 — Efficient Movement</h3>
+            <div class="ref-sub">Route optimization, consolidation, harvest-to-demand timing</div>
+            <p>Optimize routing, consolidate farm collection and B2B delivery runs, and reduce harvest-to-customer time. Track cost per kg on every route. Remove the days and hands that create spoilage and cost without creating value.</p>
+          </div>
+          <div style="background:#FFF8F5;padding:14px 16px;border-radius:4px;font-size:12px;line-height:1.65">
+            <strong style="color:#E65100">The thesis:</strong> Faster, better-coordinated movement can create more value than simply storing food longer. A tomato that reaches a customer in 3 days needs no cold room. The same tomato sitting at a wholesale market for 7 days needs everything.
+          </div>
+        </div>
+
         <div class="ref-card" style="border-left-color:#4A148C;display:grid;grid-template-columns:1fr 1fr;gap:20px">
-          <div><h3 style="color:#4A148C">04 — Traceability & Compliance</h3><div class="ref-sub">$480/month per exporter · EUDR compliance</div><p>RFID tagging on every pallet at intake creates a farm-to-table record that serves multiple purposes: operational inventory management, pharma chain-of-custody, and export compliance documentation for EUDR.</p></div>
-          <div><div class="borrow" style="background:#F5F3FF;padding:14px 16px;border-radius:4px;font-size:12px;line-height:1.65"><strong style="color:#4A148C">The thesis:</strong> The data layer becomes increasingly valuable as physical network density grows. Traceability, compliance workflows, and operational intelligence create monetisation optionality that is not available at single-hub scale.</div></div>
+          <div>
+            <h3 style="color:#4A148C">04 — Intelligence Layer</h3>
+            <div class="ref-sub">Data across harvest, grade, route, inventory, price, spoilage</div>
+            <p>Capture operational data on every lot, every route, every transaction, and every spoilage event. Build supplier scorecards, demand forecasting, route optimization, and quality tracking that compound over time.</p>
+          </div>
+          <div style="background:#F5F3FF;padding:14px 16px;border-radius:4px;font-size:12px;line-height:1.65">
+            <strong style="color:#4A148C">The thesis:</strong> Every kilogram moved makes TRACE smarter. The intelligence layer is the moat — it becomes more valuable with network density and cannot be replicated without operating the same physical network.
+          </div>
         </div>
+
         <div class="ref-card" style="border-left-color:#006064;display:grid;grid-template-columns:1fr 1fr;gap:20px">
-          <div><h3 style="color:#006064">05 — Export Gateway</h3><div class="ref-sub">USD-denominated · $1,230 all-in per container · Model A</div><p>Nigeria produces world-class yam, ginger, sesame, cashew, cocoa, and pepper. The problem is not production — it is reliable cold staging, consistent grading, and seamless compliance. TRACE provides all three.</p></div>
-          <div><div class="borrow" style="background:#E0F7FA;padding:14px 16px;border-radius:4px;font-size:12px;line-height:1.65"><strong style="color:#006064">The thesis:</strong> Model A eliminates produce price risk while positioning for principal economics over time. USD revenue is a natural hedge against the naira cost base. Domestic reliability must be proven before the export layer activates.</div></div>
+          <div>
+            <h3 style="color:#006064">05 — Targeted Infrastructure</h3>
+            <div class="ref-sub">Physical assets only where data proves economic need</div>
+            <p>Deploy aggregation centres, cold rooms, processing capabilities, and renewable-powered facilities only when operational data confirms a specific, measurable bottleneck that physical infrastructure would remove.</p>
+          </div>
+          <div style="background:#E0F7FA;padding:14px 16px;border-radius:4px;font-size:12px;line-height:1.65">
+            <strong style="color:#006064">The thesis:</strong> Infrastructure should follow utilisation, not precede it. A cold room built on proven demand and route data is a different investment from a cold room built on a market size estimate.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="sp-section">
+      <div class="sp-section-title">Capabilities — important, but not the starting point</div>
+      <p style="font-size:13px;color:#424242;line-height:1.7;margin-bottom:16px">Cold storage, renewable energy, traceability, processing, and export readiness are genuine capabilities that TRACE will build toward. They are valuable after TRACE has proven demand density, supplier reliability, route economics, and quality improvement. They are not where we start.</p>
+      <div class="principles-grid">
+        <div class="principle-card" style="border-top-color:#9E9E9E">
+          <h3 style="color:#757575">Cold storage</h3>
+          <ul>
+            <li>Deployed where loss-stage data confirms storage — not transit — is the primary spoilage bottleneck</li>
+            <li>Sized from actual demand committed by B2B clients, not modelled utilisation</li>
+            <li>Currently Phase 2 planning · 24–36 months from Seasons launch</li>
+          </ul>
+        </div>
+        <div class="principle-card" style="border-top-color:#9E9E9E">
+          <h3 style="color:#757575">Clean energy</h3>
+          <ul>
+            <li>Deployed where it lowers operating cost and improves hub reliability at scale</li>
+            <li>A structural FX hedge — zero marginal energy cost when naira weakens</li>
+            <li>Part of the Phase 2 hub design · not a Phase 0 capital requirement</li>
+          </ul>
+        </div>
+        <div class="principle-card" style="border-top-color:#9E9E9E">
+          <h3 style="color:#757575">Traceability</h3>
+          <ul>
+            <li>Generated through operations from Day 1 — lot tracking, grade records, temperature logs</li>
+            <li>Not sold as the first product — built as the data layer that compounds with network density</li>
+            <li>Becomes a compliance and export tool when domestic operations are proven</li>
+          </ul>
+        </div>
+        <div class="principle-card" style="border-top-color:#9E9E9E">
+          <h3 style="color:#757575">Exports</h3>
+          <ul>
+            <li>Activated after domestic reliability and grading discipline are demonstrated</li>
+            <li>EUDR compliance and international market access follow supply chain proof — not precede it</li>
+            <li>USD-denominated revenue is a long-term hedge, not a Phase 0 revenue line</li>
+          </ul>
+        </div>
+        <div class="principle-card" style="border-top-color:#9E9E9E">
+          <h3 style="color:#757575">Processing</h3>
+          <ul>
+            <li>Added where recurring Grade C volumes and frozen B2B demand create value-capture opportunities</li>
+            <li>The Seasons frozen B2B channel is the first test — blast freeze investment follows proven demand</li>
+            <li>Processing at hub scale is a Phase 2 capability</li>
+          </ul>
+        </div>
+        <div class="principle-card" style="border-top-color:#9E9E9E">
+          <h3 style="color:#757575">Pharmaceutical cold chain</h3>
+          <ul>
+            <li>GDP-compliant pharma zone is part of the hub Phase 2 design</li>
+            <li>Premium pricing justified — NAFDAC compliance and excursion audit trail add real value</li>
+            <li>Requires regulatory engagement that runs in parallel with Phase 0 operations, not before</li>
+          </ul>
         </div>
       </div>
     </div>
 
     <div class="sp-section">
-      <div class="sp-section-title">Decision gates — conditions before each phase proceeds</div>
-      <div class="plan-container" style="overflow-x:auto">
-        <table class="sp-table">
-          <thead><tr><th style="min-width:180px">Gate</th><th>Condition before proceeding</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Launch Phase 0</strong></td><td>Seasons by TRACE site secured · farm relationships confirmed across ≥3 corridors · 2 vans operational · data collection system live from Day 1</td></tr>
-            <tr><td><strong>Phase 0 → Phase 1</strong></td><td>Node at operating breakeven · 10+ B2B accounts at 70%+ reorder rate · spoilage below 5% · demand hotspots identifiable from route and customer data</td></tr>
-            <tr><td><strong>Expand logistics network</strong></td><td>Current B2B accounts showing 70%+ reorder · fill rate consistently above 90% · logistics cost per kg declining month-over-month</td></tr>
-            <tr><td><strong>Phase 1 → Phase 2</strong></td><td>Intelligence layer actively improving unit economics · specific infrastructure ROI identified from data — not modelled · at least one institutional buyer on formal volume commitment</td></tr>
-            <tr><td><strong>Cold storage investment</strong></td><td>H8 verdict confirms transit/storage as primary loss stage · H9 confirms cold storage ROI · B2B clients commit minimum volumes · DFI capital term sheet in hand</td></tr>
-            <tr><td><strong>Network expansion (Hub 2+)</strong></td><td>Hub 1 at stable utilisation ≥65% · Hub 1 EBITDA positive for 3 consecutive months · demand density data identifies second location clearly from Phase 0–1 data</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="sp-section">
-      <div class="sp-section-title">Why the moment is now</div>
+      <div class="sp-section-title">Why now</div>
       <div class="principles-grid">
         <div class="principle-card" style="border-top-color:#1B5E20">
-          <h3 style="color:#1B5E20">Policy & Regulatory Tailwind</h3>
+          <h3 style="color:#1B5E20">The pressure is increasing</h3>
           <ul>
-            <li>Nigeria's National Agriculture Policy (2021) targets 30% post-harvest loss reduction</li>
-            <li>NIRSAL mandate creates a structured funding pathway for agri-infrastructure</li>
-            <li>EU Deforestation Regulation (EUDR) December 2025 makes traceability a compliance requirement, not a premium feature</li>
-            <li>Post-subsidy energy shift creates structural demand for off-grid solar alternatives</li>
+            <li>Food affordability is worsening — 35.4% food inflation in 2024 is not a correction, it is a trend</li>
+            <li>Energy costs make inefficient movement more expensive every year</li>
+            <li>Businesses need more reliable sourcing as formal retail and food service expand in Lagos</li>
+            <li>Climate volatility makes supply unpredictability worse, not better</li>
           </ul>
         </div>
         <div class="principle-card" style="border-top-color:#0D47A1">
-          <h3 style="color:#0D47A1">Capital Activation</h3>
+          <h3 style="color:#0D47A1">The conditions are ready</h3>
           <ul>
-            <li>DP World has a $1B African cold chain investment mandate</li>
-            <li>Solar investment in Nigeria exceeds $900M since 2018 (World Bank ESMAP, 2025)</li>
-            <li>DFIs actively deploying into agricultural infrastructure — IFC, BII, All On</li>
-            <li>ColdHubs, Ecotutu, NovaChill prove demand exists — none at institutional B2B scale</li>
-            <li>East Africa (Kool-Ex Kenya) is 3–5 years ahead — the West Africa window is open</li>
+            <li>Better data tools and lightweight software make network coordination more feasible at small scale</li>
+            <li>Direct farm-to-buyer relationships are increasingly viable without large intermediary infrastructure</li>
+            <li>DFIs and impact investors are actively looking for evidence-backed models — not speculative cold room assets</li>
+            <li>Lagos's growing B2B food service sector creates an anchor demand pool that did not exist a decade ago</li>
           </ul>
         </div>
+      </div>
+      <div style="margin-top:16px;padding:18px 22px;background:#1B5E20;border-radius:4px">
+        <p style="font-size:14px;color:rgba(255,255,255,.92);line-height:1.75">TRACE is not starting by building the largest cold room. It is starting by learning where the food system loses value — then building the assets, data systems, and infrastructure that remove those losses.</p>
       </div>
     </div>
 
     <div class="disclaimer">
-      <strong>⚠ Ideation stage — directional only.</strong> Market size figures are directional estimates from published sources. Field validation through anchor client conversations is in progress.
+      <strong>⚠ Data sources cited throughout.</strong> ScienceDirect 2025 (food spend, inflation), FAO / ScienceDirect 2023 (spoilage), Terroso Group 2026 (truck gap), World Bank Development Indicators 2023 (human capital data). All figures are directional and subject to field validation.
     </div>
 
   </div>
+
   <div class="section-footer">
-    <span class="update-badge">⚠ Ideation stage — directional only</span>
+    <span class="update-badge">⚠ Thesis updated June 2026 — coordination-led, not infrastructure-led</span>
     <span class="conf-footer">TRACE · Confidential · Not for distribution</span>
   </div>
+
 </div>
 <!-- /SECTION:opportunity -->
 
