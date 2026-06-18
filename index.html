@@ -7,10 +7,10 @@
 
 
 <!-- DASHBOARD_META
-  version: 2.4.0
+  version: 2.5.0
   last_updated: 2026-06-15
   updated_by: Claude (Kemi session)
-  change: v2.4.0 — Operating Model tab added. Five-layer flow (Supplier → Collection → Processing → Seasons → Intelligence), Procurement, Demand Planning, Waste, People & Roles, 12 SOPs, TRACE OS.
+  change: v2.5.0 — Operations tab: system flow matrix (5 layers × 5 cols), cross-cutting principles. Tab moved after Network.
   sections_count: 9
   live_url: https://kemiao-dotcom.github.io/agrovault-dashboard
 -->
@@ -3315,7 +3315,152 @@
 
     <div class="brief-banner">
       <strong>Organize by flow, not by asset.</strong> Think of TRACE as a system through which a tomato moves. Every layer in that journey — from the farm to the customer's kitchen — has commercial logic, operational requirements, data outputs, and a clear objective. The system is only as strong as its weakest layer.
+    
+  </div>
+
+    <!-- ── SYSTEM FLOW MATRIX ─────────────────────────────────── -->
+    <div class="sp-section">
+      <div class="sp-section-title">The TRACE operating system — by layer</div>
+
+      <!-- Vertical flow -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:0;margin-bottom:24px">
+        <svg width="100%" viewBox="0 0 820 64" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="varr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M1 2L8 5L1 8" fill="none" stroke="#9E9E9E" stroke-width="1.5" stroke-linecap="round"/>
+            </marker>
+          </defs>
+          <rect x="0"   y="6" width="148" height="44" rx="5" fill="#1B5E20"/>
+          <text x="74"  y="33" font-family="Arial" font-size="13" font-weight="700" fill="white" text-anchor="middle">Farmer</text>
+          <line x1="148" y1="28" x2="170" y2="28" stroke="#9E9E9E" stroke-width="1.5" marker-end="url(#varr)"/>
+          <rect x="170" y="6" width="148" height="44" rx="5" fill="#2E7D32"/>
+          <text x="244" y="33" font-family="Arial" font-size="13" font-weight="700" fill="white" text-anchor="middle">Midstream</text>
+          <line x1="318" y1="28" x2="340" y2="28" stroke="#9E9E9E" stroke-width="1.5" marker-end="url(#varr)"/>
+          <rect x="340" y="6" width="148" height="44" rx="5" fill="#1565C0"/>
+          <text x="414" y="33" font-family="Arial" font-size="13" font-weight="700" fill="white" text-anchor="middle">Processing Hub</text>
+          <line x1="488" y1="28" x2="510" y2="28" stroke="#9E9E9E" stroke-width="1.5" marker-end="url(#varr)"/>
+          <rect x="510" y="6" width="148" height="44" rx="5" fill="#E65100"/>
+          <text x="584" y="33" font-family="Arial" font-size="13" font-weight="700" fill="white" text-anchor="middle">Seasons</text>
+          <line x1="658" y1="28" x2="680" y2="28" stroke="#9E9E9E" stroke-width="1.5" marker-end="url(#varr)"/>
+          <rect x="680" y="6" width="140" height="44" rx="5" fill="#4A148C"/>
+          <text x="750" y="26" font-family="Arial" font-size="12" font-weight="700" fill="white" text-anchor="middle">TRACE</text>
+          <text x="750" y="42" font-family="Arial" font-size="12" font-weight="700" fill="white" text-anchor="middle">Intelligence</text>
+        </svg>
+      </div>
+
+      <!-- Matrix table -->
+      <div style="overflow-x:auto">
+        <table class="data-table" style="width:100%;min-width:760px">
+          <thead>
+            <tr>
+              <th style="width:14%;background:#1A3A1A;color:white">Layer</th>
+              <th style="background:#1A3A1A;color:white">Procurement</th>
+              <th style="background:#1A3A1A;color:white">Logistics</th>
+              <th style="background:#1A3A1A;color:white">SOPs</th>
+              <th style="background:#1A3A1A;color:white">People</th>
+              <th style="background:#1A3A1A;color:white">KPIs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="background:#EBF2EC;font-weight:700;color:#1B5E20;border-left:3px solid #1B5E20">Farmer</td>
+              <td>Supplier onboarding, pricing agreements, purchase orders</td>
+              <td>Harvest scheduling, pickup windows per corridor</td>
+              <td>Harvest &amp; packing standards, crate SOP</td>
+              <td>Procurement Lead</td>
+              <td class="mono">Cost/kg<br>Supplier reliability<br>Grade A%</td>
+            </tr>
+            <tr>
+              <td style="background:#EBF2EC;font-weight:700;color:#2E7D32;border-left:3px solid #2E7D32">Midstream</td>
+              <td>Carrier agreements, van purchase / lease, fuel contracts</td>
+              <td>Routing, crate loading sequence, fleet scheduling</td>
+              <td>Loading SOP, vehicle temp SOP, transport SOP</td>
+              <td>Driver / Fleet Lead</td>
+              <td class="mono">Transit time<br>Damage %<br>Cost/kg/run</td>
+            </tr>
+            <tr>
+              <td style="background:#EEF3FB;font-weight:700;color:#1565C0;border-left:3px solid #1565C0">Processing Hub</td>
+              <td>Intake planning, weekly volume commitments to farms</td>
+              <td>Receiving schedule, storage allocation, B2B pre-pack</td>
+              <td>Wash, grade, cut, package, cold room SOP</td>
+              <td>Ops Manager + QA Inspector</td>
+              <td class="mono">Spoilage %<br>Yield %<br>Processing time</td>
+            </tr>
+            <tr>
+              <td style="background:#FFF3E0;font-weight:700;color:#E65100;border-left:3px solid #E65100">Seasons</td>
+              <td>Inventory replenishment — driven by sell-through data</td>
+              <td>Retail display, B2B order fulfilment, delivery windows</td>
+              <td>Merchandising SOP, customer service SOP, complaint SOP</td>
+              <td>Node / Store Manager</td>
+              <td class="mono">Inventory turns<br>Fill rate<br>B2B reorder rate</td>
+            </tr>
+            <tr>
+              <td style="background:#F5F3FF;font-weight:700;color:#4A148C;border-left:3px solid #4A148C">TRACE Intelligence</td>
+              <td>Demand forecasting to drive procurement planning</td>
+              <td>Network optimisation — route density, hub location</td>
+              <td>Data governance, lot tracking standards, audit protocol</td>
+              <td>Operations Analyst</td>
+              <td class="mono">Forecast accuracy<br>Reorder rate<br>Data completeness</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+
+    <!-- ── CROSS-CUTTING PRINCIPLES ────────────────────────────── -->
+    <div class="sp-section">
+      <div class="sp-section-title">Cross-cutting operating principles</div>
+      <div class="grid-3" style="gap:12px">
+
+        <div class="card card-accent">
+          <div style="font-size:15px;margin-bottom:8px">👥</div>
+          <div style="font-weight:700;color:#1B5E20;font-size:13px;margin-bottom:10px">People</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Hire operators before managers. Someone who has done the job before someone who has managed it.</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Cross-train staff across at least two roles. No single point of failure on the floor.</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Build SOP-driven execution. Consistency comes from process, not individual skill.</div></div>
+        </div>
+
+        <div class="card card-accent">
+          <div style="font-size:15px;margin-bottom:8px">📋</div>
+          <div style="font-weight:700;color:#1B5E20;font-size:13px;margin-bottom:10px">SOPs</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Every recurring process is documented before the second time it runs.</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>New hires are trained against written standards — not verbal instructions.</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Continuous improvement: every SOP has a version number and a review date.</div></div>
+        </div>
+
+        <div class="card card-accent">
+          <div style="font-size:15px;margin-bottom:8px">📦</div>
+          <div style="font-weight:700;color:#1B5E20;font-size:13px;margin-bottom:10px">Demand Planning</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Forecast by SKU and location — not in aggregate.</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Use B2B standing orders to anchor procurement. Know 70% of next week's demand before Monday.</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Let demand drive purchasing — not intuition, relationship, or habit.</div></div>
+        </div>
+
+        <div class="card">
+          <div style="font-size:15px;margin-bottom:8px">♻️</div>
+          <div style="font-weight:700;color:#1B5E20;font-size:13px;margin-bottom:10px">Waste Management</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Measure waste at every handoff — farm, transit, receiving, floor, and cascade.</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Track root causes: is spoilage happening at the farm, in transit, or on the floor? The answer changes the intervention.</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Redirect near-expiry product to frozen, prepared, or secondary channels before it becomes waste.</div></div>
+        </div>
+
+        <div class="card">
+          <div style="font-size:15px;margin-bottom:8px">📊</div>
+          <div style="font-weight:700;color:#1B5E20;font-size:13px;margin-bottom:10px">Continuous Improvement</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Every transaction generates data. No lot moves without being logged.</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Every batch is traceable back to the farm and harvest date.</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Every week produces operational learnings that improve the system. Weekly review is non-negotiable.</div></div>
+        </div>
+
+        <div class="card" style="background:#1B5E20;border-color:#1B5E20">
+          <div style="font-size:15px;margin-bottom:8px">🎯</div>
+          <div style="font-weight:700;color:white;font-size:13px;margin-bottom:10px">The Operating Philosophy</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.85);line-height:1.75">TRACE is not a produce company. It is an operations company. The produce is what customers see. The system — the procurement discipline, the SOP rigour, the data at every handoff — is the real product. And it compounds.</div>
+        </div>
+
+      </div>
+    </div>
+
 
     <!-- ── FLOW OVERVIEW ───────────────────────────────────────── -->
     <div class="sp-section">
@@ -3736,9 +3881,9 @@ const SECTION_REGISTRY = [
   { key: 'retail',     label: 'Seasons · Phase 0', status: 'live'    },
   { key: 'intelligence', label: 'Intelligence', status: 'live'    },
   { key: 'spatial',     label: 'Network',   status: 'core'    },
+  { key: 'operations', label: 'Operations',     status: 'live'    },
   { key: 'risks',       label: 'Risks',       status: 'core'    },
   { key: 'updates',     label: 'Decisions',        status: 'live'    },
-  { key: 'operations', label: 'Operations',     status: 'live'    },
 ];
 
 // ─── BUILD NAV ───
