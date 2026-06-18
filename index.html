@@ -7,10 +7,10 @@
 
 
 <!-- DASHBOARD_META
-  version: 2.3.0
+  version: 2.4.0
   last_updated: 2026-06-15
   updated_by: Claude (Kemi session)
-  change: v2.3.0 — Vision: Economic Philosophy section added (3 principles — pass gains to customers, reinvest margin, win on throughput not premium pricing).
+  change: v2.4.0 — Operating Model tab added. Five-layer flow (Supplier → Collection → Processing → Seasons → Intelligence), Procurement, Demand Planning, Waste, People & Roles, 12 SOPs, TRACE OS.
   sections_count: 9
   live_url: https://kemiao-dotcom.github.io/agrovault-dashboard
 -->
@@ -3263,6 +3263,436 @@
   </div>
 </div>
 <!-- /SECTION:updates -->
+
+<!-- SECTION:operations -->
+<div class="section-panel" id="section-operations">
+
+  <div class="section-header">
+    <div>
+      <div class="section-tag">07 — Operating Model</div>
+      <h1 class="section-title">An operations company<br>disguised as a produce company.</h1>
+      <p class="section-subtitle">The produce is what customers see. The real product is the system behind it — a set of repeatable processes through which every kilogram is tracked, graded, moved, and sold, generating intelligence at each step.</p>
+    </div>
+    <div class="section-meta">
+      Source: Founder sketch + operational review<br>
+      Last updated: 2026-06-15<br>
+      Status: <span class="tag tag-live">Live</span>
+    </div>
+  </div>
+
+  <div class="sp-wrap">
+
+    <div class="brief-banner">
+      <strong>Organize by flow, not by asset.</strong> Think of TRACE as a system through which a tomato moves. Every layer in that journey — from the farm to the customer's kitchen — has commercial logic, operational requirements, data outputs, and a clear objective. The system is only as strong as its weakest layer.
+    </div>
+
+    <!-- ── FLOW OVERVIEW ───────────────────────────────────────── -->
+    <div class="sp-section">
+      <div class="sp-section-title">The five-layer flow</div>
+      <svg width="100%" viewBox="0 0 820 90" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="oparr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M1 2L8 5L1 8" fill="none" stroke="#9E9E9E" stroke-width="1.5" stroke-linecap="round"/>
+          </marker>
+        </defs>
+        <!-- Layer boxes -->
+        <rect x="0"   y="10" width="140" height="60" rx="5" fill="#1B5E20"/>
+        <text x="70"  y="36" font-family="Arial" font-size="12" font-weight="700" fill="white" text-anchor="middle">01</text>
+        <text x="70"  y="52" font-family="Arial" font-size="11" fill="white" text-anchor="middle">Supplier</text>
+        <text x="70"  y="65" font-family="Arial" font-size="9"  fill="#A5D6A7" text-anchor="middle">Farmer network</text>
+
+        <line x1="140" y1="40" x2="165" y2="40" stroke="#9E9E9E" stroke-width="1.5" marker-end="url(#oparr)"/>
+
+        <rect x="165" y="10" width="140" height="60" rx="5" fill="#2E7D32"/>
+        <text x="235" y="36" font-family="Arial" font-size="12" font-weight="700" fill="white" text-anchor="middle">02</text>
+        <text x="235" y="52" font-family="Arial" font-size="11" fill="white" text-anchor="middle">Collection</text>
+        <text x="235" y="65" font-family="Arial" font-size="9"  fill="#A5D6A7" text-anchor="middle">Transit &amp; logistics</text>
+
+        <line x1="305" y1="40" x2="330" y2="40" stroke="#9E9E9E" stroke-width="1.5" marker-end="url(#oparr)"/>
+
+        <rect x="330" y="10" width="160" height="60" rx="5" fill="#1565C0"/>
+        <text x="410" y="36" font-family="Arial" font-size="12" font-weight="700" fill="white" text-anchor="middle">03</text>
+        <text x="410" y="52" font-family="Arial" font-size="11" fill="white" text-anchor="middle">Processing Hub</text>
+        <text x="410" y="65" font-family="Arial" font-size="9"  fill="#BBDEFB" text-anchor="middle">The heart of TRACE</text>
+
+        <line x1="490" y1="40" x2="515" y2="40" stroke="#9E9E9E" stroke-width="1.5" marker-end="url(#oparr)"/>
+
+        <rect x="515" y="10" width="140" height="60" rx="5" fill="#E65100"/>
+        <text x="585" y="36" font-family="Arial" font-size="12" font-weight="700" fill="white" text-anchor="middle">04</text>
+        <text x="585" y="52" font-family="Arial" font-size="11" fill="white" text-anchor="middle">Seasons</text>
+        <text x="585" y="65" font-family="Arial" font-size="9"  fill="#FFE0B2" text-anchor="middle">Retail + B2B demand</text>
+
+        <line x1="655" y1="40" x2="680" y2="40" stroke="#9E9E9E" stroke-width="1.5" marker-end="url(#oparr)"/>
+
+        <rect x="680" y="10" width="140" height="60" rx="5" fill="#4A148C"/>
+        <text x="750" y="36" font-family="Arial" font-size="12" font-weight="700" fill="white" text-anchor="middle">05</text>
+        <text x="750" y="52" font-family="Arial" font-size="11" fill="white" text-anchor="middle">Intelligence</text>
+        <text x="750" y="65" font-family="Arial" font-size="9"  fill="#E1BEE7" text-anchor="middle">Decision engine</text>
+      </svg>
+    </div>
+
+    <!-- ── LAYER 01: SUPPLIER ─────────────────────────────────── -->
+    <div class="sp-section">
+      <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:18px">
+        <div style="background:#1B5E20;color:white;font-family:'Courier New',monospace;font-size:20px;font-weight:700;padding:8px 14px;border-radius:4px;flex-shrink:0;line-height:1">01</div>
+        <div style="flex:1">
+          <div style="font-size:18px;font-weight:700;color:#1B5E20;margin-bottom:2px">Supplier Layer</div>
+          <div style="font-size:13px;color:#6B6B6B">Objective: Get the best produce, consistently.</div>
+        </div>
+        <div><span class="tag tag-core">Output: Verified supplier network</span></div>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="callout-label" style="color:#1B5E20;margin-bottom:10px">Commercial</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Negotiate annual/seasonal pricing — higher than open market, consistent volume</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Pay upfront for stock — competitive advantage vs. traders who pay on consignment</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Build preferred supplier relationships with top-performing farms</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Quality incentives: premium pricing tier for farms that consistently hit Grade A standards</div></div>
+        </div>
+        <div class="card">
+          <div class="callout-label" style="color:#1B5E20;margin-bottom:10px">Operations</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Standardised crates supplied to every farm — consistent packing reduces damage in transit</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Harvest specifications: time of day, maturity standard, and wash/no-wash per SKU</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Fixed collection schedules per corridor — farms know exactly when to expect pickup</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Farm intake SOPs: weight on collection, crate count, temperature log, reject protocol</div></div>
+        </div>
+        <div class="card">
+          <div class="callout-label" style="color:#1B5E20;margin-bottom:10px">Data captured</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>GPS location and corridor mapping</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Crop calendar and seasonal yield history</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Harvest date and time per lot</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Quality scores per delivery</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Reliability score: fill rate, on-time, reject %</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Photos at pickup and intake</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── LAYER 02: COLLECTION & TRANSPORT ───────────────────── -->
+    <div class="sp-section">
+      <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:18px">
+        <div style="background:#2E7D32;color:white;font-family:'Courier New',monospace;font-size:20px;font-weight:700;padding:8px 14px;border-radius:4px;flex-shrink:0;line-height:1">02</div>
+        <div style="flex:1">
+          <div style="font-size:18px;font-weight:700;color:#2E7D32;margin-bottom:2px">Collection & Transportation</div>
+          <div style="font-size:13px;color:#6B6B6B">Objective: Move produce quickly and consistently. Arrive in predictable condition.</div>
+        </div>
+        <div><span class="tag tag-core">Output: Predictable, traceable transit</span></div>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="callout-label" style="color:#2E7D32;margin-bottom:10px">Logistics</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2E7D32"></div><div>Pickup windows aligned with harvest time — early morning collection from farms</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2E7D32"></div><div>Define transfer hubs / major transport haul areas per corridor</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2E7D32"></div><div>Route optimisation: farm collection AND B2B delivery consolidated per run where possible</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2E7D32"></div><div>Vehicle scheduling: daily plan published the night before each run</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2E7D32"></div><div>Organise crates and optimise loading/offloading sequence per drop</div></div>
+        </div>
+        <div class="card">
+          <div class="callout-label" style="color:#2E7D32;margin-bottom:10px">Equipment</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2E7D32"></div><div>Standardised crates and pallets (supplied to farms)</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2E7D32"></div><div><strong>Van 1 — CNG refrigerated:</strong> in-city B2B deliveries (Lekki/VI)</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2E7D32"></div><div><strong>Van 2 — Petrol/diesel refrigerated:</strong> farm collection corridors (CNG unreliable on Ogun/Sagamu routes)</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2E7D32"></div><div>Backup diesel capacity for reliability on long-haul runs</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2E7D32"></div><div>Nylons and paper for wrapping cut/fragile produce</div></div>
+        </div>
+        <div class="card">
+          <div class="callout-label" style="color:#2E7D32;margin-bottom:10px">KPIs tracked</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2E7D32"></div><div>Transit time (farm gate to node intake) — by corridor</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2E7D32"></div><div>Damage rate: % of crates with visible damage at intake vs. pickup</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2E7D32"></div><div>Cost per kg: total vehicle operating cost ÷ kg moved per run</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2E7D32"></div><div>On-time pickup: % of collection runs that met scheduled window</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2E7D32"></div><div>Temperature at intake vs. temperature at pickup (cold chain integrity)</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── LAYER 03: PROCESSING HUB ───────────────────────────── -->
+    <div class="sp-section">
+      <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:18px">
+        <div style="background:#1565C0;color:white;font-family:'Courier New',monospace;font-size:20px;font-weight:700;padding:8px 14px;border-radius:4px;flex-shrink:0;line-height:1">03</div>
+        <div style="flex:1">
+          <div style="font-size:18px;font-weight:700;color:#1565C0;margin-bottom:2px">Processing Hub — The Heart of TRACE</div>
+          <div style="font-size:13px;color:#6B6B6B">Objective: Convert raw farm produce into retail-ready and B2B-ready inventory, fully tracked.</div>
+        </div>
+        <div><span class="tag tag-core">Output: Retail-ready, B2B-ready inventory</span></div>
+      </div>
+      <div class="grid-3" style="gap:12px">
+        <div class="card card-sm">
+          <div class="callout-label" style="color:#1565C0;margin-bottom:8px">Receiving</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Weigh each lot on intake</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Photograph — record visible condition</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Record source farm, harvest date, transit time</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Assign unique Lot ID — every downstream event references this ID</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Log intake temperature</div></div>
+        </div>
+        <div class="card card-sm">
+          <div class="callout-label" style="color:#1565C0;margin-bottom:8px">Quality Control</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Grade A / B / C per written standards (photos required)</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Rejects: log reason, weight, farm source</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Damage logging — distinguish transit damage from farm damage</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Grade A% per farm tracked weekly → feeds supplier scorecard</div></div>
+        </div>
+        <div class="card card-sm">
+          <div class="callout-label" style="color:#1565C0;margin-bottom:8px">Processing</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Wash and sort by grade</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Cut, dice, and prepare for display / B2B pack</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Package and label — SKU, harvest date, grade visible</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>B2B pre-packing: restaurant-specific pack sizes and formats</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Blast freezing (Grade C cascade — future capability)</div></div>
+        </div>
+        <div class="card card-sm">
+          <div class="callout-label" style="color:#1565C0;margin-bottom:8px">Storage</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Ambient: dry goods, root veg, hard fruits</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Chilled (+8–12°C cool room): leafy veg, tomatoes, cut produce</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Frozen: Grade C cascade, pre-processed packs</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Walk-in refrigerating unit for cold storage</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Mini back storage for crates and equipment</div></div>
+        </div>
+        <div class="card card-sm">
+          <div class="callout-label" style="color:#1565C0;margin-bottom:8px">Inventory</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>FIFO enforced — oldest lot moves first, always</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Expiry tracking per Lot ID — markdown trigger at 48h, cascade at 72h</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Batch tracking: every item traceable back to farm and harvest date</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Daily reconciliation: intake vs. sold vs. cascaded vs. wasted</div></div>
+        </div>
+        <div class="card card-sm">
+          <div class="callout-label" style="color:#1565C0;margin-bottom:8px">Equipment</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Nylons and paper for wrapping / packaging</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Wall-open refrigerator for display (retail floor)</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Walk-in refrigerating unit for cold storage</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Blast freezer (Phase 1 addition)</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Weighing scales (intake + retail)</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── LAYER 04: SEASONS RETAIL & B2B ─────────────────────── -->
+    <div class="sp-section">
+      <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:18px">
+        <div style="background:#E65100;color:white;font-family:'Courier New',monospace;font-size:20px;font-weight:700;padding:8px 14px;border-radius:4px;flex-shrink:0;line-height:1">04</div>
+        <div style="flex:1">
+          <div style="font-size:18px;font-weight:700;color:#E65100;margin-bottom:2px">Seasons — Retail & B2B</div>
+          <div style="font-size:13px;color:#6B6B6B">Objective: Generate demand. Retail and B2B are distinct channels — manage them separately.</div>
+        </div>
+        <div><span class="tag tag-live">Output: Revenue + demand data</span></div>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="callout-label" style="color:#E65100;margin-bottom:10px">Retail (Seasons by TRACE)</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#E65100"></div><div>Beautiful open displays — farm name and harvest date visible on every item</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#E65100"></div><div>Convenience packs: pre-washed, pre-cut, portion-sized for households</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#E65100"></div><div>"Fresh Made Easy" product line — value-added prepared produce</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#E65100"></div><div>Frozen section: Grade C cascaded into frozen packs at accessible prices</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#E65100"></div><div>Pricing at or below Mile 12 / Oyingbo reference on ≥80% of SKUs</div></div>
+        </div>
+        <div class="card">
+          <div class="callout-label" style="color:#E65100;margin-bottom:10px">B2B Channel</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#E65100"></div><div>Restaurants — primary B2B channel; target 10+ recurring accounts by Month 6</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#E65100"></div><div>Hotels and caterers — larger order sizes, stress test for reliability</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#E65100"></div><div>Cafés — high-frequency, lower volume; good for frozen/pre-cut packs</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#E65100"></div><div>Minimum order: ₦50K/week. Standing orders preferred over ad-hoc.</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#E65100"></div><div>Delivery window: 6–8am. B2B runs complete before node opens for retail.</div></div>
+        </div>
+        <div class="card">
+          <div class="callout-label" style="color:#E65100;margin-bottom:10px">Account Management</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#E65100"></div><div>Scheduled weekly deliveries — same day, same window, every week</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#E65100"></div><div>Standing orders with 48h cancellation policy</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#E65100"></div><div>Post-delivery follow-up within 24h on every first delivery</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#E65100"></div><div>Fill rate target: 95%+ for top 3 B2B accounts — protect your best customers first</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#E65100"></div><div>Monthly supply agreements for accounts at 3+ months of consistent reorders</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── LAYER 05: INTELLIGENCE ──────────────────────────────── -->
+    <div class="sp-section">
+      <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:18px">
+        <div style="background:#4A148C;color:white;font-family:'Courier New',monospace;font-size:20px;font-weight:700;padding:8px 14px;border-radius:4px;flex-shrink:0;line-height:1">05</div>
+        <div style="flex:1">
+          <div style="font-size:18px;font-weight:700;color:#4A148C;margin-bottom:2px">Intelligence Layer — Your Moat</div>
+          <div style="font-size:13px;color:#6B6B6B">Every movement generates data. The data becomes the decision engine. The decision engine is what competitors cannot replicate.</div>
+        </div>
+        <div><span class="tag tag-live">Output: Decision engine</span></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="callout-label" style="color:#4A148C;margin-bottom:10px">Track on every lot</div>
+          <div class="grid-2" style="gap:8px">
+            <div class="card-sm" style="background:#F5F3FF;border:1px solid #E1BEE7">
+              <div style="font-size:11px;font-weight:700;color:#4A148C">Supply side</div>
+              <div class="phase-item" style="margin-top:6px"><div class="phase-dot" style="background:#4A148C"></div><div>Harvest date</div></div>
+              <div class="phase-item"><div class="phase-dot" style="background:#4A148C"></div><div>Farm source</div></div>
+              <div class="phase-item"><div class="phase-dot" style="background:#4A148C"></div><div>Transit time</div></div>
+              <div class="phase-item"><div class="phase-dot" style="background:#4A148C"></div><div>Weight loss (transit)</div></div>
+              <div class="phase-item"><div class="phase-dot" style="background:#4A148C"></div><div>Quality score on intake</div></div>
+            </div>
+            <div class="card-sm" style="background:#F5F3FF;border:1px solid #E1BEE7">
+              <div style="font-size:11px;font-weight:700;color:#4A148C">Demand side</div>
+              <div class="phase-item" style="margin-top:6px"><div class="phase-dot" style="background:#4A148C"></div><div>Sell-through rate</div></div>
+              <div class="phase-item"><div class="phase-dot" style="background:#4A148C"></div><div>Days to sell</div></div>
+              <div class="phase-item"><div class="phase-dot" style="background:#4A148C"></div><div>Margin per kg</div></div>
+              <div class="phase-item"><div class="phase-dot" style="background:#4A148C"></div><div>Customer complaints</div></div>
+              <div class="phase-item"><div class="phase-dot" style="background:#4A148C"></div><div>Spoilage % of lot</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="callout-label" style="color:#4A148C;margin-bottom:10px">Decision engine — what the data answers</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#4A148C"></div><div><strong>Which farm?</strong> Scorecard ranks every supplier by Grade A%, fill rate, reliability, and margin contribution</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#4A148C"></div><div><strong>Which route?</strong> Cost per kg by corridor — identifies where consolidation saves money</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#4A148C"></div><div><strong>What to buy tomorrow?</strong> Sell-through history + B2B standing orders → weekly procurement plan</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#4A148C"></div><div><strong>Which grade to prioritise?</strong> Margin per grade by SKU — not all Grade A is worth the premium</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#4A148C"></div><div><strong>Where to build Hub 1?</strong> B2B account density + customer neighbourhood map → location confirmed from data</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#4A148C"></div><div><strong>Which customer to protect?</strong> Reorder rate + lifetime value — fill rate priority list built from this</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── MISSING PIECES ─────────────────────────────────────── -->
+    <div class="sp-section">
+      <div class="sp-section-title">Critical workstreams — not in the sketch</div>
+
+      <div class="grid-2" style="gap:12px">
+
+        <div class="card card-accent">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
+            <div style="font-size:14px;font-weight:700;color:#1B5E20">Procurement</div>
+            <span class="tag tag-core">⭐⭐⭐⭐⭐</span>
+          </div>
+          <div style="font-size:12px;color:#3A3A3A;line-height:1.65;margin-bottom:10px">The sketch mentions financials but not how buying decisions are made. Procurement is arguably the highest-leverage function in the business.</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Purchase orders per farm per week — no ad-hoc buying</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Seasonal planning: what to buy and from where, by month</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Supplier diversification: no single farm >40% of any SKU volume</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Forecasting: sell-through history drives next week's order quantities</div></div>
+        </div>
+
+        <div class="card card-accent">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
+            <div style="font-size:14px;font-weight:700;color:#1B5E20">Demand Planning</div>
+            <span class="tag tag-core">⭐⭐⭐⭐⭐</span>
+          </div>
+          <div style="font-size:12px;color:#3A3A3A;line-height:1.65;margin-bottom:10px">More important than cold storage in Phase 0. The businesses that win in food systems become exceptionally good at forecasting and shaping demand.</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Weekly: what should we buy tomorrow? How much spinach? Which farm?</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>B2B standing orders as the demand anchor — builds baseline before each week</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Consumer sell-through data to calibrate retail order quantities</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Seasonal adjustment: build demand planning calendar for low/peak periods</div></div>
+        </div>
+
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
+            <div style="font-size:14px;font-weight:700;color:#1B5E20">Waste Management</div>
+            <span class="tag tag-core">⭐⭐⭐⭐</span>
+          </div>
+          <div style="font-size:12px;color:#3A3A3A;line-height:1.65;margin-bottom:10px">Waste itself is a KPI. Track every unsold kilogram and where it went.</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Quick Sale markdown: Day 2 trigger on fast-spoilage SKUs</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Grade C cascade: frozen packs for juice bars and smoothie shops</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Secondary commercial: overripe/bruised → local processors or caterers</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Compost / animal feed: last resort. Every composted kilogram is a failure logged.</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Waste % of COGS tracked daily. Target: below 5% by Month 6.</div></div>
+        </div>
+
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
+            <div style="font-size:14px;font-weight:700;color:#1B5E20">Resources</div>
+            <span class="tag tag-core">⭐⭐⭐⭐</span>
+          </div>
+          <div style="font-size:12px;color:#3A3A3A;line-height:1.65;margin-bottom:10px">From the sketch: the infrastructure the node depends on.</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div><strong>Water:</strong> confirm reliable supply at the Freedom Way site before signing lease</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div><strong>Solar capacity:</strong> reduce electricity cost and remove NEPA dependency for cold storage</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div><strong>Backup generator (diesel):</strong> non-negotiable for cool room continuity</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div><strong>Internet:</strong> stable connection for TRACE Operations platform and data logging</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div><strong>Human resources:</strong> training and upskilling programme from Day 1</div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── PEOPLE & ROLES ─────────────────────────────────────── -->
+    <div class="sp-section">
+      <div class="sp-section-title">People — every role documented</div>
+      <table class="data-table" style="width:100%">
+        <thead>
+          <tr><th>Role</th><th>Responsible for</th><th>Reports to</th><th>Phase</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Node Manager</strong></td><td>Day-to-day operations, B2B relationships, staff management, daily KPI review</td><td>Founder</td><td><span class="tag tag-core">Phase 0</span></td></tr>
+          <tr><td><strong>Procurement Lead</strong></td><td>Farm relationships, weekly purchase orders, supplier scorecards, seasonal planning</td><td>Node Manager</td><td><span class="tag tag-core">Phase 0</span></td></tr>
+          <tr><td><strong>Quality Inspector</strong></td><td>Receiving, grading, rejection logging, SOP enforcement</td><td>Node Manager</td><td><span class="tag tag-core">Phase 0</span></td></tr>
+          <tr><td><strong>Packer / Floor Staff ×2</strong></td><td>Processing, display, inventory management, retail floor</td><td>Node Manager</td><td><span class="tag tag-core">Phase 0</span></td></tr>
+          <tr><td><strong>Driver / Farm Liaison</strong></td><td>Farm collections, B2B deliveries, vehicle maintenance, farm relationships</td><td>Node Manager</td><td><span class="tag tag-core">Phase 0</span></td></tr>
+          <tr><td><strong>Customer Success</strong></td><td>B2B account management, reorder tracking, complaint resolution</td><td>Node Manager</td><td><span class="tag tag-planned">Phase 1</span></td></tr>
+          <tr><td><strong>Operations Analyst</strong></td><td>TRACE OS data, weekly KPI dashboard, demand forecasting, route optimisation</td><td>Founder</td><td><span class="tag tag-planned">Phase 1</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ── SOPs ───────────────────────────────────────────────── -->
+    <div class="sp-section">
+      <div class="sp-section-title">SOPs — standardise before scaling</div>
+      <div class="grid-3" style="gap:10px">
+        <div class="card card-sm"><strong>Receiving SOP</strong><br><span style="font-size:11px;color:#6B6B6B">Weight, photo, source, time, temperature, Lot ID assignment</span></div>
+        <div class="card card-sm"><strong>Quality Inspection SOP</strong><br><span style="font-size:11px;color:#6B6B6B">Grade A/B/C standards per SKU, reject protocol, damage logging</span></div>
+        <div class="card card-sm"><strong>Washing SOP</strong><br><span style="font-size:11px;color:#6B6B6B">Water temperature, soak time, sanitiser concentration by SKU</span></div>
+        <div class="card card-sm"><strong>Cutting & Packaging SOP</strong><br><span style="font-size:11px;color:#6B6B6B">Pack sizes, labelling format, harvest date display requirement</span></div>
+        <div class="card card-sm"><strong>Cold Room SOP</strong><br><span style="font-size:11px;color:#6B6B6B">Temperature checks 3×/day, FIFO enforcement, door discipline</span></div>
+        <div class="card card-sm"><strong>Vehicle Loading SOP</strong><br><span style="font-size:11px;color:#6B6B6B">Load sequence by drop, crate check, temperature log before departure</span></div>
+        <div class="card card-sm"><strong>B2B Dispatch SOP</strong><br><span style="font-size:11px;color:#6B6B6B">Pre-pack check, invoice, delivery window confirmation, proof of delivery</span></div>
+        <div class="card card-sm"><strong>Customer Complaint SOP</strong><br><span style="font-size:11px;color:#6B6B6B">Log complaint → trace to Lot ID → farm scorecard update → client response within 2h</span></div>
+        <div class="card card-sm"><strong>Product Recall SOP</strong><br><span style="font-size:11px;color:#6B6B6B">Identify Lot ID → pull all affected stock → notify B2B clients → log root cause</span></div>
+        <div class="card card-sm"><strong>Inventory Reconciliation SOP</strong><br><span style="font-size:11px;color:#6B6B6B">Daily close: intake vs. sold vs. cascaded vs. wasted. Zero unexplained variances.</span></div>
+        <div class="card card-sm"><strong>Supplier Onboarding SOP</strong><br><span style="font-size:11px;color:#6B6B6B">Farm visit → sample delivery → quality assessment → scorecard baseline → contract</span></div>
+        <div class="card card-sm"><strong>New B2B Account SOP</strong><br><span style="font-size:11px;color:#6B6B6B">Interview → trial delivery → 24h follow-up → standing order offer at 3rd reorder</span></div>
+      </div>
+    </div>
+
+    <!-- ── TRACE OS ────────────────────────────────────────────── -->
+    <div class="sp-section">
+      <div class="sp-section-title">TRACE OS — the connective tissue</div>
+      <div class="brief-banner" style="background:#2D2D2D">
+        <p style="font-size:14px;color:rgba(255,255,255,.9)"><strong style="color:white">The software is not an afterthought.</strong> Every physical layer generates data. TRACE OS is the system that captures it, connects it, and turns it into decisions. Without it, TRACE is just another produce trader. With it, TRACE becomes an operations platform.</p>
+      </div>
+      <div style="margin-top:16px;padding:20px;background:#F5F5F5;border-radius:4px;font-family:'Courier New',monospace;font-size:12px;color:#2D2D2D;line-height:2.2">
+        Farm → Pickup → Processing Hub → Inventory → Seasons → Customer<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPS + Score&nbsp;&nbsp;&nbsp;Quality + Lot ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stock&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sales&nbsp;&nbsp;&nbsp;&nbsp;Reorder<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TRACE Intelligence Platform<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Supabase · TRACE OS)
+      </div>
+      <div class="grid-3" style="gap:10px;margin-top:14px">
+        <div class="card card-sm"><div style="font-size:11px;font-weight:700;color:#2D6A46;margin-bottom:6px">Platform knows</div>
+          <div class="phase-item"><div class="phase-dot"></div><div>Where every kilogram came from</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div>Where it is right now</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div>What it cost to move</div></div>
+        </div>
+        <div class="card card-sm"><div style="font-size:11px;font-weight:700;color:#2D6A46;margin-bottom:6px">Platform learns</div>
+          <div class="phase-item"><div class="phase-dot"></div><div>How quickly it sold</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div>Which farms produce the best margin</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div>Which routes are cheapest</div></div>
+        </div>
+        <div class="card card-sm"><div style="font-size:11px;font-weight:700;color:#2D6A46;margin-bottom:6px">Platform decides</div>
+          <div class="phase-item"><div class="phase-dot"></div><div>Whether to purchase it again</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div>Where the next node should open</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div>When to deploy cold infrastructure</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <strong>⚠ Directional framework — Month 0.</strong> This operating model reflects current strategic intent. SOPs, role definitions, and technology specifications will be refined through Months 1–3 field operations before the Seasons node opens in Month 4. Update this section monthly from operating data.
+    </div>
+
+  </div>
+
+  <div class="section-footer">
+    <span class="update-badge">⚠ Operational framework — update monthly from Seasons data</span>
+    <span class="conf-footer">TRACE · Confidential · Not for distribution</span>
+  </div>
+
+</div>
+
+<!-- /SECTION:operations -->
 
 </main>
 
