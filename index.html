@@ -7,10 +7,10 @@
 
 
 <!-- DASHBOARD_META
-  version: 2.5.1
+  version: 2.5.2
   last_updated: 2026-06-15
   updated_by: Claude (Kemi session)
-  change: v2.5.1 — Operations restructured: matrix removed, critical workstreams removed, cross-cutting moved after layer detail.
+  change: v2.5.2 — Operations: critical workstreams restored (stars removed).
   sections_count: 9
   live_url: https://kemiao-dotcom.github.io/agrovault-dashboard
 -->
@@ -3582,6 +3582,54 @@
     </div>
 
     <!-- ── MISSING PIECES ─────────────────────────────────────── -->
+    <div class="sp-section">
+      <div class="sp-section-title">Critical workstreams — not in the sketch</div>
+
+      <div class="grid-2" style="gap:12px">
+
+        <div class="card card-accent">
+          <div style="font-size:14px;font-weight:700;color:#1B5E20;margin-bottom:10px">Procurement</div>
+          <div style="font-size:12px;color:#3A3A3A;line-height:1.65;margin-bottom:10px">The sketch mentions financials but not how buying decisions are made. Procurement is arguably the highest-leverage function in the business.</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Purchase orders per farm per week — no ad-hoc buying</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Seasonal planning: what to buy and from where, by month</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Supplier diversification: no single farm >40% of any SKU volume</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Forecasting: sell-through history drives next week's order quantities</div></div>
+        </div>
+
+        <div class="card card-accent">
+          <div style="font-size:14px;font-weight:700;color:#1B5E20;margin-bottom:10px">Demand Planning</div>
+          <div style="font-size:12px;color:#3A3A3A;line-height:1.65;margin-bottom:10px">More important than cold storage in Phase 0. The businesses that win in food systems become exceptionally good at forecasting and shaping demand.</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Weekly: what should we buy tomorrow? How much spinach? Which farm?</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>B2B standing orders as the demand anchor — builds baseline before each week</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Consumer sell-through data to calibrate retail order quantities</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Seasonal adjustment: build demand planning calendar for low/peak periods</div></div>
+        </div>
+
+        <div class="card">
+          <div style="font-size:14px;font-weight:700;color:#1B5E20;margin-bottom:10px">Waste Management</div>
+          <div style="font-size:12px;color:#3A3A3A;line-height:1.65;margin-bottom:10px">Waste itself is a KPI. Track every unsold kilogram and where it went.</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Quick Sale markdown: Day 2 trigger on fast-spoilage SKUs</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Grade C cascade: frozen packs for juice bars and smoothie shops</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Secondary commercial: overripe/bruised → local processors or caterers</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Compost / animal feed: last resort. Every composted kilogram is a failure logged.</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Waste % of COGS tracked daily. Target: below 5% by Month 6.</div></div>
+        </div>
+
+        <div class="card">
+          <div style="font-size:14px;font-weight:700;color:#1B5E20;margin-bottom:10px">Resources</div>
+          <div style="font-size:12px;color:#3A3A3A;line-height:1.65;margin-bottom:10px">From the sketch: the infrastructure the node depends on.</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div><strong>Water:</strong> confirm reliable supply at the Freedom Way site before signing lease</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div><strong>Solar capacity:</strong> reduce electricity cost and remove NEPA dependency for cold storage</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div><strong>Backup generator (diesel):</strong> non-negotiable for cool room continuity</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div><strong>Internet:</strong> stable connection for TRACE Operations platform and data logging</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div><strong>Human resources:</strong> training and upskilling programme from Day 1</div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── PEOPLE & ROLES ─────────────────────────────────────── -->
+    
     <div class="sp-section">
       <div class="sp-section-title">Cross-cutting operating principles</div>
       <div class="grid-3" style="gap:12px">
