@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRACE — Pre-Launch Tracker</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --g1: #1B5E20; --g2: #2D6A46; --g3: #EBF2EC; --g4: #C8E6C9;
+  --ink: #111111; --ink2: #3A3A3A; --ink3: #6B6B6B; --ink4: #9E9E9E;
+  --rule: #E2E2DE; --bg: #FAFAF8; --card: #FFFFFF;
+  --o1: #E65100; --o2: #FFF3E0;
+  --b1: #0D47A1; --b2: #EEF3FB;
+  --r1: #8B1A1A; --r2: #FDF0F0;
+  --font: 'Times New Roman', Times, serif;
+  --mono: 'Courier New', monospace;
+  --t3: #1B5E20;
+  --t2: #1565C0;
+  --t1: #6A1B9A;
+  --t0: #BF360C;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 13.5px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+
+/* ── HEADER ───────────────────────────────────────────── */
+.top-bar {
+  background: var(--g1);
+  padding: 0 32px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 12px rgba(0,0,0,.15);
+}
+.back-link {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: rgba(255,255,255,.75);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color .15s;
+}
+.back-link:hover { color: white; }
+.back-link::before { content: '←'; font-size: 14px; }
+.top-title {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: white;
+}
+.top-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: rgba(255,255,255,.55);
+  letter-spacing: .06em;
+}
+
+/* ── PAGE WRAP ─────────────────────────────────────────── */
+.page { max-width: 900px; margin: 0 auto; padding: 32px 32px 80px; }
+
+/* ── HERO ──────────────────────────────────────────────── */
+.hero { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--rule); }
+.hero-eye { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--g2); margin-bottom: 10px; display: flex; align-items: center; gap: 12px; }
+.hero-eye::after { content: ''; height: 1px; width: 40px; background: var(--g2); opacity: .4; }
+.hero-title { font-size: 34px; font-weight: 700; color: var(--ink); line-height: 1.1; margin-bottom: 8px; }
+.hero-title span { color: var(--g1); }
+.hero-sub { font-size: 13.5px; color: var(--ink3); line-height: 1.7; max-width: 580px; }
+
+/* ── PROGRESS SUMMARY ──────────────────────────────────── */
+.progress-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 32px;
+}
+.prog-card {
+  padding: 14px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--rule);
+  background: var(--card);
+  cursor: pointer;
+  transition: box-shadow .15s;
+}
+.prog-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+.prog-phase { font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 4px; }
+.prog-label { font-size: 12px; color: var(--ink2); font-weight: 600; margin-bottom: 8px; }
+.prog-bar-wrap { height: 5px; background: var(--rule); border-radius: 3px; overflow: hidden; margin-bottom: 6px; }
+.prog-bar { height: 100%; border-radius: 3px; transition: width .3s ease; }
+.prog-count { font-family: var(--mono); font-size: 10px; color: var(--ink4); }
+
+/* ── PHASE SECTION ─────────────────────────────────────── */
+.phase-section { margin-bottom: 28px; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+.phase-header {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+.phase-badge {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  padding: 4px 12px;
+  border-radius: 4px;
+  color: white;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.phase-info { flex: 1; }
+.phase-name { font-size: 16px; font-weight: 700; color: var(--ink); }
+.phase-context { font-size: 12px; color: var(--ink3); margin-top: 1px; }
+.phase-mini-bar { display: flex; align-items: center; gap: 10px; }
+.phase-mini-track { flex: 1; height: 4px; background: var(--rule); border-radius: 2px; overflow: hidden; max-width: 120px; }
+.phase-mini-fill { height: 100%; border-radius: 2px; transition: width .3s; }
+.phase-mini-pct { font-family: var(--mono); font-size: 10px; color: var(--ink4); white-space: nowrap; }
+.phase-toggle { font-size: 14px; color: var(--ink4); transition: transform .2s; flex-shrink: 0; }
+.phase-toggle.open { transform: rotate(90deg); }
+
+.phase-body { display: none; }
+.phase-body.open { display: block; }
+
+/* ── WORKSTREAM ─────────────────────────────────────────── */
+.workstream { border-top: 1px solid var(--rule); display: grid; grid-template-columns: 130px 1fr; }
+.ws-label {
+  padding: 14px 14px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink4);
+  background: var(--bg);
+  border-right: 1px solid var(--rule);
+  display: flex;
+  align-items: flex-start;
+  padding-top: 16px;
+  font-weight: 600;
+}
+.ws-tasks { padding: 10px 14px; display: flex; flex-direction: column; gap: 2px; }
+
+/* ── TASK ITEM ──────────────────────────────────────────── */
+.task {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 7px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background .1s;
+}
+.task:hover { background: var(--bg); }
+.task.done .task-text { color: var(--ink4); text-decoration: line-through; }
+.task.critical .task-text { color: var(--ink); }
+.task input[type=checkbox] {
+  width: 15px;
+  height: 15px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  cursor: pointer;
+  accent-color: var(--g1);
+}
+.task-text { font-size: 13px; color: var(--ink2); line-height: 1.5; }
+.task-text strong { color: var(--ink); font-weight: 700; }
+.task.critical .task-text::before {
+  content: '★ ';
+  color: var(--g1);
+  font-size: 11px;
+}
+.task.done.critical .task-text::before {
+  color: var(--ink4);
+}
+
+/* ── PHASE COLORS ───────────────────────────────────────── */
+.phase-t3 .phase-badge { background: var(--t3); }
+.phase-t3 .prog-phase  { color: var(--t3); }
+.phase-t3 .prog-bar, .phase-t3 .phase-mini-fill { background: var(--t3); }
+.phase-t3 .phase-header { background: #F0FDF4; }
+
+.phase-t2 .phase-badge { background: var(--t2); }
+.phase-t2 .prog-phase  { color: var(--t2); }
+.phase-t2 .prog-bar, .phase-t2 .phase-mini-fill { background: var(--t2); }
+.phase-t2 .phase-header { background: #EEF3FB; }
+
+.phase-t1 .phase-badge { background: var(--t1); }
+.phase-t1 .prog-phase  { color: var(--t1); }
+.phase-t1 .prog-bar, .phase-t1 .phase-mini-fill { background: var(--t1); }
+.phase-t1 .phase-header { background: #F9F0FF; }
+
+.phase-t0 .phase-badge { background: var(--t0); }
+.phase-t0 .prog-phase  { color: var(--t0); }
+.phase-t0 .prog-bar, .phase-t0 .phase-mini-fill { background: var(--t0); }
+.phase-t0 .phase-header { background: #FFF3E0; }
+
+/* ── NOTE BOX ───────────────────────────────────────────── */
+.note-box { margin-top: 28px; padding: 16px 20px; background: var(--g1); border-radius: 6px; }
+.note-box p { font-size: 12.5px; color: rgba(255,255,255,.88); line-height: 1.75; }
+.note-box strong { color: white; }
+
+footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; }
+footer .brand { font-size: 18px; font-weight: 700; color: var(--g1); }
+footer .conf { font-family: var(--mono); font-size: 10px; color: var(--ink4); letter-spacing: .06em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <a href="index.html" class="back-link">Strategy Dashboard</a>
+  <div class="top-title">Pre-Launch Tracker</div>
+  <div class="top-meta">Seasons by TRACE · Freedom Way, Lekki</div>
+</div>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eye">TRACE · Seasons by TRACE</div>
+    <h1 class="hero-title">T-3 to Launch.<br><span>What gets done before doors open.</span></h1>
+    <p class="hero-sub">Four months of preparation. Each task is a gate. The node opens only when all critical items are checked. ★ marks items that block the next phase if undone.</p>
+  </div>
+
+  <!-- PROGRESS SUMMARY -->
+  <div class="progress-row">
+    <div class="prog-card phase-t3" onclick="scrollToPhase('t3')">
+      <div class="prog-phase">T-3</div>
+      <div class="prog-label">Foundation</div>
+      <div class="prog-bar-wrap"><div class="prog-bar" id="bar-t3" style="width:0%"></div></div>
+      <div class="prog-count" id="count-t3">0 / 0 done</div>
+    </div>
+    <div class="prog-card phase-t2" onclick="scrollToPhase('t2')">
+      <div class="prog-phase">T-2</div>
+      <div class="prog-label">Build</div>
+      <div class="prog-bar-wrap"><div class="prog-bar" id="bar-t2" style="width:0%"></div></div>
+      <div class="prog-count" id="count-t2">0 / 0 done</div>
+    </div>
+    <div class="prog-card phase-t1" onclick="scrollToPhase('t1')">
+      <div class="prog-phase">T-1</div>
+      <div class="prog-label">Pre-Launch</div>
+      <div class="prog-bar-wrap"><div class="prog-bar" id="bar-t1" style="width:0%"></div></div>
+      <div class="prog-count" id="count-t1">0 / 0 done</div>
+    </div>
+    <div class="prog-card phase-t0" onclick="scrollToPhase('t0')">
+      <div class="prog-phase">T-0</div>
+      <div class="prog-label">Launch Day</div>
+      <div class="prog-bar-wrap"><div class="prog-bar" id="bar-t0" style="width:0%"></div></div>
+      <div class="prog-count" id="count-t0">0 / 0 done</div>
+    </div>
+  </div>
+
+  <!-- ══ T-3 ══════════════════════════════════════════════ -->
+  <div class="phase-section phase-t3" id="phase-t3">
+    <div class="phase-header" onclick="togglePhase('t3')">
+      <span class="phase-badge">T-3</span>
+      <div class="phase-info">
+        <div class="phase-name">Foundation Month</div>
+        <div class="phase-context">No node, no vans, no fixed costs — just fieldwork and decisions.</div>
+      </div>
+      <div class="phase-mini-bar">
+        <div class="phase-mini-track"><div class="phase-mini-fill" id="mini-t3" style="width:0%"></div></div>
+        <div class="phase-mini-pct" id="pct-t3">0%</div>
+      </div>
+      <div class="phase-toggle open" id="tog-t3">›</div>
+    </div>
+    <div class="phase-body open" id="body-t3">
+
+      <div class="workstream">
+        <div class="ws-label">Legal & Admin</div>
+        <div class="ws-tasks">
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-l1"><span class="task-text">Check CAC name availability for "TRACE" and "Seasons by TRACE"</span></label>
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-l2"><span class="task-text">Begin CAC registration for TRACE parent entity</span></label>
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-l3"><span class="task-text">Open dedicated business bank account — separate from personal funds</span></label>
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-l4"><span class="task-text">Draft shareholder agreement if raising angel capital</span></label>
+        </div>
+      </div>
+
+      <div class="workstream">
+        <div class="ws-label">Capital</div>
+        <div class="ws-tasks">
+          <label class="task critical" data-phase="t3"><input type="checkbox" data-id="t3-c1"><span class="task-text"><strong>Confirm $70–100K (₦112–160M) is accessible</strong> — founder + any confirmed angel commitments. Do not sign a lease until this number is real.</span></label>
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-c2"><span class="task-text">Decide capital structure: founder-only or angel round</span></label>
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-c3"><span class="task-text">Get an Arnergy / Rensource quote for solar-as-a-service (vs. capex solar) before finalising budget</span></label>
+        </div>
+      </div>
+
+      <div class="workstream">
+        <div class="ws-label">Site Search</div>
+        <div class="ws-tasks">
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-s1"><span class="task-text">Identify 3–5 candidate commercial spaces in Freedom Way / Oniru area</span></label>
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-s2"><span class="task-text">Conduct site visits — assess power supply (three-phase?), loading access, structure for cool room</span></label>
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-s3"><span class="task-text">Get cool room installation quotes at shortlisted sites — cost varies by building structure</span></label>
+          <label class="task critical" data-phase="t3"><input type="checkbox" data-id="t3-s4"><span class="task-text"><strong>Shortlist to 1 preferred site</strong> and begin lease negotiations before month ends</span></label>
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-s5"><span class="task-text">Confirm water supply reliability at preferred site</span></label>
+        </div>
+      </div>
+
+      <div class="workstream">
+        <div class="ws-label">Farms</div>
+        <div class="ws-tasks">
+          <label class="task critical" data-phase="t3"><input type="checkbox" data-id="t3-f1"><span class="task-text"><strong>Visit 15–20 farms across 3 corridors</strong> — Ogun (Sagamu/Abeokuta), Oyo/Osun (peppers), Ekiti (yam/fruit)</span></label>
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-f2"><span class="task-text">Map drive times: time each corridor route at 5–6am to confirm logistics viability</span></label>
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-f3"><span class="task-text">Document harvest cycles, pricing, quality variability, and post-harvest handling per farm</span></label>
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-f4"><span class="task-text">Ask every farm: what changes if they have a reliable weekly buyer at a consistent price?</span></label>
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-f5"><span class="task-text">Identify 10 high-potential supplier partners — quality consistency + direct supply willingness</span></label>
+        </div>
+      </div>
+
+      <div class="workstream">
+        <div class="ws-label">B2B Pipeline</div>
+        <div class="ws-tasks">
+          <label class="task critical" data-phase="t3"><input type="checkbox" data-id="t3-b1"><span class="task-text"><strong>Build list of 30+ restaurants, hotels, QSRs, caterers</strong> in Lekki Phase 1 / VI / Oniru catchment</span></label>
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-b2"><span class="task-text">Begin 10–15 introduction conversations — ask how they source now, what frustrates them</span></label>
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-b3"><span class="task-text">Identify top 10 products by recurring demand across all B2B interviews</span></label>
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-b4"><span class="task-text">Identify 3 operations genuinely interested in a trial supply arrangement</span></label>
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-b5"><span class="task-text">Conduct 20–30 consumer interviews in Lekki / Oniru — test willingness to buy at accessible prices</span></label>
+        </div>
+      </div>
+
+      <div class="workstream">
+        <div class="ws-label">Technology</div>
+        <div class="ws-tasks">
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-t1"><span class="task-text">Set up Supabase free-tier project</span></label>
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-t2"><span class="task-text">Create initial tables: farms · lots · sales · grading · B2B accounts</span></label>
+          <label class="task" data-phase="t3"><input type="checkbox" data-id="t3-t3"><span class="task-text">Map TRACE Operations tool tabs to daily task owners</span></label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ T-2 ══════════════════════════════════════════════ -->
+  <div class="phase-section phase-t2" id="phase-t2">
+    <div class="phase-header" onclick="togglePhase('t2')">
+      <span class="phase-badge">T-2</span>
+      <div class="phase-info">
+        <div class="phase-name">Build Month</div>
+        <div class="phase-context">Lease signed. Build begins. First commitments locked in.</div>
+      </div>
+      <div class="phase-mini-bar">
+        <div class="phase-mini-track"><div class="phase-mini-fill" id="mini-t2" style="width:0%"></div></div>
+        <div class="phase-mini-pct" id="pct-t2">0%</div>
+      </div>
+      <div class="phase-toggle" id="tog-t2">›</div>
+    </div>
+    <div class="phase-body" id="body-t2">
+
+      <div class="workstream">
+        <div class="ws-label">Legal & Admin</div>
+        <div class="ws-tasks">
+          <label class="task critical" data-phase="t2"><input type="checkbox" data-id="t2-l1"><span class="task-text"><strong>CAC registration complete</strong> — collect certificate before lease is signed. Landlords require this.</span></label>
+          <label class="task" data-phase="t2"><input type="checkbox" data-id="t2-l2"><span class="task-text">Angel investment terms finalised — money in business account before lease commitment</span></label>
+        </div>
+      </div>
+
+      <div class="workstream">
+        <div class="ws-label">Site & Build</div>
+        <div class="ws-tasks">
+          <label class="task critical" data-phase="t2"><input type="checkbox" data-id="t2-s1"><span class="task-text"><strong>LEASE SIGNED</strong> — negotiate upfront payment structure, service charge clarity, contractor access</span></label>
+          <label class="task critical" data-phase="t2"><input type="checkbox" data-id="t2-s2"><span class="task-text"><strong>Cool room contractor selected</strong> — 3 quotes obtained, installation scheduled, 4-week delivery confirmed</span></label>
+          <label class="task" data-phase="t2"><input type="checkbox" data-id="t2-s3"><span class="task-text">Fit-out started: shelving, display crates, lighting, flooring</span></label>
+          <label class="task" data-phase="t2"><input type="checkbox" data-id="t2-s4"><span class="task-text">Reach-in display units ordered (2–3 units — order early, 2–4 week lead time)</span></label>
+          <label class="task" data-phase="t2"><input type="checkbox" data-id="t2-s5"><span class="task-text">Signage designed, approved, and sent to printer</span></label>
+          <label class="task" data-phase="t2"><input type="checkbox" data-id="t2-s6"><span class="task-text">Three-phase power supply assessed — inverter/solar/generator decision made and ordered</span></label>
+        </div>
+      </div>
+
+      <div class="workstream">
+        <div class="ws-label">Team</div>
+        <div class="ws-tasks">
+          <label class="task critical" data-phase="t2"><input type="checkbox" data-id="t2-tm1"><span class="task-text"><strong>Node Manager hired</strong> — must start this month to oversee fit-out. Produce distribution background required.</span></label>
+          <label class="task" data-phase="t2"><input type="checkbox" data-id="t2-tm2"><span class="task-text">Role descriptions and compensation set for all 4–5 positions</span></label>
+          <label class="task" data-phase="t2"><input type="checkbox" data-id="t2-tm3"><span class="task-text">Floor staff interviews begun (2 positions)</span></label>
+          <label class="task" data-phase="t2"><input type="checkbox" data-id="t2-tm4"><span class="task-text">Driver / farm liaison identified</span></label>
+        </div>
+      </div>
+
+      <div class="workstream">
+        <div class="ws-label">Fleet</div>
+        <div class="ws-tasks">
+          <label class="task critical" data-phase="t2"><input type="checkbox" data-id="t2-fl1"><span class="task-text"><strong>Source 2 refrigerated vans</strong> — Van 1 CNG (B2B city runs), Van 2 petrol/diesel (farm corridors)</span></label>
+          <label class="task" data-phase="t2"><input type="checkbox" data-id="t2-fl2"><span class="task-text">Refrigeration unit retrofit quotes obtained (Chinese unit is fine for Phase 0)</span></label>
+          <label class="task" data-phase="t2"><input type="checkbox" data-id="t2-fl3"><span class="task-text">Purchase/lease decision made on both vans</span></label>
+          <label class="task" data-phase="t2"><input type="checkbox" data-id="t2-fl4"><span class="task-text">Comprehensive insurance arranged (vans + cargo)</span></label>
+        </div>
+      </div>
+
+      <div class="workstream">
+        <div class="ws-label">Farms</div>
+        <div class="ws-tasks">
+          <label class="task" data-phase="t2"><input type="checkbox" data-id="t2-f1"><span class="task-text">Second visits to top 3 farms with Node Manager — their assessment matters</span></label>
+          <label class="task critical" data-phase="t2"><input type="checkbox" data-id="t2-f2"><span class="task-text"><strong>2–3 farm supply agreements signed</strong> — pricing, quality standards, rejection protocol, delivery schedule</span></label>
+          <label class="task" data-phase="t2"><input type="checkbox" data-id="t2-f3"><span class="task-text">Oyo/Osun corridor: at least one farm for peppers and rodo in conversation</span></label>
+        </div>
+      </div>
+
+      <div class="workstream">
+        <div class="ws-label">B2B</div>
+        <div class="ws-tasks">
+          <label class="task critical" data-phase="t2"><input type="checkbox" data-id="t2-b1"><span class="task-text"><strong>3 soft B2B commitments confirmed</strong> — verbal yes to a trial order from launch week</span></label>
+          <label class="task" data-phase="t2"><input type="checkbox" data-id="t2-b2"><span class="task-text">Confirm delivery windows, first order sizes, and preferred SKUs with each trial account</span></label>
+          <label class="task" data-phase="t2"><input type="checkbox" data-id="t2-b3"><span class="task-text">Set B2B pricing structure: minimum order ₦50K/week, 48h cancellation, delivery window 6–8am</span></label>
+        </div>
+      </div>
+
+      <div class="workstream">
+        <div class="ws-label">Technology</div>
+        <div class="ws-tasks">
+          <label class="task" data-phase="t2"><input type="checkbox" data-id="t2-t1"><span class="task-text">Supabase schema finalised — all tables tested and accepting data from mobile browser</span></label>
+          <label class="task" data-phase="t2"><input type="checkbox" data-id="t2-t2"><span class="task-text">End-to-end TRACE Operations workflow tested: intake → grade → display → sale → cascade</span></label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ T-1 ══════════════════════════════════════════════ -->
+  <div class="phase-section phase-t1" id="phase-t1">
+    <div class="phase-header" onclick="togglePhase('t1')">
+      <span class="phase-badge">T-1</span>
+      <div class="phase-info">
+        <div class="phase-name">Pre-Launch Month</div>
+        <div class="phase-context">Everything installed, everyone hired, everything tested. Open in 4 weeks.</div>
+      </div>
+      <div class="phase-mini-bar">
+        <div class="phase-mini-track"><div class="phase-mini-fill" id="mini-t1" style="width:0%"></div></div>
+        <div class="phase-mini-pct" id="pct-t1">0%</div>
+      </div>
+      <div class="phase-toggle" id="tog-t1">›</div>
+    </div>
+    <div class="phase-body" id="body-t1">
+
+      <div class="workstream">
+        <div class="ws-label">Site & Build</div>
+        <div class="ws-tasks">
+          <label class="task critical" data-phase="t1"><input type="checkbox" data-id="t1-s1"><span class="task-text"><strong>Cool room commissioned and temperature-tested</strong> — 24-hour hold at +8–12°C, commissioning certificate received</span></label>
+          <label class="task critical" data-phase="t1"><input type="checkbox" data-id="t1-s2"><span class="task-text"><strong>All reach-in units installed and tested</strong></span></label>
+          <label class="task" data-phase="t1"><input type="checkbox" data-id="t1-s3"><span class="task-text">Signage installed — store exterior and interior complete</span></label>
+          <label class="task" data-phase="t1"><input type="checkbox" data-id="t1-s4"><span class="task-text">Power supply stable — inverter, solar, or generator confirmed operational with cool room running</span></label>
+          <label class="task" data-phase="t1"><input type="checkbox" data-id="t1-s5"><span class="task-text">Walk the store as a customer — does it feel right? Fix before opening.</span></label>
+        </div>
+      </div>
+
+      <div class="workstream">
+        <div class="ws-label">Team</div>
+        <div class="ws-tasks">
+          <label class="task critical" data-phase="t1"><input type="checkbox" data-id="t1-tm1"><span class="task-text"><strong>All 4–5 staff hired and start this month</strong></span></label>
+          <label class="task critical" data-phase="t1"><input type="checkbox" data-id="t1-tm2"><span class="task-text"><strong>Training week complete</strong> — grading standards, lot intake, cascade protocol, TRACE Operations, B2B process, customer service</span></label>
+          <label class="task" data-phase="t1"><input type="checkbox" data-id="t1-tm3"><span class="task-text">Two training farm runs completed with driver + floor staff (grade produce, log it, cascade it)</span></label>
+          <label class="task" data-phase="t1"><input type="checkbox" data-id="t1-tm4"><span class="task-text">Every staff member can log data on phone without asking for help</span></label>
+        </div>
+      </div>
+
+      <div class="workstream">
+        <div class="ws-label">Fleet</div>
+        <div class="ws-tasks">
+          <label class="task critical" data-phase="t1"><input type="checkbox" data-id="t1-fl1"><span class="task-text"><strong>Both vans operational</strong> — refrigeration tested on full load run, temperature holds confirmed</span></label>
+          <label class="task" data-phase="t1"><input type="checkbox" data-id="t1-fl2"><span class="task-text">Both vans insured before any external deliveries</span></label>
+          <label class="task" data-phase="t1"><input type="checkbox" data-id="t1-fl3"><span class="task-text">Farm collection route timed: 5am Lagos → 7am farm → 10am back for grading</span></label>
+        </div>
+      </div>
+
+      <div class="workstream">
+        <div class="ws-label">Farms</div>
+        <div class="ws-tasks">
+          <label class="task critical" data-phase="t1"><input type="checkbox" data-id="t1-f1"><span class="task-text"><strong>3–5 farm agreements finalised</strong> with delivery schedules, quality standards, and rejection protocol confirmed</span></label>
+          <label class="task" data-phase="t1"><input type="checkbox" data-id="t1-f2"><span class="task-text">Harvest date tracking agreed with every supplier — you need to know when produce was cut</span></label>
+          <label class="task" data-phase="t1"><input type="checkbox" data-id="t1-f3"><span class="task-text">First farm collection (training run, no customer deliveries) — grade, log, cascade the produce</span></label>
+        </div>
+      </div>
+
+      <div class="workstream">
+        <div class="ws-label">B2B</div>
+        <div class="ws-tasks">
+          <label class="task critical" data-phase="t1"><input type="checkbox" data-id="t1-b1"><span class="task-text"><strong>5 confirmed B2B clients for launch week</strong> — delivery windows confirmed, first order sizes in writing</span></label>
+          <label class="task" data-phase="t1"><input type="checkbox" data-id="t1-b2"><span class="task-text">10% launch discount communicated to all launch-week B2B clients (4-week trial period)</span></label>
+        </div>
+      </div>
+
+      <div class="workstream">
+        <div class="ws-label">Pricing</div>
+        <div class="ws-tasks">
+          <label class="task critical" data-phase="t1"><input type="checkbox" data-id="t1-p1"><span class="task-text"><strong>Mile 12 / Oyingbo benchmark done</strong> for all 35 SKUs — TRACE price at or below market on ≥80%</span></label>
+          <label class="task" data-phase="t1"><input type="checkbox" data-id="t1-p2"><span class="task-text">Markdown triggers set: which day, which SKU, what discount percentage</span></label>
+          <label class="task critical" data-phase="t1"><input type="checkbox" data-id="t1-p3"><span class="task-text"><strong>Opening inventory order placed</strong> — sized to B2B confirmed orders + conservative retail estimate</span></label>
+        </div>
+      </div>
+
+      <div class="workstream">
+        <div class="ws-label">Technology</div>
+        <div class="ws-tasks">
+          <label class="task critical" data-phase="t1"><input type="checkbox" data-id="t1-t1"><span class="task-text"><strong>Full system end-to-end test</strong> — run a fake opening day: intake lot → grade → display → sell → cascade. Everyone does it once.</span></label>
+          <label class="task" data-phase="t1"><input type="checkbox" data-id="t1-t2"><span class="task-text">Market price tracker live — person assigned to check and log Mile 12 prices every Monday</span></label>
+          <label class="task" data-phase="t1"><input type="checkbox" data-id="t1-t3"><span class="task-text">Opening inventory logged in TRACE Operations before doors open</span></label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ T-0 ══════════════════════════════════════════════ -->
+  <div class="phase-section phase-t0" id="phase-t0">
+    <div class="phase-header" onclick="togglePhase('t0')">
+      <span class="phase-badge">T-0</span>
+      <div class="phase-info">
+        <div class="phase-name">Launch Day</div>
+        <div class="phase-context">Open. Move food. Log everything. Learn from Day 1.</div>
+      </div>
+      <div class="phase-mini-bar">
+        <div class="phase-mini-track"><div class="phase-mini-fill" id="mini-t0" style="width:0%"></div></div>
+        <div class="phase-mini-pct" id="pct-t0">0%</div>
+      </div>
+      <div class="phase-toggle" id="tog-t0">›</div>
+    </div>
+    <div class="phase-body" id="body-t0">
+
+      <div class="workstream">
+        <div class="ws-label">Day 1</div>
+        <div class="ws-tasks">
+          <label class="task critical" data-phase="t0"><input type="checkbox" data-id="t0-1"><span class="task-text"><strong>First farm collection run</strong> — Day 1 or Day 2. Every crate logged with Lot ID from the moment it arrives.</span></label>
+          <label class="task critical" data-phase="t0"><input type="checkbox" data-id="t0-2"><span class="task-text"><strong>First B2B deliveries</strong> to all confirmed launch-week accounts — early morning, on time, on spec</span></label>
+          <label class="task critical" data-phase="t0"><input type="checkbox" data-id="t0-3"><span class="task-text"><strong>Retail floor open</strong> to consumers — produce graded, displayed with harvest dates visible</span></label>
+          <label class="task critical" data-phase="t0"><input type="checkbox" data-id="t0-4"><span class="task-text"><strong>Data collection live from first transaction</strong> — every retail sale and B2B delivery logged</span></label>
+          <label class="task" data-phase="t0"><input type="checkbox" data-id="t0-5"><span class="task-text">Post-delivery follow-up on first B2B deliveries within 24 hours — what worked, what didn't</span></label>
+          <label class="task" data-phase="t0"><input type="checkbox" data-id="t0-6"><span class="task-text">Weekly review cadence begins — Friday review of fill rate, spoilage, sell-through, B2B feedback</span></label>
+          <label class="task" data-phase="t0"><input type="checkbox" data-id="t0-7"><span class="task-text">End-of-week data export from Supabase — is the data clean and complete? Fix before Week 2.</span></label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- NOTE -->
+  <div class="note-box">
+    <p><strong>★ Critical items</strong> are gates — if one is undone at the end of a month, address it before moving on. Opening without a commissioned cool room, uninsured vans, or fewer than 3 confirmed B2B clients is not a launch. It's an improvisation.</p>
+  </div>
+
+  <footer>
+    <div class="brand">TRACE</div>
+    <div class="conf">Seasons by TRACE · Pre-Launch Tracker · Confidential · 2026</div>
+  </footer>
+
+</div>
+
+<script>
+// ── PERSISTENCE ────────────────────────────────────────────
+const STORE_KEY = 'trace_ops_checklist_v1';
+
+function save() {
+  const state = {};
+  document.querySelectorAll('input[type=checkbox][data-id]').forEach(cb => {
+    state[cb.dataset.id] = cb.checked;
+  });
+  localStorage.setItem(STORE_KEY, JSON.stringify(state));
+}
+
+function load() {
+  try {
+    const state = JSON.parse(localStorage.getItem(STORE_KEY) || '{}');
+    document.querySelectorAll('input[type=checkbox][data-id]').forEach(cb => {
+      cb.checked = !!state[cb.dataset.id];
+      updateTaskStyle(cb);
+    });
+  } catch(e) {}
+}
+
+function updateTaskStyle(cb) {
+  const task = cb.closest('.task');
+  if (cb.checked) task.classList.add('done');
+  else task.classList.remove('done');
+}
+
+// ── PROGRESS ───────────────────────────────────────────────
+function updateProgress() {
+  ['t3','t2','t1','t0'].forEach(phase => {
+    const all  = document.querySelectorAll(`.task[data-phase="${phase}"] input`);
+    const done = document.querySelectorAll(`.task[data-phase="${phase}"] input:checked`);
+    const pct  = all.length ? Math.round(done.length / all.length * 100) : 0;
+
+    document.getElementById(`bar-${phase}`).style.width = pct + '%';
+    document.getElementById(`mini-${phase}`).style.width = pct + '%';
+    document.getElementById(`count-${phase}`).textContent = `${done.length} / ${all.length} done`;
+    document.getElementById(`pct-${phase}`).textContent = pct + '%';
+  });
+}
+
+// ── ACCORDION ─────────────────────────────────────────────
+function togglePhase(phase) {
+  const body = document.getElementById(`body-${phase}`);
+  const tog  = document.getElementById(`tog-${phase}`);
+  const isOpen = body.classList.toggle('open');
+  tog.classList.toggle('open', isOpen);
+}
+
+function scrollToPhase(phase) {
+  const el = document.getElementById(`phase-${phase}`);
+  if (el) {
+    const body = document.getElementById(`body-${phase}`);
+    if (!body.classList.contains('open')) togglePhase(phase);
+    setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+  }
+}
+
+// ── EVENTS ─────────────────────────────────────────────────
+document.querySelectorAll('input[type=checkbox]').forEach(cb => {
+  cb.addEventListener('change', () => {
+    updateTaskStyle(cb);
+    save();
+    updateProgress();
+  });
+  // Prevent label click from double-triggering
+  cb.addEventListener('click', e => e.stopPropagation());
+});
+
+document.querySelectorAll('.task').forEach(task => {
+  task.addEventListener('click', () => {
+    const cb = task.querySelector('input[type=checkbox]');
+    cb.checked = !cb.checked;
+    cb.dispatchEvent(new Event('change'));
+  });
+});
+
+// ── INIT ───────────────────────────────────────────────────
+load();
+updateProgress();
+</script>
+</body>
+</html>
