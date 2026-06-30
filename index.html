@@ -10,7 +10,7 @@
   version: 2.5.3
   last_updated: 2026-06-15
   updated_by: Claude (Kemi session)
-  change: v2.5.3 — Ops Tracker link added to nav bar (→ ops.html).
+  change: v2.5.3 — Operations Layer 03: updated classification (4-tier), daily freshness review + FEFO, quality KPIs, operating principle.
   sections_count: 9
   live_url: https://kemiao-dotcom.github.io/agrovault-dashboard
 -->
@@ -3522,6 +3522,80 @@
         </div>
       </div>
     </div>
+
+      <!-- Updated classification table -->
+      <div style="margin-top:20px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1565C0;margin-bottom:10px">Grade-based routing — updated classification</div>
+        <table class="data-table" style="width:100%">
+          <thead>
+            <tr>
+              <th style="background:#1565C0;color:white;width:28%">Classification</th>
+              <th style="background:#1565C0;color:white">Route</th>
+              <th style="background:#1565C0;color:white;width:32%">Rationale</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color:#1B5E20">Grade A</strong></td>
+              <td>Seasons retail · Premium B2B (restaurants, hotels)</td>
+              <td>Maximum value realised — full price, highest-value channel</td>
+            </tr>
+            <tr>
+              <td><strong style="color:#2D6A46">Grade B</strong></td>
+              <td>General B2B · Caterers · Institutional buyers</td>
+              <td>Fully safe, slight cosmetic variance — good margin at slightly lower price</td>
+            </tr>
+            <tr>
+              <td><strong style="color:#E65100">Safe surplus / cosmetically imperfect</strong></td>
+              <td>Discount · Processing · Donation</td>
+              <td>Safe for consumption, unsuitable for premium display — redirect before it becomes waste</td>
+            </tr>
+            <tr>
+              <td><strong style="color:#8B1A1A">Not safe for human consumption</strong></td>
+              <td>Animal feed (where permitted) · Compost · Disposal</td>
+              <td>Last resort. Every kilogram here is a failure to recover value earlier in the chain.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Daily freshness review + FEFO -->
+      <div style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="card-sm" style="background:#EEF3FB;border:1px solid #BFDBFE">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1565C0;margin-bottom:10px">Daily freshness review — every morning</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Inspect all inventory — walk every shelf and storage zone</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Identify items nearing end of shelf life</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Move near-expiry items forward for immediate sale</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Discount, bundle, redirect, or process as appropriate</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Remove unsellable inventory and log every item removed</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Update procurement and demand planning based on findings</div></div>
+          <div style="margin-top:12px;padding:10px 12px;background:#1565C0;border-radius:4px">
+            <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:4px">Inventory principle</div>
+            <div style="font-size:13px;font-weight:700;color:white">FEFO — First Expiring, First Out</div>
+            <div style="font-size:11px;color:rgba(255,255,255,.8);margin-top:4px;line-height:1.6">Not FIFO. The oldest item is not always the next to expire. The item closest to its shelf-life end moves first, always.</div>
+          </div>
+        </div>
+
+        <!-- Quality KPIs -->
+        <div class="card-sm" style="background:#EEF3FB;border:1px solid #BFDBFE">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1565C0;margin-bottom:10px">Quality KPIs — tracked daily</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Acceptance rate</strong> — % of delivered produce meeting intake standards</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Rejection rate</strong> — incoming quality failures by farm and by SKU</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Grade A recovery</strong> — share of accepted produce reaching premium channels</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Spoilage rate</strong> — % of COGS lost before sale or use</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Shelf life achieved</strong> — actual days on shelf vs expected at intake</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Inventory accuracy</strong> — recorded stock vs physical count</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Supplier quality score</strong> — reliability and consistency per farm per week</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Recovery rate</strong> — share of lower-grade produce redirected rather than discarded</div></div>
+        </div>
+      </div>
+
+      <!-- Operating principle -->
+      <div style="margin-top:14px;padding:14px 18px;background:#1B5E20;border-radius:4px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:6px">Operating principle</div>
+        <div style="font-size:14px;color:white;line-height:1.7">TRACE will not rely on refrigeration alone to protect freshness. Quality is created through <strong style="color:#A5D6A7">disciplined buying, receiving, grading, storage, routing</strong> and <strong style="color:#A5D6A7">daily inventory decisions</strong> — not by building a bigger cold room.</div>
+      </div>
+
 
     <!-- ── LAYER 04: SEASONS RETAIL & B2B ─────────────────────── -->
     <div class="sp-section">
