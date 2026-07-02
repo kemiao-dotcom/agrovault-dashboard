@@ -7,10 +7,10 @@
 
 
 <!-- DASHBOARD_META
-  version: 2.5.3
+  version: 2.6.0
   last_updated: 2026-06-15
   updated_by: Claude (Kemi session)
-  change: v2.5.3 — Operations Layer 03: updated classification (4-tier), daily freshness review + FEFO, quality KPIs, operating principle.
+  change: v2.6.0 — Opportunity: current chain vs TRACE flow added — two-column comparison, unit economics, competitive levers, what not to assume, strategic question.
   sections_count: 9
   live_url: https://kemiao-dotcom.github.io/agrovault-dashboard
 -->
@@ -1283,6 +1283,189 @@
         <p style="font-size:13px;color:#5C1A1A;line-height:1.75">When food inflation erodes real income, the consequences extend beyond the household budget. Research documents a direct link from food price shocks to reduced education spending, compromised child nutrition, stunted growth, and compressed future earnings. Nigeria's Human Capital Development Index stands at <strong>0.53 out of 1</strong> — <strong>116th of 174 nations</strong>. The country is home to <strong>1 in 12 out-of-school children worldwide</strong> and records <strong>31.5% stunted growth</strong> in children under five. Reducing the cost of food in Nigeria is not a supply chain optimisation exercise. It is a human development intervention. Source: ScienceDirect 2025 / World Bank Development Indicators 2023</p>
       </div>
     </div>
+
+    
+    <!-- ── CURRENT CHAIN vs TRACE ─────────────────────────── -->
+    <div class="sp-section">
+      <div class="sp-section-title">The chain TRACE is entering — and where it creates value</div>
+
+      <!-- two-flow comparison -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+
+        <!-- CURRENT CHAIN -->
+        <div>
+          <div style="background:#8B1A1A;color:white;padding:10px 14px;border-radius:6px 6px 0 0;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Current chain</div>
+          <div style="border:1px solid #E8C8C8;border-top:none;border-radius:0 0 6px 6px;overflow:hidden">
+
+            <div style="padding:10px 14px;background:#FDF0F0;border-bottom:1px solid #E8C8C8">
+              <div style="font-size:12px;font-weight:700;color:#8B1A1A">Farmer</div>
+              <div style="font-size:11px;color:#6B6B6B;margin-top:2px">Limited storage · pressure to sell quickly · limited negotiating power</div>
+            </div>
+            <div style="text-align:center;padding:3px;color:#9E9E9E;font-size:11px;background:#FDF0F0">↓ sells to first buyer available</div>
+
+            <div style="padding:10px 14px;background:#FDF0F0;border-bottom:1px solid #E8C8C8">
+              <div style="font-size:12px;font-weight:700;color:#8B1A1A">Local aggregator / trader</div>
+              <div style="font-size:11px;color:#6B6B6B;margin-top:2px">Combines volumes, provides cash, takes margin for coordination and market risk</div>
+            </div>
+            <div style="text-align:center;padding:3px;color:#9E9E9E;font-size:11px;background:#FDF0F0">↓ informal transport</div>
+
+            <div style="padding:10px 14px;background:#FDF0F0;border-bottom:1px solid #E8C8C8">
+              <div style="font-size:12px;font-weight:700;color:#8B1A1A">Non-refrigerated transport</div>
+              <div style="font-size:11px;color:#6B6B6B;margin-top:2px">Low direct cost · high damage from heat, stacking, delays, poor roads</div>
+            </div>
+            <div style="text-align:center;padding:3px;color:#9E9E9E;font-size:11px;background:#FDF0F0">↓ arrives at market, quality variable</div>
+
+            <div style="padding:10px 14px;background:#FDF0F0;border-bottom:1px solid #E8C8C8">
+              <div style="font-size:12px;font-weight:700;color:#8B1A1A">Mile 12 wholesale market</div>
+              <div style="font-size:11px;color:#6B6B6B;margin-top:2px">Multiple intermediaries take margins · levies · no grading standard · spoilage continues</div>
+            </div>
+            <div style="text-align:center;padding:3px;color:#9E9E9E;font-size:11px;background:#FDF0F0">↓ secondary distribution</div>
+
+            <div style="padding:10px 14px;background:#FDF0F0;border-bottom:1px solid #E8C8C8">
+              <div style="font-size:12px;font-weight:700;color:#8B1A1A">Retailer / B2B buyer</div>
+              <div style="font-size:11px;color:#6B6B6B;margin-top:2px">Inconsistent quality · unpredictable price · time spent sourcing · rejected produce</div>
+            </div>
+            <div style="text-align:center;padding:3px;color:#9E9E9E;font-size:11px;background:#FDF0F0">↓</div>
+
+            <div style="padding:10px 14px;background:#FFEBEE">
+              <div style="font-size:12px;font-weight:700;color:#8B1A1A">Consumer</div>
+              <div style="font-size:11px;color:#6B6B6B;margin-top:2px">Absorbs all upstream margins, spoilage, and price volatility</div>
+            </div>
+
+            <div style="padding:10px 14px;background:#8B1A1A;display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div style="text-align:center">
+                <div style="font-size:18px;font-weight:700;color:white">6+</div>
+                <div style="font-size:10px;color:rgba(255,255,255,.7)">intermediaries</div>
+              </div>
+              <div style="text-align:center">
+                <div style="font-size:18px;font-weight:700;color:#FFCDD2">~30–40%</div>
+                <div style="font-size:10px;color:rgba(255,255,255,.7)">estimated loss farm→consumer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRACE CHAIN -->
+        <div>
+          <div style="background:#1B5E20;color:white;padding:10px 14px;border-radius:6px 6px 0 0;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase">TRACE chain</div>
+          <div style="border:1px solid #C8E6C9;border-top:none;border-radius:0 0 6px 6px;overflow:hidden">
+
+            <div style="padding:10px 14px;background:#F0FDF4;border-bottom:1px solid #C8E6C9">
+              <div style="font-size:12px;font-weight:700;color:#1B5E20">Farmer — direct relationship</div>
+              <div style="font-size:11px;color:#6B6B6B;margin-top:2px">Committed volume · harvest specs · fast payment · preferred supplier status</div>
+            </div>
+            <div style="text-align:center;padding:3px;color:#9E9E9E;font-size:11px;background:#F0FDF4">↓ TRACE procurement + collection</div>
+
+            <div style="padding:10px 14px;background:#F0FDF4;border-bottom:1px solid #C8E6C9">
+              <div style="font-size:12px;font-weight:700;color:#1B5E20">TRACE aggregation + quality control</div>
+              <div style="font-size:11px;color:#6B6B6B;margin-top:2px">Receive · weigh · photograph · Lot ID · Grade A / B / Safe surplus / Reject</div>
+            </div>
+            <div style="text-align:center;padding:3px;color:#9E9E9E;font-size:11px;background:#F0FDF4">↓ selective cold chain by SKU</div>
+
+            <div style="padding:10px 14px;background:#F0FDF4;border-bottom:1px solid #C8E6C9">
+              <div style="font-size:12px;font-weight:700;color:#1B5E20">TRACE transport — right vehicle for each route</div>
+              <div style="font-size:11px;color:#6B6B6B;margin-top:2px">CNG for city B2B · refrigerated where it reduces loss · cost justified per SKU</div>
+            </div>
+            <div style="text-align:center;padding:3px;color:#9E9E9E;font-size:11px;background:#F0FDF4">↓ grade-based routing</div>
+
+            <div style="padding:10px 14px;background:#F0FDF4;border-bottom:1px solid #C8E6C9">
+              <div style="font-size:12px;font-weight:700;color:#1B5E20">Grade routing → three parallel channels</div>
+              <div style="font-size:11px;color:#6B6B6B;margin-top:2px;line-height:1.65">
+                A → Seasons retail + premium restaurants<br>
+                B → General B2B, caterers, institutions<br>
+                Safe surplus → discount, processing, donation
+              </div>
+            </div>
+            <div style="text-align:center;padding:3px;color:#9E9E9E;font-size:11px;background:#F0FDF4">↓ pre-confirmed buyer, scheduled delivery</div>
+
+            <div style="padding:10px 14px;background:#EBF2EC">
+              <div style="font-size:12px;font-weight:700;color:#1B5E20">B2B customer / Seasons consumer</div>
+              <div style="font-size:11px;color:#6B6B6B;margin-top:2px">Consistent quality · predictable delivery · less sourcing effort · competitive total cost</div>
+            </div>
+
+            <div style="padding:10px 14px;background:#1B5E20;display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div style="text-align:center">
+                <div style="font-size:18px;font-weight:700;color:white">1–2</div>
+                <div style="font-size:10px;color:rgba(255,255,255,.7)">intermediaries</div>
+              </div>
+              <div style="text-align:center">
+                <div style="font-size:18px;font-weight:700;color:#A5D6A7">&lt;15%</div>
+                <div style="font-size:10px;color:rgba(255,255,255,.7)">target loss farm→consumer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- unit economics callout -->
+      <div style="padding:16px 20px;background:#111;border-radius:6px;margin-bottom:16px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9E9E9E;margin-bottom:8px">The unit economics that matter</div>
+        <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center">
+          <div style="text-align:center;padding:12px;background:#1a1a1a;border-radius:4px">
+            <div style="font-size:11px;color:#9E9E9E;margin-bottom:4px;text-decoration:line-through">Farm-gate price per kg</div>
+            <div style="font-size:11px;color:#9E9E9E;text-decoration:line-through">Transport cost per kg</div>
+            <div style="font-size:11px;color:#9E9E9E;margin-top:4px;font-style:italic">not the right comparison</div>
+          </div>
+          <div style="font-size:24px;color:#9E9E9E;text-align:center">→</div>
+          <div style="text-align:center;padding:12px;background:#1B5E20;border-radius:4px">
+            <div style="font-size:13px;font-weight:700;color:white;line-height:1.5">Total landed cost</div>
+            <div style="font-size:18px;color:#A5D6A7;font-weight:700;margin:4px 0">÷</div>
+            <div style="font-size:13px;font-weight:700;color:white;line-height:1.5">Saleable kg after wastage</div>
+            <div style="font-size:11px;color:#A5D6A7;margin-top:6px">= Effective cost per usable kg</div>
+          </div>
+        </div>
+        <div style="font-size:11px;color:#9E9E9E;margin-top:10px;line-height:1.65">TRACE may spend more on handling and transport than a Mile 12 trader — and still deliver lower effective cost per usable kg if wastage is materially lower. A trader who buys 1,000kg cheaply but loses 300kg to spoilage has a higher effective cost than TRACE losing 120kg on a more expensive run.</div>
+      </div>
+
+      <!-- competitive levers -->
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6B6B6B;margin-bottom:10px">Where TRACE competes</div>
+      <div class="grid-2" style="gap:10px">
+
+        <div class="card-sm">
+          <div style="font-size:13px;font-weight:700;color:#1B5E20;margin-bottom:6px">Lower effective cost per usable kg</div>
+          <div style="font-size:12px;color:#3A3A3A;line-height:1.65">TRACE will not compete on having cheaper transport. It will compete by losing less. Better grading, faster movement, and demand-led purchasing convert higher logistics spend into lower effective cost.</div>
+        </div>
+
+        <div class="card-sm">
+          <div style="font-size:13px;font-weight:700;color:#1B5E20;margin-bottom:6px">Reliable supply — predictable quantity and quality</div>
+          <div style="font-size:12px;color:#3A3A3A;line-height:1.65">B2B customers — hotels, restaurants, schools, caterers — may value reliable weekly delivery more than the lowest headline price. Fewer stockouts, fewer market trips, fewer rejected deliveries is measurable value.</div>
+        </div>
+
+        <div class="card-sm">
+          <div style="font-size:13px;font-weight:700;color:#1B5E20;margin-bottom:6px">Grade-based revenue from every batch</div>
+          <div style="font-size:12px;color:#3A3A3A;line-height:1.65">Traditional markets mix quality levels and sell at one blended price. TRACE routes Grade A to premium channels, Grade B to general B2B, and safe surplus to discount or processing — extracting more total value from the same harvest.</div>
+        </div>
+
+        <div class="card-sm">
+          <div style="font-size:13px;font-weight:700;color:#1B5E20;margin-bottom:6px">Processing and waste monetisation</div>
+          <div style="font-size:12px;color:#3A3A3A;line-height:1.65">Instead of fresh sale or total loss, TRACE creates: premium fresh sale + standard fresh sale + processing recovery. Lower-grade, excess, or near-spoilage produce redirected into cut veg, frozen packs, or processor supply — multiple revenue paths from one batch.</div>
+        </div>
+
+      </div>
+
+      <!-- what TRACE should not assume -->
+      <div style="margin-top:14px;padding:14px 18px;background:#FDF3E3;border:1px solid #FFE0B2;border-left:3px solid #E65100;border-radius:0 4px 4px 0">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#E65100;margin-bottom:8px">What TRACE should not assume — Phase 0 tests these</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+          <div style="font-size:11.5px;color:#5C2D00;padding-left:12px;position:relative;line-height:1.55"><span style="position:absolute;left:0;color:#E65100">×</span>Direct sourcing is always cheaper than using an aggregator</div>
+          <div style="font-size:11.5px;color:#5C2D00;padding-left:12px;position:relative;line-height:1.55"><span style="position:absolute;left:0;color:#E65100">×</span>Refrigerated transport is always necessary</div>
+          <div style="font-size:11.5px;color:#5C2D00;padding-left:12px;position:relative;line-height:1.55"><span style="position:absolute;left:0;color:#E65100">×</span>Customers will automatically pay more for better-looking produce</div>
+          <div style="font-size:11.5px;color:#5C2D00;padding-left:12px;position:relative;line-height:1.55"><span style="position:absolute;left:0;color:#E65100">×</span>CNG will always be cheaper than diesel in every corridor</div>
+          <div style="font-size:11.5px;color:#5C2D00;padding-left:12px;position:relative;line-height:1.55"><span style="position:absolute;left:0;color:#E65100">×</span>Removing middlemen removes their costs</div>
+          <div style="font-size:11.5px;color:#5C2D00;padding-left:12px;position:relative;line-height:1.55"><span style="position:absolute;left:0;color:#E65100">×</span>Processing will be profitable without confirmed demand</div>
+        </div>
+      </div>
+
+      <!-- strategic question -->
+      <div style="margin-top:14px;padding:18px 20px;background:#1B5E20;border-radius:4px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:8px">The strategic question</div>
+        <div style="font-size:15px;color:white;line-height:1.75">Can TRACE deliver a <strong>greater quantity of usable, consistent-quality produce</strong> to a defined customer at a <strong>competitive total cost</strong> — while reducing sourcing effort, uncertainty, and waste?<br><span style="color:#A5D6A7;font-size:13px;display:block;margin-top:8px">If yes, TRACE has a credible basis for competing. Phase 0 answers this question for three products before any infrastructure is built.</span></div>
+      </div>
+
+    </div>
+    <!-- ── END CURRENT CHAIN vs TRACE ──────────────────────── -->
+
 
     <div class="sp-section">
       <div class="sp-section-title">Build the network first. Build infrastructure second.</div>
