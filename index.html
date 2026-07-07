@@ -7,10 +7,10 @@
 
 
 <!-- DASHBOARD_META
-  version: 2.7.0
+  version: 2.7.1
   last_updated: 2026-06-15
   updated_by: Claude (Kemi session)
-  change: v2.7.0 — Pilot Model tab added: sourcing, transport partnership, processing space, B2B + consumer stall, team, week-by-week targets.
+  change: v2.7.1 — Pilot Model updated: 8-step demand-first flow, payment rules, ripe/same-day grade, sourcing principle, best starting model, operator questions.
   sections_count: 9
   live_url: https://kemiao-dotcom.github.io/agrovault-dashboard
 -->
@@ -4060,26 +4060,26 @@
   <div class="section-header">
     <div>
       <div class="section-tag">10 — Pilot Model</div>
-      <h1 class="section-title">How the pilot<br>actually runs.</h1>
-      <p class="section-subtitle">A mini-scale operation built for learning. Farmers and aggregators up top. A reliable transport partner in the middle. A small processing space at the centre. Two channels out — businesses and a consumer stall.</p>
+      <h1 class="section-title">Test the coordination layer<br>before building infrastructure.</h1>
+      <p class="section-subtitle">A 3–6 week mini-scale operation. Farmers and aggregators up top. A reliable transport partner. A small sorting space. Two demand channels out — B2B as the anchor, a consumer stall as a secondary test.</p>
     </div>
     <div class="section-meta">
       Audience: Operators + advisors<br>
-      Stage: Phase 0 blueprint<br>
+      Duration: 3–6 weeks<br>
       Status: <span class="tag tag-live">Active planning</span>
     </div>
   </div>
 
   <div class="sp-wrap">
 
+    <!-- Core question -->
     <div class="brief-banner">
-      <strong>This is a mini-scale operation, not a warehouse.</strong> Every part of it can be set up with a small team, a rented space, and a reliable transport partner. The goal is not to handle every produce category perfectly from Day 1 — it is to prove the model with 5–8 SKUs, 3–5 B2B accounts, and a consumer stall before committing to infrastructure.
+      <strong>Pilot objective:</strong> Can TRACE create value by coordinating supply, logistics, quality control and demand — <strong>before investing in major infrastructure?</strong> The pilot is designed to answer this with real orders, real customers and real margin data — not projections.
     </div>
 
-    <!-- ── OPERATING MODEL DIAGRAM ──────────────────────────── -->
+    <!-- ── OPERATING MODEL DIAGRAM ────────────────────────── -->
     <div class="sp-section">
-      <div class="sp-section-title">Full operating model — how produce moves</div>
-
+      <div class="sp-section-title">Full operating model</div>
       <svg width="100%" viewBox="0 0 820 320" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:8px">
         <defs>
           <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
@@ -4158,222 +4158,404 @@
       </svg>
     </div>
 
-    <!-- ── SOURCING ─────────────────────────────────────────── -->
+    <!-- ── BEST STARTING MODEL ───────────────────────────── -->
+    <div class="sp-section">
+      <div class="sp-section-title">Where to start</div>
+      <div class="grid-2">
+        <div style="padding:18px 20px;background:#1B5E20;border-radius:4px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:6px">Anchor channel — start here</div>
+          <div style="font-size:16px;font-weight:700;color:white;margin-bottom:10px">B2B supply</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#A5D6A7"></div><div style="color:rgba(255,255,255,.85)">Clearer recurring demand — businesses buy the same things every week</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#A5D6A7"></div><div style="color:rgba(255,255,255,.85)">Larger order sizes — easier to plan procurement against</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#A5D6A7"></div><div style="color:rgba(255,255,255,.85)">Reorder rate is the key signal — did they come back after the first delivery?</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#A5D6A7"></div><div style="color:rgba(255,255,255,.85)">Faster learning on specifications, quality standards, and pricing</div></div>
+        </div>
+        <div style="padding:18px 20px;background:#EBF2EC;border:1px solid #C8E6C9;border-radius:4px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2D6A46;margin-bottom:6px">Secondary test — only if opportunity is low-cost</div>
+          <div style="font-size:16px;font-weight:700;color:#1B5E20;margin-bottom:10px">Consumer produce stall</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Absorbs surplus B2B inventory — reduces waste from overbuying</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Tests consumer preference, pricing sensitivity, and packaging appetite</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Builds local visibility and tests the Seasons brand with real shoppers</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div><strong>Do not let the stall distract from B2B.</strong> It should not require significant extra overhead.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SOURCING ──────────────────────────────────────── -->
     <div class="sp-section">
       <div class="sp-section-title">01 — Sourcing</div>
-      <div class="grid-2">
 
+      <!-- Sourcing principle -->
+      <div style="margin-bottom:16px;padding:14px 18px;background:#111;border-radius:4px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9E9E9E;margin-bottom:6px">Sourcing principle</div>
+        <div style="font-size:14px;color:white;line-height:1.7">TRACE should not avoid aggregators entirely. Use them <strong style="color:#A5D6A7">where they improve reliability</strong>. Build direct farmer relationships <strong style="color:#A5D6A7">where they improve quality, transparency and economics</strong>.</div>
+      </div>
+
+      <div class="grid-2">
         <div class="card">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
             <div style="background:#1B5E20;color:white;font-family:'Courier New',monospace;font-size:11px;font-weight:700;padding:3px 10px;border-radius:3px">PRIMARY</div>
             <div style="font-size:14px;font-weight:700;color:#1B5E20">Farmers — direct</div>
           </div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Work with 3–5 farms across 2–3 corridors from Day 1 — Ogun as anchor, Oyo/Osun as secondary</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Agree harvest schedule, quality spec, and committed weekly volume upfront</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Pay fast — faster payment than open market is the competitive offer to farmers</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Supply crates, agree packaging standard before first delivery</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Score every delivery: Grade A%, fill rate, on-time, damage on arrival</div></div>
-          <div style="margin-top:12px;padding:10px 12px;background:#EBF2EC;border-radius:4px;font-size:11px;color:#2D6A46">
-            <strong>What good looks like:</strong> 3 farms delivering consistently every week, scoring 75%+ Grade A on intake. One farm per corridor as a backup.
-          </div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Better farmgate pricing — no aggregator margin between farm and TRACE</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Clearer origin — harvest date, farm location, variety known</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Direct influence on quality and packaging standards before pickup</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Stronger long-term relationships — preferred supplier status builds loyalty</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Supply crates, agree spec and delivery schedule before first run</div></div>
+          <div style="margin-top:12px;padding:10px 12px;background:#EBF2EC;border-radius:4px;font-size:11px;color:#2D6A46">Start with 2–3 farmers across 2 corridors. Score every delivery: Grade A%, fill rate, on-time, damage on arrival.</div>
         </div>
 
         <div class="card">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
             <div style="background:#2D6A46;color:white;font-family:'Courier New',monospace;font-size:11px;font-weight:700;padding:3px 10px;border-radius:3px">SECONDARY</div>
-            <div style="font-size:14px;font-weight:700;color:#2D6A46">Aggregators — flexible top-up</div>
+            <div style="font-size:14px;font-weight:700;color:#2D6A46">Aggregators — where they add reliability</div>
           </div>
-          <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div>Use aggregators to fill gaps when direct farm supply falls short — seasonal variance, bad harvests</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div>Do not depend on aggregators for core weekly volume — too much margin lost, quality less predictable</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div>Map 2–3 aggregators in each corridor during Phase 0 field research — understand their pricing and quality</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div>Aggregators are also an intelligence source: they know which farms are performing and which aren't</div></div>
-          <div style="margin-top:12px;padding:10px 12px;background:#EBF2EC;border-radius:4px;font-size:11px;color:#2D6A46">
-            <strong>The rule:</strong> buy from aggregators only when direct supply is short or a new SKU hasn't yet been sourced directly. Track the margin difference every time.
-          </div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div>Consolidated volumes — one aggregator can aggregate what 5 small farms cannot alone</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div>Existing farmer relationships — useful at the start before TRACE has built its own</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div>Faster sourcing — can fill a gap order same-day where a direct farm cannot</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div>Aggregators are also an intelligence source — they know which farms are performing</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div>Track the margin difference every time aggregator is used vs. direct — this data justifies building the direct farm network</div></div>
+          <div style="margin-top:12px;padding:10px 12px;background:#EBF2EC;border-radius:4px;font-size:11px;color:#2D6A46">Also map 1–2 market suppliers as backup — fastest to activate when both farm and aggregator supply falls short.</div>
         </div>
-
       </div>
 
       <div style="margin-top:12px;padding:12px 16px;background:#111;border-radius:4px">
         <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9E9E9E;margin-bottom:6px">Starting SKU basket — 5–8 products only</div>
         <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <span class="tag">Tomatoes</span><span class="tag">Red pepper / tatashe</span><span class="tag">Onions</span>
-          <span class="tag">Scotch bonnet / atarodo</span><span class="tag">Leafy greens / ugu</span>
+          <span class="tag">Tomatoes</span><span class="tag">Tatashe / red pepper</span><span class="tag">Onions</span>
+          <span class="tag">Atarodo / scotch bonnet</span><span class="tag">Ugu / spinach / leafy greens</span>
           <span class="tag">Cucumber</span><span class="tag">Carrots</span><span class="tag">Pineapple</span>
         </div>
-        <div style="font-size:11px;color:#9E9E9E;margin-top:8px">Do not start with 30 SKUs. These 8 are high-frequency, high-demand, and give enough variety to test the model across perishability profiles and margin ranges.</div>
+        <div style="font-size:11px;color:#9E9E9E;margin-top:8px">Do not start with 30 SKUs. These 8 give enough variety to test across perishability profiles and margin ranges.</div>
       </div>
     </div>
 
-    <!-- ── TRANSPORT ────────────────────────────────────────── -->
+    <!-- ── OPERATING FLOW ────────────────────────────────── -->
     <div class="sp-section">
-      <div class="sp-section-title">02 — Transport partnership</div>
-      <div class="grid-2">
+      <div class="sp-section-title">02 — Operating flow — demand first, then supply</div>
 
-        <div class="card">
-          <div style="font-size:14px;font-weight:700;color:#1565C0;margin-bottom:12px">What TRACE needs from a transport partner</div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Reliability:</strong> arrives at farm at agreed time, delivers to Lagos on schedule — every run, not most runs</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Crate discipline:</strong> loads and stacks produce using TRACE crates and spec — no loose piling, no crushing</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Temperature awareness:</strong> for sensitive SKUs (leafy veg, tomatoes), ventilated vehicle or early morning runs before heat builds</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Damage accountability:</strong> document condition at pickup, at delivery. Damage in transit is logged, not argued about</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Communication:</strong> confirms departure, flags delays, photographs load before leaving farm</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Flexibility:</strong> able to run 2–4 corridors as volume grows, not locked into one route</div></div>
+      <div style="margin-bottom:14px;padding:12px 16px;background:#FDF3E3;border-left:3px solid #E65100;border-radius:0 4px 4px 0;font-size:12px;color:#5C2D00">
+        <strong>The sequence matters:</strong> confirm demand before purchasing. Buy only against confirmed orders. Never carry large speculative inventory in the pilot.
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+
+        <div style="display:flex;flex-direction:column;gap:0">
+          <div style="display:grid;grid-template-columns:80px 1fr;border:1px solid #E2E5EA;border-radius:4px 4px 0 0;overflow:hidden">
+            <div style="background:#1B5E20;padding:12px 10px;display:flex;align-items:center;justify-content:center;font-family:'Courier New',monospace;font-size:13px;font-weight:700;color:white">Step 1</div>
+            <div style="padding:10px 14px;background:#F0FDF4">
+              <div style="font-size:12px;font-weight:700;color:#1B5E20">Confirm demand</div>
+              <div style="font-size:11px;color:#6B7280;margin-top:3px;line-height:1.55">Customer name · product list · quantity · quality expectation · delivery date · agreed price · payment terms</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:80px 1fr;border:1px solid #E2E5EA;border-top:none;overflow:hidden">
+            <div style="background:#2D6A46;padding:12px 10px;display:flex;align-items:center;justify-content:center;font-family:'Courier New',monospace;font-size:13px;font-weight:700;color:white">Step 2</div>
+            <div style="padding:10px 14px;background:#EBF2EC">
+              <div style="font-size:12px;font-weight:700;color:#1B5E20">Confirm supply</div>
+              <div style="font-size:11px;color:#6B7280;margin-top:3px;line-height:1.55">Available products · harvest or pickup time · quantity · grade expectation · packaging · price · payment terms</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:80px 1fr;border:1px solid #E2E5EA;border-top:none;overflow:hidden">
+            <div style="background:#1565C0;padding:12px 10px;display:flex;align-items:center;justify-content:center;font-family:'Courier New',monospace;font-size:13px;font-weight:700;color:white">Step 3</div>
+            <div style="padding:10px 14px;background:#EEF3FB">
+              <div style="font-size:12px;font-weight:700;color:#1565C0">Arrange transport</div>
+              <div style="font-size:11px;color:#6B7280;margin-top:3px;line-height:1.55">Pickup time · route · loading instructions · packaging requirements · driver contact · escalation process</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:80px 1fr;border:1px solid #E2E5EA;border-top:none;overflow:hidden;border-radius:0 0 4px 4px">
+            <div style="background:#1565C0;padding:12px 10px;display:flex;align-items:center;justify-content:center;font-family:'Courier New',monospace;font-size:13px;font-weight:700;color:white">Step 4</div>
+            <div style="padding:10px 14px;background:#EEF3FB">
+              <div style="font-size:12px;font-weight:700;color:#1565C0">Package + load properly</div>
+              <div style="font-size:11px;color:#6B7280;margin-top:3px;line-height:1.55">Inspect before loading · crates only · no overfilling · separate by product · photo before departure · dispatch record</div>
+            </div>
+          </div>
         </div>
 
-        <div class="card">
-          <div style="font-size:14px;font-weight:700;color:#1565C0;margin-bottom:12px">How to structure the partnership</div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Per-trip pricing first:</strong> agree cost per corridor run, not per kg — gives driver certainty, gives TRACE predictability</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Performance linked:</strong> if damage rate is above 5% consistently, pricing is renegotiated — build this in from the first agreement</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>TRACE supplies the crates:</strong> do not rely on transporter packaging. TRACE crates go to the farm, come back with produce, are washed and returned</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Test before committing:</strong> run 3 trial deliveries before any agreement. Score each run for punctuality, damage rate, and communication</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Two partners minimum:</strong> never depend on a single transporter. Map a backup for each corridor before launch</div></div>
-          <div style="margin-top:12px;padding:10px 12px;background:#EEF3FB;border-radius:4px;font-size:11px;color:#1565C0">
-            <strong>Key question to test:</strong> does using a reliable, crate-disciplined transporter reduce intake damage enough to justify paying more than the cheapest informal option? The chain economics spreadsheet answers this.
+        <div style="display:flex;flex-direction:column;gap:0">
+          <div style="display:grid;grid-template-columns:80px 1fr;border:1px solid #E2E5EA;border-radius:4px 4px 0 0;overflow:hidden">
+            <div style="background:#4A148C;padding:12px 10px;display:flex;align-items:center;justify-content:center;font-family:'Courier New',monospace;font-size:13px;font-weight:700;color:white">Step 5</div>
+            <div style="padding:10px 14px;background:#F5F3FF">
+              <div style="font-size:12px;font-weight:700;color:#4A148C">Communicate in transit</div>
+              <div style="font-size:11px;color:#6B7280;margin-top:3px;line-height:1.55">Loading complete · departure · midpoint check-in · any delay or issue flagged · arrival at Lagos hub</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:80px 1fr;border:1px solid #E2E5EA;border-top:none;overflow:hidden">
+            <div style="background:#1B5E20;padding:12px 10px;display:flex;align-items:center;justify-content:center;font-family:'Courier New',monospace;font-size:13px;font-weight:700;color:white">Step 6</div>
+            <div style="padding:10px 14px;background:#F0FDF4">
+              <div style="font-size:12px;font-weight:700;color:#1B5E20">Receive at Lagos hub</div>
+              <div style="font-size:11px;color:#6B7280;margin-top:3px;line-height:1.55">Weigh · inspect · log damage · sort by grade · wash where needed · pack by customer order · update available quantity</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:80px 1fr;border:1px solid #E2E5EA;border-top:none;overflow:hidden">
+            <div style="background:#1B5E20;padding:12px 10px;display:flex;align-items:center;justify-content:center;font-family:'Courier New',monospace;font-size:13px;font-weight:700;color:white">Step 7</div>
+            <div style="padding:10px 14px;background:#EBF2EC">
+              <div style="font-size:12px;font-weight:700;color:#1B5E20">Dispatch to customers</div>
+              <div style="font-size:11px;color:#6B7280;margin-top:3px;line-height:1.55">B2B orders · stall inventory · discounted Grade B · same-day-use produce to processors or food vendors</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:80px 1fr;border:1px solid #E2E5EA;border-top:none;overflow:hidden;border-radius:0 0 4px 4px">
+            <div style="background:#111;padding:12px 10px;display:flex;align-items:center;justify-content:center;font-family:'Courier New',monospace;font-size:13px;font-weight:700;color:white">Step 8</div>
+            <div style="padding:10px 14px;background:#F7F8FA">
+              <div style="font-size:12px;font-weight:700;color:#111">Close the transaction</div>
+              <div style="font-size:11px;color:#6B7280;margin-top:3px;line-height:1.55">Qty purchased · qty sold · qty lost · revenue · transport cost · sorting cost · gross margin · feedback · reorder likelihood</div>
+            </div>
           </div>
         </div>
 
       </div>
     </div>
 
-    <!-- ── PROCESSING SPACE ─────────────────────────────────── -->
+    <!-- ── TRANSPORT PARTNER ──────────────────────────────── -->
     <div class="sp-section">
-      <div class="sp-section-title">03 — Processing space</div>
+      <div class="sp-section-title">03 — Transport partnership</div>
+      <div class="grid-2">
+        <div class="card">
+          <div style="font-size:14px;font-weight:700;color:#1565C0;margin-bottom:12px">What TRACE needs from a transport partner</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Reliability:</strong> arrives at farm on time, delivers to Lagos on schedule — every run, not most runs</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Fresh produce experience:</strong> has moved perishables before and understands handling requirements</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Crate discipline:</strong> loads and stacks using TRACE crates and spec — no loose piling, no crushing</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Communication:</strong> confirms departure, flags delays, photographs load before leaving farm</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>No night driving</strong> on longer routes — limits damage risk and driver fatigue</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Escalation:</strong> can quickly report breakdown, delay, or security issues with a solution, not just a problem</div></div>
+        </div>
+        <div class="card">
+          <div style="font-size:14px;font-weight:700;color:#1565C0;margin-bottom:12px">How to structure the partnership</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Per-trip pricing:</strong> agree cost per corridor run — predictable for both sides</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>TRACE supplies crates:</strong> transporter does not provide packaging — TRACE crates go out, come back</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>3 trial runs before commitment:</strong> score punctuality, damage rate, and communication on each</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Two partners per corridor minimum:</strong> never depend on a single transporter</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div><strong>Performance linked:</strong> if damage rate exceeds 5% consistently, pricing is renegotiated</div></div>
+          <div style="margin-top:12px;padding:10px 12px;background:#EEF3FB;border-radius:4px;font-size:11px;color:#1565C0">
+            <strong>Key test:</strong> does reliable crate-based transport reduce intake damage enough to justify paying above the cheapest informal option? The chain economics spreadsheet answers this.
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- ── PROCESSING SPACE ───────────────────────────────── -->
+    <div class="sp-section">
+      <div class="sp-section-title">04 — Processing space</div>
       <div style="display:grid;grid-template-columns:2fr 1fr;gap:16px">
-
         <div>
-          <div style="font-size:13px;font-weight:700;color:#1B5E20;margin-bottom:12px">The daily flow — how produce moves through the space</div>
-
+          <div style="font-size:13px;font-weight:700;color:#1B5E20;margin-bottom:12px">Hub flow — what happens in the space</div>
           <div style="display:flex;flex-direction:column;gap:0">
             <div style="display:grid;grid-template-columns:28px 1fr;gap:12px;padding:10px 14px;background:#EBF2EC;border-radius:4px 4px 0 0;border-bottom:1px solid #C8E6C9">
-              <div style="font-family:'Courier New',monospace;font-size:14px;font-weight:700;color:#1B5E20;line-height:1.2">01</div>
+              <div style="font-family:'Courier New',monospace;font-size:14px;font-weight:700;color:#1B5E20">01</div>
               <div><strong style="color:#1B5E20">Receive</strong><span style="font-size:11px;color:#6B7280;display:block;margin-top:2px">Van arrives. Every crate logged: farm, crop, weight, temperature, time.</span></div>
             </div>
             <div style="display:grid;grid-template-columns:28px 1fr;gap:12px;padding:10px 14px;background:#F0FDF4;border-bottom:1px solid #C8E6C9">
               <div style="font-family:'Courier New',monospace;font-size:14px;font-weight:700;color:#1B5E20">02</div>
-              <div><strong style="color:#1B5E20">Inspect</strong><span style="font-size:11px;color:#6B7280;display:block;margin-top:2px">Visual check on intake. Photograph each batch. Log any damage, pest, or mould.</span></div>
+              <div><strong style="color:#1B5E20">Weigh + inspect</strong><span style="font-size:11px;color:#6B7280;display:block;margin-top:2px">Check against order quantity. Photograph each batch. Log any damage, pest, or mould.</span></div>
             </div>
             <div style="display:grid;grid-template-columns:28px 1fr;gap:12px;padding:10px 14px;background:#EBF2EC;border-bottom:1px solid #C8E6C9">
               <div style="font-family:'Courier New',monospace;font-size:14px;font-weight:700;color:#1B5E20">03</div>
-              <div><strong style="color:#1B5E20">Sort</strong><span style="font-size:11px;color:#6B7280;display:block;margin-top:2px">Separate by quality: Grade A / Grade B / Safe surplus / Not safe. Every item routed before moving to next step.</span></div>
+              <div><strong style="color:#1B5E20">Sort + grade</strong><span style="font-size:11px;color:#6B7280;display:block;margin-top:2px">Grade A / Grade B / Ripe (same-day-use) / Unsafe. Route decided before washing begins.</span></div>
             </div>
             <div style="display:grid;grid-template-columns:28px 1fr;gap:12px;padding:10px 14px;background:#F0FDF4;border-bottom:1px solid #C8E6C9">
               <div style="font-family:'Courier New',monospace;font-size:14px;font-weight:700;color:#1B5E20">04</div>
-              <div><strong style="color:#1B5E20">Wash</strong><span style="font-size:11px;color:#6B7280;display:block;margin-top:2px">Where needed per SKU. Clean water, food-safe environment. Not all produce needs washing — only where it adds shelf life or customer value.</span></div>
+              <div><strong style="color:#1B5E20">Wash (where appropriate)</strong><span style="font-size:11px;color:#6B7280;display:block;margin-top:2px">Not all produce needs washing. Only where it adds shelf life or customer value. Some produce is damaged by washing.</span></div>
             </div>
             <div style="display:grid;grid-template-columns:28px 1fr;gap:12px;padding:10px 14px;background:#EBF2EC;border-bottom:1px solid #C8E6C9">
               <div style="font-family:'Courier New',monospace;font-size:14px;font-weight:700;color:#1B5E20">05</div>
-              <div><strong style="color:#1B5E20">Grade &amp; Pack</strong><span style="font-size:11px;color:#6B7280;display:block;margin-top:2px">Pack by grade and customer. B2B orders pre-packed to spec. Consumer stall stock packed for display. Label every pack: farm, date, grade.</span></div>
+              <div><strong style="color:#1B5E20">Pack + label</strong><span style="font-size:11px;color:#6B7280;display:block;margin-top:2px">B2B orders pre-packed to spec. Stall stock packed for display. Every pack labelled: farm, date, grade.</span></div>
             </div>
-            <div style="display:grid;grid-template-columns:28px 1fr;gap:12px;padding:10px 14px;background:#F0FDF4;border-radius:0 0 4px 4px">
+            <div style="display:grid;grid-template-columns:28px 1fr;gap:12px;padding:10px 14px;background:#F0FDF4;border-bottom:1px solid #C8E6C9">
               <div style="font-family:'Courier New',monospace;font-size:14px;font-weight:700;color:#1B5E20">06</div>
-              <div><strong style="color:#1B5E20">Dispatch</strong><span style="font-size:11px;color:#6B7280;display:block;margin-top:2px">B2B orders out for early morning delivery. Consumer stall stock transported to site. All leaving inventory logged by Lot ID.</span></div>
+              <div><strong style="color:#1B5E20">Record loss</strong><span style="font-size:11px;color:#6B7280;display:block;margin-top:2px">Log every kilogram that didn't make it to sale. Reason, grade, SKU, farm source. Loss is data.</span></div>
+            </div>
+            <div style="display:grid;grid-template-columns:28px 1fr;gap:12px;padding:10px 14px;background:#EBF2EC;border-radius:0 0 4px 4px">
+              <div style="font-family:'Courier New',monospace;font-size:14px;font-weight:700;color:#1B5E20">07</div>
+              <div><strong style="color:#1B5E20">Dispatch</strong><span style="font-size:11px;color:#6B7280;display:block;margin-top:2px">B2B orders out for morning delivery. Stall stock transported. All leaving inventory logged by Lot ID.</span></div>
             </div>
           </div>
         </div>
 
         <div style="display:flex;flex-direction:column;gap:12px">
           <div class="card-sm">
-            <div style="font-size:11px;font-weight:700;color:#1B5E20;margin-bottom:8px">Space requirements</div>
-            <div class="phase-item"><div class="phase-dot"></div><div>500–800 sqft minimum for Phase 0</div></div>
-            <div class="phase-item"><div class="phase-dot"></div><div>Receiving area with drainage</div></div>
-            <div class="phase-item"><div class="phase-dot"></div><div>Sorting/washing tables</div></div>
-            <div class="phase-item"><div class="phase-dot"></div><div>Packing and labelling zone</div></div>
-            <div class="phase-item"><div class="phase-dot"></div><div>Crate storage and washing area</div></div>
-            <div class="phase-item"><div class="phase-dot"></div><div>Ambient holding (onions, yam)</div></div>
+            <div style="font-size:11px;font-weight:700;color:#1B5E20;margin-bottom:8px">Hub requirements</div>
+            <div class="phase-item"><div class="phase-dot"></div><div>500–800 sqft — does not need to be a warehouse</div></div>
+            <div class="phase-item"><div class="phase-dot"></div><div>Clean floor with drainage</div></div>
+            <div class="phase-item"><div class="phase-dot"></div><div>Shaded receiving area</div></div>
+            <div class="phase-item"><div class="phase-dot"></div><div>Water access + sanitation</div></div>
+            <div class="phase-item"><div class="phase-dot"></div><div>Sorting tables or tarpaulin</div></div>
+            <div class="phase-item"><div class="phase-dot"></div><div>Crate storage and washing</div></div>
+            <div class="phase-item"><div class="phase-dot"></div><div>Ambient holding for hardy SKUs</div></div>
             <div class="phase-item"><div class="phase-dot"></div><div>Cool storage for leafy veg + tomatoes</div></div>
-            <div class="phase-item"><div class="phase-dot"></div><div>Reliable water access</div></div>
-            <div class="phase-item"><div class="phase-dot"></div><div>Power (inverter + generator backup)</div></div>
+            <div class="phase-item"><div class="phase-dot"></div><div>Vehicle access for pickup and dispatch</div></div>
+            <div class="phase-item"><div class="phase-dot"></div><div>Waste disposal plan</div></div>
           </div>
-
-          <div class="card-sm">
-            <div style="font-size:11px;font-weight:700;color:#1B5E20;margin-bottom:8px">Key equipment</div>
-            <div class="phase-item"><div class="phase-dot"></div><div>Weighing scale (intake + packing)</div></div>
-            <div class="phase-item"><div class="phase-dot"></div><div>Crates × 40–60 (rotating)</div></div>
-            <div class="phase-item"><div class="phase-dot"></div><div>Sorting tables (food-safe surface)</div></div>
-            <div class="phase-item"><div class="phase-dot"></div><div>Washing basins × 4</div></div>
-            <div class="phase-item"><div class="phase-dot"></div><div>Cool room or chest fridges × 2–3</div></div>
-            <div class="phase-item"><div class="phase-dot"></div><div>Food-safe packaging + labels</div></div>
-            <div class="phase-item"><div class="phase-dot"></div><div>Phone or tablet for data logging</div></div>
-            <div class="phase-item"><div class="phase-dot"></div><div>Gloves, aprons, cleaning supplies</div></div>
-          </div>
+          
         </div>
       </div>
     </div>
 
-    <!-- ── TWO CHANNELS ─────────────────────────────────────── -->
+    <!-- ── GRADING ────────────────────────────────────────── -->
     <div class="sp-section">
-      <div class="sp-section-title">04 — Two distribution channels</div>
-      <div class="grid-2">
-
-        <!-- B2B -->
-        <div style="border:1px solid #C8E6C9;border-radius:6px;overflow:hidden">
-          <div style="background:#1B5E20;padding:14px 18px">
-            <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:4px">Channel 1</div>
-            <div style="font-size:16px;font-weight:700;color:white">B2B — Sell to businesses</div>
-            <div style="font-size:12px;color:rgba(255,255,255,.75);margin-top:2px">Restaurants · Hotels · Caterers · Juice bars · Canteens</div>
-          </div>
-          <div style="padding:14px 18px;background:#F0FDF4">
-            <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div><strong>Standing weekly orders</strong> — same day, same window, same spec. Not ad-hoc.</div></div>
-            <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Minimum order: ₦50K/week. Delivery 6–8am so kitchens have produce before service.</div></div>
-            <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Grade B accepted by most restaurants at a price — not every customer needs Grade A</div></div>
-            <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Invoice on delivery, payment within 24–48h (enforce from Day 1 — no credit for new accounts)</div></div>
-            <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Safe surplus redirected to juice bars and processors — frozen fruit packs, cut veg for caterers</div></div>
-            <div style="margin-top:12px;padding:10px 12px;background:#1B5E20;border-radius:4px">
-              <div style="font-size:10px;color:rgba(255,255,255,.6);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px">Phase 0 target</div>
-              <div style="font-size:13px;font-weight:700;color:white">10+ recurring B2B accounts by Month 6</div>
-              <div style="font-size:11px;color:rgba(255,255,255,.75);margin-top:3px">with 70%+ monthly reorder rate</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- CONSUMER STALL -->
-        <div style="border:1px solid #C8E6C9;border-radius:6px;overflow:hidden">
-          <div style="background:#2D6A46;padding:14px 18px">
-            <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:4px">Channel 2</div>
-            <div style="font-size:16px;font-weight:700;color:white">Consumer stall — high foot traffic</div>
-            <div style="font-size:12px;color:rgba(255,255,255,.75);margin-top:2px">Grade A display · individual shoppers · neighbourhood demand</div>
-          </div>
-          <div style="padding:14px 18px;background:#F0FDF4">
-            <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div><strong>Location first:</strong> a stall inside or adjacent to a busy market, supermarket, food court, or high-footfall junction — not an isolated shop</div></div>
-            <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div>Open display of Grade A produce — farm name and harvest date visible. Clean, properly lit, clearly priced.</div></div>
-            <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div>Convenience packs: pre-washed, portion-sized, ready for households who want to save time</div></div>
-            <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div>Pricing at or below nearby market reference — TRACE wins on quality and provenance, not on being expensive</div></div>
-            <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div>The stall is a demand signal and a consumer research tool — track what sells, what doesn't, where customers come from</div></div>
-            <div style="margin-top:12px;padding:10px 12px;background:#2D6A46;border-radius:4px">
-              <div style="font-size:10px;color:rgba(255,255,255,.6);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px">What the stall teaches TRACE</div>
-              <div style="font-size:12px;color:white;line-height:1.65">Which SKUs move fastest. Which neighbourhoods drive demand. Whether consumers pay more for Grade A. Where Node 2 should eventually open.</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ── TEAM ─────────────────────────────────────────────── -->
-    <div class="sp-section">
-      <div class="sp-section-title">05 — Team for Phase 0</div>
+      <div class="sp-section-title">05 — Grading and routing</div>
       <table class="data-table" style="width:100%">
         <thead>
-          <tr><th>Role</th><th>Responsible for</th><th>Where they work</th><th>Phase</th></tr>
+          <tr><th style="background:#1B5E20;color:white;width:24%">Classification</th><th style="background:#1B5E20;color:white">Route to</th><th style="background:#1B5E20;color:white;width:38%">Why</th></tr>
         </thead>
         <tbody>
-          <tr><td><strong>Operations coordinator</strong></td><td>Daily receiving, grading oversight, supplier communication, B2B order management</td><td>Processing space</td><td><span class="tag tag-core">Phase 0 — Day 1</span></td></tr>
-          <tr><td><strong>Quality &amp; receiving lead</strong></td><td>Intake inspection, grading, Lot ID assignment, daily freshness review (FEFO), waste logging</td><td>Processing space</td><td><span class="tag tag-core">Phase 0 — Day 1</span></td></tr>
-          <tr><td><strong>Sorters / packers × 2</strong></td><td>Washing, sorting, packing, labelling, crate washing and rotation</td><td>Processing space</td><td><span class="tag tag-core">Phase 0 — Day 1</span></td></tr>
-          <tr><td><strong>Driver / delivery</strong></td><td>B2B morning deliveries, farm liaison runs, crate logistics</td><td>Processing + field</td><td><span class="tag tag-core">Phase 0 — Day 1</span></td></tr>
-          <tr><td><strong>Stall seller</strong></td><td>Consumer stall operation, display setup, customer service, daily sell-through log</td><td>Consumer stall</td><td><span class="tag tag-core">Phase 0 — Day 1</span></td></tr>
-          <tr><td><strong>Customer success</strong></td><td>B2B account management, reorder calls, complaint handling, new account onboarding</td><td>Field + remote</td><td><span class="tag tag-planned">Phase 1</span></td></tr>
+          <tr>
+            <td><strong style="color:#1B5E20">Grade A</strong></td>
+            <td>Consumer stall · Premium B2B (restaurants, hotels)</td>
+            <td>Best appearance and quality. Maximum price realised.</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#2D6A46">Grade B</strong></td>
+            <td>General B2B · Caterers · Restaurants · Bukas</td>
+            <td>Safe, fully usable, minor cosmetic variance. Good margin at a slightly lower price.</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#E65100">Ripe / same-day-use</strong></td>
+            <td>Stew vendors · Smoothie / juice shops · Processors · Discount sale</td>
+            <td>Safe but must move today. Route immediately. Do not hold overnight — it becomes waste by morning.</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#8B1A1A">Unsafe</strong></td>
+            <td>Do not sell, donate, or process for human consumption</td>
+            <td>Mouldy, rotten, contaminated. Log the quantity, reason, and source farm. Dispose correctly.</td>
+          </tr>
         </tbody>
       </table>
-      <div style="margin-top:12px;padding:12px 16px;background:#FDF3E3;border-left:3px solid #E65100;border-radius:0 4px 4px 0;font-size:12px;color:#5C2D00">
-        <strong>Hiring principle:</strong> hire operators before managers. The operations coordinator and quality lead should both have prior experience handling fresh produce — not just logistics or retail management in general.
+    </div>
+
+    <!-- ── PAYMENT RULES ──────────────────────────────────── -->
+    <div class="sp-section">
+      <div class="sp-section-title">06 — Payment rules</div>
+      <div class="grid-2">
+        <div class="card">
+          <div style="font-size:14px;font-weight:700;color:#1B5E20;margin-bottom:12px">Customer payments</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div><strong>Preferred:</strong> payment upfront before delivery — especially for new accounts</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div><strong>Acceptable:</strong> 50% upfront, 50% immediately on confirmed receipt</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div><strong>Avoid:</strong> open-ended credit — "pay me later" is not a payment term in the pilot</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Do not extend casual credit even to friendly or promising accounts. The pilot is not a financing exercise.</div></div>
+          <div style="margin-top:12px;padding:10px 12px;background:#1B5E20;border-radius:4px;font-size:12px;color:white">
+            <strong>Operating principle:</strong> TRACE should not carry avoidable credit risk during the pilot. The pilot tests demand, quality and coordination — not TRACE's ability to finance customers.
+          </div>
+        </div>
+        <div class="card">
+          <div style="font-size:14px;font-weight:700;color:#1B5E20;margin-bottom:12px">Supplier payments</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div><strong>Small deposit</strong> to confirm supply and lock in the harvest — especially for committed volumes</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div><strong>Balance after receiving</strong> and quality check at the Lagos hub — not at the farm gate</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div><strong>Deduction or rejection process agreed upfront</strong> — both sides know what happens if quality doesn't meet spec before the first order</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div>Fast payment relative to market is a competitive offer to farmers. Use it — but tie it to quality verification.</div></div>
+          <div style="margin-top:12px;padding:10px 12px;background:#EBF2EC;border-radius:4px;font-size:11px;color:#2D6A46">
+            Fast payment to good suppliers builds loyalty. Slow payment destroys it. Track payment timing as part of the supplier relationship scorecard.
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- ── WEEK BY WEEK ─────────────────────────────────────── -->
+    <!-- ── TWO CHANNELS ───────────────────────────────────── -->
     <div class="sp-section">
-      <div class="sp-section-title">06 — What good looks like week by week</div>
+      <div class="sp-section-title">07 — Demand channels</div>
+      <div class="grid-2">
+        <div style="border:1px solid #C8E6C9;border-radius:6px;overflow:hidden">
+          <div style="background:#1B5E20;padding:14px 18px">
+            <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:4px">Channel A · Anchor</div>
+            <div style="font-size:16px;font-weight:700;color:white">B2B supply</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.75);margin-top:2px">Restaurants · Hotels · Caterers · Juice bars · Canteens · Meal prep</div>
+          </div>
+          <div style="padding:14px 18px;background:#F0FDF4">
+            <div style="font-size:12px;font-style:italic;color:#2D6A46;margin-bottom:10px;line-height:1.6">"Reliable fresh produce, sorted and delivered to specification — so food businesses spend less time sourcing and dealing with inconsistent quality."</div>
+            <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Standing weekly orders — same day, same window, same spec</div></div>
+            <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>What they care about: consistent quality · fair pricing · timely delivery · reduced market runs · clean produce</div></div>
+            <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Grade B accepted by most restaurants at a lower price — don't over-grade for B2B</div></div>
+            <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Minimum order ₦50K/week. Payment upfront or 50/50.</div></div>
+            <div style="margin-top:12px;padding:10px 12px;background:#1B5E20;border-radius:4px">
+              <div style="font-size:10px;color:rgba(255,255,255,.6);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px">Pilot target</div>
+              <div style="font-size:13px;font-weight:700;color:white">3–5 paying B2B customers · 1–2 reorders by end of pilot</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="border:1px solid #C8E6C9;border-radius:6px;overflow:hidden">
+          <div style="background:#2D6A46;padding:14px 18px">
+            <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:4px">Channel B · Secondary — only if low-cost opportunity</div>
+            <div style="font-size:16px;font-weight:700;color:white">Consumer produce stall</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.75);margin-top:2px">High foot traffic · Grade A display · Individual shoppers</div>
+          </div>
+          <div style="padding:14px 18px;background:#F0FDF4">
+            <div style="font-size:12px;font-style:italic;color:#2D6A46;margin-bottom:10px;line-height:1.6">"Clean, well-presented fresh produce in convenient quantities for households."</div>
+            <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div><strong>Location first:</strong> estate entrance · church/community compound · gym · office complex · high-footfall corner</div></div>
+            <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div>Absorbs surplus B2B inventory — reduces waste from overbuying</div></div>
+            <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div>What it tests: daily sell-through · preferred SKUs · packaging appetite · Seasons brand resonance · consumer pricing</div></div>
+            <div class="phase-item"><div class="phase-dot" style="background:#2D6A46"></div><div>Price at or below nearby market. TRACE wins on quality and provenance, not on charging more.</div></div>
+            <div style="margin-top:12px;padding:10px 12px;background:#FDF3E3;border-left:3px solid #E65100;border-radius:0 4px 4px 0;font-size:11px;color:#5C2D00">
+              <strong>Do not let the stall distract from B2B.</strong> If finding a good location takes more than 2 days, move on. B2B data is more important in the pilot.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TEAM ──────────────────────────────────────────── -->
+    <div class="sp-section">
+      <div class="sp-section-title">08 — Minimum team</div>
+      <table class="data-table" style="width:100%">
+        <thead>
+          <tr><th>Role</th><th>Responsible for</th><th>Note</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Founder / pilot lead</strong></td><td>Customer relationships, supplier decisions, pricing, daily learning</td><td>Do not delegate customer relationships in the pilot</td></tr>
+          <tr><td><strong>Operations assistant</strong></td><td>Receiving, weighing, records, hub coordination</td><td>Must be present at every intake</td></tr>
+          <tr><td><strong>Sorters / packers × 1–2</strong></td><td>Washing, sorting, packing, labelling, crate washing</td><td>Casual — scale up on heavy intake days</td></tr>
+          <tr><td><strong>Logistics partner</strong></td><td>Farm pickup, B2B delivery, crate logistics</td><td>Third-party is fine — see transport criteria</td></tr>
+          <tr><td><strong>Supplier lead / field contact</strong></td><td>Farmer and aggregator communication, farm-side coordination</td><td>Can be the founder in early weeks</td></tr>
+          <tr><td><strong>Stall attendant (if tested)</strong></td><td>Consumer stall operation, daily sell-through log, customer service</td><td>Only needed if stall is activated</td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:10px;padding:12px 16px;background:#FDF3E3;border-left:3px solid #E65100;border-radius:0 4px 4px 0;font-size:12px;color:#5C2D00">
+        <strong>Hiring principle:</strong> hire operators before managers. The operations assistant and sorters must be physically reliable and comfortable with produce. Field experience beats retail or logistics management without produce exposure.
+      </div>
+    </div>
+
+    <!-- ── PILOT SCOPE ────────────────────────────────────── -->
+    <div class="sp-section">
+      <div class="sp-section-title">09 — Pilot scope and success criteria</div>
+      <div class="grid-2" style="gap:12px;margin-bottom:16px">
+        <div class="card-sm">
+          <div style="font-size:11px;font-weight:700;color:#1B5E20;margin-bottom:8px">Pilot parameters</div>
+          <div class="phase-item"><div class="phase-dot"></div><div><strong>Duration:</strong> 3–6 weeks</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div><strong>Product basket:</strong> 5–8 high-frequency SKUs</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div><strong>Supply sources:</strong> 2–3 farmers · 1–2 aggregators · 1–2 market backups</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div><strong>Delivery rhythm:</strong> 2–3 supply runs per week</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div><strong>Inventory rule:</strong> no large speculative holding — buy against confirmed demand only</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div><strong>Cold room:</strong> only if data proves it reduces loss — not a starting assumption</div></div>
+        </div>
+        <div class="card-sm">
+          <div style="font-size:11px;font-weight:700;color:#1B5E20;margin-bottom:8px">Success criteria — pilot is successful if:</div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>At least 3 paying B2B customers</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>At least 2 repeat orders — not just first-timers</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Clear demand for 5–8 core SKUs</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Positive gross margin after transport and loss</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Reliable supplier options confirmed</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Evidence customers value quality and reliability</div></div>
+          <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Clear decision on whether a permanent hub, cold room, or store is needed next</div></div>
+        </div>
+      </div>
+
+      <!-- What not to do -->
+      <div style="padding:14px 18px;background:#FDF0F0;border:1px solid #E8C8C8;border-left:3px solid #8B1A1A;border-radius:0 4px 4px 0">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8B1A1A;margin-bottom:8px">What TRACE should not do in the pilot</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+          <div style="font-size:11.5px;color:#5C1A1A;padding-left:14px;position:relative;line-height:1.55"><span style="position:absolute;left:0;color:#8B1A1A">×</span>Buy a truck</div>
+          <div style="font-size:11.5px;color:#5C1A1A;padding-left:14px;position:relative;line-height:1.55"><span style="position:absolute;left:0;color:#8B1A1A">×</span>Build or rent a full cold room</div>
+          <div style="font-size:11.5px;color:#5C1A1A;padding-left:14px;position:relative;line-height:1.55"><span style="position:absolute;left:0;color:#8B1A1A">×</span>Rent a large warehouse</div>
+          <div style="font-size:11.5px;color:#5C1A1A;padding-left:14px;position:relative;line-height:1.55"><span style="position:absolute;left:0;color:#8B1A1A">×</span>Launch a full retail store</div>
+          <div style="font-size:11.5px;color:#5C1A1A;padding-left:14px;position:relative;line-height:1.55"><span style="position:absolute;left:0;color:#8B1A1A">×</span>Carry large unsold inventory</div>
+          <div style="font-size:11.5px;color:#5C1A1A;padding-left:14px;position:relative;line-height:1.55"><span style="position:absolute;left:0;color:#8B1A1A">×</span>Serve more than 8 SKUs</div>
+          <div style="font-size:11.5px;color:#5C1A1A;padding-left:14px;position:relative;line-height:1.55"><span style="position:absolute;left:0;color:#8B1A1A">×</span>Extend casual credit</div>
+          <div style="font-size:11.5px;color:#5C1A1A;padding-left:14px;position:relative;line-height:1.55"><span style="position:absolute;left:0;color:#8B1A1A">×</span>Assume direct farm sourcing is always cheaper</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── WEEK BY WEEK ───────────────────────────────────── -->
+    <div class="sp-section">
+      <div class="sp-section-title">10 — Week by week</div>
       <div class="grid-3" style="gap:10px">
         <div class="card-sm">
           <div style="font-family:'Courier New',monospace;font-size:11px;font-weight:700;color:#1B5E20;margin-bottom:6px">Week 1–2 · Launch</div>
@@ -4383,28 +4565,59 @@
           <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Consumer stall open at chosen location</div></div>
           <div class="phase-item"><div class="phase-dot" style="background:#1B5E20"></div><div>Every lot tracked from intake</div></div>
         </div>
+    </div>
+
+    <!-- ── KEY QUESTIONS FOR OPERATORS ──────────────────── -->
+    <div class="sp-section">
+      <div class="sp-section-title">11 — Key questions for operators</div>
+      <div style="margin-bottom:12px;font-size:13px;color:#6B7280;line-height:1.65">Use the pilot to pressure-test the model with experienced operators. These are the questions that need honest answers — not the ones with obvious answers.</div>
+      <div class="grid-2" style="gap:10px">
+
         <div class="card-sm">
-          <div style="font-family:'Courier New',monospace;font-size:11px;font-weight:700;color:#1565C0;margin-bottom:6px">Week 3–6 · Prove</div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>5+ B2B accounts with reorders</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Transport partner scored on 3+ runs</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Spoilage below 12% and declining</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Top 5 SKUs by margin identified</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#1565C0"></div><div>Stall sell-through data building</div></div>
+          <div style="font-size:11px;font-weight:700;color:#1B5E20;margin-bottom:8px">Supply</div>
+          <div class="phase-item"><div class="phase-dot"></div><div>Which products should we start with — and which are too risky to source at pilot scale?</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div>Should we source directly from farmers or through aggregators first in each corridor?</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div>What quality specs are realistic from farmers at this volume? What will they actually comply with?</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div>How much lead time does each supplier need before a pickup?</div></div>
         </div>
+
         <div class="card-sm">
-          <div style="font-family:'Courier New',monospace;font-size:11px;font-weight:700;color:#6A1B9A;margin-bottom:6px">Week 7–12 · Optimise</div>
-          <div class="phase-item"><div class="phase-dot" style="background:#6A1B9A"></div><div>8–10 B2B accounts, 70%+ reorder rate</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#6A1B9A"></div><div>Spoilage below 7%</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#6A1B9A"></div><div>Consumer stall showing repeat shoppers</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#6A1B9A"></div><div>Route and farm corridor confirmed</div></div>
-          <div class="phase-item"><div class="phase-dot" style="background:#6A1B9A"></div><div>Phase 1 case beginning to build</div></div>
+          <div style="font-size:11px;font-weight:700;color:#1565C0;margin-bottom:8px">Logistics</div>
+          <div class="phase-item"><div class="phase-dot"></div><div>Which routes are realistic for 2–3 runs per week at pilot volume?</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div>Should produce move in crates, baskets, or sacks — and what's actually available?</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div>What causes the most damage in transit on each corridor?</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div>How should transport costs be structured to make the economics work?</div></div>
         </div>
+
+        <div class="card-sm">
+          <div style="font-size:11px;font-weight:700;color:#4A148C;margin-bottom:8px">Hub operations</div>
+          <div class="phase-item"><div class="phase-dot"></div><div>How much space is actually needed for the volumes we're planning?</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div>Which products must be washed — and which should not be washed?</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div>How much labour is needed per kilogram at each step?</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div>What sanitation standards must be followed even at pilot scale?</div></div>
+        </div>
+
+        <div class="card-sm">
+          <div style="font-size:11px;font-weight:700;color:#E65100;margin-bottom:8px">Sales</div>
+          <div class="phase-item"><div class="phase-dot"></div><div>Which B2B customers are easiest to onboard first — and most likely to reorder?</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div>What minimum order size makes the delivery economics work?</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div>What payment terms are realistic — and which customers will push back?</div></div>
+          <div class="phase-item"><div class="phase-dot"></div><div>Is the produce stall worth testing during this pilot — and where would get enough foot traffic?</div></div>
+        </div>
+
       </div>
     </div>
 
-    <div class="disclaimer">
-      <strong>⚠ This is a blueprint for operator discussion, not a committed capital plan.</strong> Specific space size, team size, equipment list, and location will be refined through Months 1–3 fieldwork. Nothing here constitutes a capital commitment until leases, supplier agreements, and transport partnerships are confirmed.
+    <div style="margin-top:4px;padding:16px 20px;background:#1B5E20;border-radius:4px">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:8px">Core pilot thesis</div>
+      <div style="font-size:15px;color:white;line-height:1.75">TRACE will begin as a disciplined coordination layer: sourcing produce, enforcing packaging and quality standards, partnering for transport, operating a small sorting hub, and selling into confirmed demand. <strong style="color:#A5D6A7">Infrastructure comes later, once the pilot proves where it is needed.</strong></div>
     </div>
+
+    <div class="disclaimer">
+      <strong>⚠ Operator discussion document.</strong> Specific space size, team size, equipment list, and location will be confirmed through field visits and operator conversations. Nothing here constitutes a capital commitment.
+    </div>
+
+  </div>
 
   </div>
 
