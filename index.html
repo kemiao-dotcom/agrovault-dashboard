@@ -516,6 +516,13 @@
     flex-shrink: 0;
     margin-top: 7px;
   }
+  .phase-dot-lg {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: white;
+    flex-shrink: 0;
+  }
 
   .phase-gate {
     margin: 16px 20px 0;
@@ -975,7 +982,7 @@
 
     <div class="sp-section">
       <div class="sp-section-title">The four-phase build</div>
-      <div class="phase-grid">
+      <div class="phase-grid" style="grid-template-columns:1fr 1fr;gap:16px">
 
         <div class="phase-card">
           <div class="phase-header" style="background:#1B5E20">
