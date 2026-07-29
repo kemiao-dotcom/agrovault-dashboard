@@ -7,10 +7,10 @@
 
 
 <!-- DASHBOARD_META
-  version: 2.8.3
+  version: 2.8.4
   last_updated: 2026-06-15
   updated_by: Claude (Kemi session)
-  change: v2.8.3 — CSS fix: animation moved to .section-panel.active (Safari blank-tab bug).
+  change: v2.8.4 — Fixed corrupted will-change CSS caused by overly broad regex in version bump.
   sections_count: 9
   live_url: https://kemiao-dotcom.github.io/agrovault-dashboard
 -->
@@ -223,7 +223,6 @@
   .section-panel.active {
     display: block;
     animation: fadeIn 0.25s ease both;
-    will-change: v2.8.3 — CSS fix: animation moved to .section-panel.active (Safari blank-tab bug).
   }
 
   @keyframes fadeIn {
