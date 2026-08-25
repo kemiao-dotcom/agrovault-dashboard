@@ -7,10 +7,10 @@
 
 
 <!-- DASHBOARD_META
-  version: 2.9.3
+  version: 2.9.4
   last_updated: 2026-06-15
   updated_by: Claude (Kemi session)
-  change: v2.9.3 — Business Model: SVG charts (revenue stacked bars, EBITDA path, capital breakdown), moat section restored.
+  change: v2.9.4 — Risk register rebuilt: 8 primary + 2 supporting, framing shift, 7 outdated entries removed with rationale.
   sections_count: 9
   live_url: https://kemiao-dotcom.github.io/agrovault-dashboard
 -->
@@ -3246,69 +3246,120 @@
 <!-- ============================================================ -->
 <!-- SECTION:risks -->
 <div class="section-panel" id="section-risks">
+
   <div class="section-header">
     <div>
       <div class="section-tag">07 — Risk Register</div>
-      <h1 class="section-title">An honest account of<br>what can go wrong.</h1>
-      <p class="section-subtitle">Ratings reflect inherent risk before mitigation. Review quarterly.</p>
+      <h1 class="section-title">Risks that matter<br>right now.</h1>
+      <p class="section-subtitle">This register reflects where TRACE is today. The question has shifted from viability to execution and sequencing discipline.</p>
     </div>
     <div class="section-meta">
-      Source: Vision_Refined.pdf<br>
-      Last updated: 2026-06-15<br>
-      Status: <span class="tag tag-core">Core</span>
+      Last reviewed: 2026-07<br>
+      Horizon: Phase 0 + Phase 1<br>
+      Status: <span class="tag tag-live">Active</span>
     </div>
   </div>
+
   <div class="sp-wrap">
 
     <div class="brief-banner">
-      <strong>The cofounder gap is the single biggest execution risk.</strong> Every failure mode in this plan traces back to having the wrong person — or no person — in the operations seat. A visionary founder with the right thesis and no operational cofounder is the most common failure mode in African infrastructure plays. The physical infrastructure works. The model works. The question is who is running it.
+      TRACE's risks are no longer primarily <strong>"can this idea work?"</strong> They are <strong>"can we prove demand, maintain quality, make the movement economics work, and build operating discipline without committing too much capital too early?"</strong> Every risk below is an execution and sequencing risk, not a market validity risk.
     </div>
 
     <div class="sp-section">
-      <div class="sp-section-title">Critical risks — threaten business viability</div>
-      <div class="risk-grid">
+      <div class="sp-section-title">Primary risks — Phase 0 and Phase 1</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
 
-        <div class="risk-card">
-          <div class="risk-head">
-            <span class="risk-badge" style="background:#FEE2E2;color:#B91C1C;border:1px solid #FECACA">Critical</span>
-            <div><div class="risk-name">Cofounder Gap</div><div class="risk-desc">Every assumption in this plan is a single point of failure until the operations seat is filled by someone who has run physical infrastructure under pressure in Nigeria.</div></div>
+        <div style="border:1px solid var(--border);border-radius:6px;overflow:hidden">
+          <div style="display:grid;grid-template-columns:1fr 90px;background:var(--bg2);padding:10px 14px;border-bottom:1px solid var(--border)">
+            <div style="font-size:12px;font-weight:700;color:var(--text)">Demand does not convert into repeat purchasing</div>
+            <div style="display:flex;align-items:center;justify-content:flex-end"><span class="tag tag-critical">HIGH</span></div>
           </div>
-          <div class="risk-body">
-            <div class="risk-col"><div class="risk-col-head">What could go wrong</div>Visionary founder without operational cofounder — the most common failure mode in African infrastructure plays. Phase 0 trucks start but no one is accountable for compressor failures, driver non-compliance, or SLA breaches.</div>
-            <div class="risk-col"><div class="risk-col-head">Mitigation</div>Non-negotiable: no Phase 1 capital deployment without cofounder in seat. Use Phase 0 truck programme as the live test — cofounder should be running it, not observing it. See Cofounder Brief.</div>
+          <div style="padding:12px 14px;font-size:12px;color:var(--text2);line-height:1.7">Validate households and B2B separately; keep launch assortment controlled; secure paid B2B trials and standing orders; track repeat rate, AOV, fill rate and contribution margin before expanding. The first two months of operating data answer this risk — do not expand before they do.</div>
+        </div>
+
+        <div style="border:1px solid var(--border);border-radius:6px;overflow:hidden">
+          <div style="display:grid;grid-template-columns:1fr 90px;background:var(--bg2);padding:10px 14px;border-bottom:1px solid var(--border)">
+            <div style="font-size:12px;font-weight:700;color:var(--text)">Supplier quality and availability are inconsistent</div>
+            <div style="display:flex;align-items:center;justify-content:flex-end"><span class="tag tag-critical">HIGH</span></div>
+          </div>
+          <div style="padding:12px 14px;font-size:12px;color:var(--text2);line-height:1.7">Qualify at least two supply options for every priority SKU before launch; establish SKU-level quality standards, origin QC, lot tracking and supplier performance scorecards from Day 1. A single-supplier dependency on any high-frequency SKU is an unacceptable launch condition.</div>
+        </div>
+
+        <div style="border:1px solid var(--border);border-radius:6px;overflow:hidden">
+          <div style="display:grid;grid-template-columns:1fr 90px;background:var(--bg2);padding:10px 14px;border-bottom:1px solid var(--border)">
+            <div style="font-size:12px;font-weight:700;color:var(--text)">Long-haul logistics are uneconomic at low utilisation</div>
+            <div style="display:flex;align-items:center;justify-content:flex-end"><span class="tag tag-critical">HIGH</span></div>
+          </div>
+          <div style="padding:12px 14px;font-size:12px;color:var(--text2);line-height:1.7">Use partner transport and cold storage first — TRACE does not own vehicles in Phase 0. Model route economics at 50/70/85/100% utilisation; define minimum route-activation thresholds; prove corridors through pilot shipments before any asset ownership. A route that only works at full truck is not proven.</div>
+        </div>
+
+        <div style="border:1px solid var(--border);border-radius:6px;overflow:hidden">
+          <div style="display:grid;grid-template-columns:1fr 90px;background:var(--bg2);padding:10px 14px;border-bottom:1px solid var(--border)">
+            <div style="font-size:12px;font-weight:700;color:var(--text)">Capital committed ahead of operating proof</div>
+            <div style="display:flex;align-items:center;justify-content:flex-end"><span class="tag tag-critical">HIGH</span></div>
+          </div>
+          <div style="padding:12px 14px;font-size:12px;color:var(--text2);line-height:1.7">Launch one constrained node; apply formal go/no-go gates for lease, refrigeration, imported equipment and infrastructure; phase capex and preserve operating runway. The ₦135.75M raise gives approximately 3–4 months of runway before recurring revenue must close the gap — <strong>Months 3–6 are the highest-pressure period for B2B conversion.</strong></div>
+        </div>
+
+        <div style="border:1px solid var(--border);border-radius:6px;overflow:hidden">
+          <div style="display:grid;grid-template-columns:1fr 90px;background:var(--bg2);padding:10px 14px;border-bottom:1px solid var(--border)">
+            <div style="font-size:12px;font-weight:700;color:var(--text)">Execution talent is not in place quickly enough</div>
+            <div style="display:flex;align-items:center;justify-content:flex-end"><span class="tag tag-critical">HIGH</span></div>
+          </div>
+          <div style="padding:12px 14px;font-size:12px;color:var(--text2);line-height:1.7">Build a small core team around store operations, procurement and supply, quality and data; use specialist consultants for legal, engineering and systems; do not scale operations until accountable owners are in seat for each function. The operations manager and quality lead are the two hires that cannot be delayed.</div>
+        </div>
+
+        <div style="border:1px solid var(--border);border-radius:6px;overflow:hidden">
+          <div style="display:grid;grid-template-columns:1fr 90px;background:var(--bg2);padding:10px 14px;border-bottom:1px solid var(--border)">
+            <div style="font-size:12px;font-weight:700;color:var(--text)">Operating data is incomplete or unreliable</div>
+            <div style="display:flex;align-items:center;justify-content:flex-end"><span class="tag tag-critical">HIGH</span></div>
+          </div>
+          <div style="padding:12px 14px;font-size:12px;color:var(--text2);line-height:1.7">Start with minimal mandatory fields, controlled SKU/supplier/lot masters and a no-code TRACE Intelligence workflow; test end-to-end traceability before launch; add custom technology only after the operating process works. The data moat only exists if every commercial lot is traceable from purchase to final outcome — no exceptions.</div>
+        </div>
+
+        <div style="border:1px solid var(--border);border-radius:6px;overflow:hidden">
+          <div style="display:grid;grid-template-columns:1fr 90px;background:var(--bg2);padding:10px 14px;border-bottom:1px solid var(--border)">
+            <div style="font-size:12px;font-weight:700;color:var(--text)">Food-safety or quality failure damages trust</div>
+            <div style="display:flex;align-items:center;justify-content:flex-end"><span class="tag tag-critical">HIGH</span></div>
+          </div>
+          <div style="padding:12px 14px;font-size:12px;color:var(--text2);line-height:1.7">Establish receiving and rejection standards, temperature controls, sanitation procedures, batch and lot traceability, incident escalation protocols and appropriate product and cargo liability protections before launch. A single food-safety incident in Month 1 destroys more trust than six months of good service can rebuild.</div>
+        </div>
+
+        <div style="border:1px solid var(--border);border-radius:6px;overflow:hidden">
+          <div style="display:grid;grid-template-columns:1fr 90px;background:var(--bg2);padding:10px 14px;border-bottom:1px solid var(--border)">
+            <div style="font-size:12px;font-weight:700;color:var(--text)">Power, refrigeration or site infrastructure is unreliable</div>
+            <div style="display:flex;align-items:center;justify-content:flex-end"><span class="tag tag-high">MEDIUM</span></div>
+          </div>
+          <div style="padding:12px 14px;font-size:12px;color:var(--text2);line-height:1.7">Engineer critical loads before procurement; use solar + battery + generator redundancy; establish maintenance SLAs and outage procedures; select a site only after validating power, water, drainage and receiving requirements. Do not sign a lease until power capacity is confirmed adequate for the cool room.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="sp-section">
+      <div class="sp-section-title">Supporting risks — monitor as the network grows</div>
+      <div class="grid-2" style="gap:12px">
+
+        <div style="border:1px solid var(--border);border-radius:6px;overflow:hidden">
+          <div style="background:var(--bg2);padding:10px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">
+            <div style="font-size:12px;font-weight:700;color:var(--text)">Premium niche bias</div>
+            <span class="tag tag-medium">MEDIUM</span>
+          </div>
+          <div style="padding:12px 14px">
+            <div style="font-size:12px;color:var(--text2);line-height:1.7;margin-bottom:8px">One upscale Lagos location generates demand and pricing data that does not represent broader Nigerian markets. TRACE draws the wrong conclusions from a skewed dataset and builds Phase 1 on assumptions that don't hold outside this catchment.</div>
+            <div style="padding:8px 10px;background:var(--bg2);border-radius:4px;font-size:11px;color:var(--text3);line-height:1.6"><strong>Mitigation:</strong> Label the dataset explicitly as Lekki Phase 1. Add B2B and partner channels to diversify demand signals. Avoid claiming national representativeness until multi-node coverage exists.</div>
           </div>
         </div>
 
-        <div class="risk-card">
-          <div class="risk-head">
-            <span class="risk-badge" style="background:#FEE2E2;color:#B91C1C;border:1px solid #FECACA">Critical</span>
-            <div><div class="risk-name">FX & Currency Volatility</div><div class="risk-desc">Naira has lost 70%+ against USD in three years. DFI debt, equipment replacement, and investor IRR all USD-denominated.</div></div>
+        <div style="border:1px solid var(--border);border-radius:6px;overflow:hidden">
+          <div style="background:var(--bg2);padding:10px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">
+            <div style="font-size:12px;font-weight:700;color:var(--text)">Brand architecture confusion</div>
+            <span class="tag tag-medium">MEDIUM</span>
           </div>
-          <div class="risk-body">
-            <div class="risk-col"><div class="risk-col-head">What could go wrong</div>A sharp devaluation widens the gap between naira revenues and dollar obligations faster than the model can absorb. FX escalation at +₦100/year may be insufficient in a crisis scenario.</div>
-            <div class="risk-col"><div class="risk-col-head">Mitigation</div>Solar-first design eliminates largest naira cost. 30–40% of revenue USD-indexed (export, RFID SaaS, AI grading). Natural hedge: naira opex falls in dollar terms when naira weakens.</div>
-          </div>
-        </div>
-
-        <div class="risk-card">
-          <div class="risk-head">
-            <span class="risk-badge" style="background:#FEE2E2;color:#B91C1C;border:1px solid #FECACA">Critical</span>
-            <div><div class="risk-name">Logistics Theft & Hijacking</div><div class="risk-desc">Armed robbery of refrigerated trucks on Nigerian highways is documented and recurring on Lagos–Ibadan, Kano–Kaduna, and Southeast routes.</div></div>
-          </div>
-          <div class="risk-body">
-            <div class="risk-col"><div class="risk-col-head">What could go wrong</div>A single hijacking event destroys perishable cargo, the truck, and potentially a driver. A kidnapped driver is both a human tragedy and a business-ending reputational event.</div>
-            <div class="risk-col"><div class="risk-col-head">Mitigation</div>Route risk assessment, curfew protocols, no night driving in high-risk corridors. Real-time GPS geofencing. Armed escort for pharma loads. K&R insurance for drivers on rural routes.</div>
-          </div>
-        </div>
-
-        <div class="risk-card">
-          <div class="risk-head">
-            <span class="risk-badge" style="background:#FEE2E2;color:#B91C1C;border:1px solid #FECACA">Critical</span>
-            <div><div class="risk-name">Power Infrastructure Failure</div><div class="risk-desc">In 38–42°C ambient, a 4-hour power failure in a cold room without backup is a total produce loss event.</div></div>
-          </div>
-          <div class="risk-body">
-            <div class="risk-col"><div class="risk-col-head">What could go wrong</div>Inverter faults and battery degradation create temperature excursions. A pharmaceutical excursion is a product liability event with NAFDAC consequences.</div>
-            <div class="risk-col"><div class="risk-col-head">Mitigation</div>Redundant design: solar primary, battery secondary, diesel tertiary. Auto transfer switch &lt;30 second failover. 24/7 monitoring, SMS alerts. Maintenance SLA with refrigeration OEM from day one.</div>
+          <div style="padding:12px 14px">
+            <div style="font-size:12px;color:var(--text2);line-height:1.7;margin-bottom:8px">Customers and investors cannot tell whether TRACE is a grocer, logistics provider, infrastructure company or data platform. Confusion diffuses the investment thesis and makes it harder to attract operators, DFI partners and B2B clients simultaneously.</div>
+            <div style="padding:8px 10px;background:var(--bg2);border-radius:4px;font-size:11px;color:var(--text3);line-height:1.6"><strong>Mitigation:</strong> Maintain the distinction consistently — TRACE builds the food operating system. Seasons is where customers experience it. Never conflate the two brands in external communication.</div>
           </div>
         </div>
 
@@ -3316,109 +3367,32 @@
     </div>
 
     <div class="sp-section">
-      <div class="sp-section-title">High risks — material impact on timeline or returns</div>
-      <div class="risk-grid">
-
-        <div class="risk-card">
-          <div class="risk-head">
-            <span class="risk-badge" style="background:#FEF3C7;color:#92400E;border:1px solid #FDE68A">High</span>
-            <div><div class="risk-name">Hub Underutilisation</div><div class="risk-desc">An LOI is not a volume commitment. Seasonal businesses over-commit and under-use without penalty if the contract is poorly structured.</div></div>
-          </div>
-          <div class="risk-body">
-            <div class="risk-col"><div class="risk-col-head">What could go wrong</div>Brazil cold chain plays burned fixed costs for years at 30–40% utilisation. Hub fixed costs don't flex with seasonal demand dips.</div>
-            <div class="risk-col"><div class="risk-col-head">Mitigation</div>Minimum monthly volume clause in every SLA — not a capacity reservation, a contracted floor. Tiered pricing rewards consistent commitment. Phase 0 logistics provides a cash floor.</div>
-          </div>
-        </div>
-
-        <div class="risk-card">
-          <div class="risk-head">
-            <span class="risk-badge" style="background:#FEF3C7;color:#92400E;border:1px solid #FDE68A">High</span>
-            <div><div class="risk-name">Regulatory & Licensing Delays</div><div class="risk-desc">NAFDAC pharma accreditation, NERC surplus licence, Lagos State planning consent can each take 12–24 months.</div></div>
-          </div>
-          <div class="risk-body">
-            <div class="risk-col"><div class="risk-col-head">What could go wrong</div>Sequential filing (not parallel) creates 36+ month delay. Informal facilitation demands raise cost and legal exposure beyond the 12% contingency.</div>
-            <div class="risk-col"><div class="risk-col-head">Mitigation</div>Engage regulatory counsel before site selection. File all licences in parallel. Designate government relations lead from day one. NIRSAL partnership accelerates federal alignment.</div>
-          </div>
-        </div>
-
-        <div class="risk-card">
-          <div class="risk-head">
-            <span class="risk-badge" style="background:#FEF3C7;color:#92400E;border:1px solid #FDE68A">High</span>
-            <div><div class="risk-name">Talent Scarcity — Cold Chain Technicians</div><div class="risk-desc">Nigeria has a critical shortage of trained refrigeration engineers. A compressor failure with no technician within 4 hours is a product loss event.</div></div>
-          </div>
-          <div class="risk-body">
-            <div class="risk-col"><div class="risk-col-head">What could go wrong</div>Hub uptime depends on rapid fault diagnosis. Reactive repair frequency is high without preventive maintenance — and the talent to run it simply doesn't exist in sufficient supply.</div>
-            <div class="risk-col"><div class="risk-col-head">Mitigation</div>Partner with refrigeration OEM for training and certification programme. Retain two trained technicians per hub. Preventive maintenance schedule to reduce reactive call-outs.</div>
-          </div>
-        </div>
-
-        <div class="risk-card">
-          <div class="risk-head">
-            <span class="risk-badge" style="background:#FEF3C7;color:#92400E;border:1px solid #FDE68A">High</span>
-            <div><div class="risk-name">Banditry & Kidnapping on Rural Routes</div><div class="risk-desc">Farm collection routes into Benue, Plateau, Kebbi, Kogi pass through areas with active banditry, particularly in NW and Northcentral zones.</div></div>
-          </div>
-          <div class="risk-body">
-            <div class="risk-col"><div class="risk-col-head">What could go wrong</div>Initial hub siting in Lagos and Kano minimises exposure to highest-risk zones, but farm collection routes cannot always avoid them.</div>
-            <div class="risk-col"><div class="risk-col-head">Mitigation</div>Farm collection limited to zones with state security or community protection. Driver journey management with mandatory check-ins. No solo driving in medium-risk zones. K&R insurance.</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="sp-section">
-      <div class="sp-section-title">Medium risks — manageable with early action</div>
-      <div class="risk-grid">
-        <div class="risk-card">
-          <div class="risk-head">
-            <span class="risk-badge" style="background:#DBEAFE;color:#1E40AF;border:1px solid #BFDBFE">Medium</span>
-            <div><div class="risk-name">Behavioural Adoption Lag</div><div class="risk-desc">Smallholder farmers and traders have adapted to spoilage as accepted loss. Changing behaviour takes 3–5× longer than projected — validated by ColdHubs field data.</div></div>
-          </div>
-          <div class="risk-body">
-            <div class="risk-col"><div class="risk-col-head">What could go wrong</div>Cooperative and farmer segments ramp slower than institutional tiers. If modelled as anchor revenue in Year 1, the shortfall creates an EBITDA gap.</div>
-            <div class="risk-col"><div class="risk-col-head">Mitigation</div>Do not model farmer/cooperative volumes as anchor revenue in Year 1. Institutional B2B carries the hub economics. Farmer adoption is the social impact story and Year 3+ revenue uplift.</div>
-          </div>
-        </div>
-        <div class="risk-card">
-          <div class="risk-head">
-            <span class="risk-badge" style="background:#DBEAFE;color:#1E40AF;border:1px solid #BFDBFE">Medium</span>
-            <div><div class="risk-name">Solar Degradation & Battery Replacement</div><div class="risk-desc">In Nigerian heat and harmattan dust, lithium cells degrade faster than temperate benchmarks. Year 4–6 battery reinvestment may be a capital event the model understates.</div></div>
-          </div>
-          <div class="risk-body">
-            <div class="risk-col"><div class="risk-col-head">What could go wrong</div>The 5% O&M assumption may understate Year 4–6 battery replacement cost. A capacity shortfall at year five is a surprise CapEx event.</div>
-            <div class="risk-col"><div class="risk-col-head">Mitigation</div>Annual battery capacity testing from Year 2. Battery replacement reserve as sinking fund from Year 3. Tropical climate battery ratings specified. 10-year EPC performance warranty.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="disclaimer">
-      <strong>⚠ Risk ratings reflect inherent risk before mitigation.</strong> Residual risk after mitigation is lower in each case where the mitigation is fully implemented. This register should be reviewed and updated quarterly by the founding team.
-    </div>
-
-  </div>
-  
-    <div class="sp-section">
-      <div class="sp-section-title">Retail model and operating thesis risks</div>
-      <table class="risk-table">
-        <thead><tr><th style="width:20%">Risk</th><th style="width:12%">Rating</th><th>Description</th><th>Mitigation</th></tr></thead>
+      <div class="sp-section-title">What was removed — and why</div>
+      <table class="data-table" style="width:100%">
+        <thead><tr><th style="width:28%">Removed risk</th><th>Why removed or absorbed</th></tr></thead>
         <tbody>
-          <tr class="risk-row"><td class="risk-name"><strong>Retail distraction</strong></td><td><span class="tag tag-high">High</span></td><td>Seasons becomes a well-designed specialty grocer while TRACE fails to build reusable backend capabilities.</td><td>Separate retail and backend KPIs; serve B2B from Day 1; asset-reusability test; review thesis quarterly.</td></tr>
-          <tr class="risk-row"><td class="risk-name"><strong>Assortment complexity</strong></td><td><span class="tag tag-high">High</span></td><td>Too many fresh, packaged, private-label and prepared categories create excessive working capital, labour and waste before the model is proven.</td><td>Controlled SKU gates; one-in/one-out reviews; category-level contribution margin; phased private label.</td></tr>
-          <tr class="risk-row"><td class="risk-name"><strong>Premium niche bias</strong></td><td><span class="tag tag-medium">Medium</span></td><td>One upscale Lagos location generates demand data that does not represent broader Nigerian or African markets.</td><td>Label the dataset appropriately; add B2B, digital and partner channels; avoid claiming national representativeness prematurely.</td></tr>
-          <tr class="risk-row"><td class="risk-name"><strong>Founder attention</strong></td><td><span class="tag tag-high">High</span></td><td>Daily retail firefighting crowds out supplier development, systems, B2B and data architecture.</td><td>Strong store manager hired early; defined escalation rules; founder time explicitly allocated; management dashboards.</td></tr>
-          <tr class="risk-row"><td class="risk-name"><strong>Data integrity</strong></td><td><span class="tag tag-high">High</span></td><td>Product moves faster than staff can record it, leaving the data moat incomplete or unreliable.</td><td>Simple mandatory fields only; barcode or lot labels at intake; daily data-completeness review; no unnecessary technology complexity.</td></tr>
-          <tr class="risk-row"><td class="risk-name"><strong>Infrastructure creep</strong></td><td><span class="tag tag-medium">Medium</span></td><td>Operational challenges are repeatedly solved by purchasing assets rather than improving process, demand planning or contracted capacity.</td><td>Build-versus-buy gate for every major asset; utilisation threshold before purchase; explicit payback case required.</td></tr>
-          <tr class="risk-row"><td class="risk-name"><strong>Brand architecture</strong></td><td><span class="tag tag-medium">Medium</span></td><td>Customers and investors cannot tell whether TRACE is a grocer, logistics provider, infrastructure company or data platform.</td><td>Maintain the distinction: TRACE builds the food operating system. Seasons is where customers experience it.</td></tr>
+          <tr><td><strong>Cofounder gap</strong></td><td>The risk is execution talent, not title. Addressed through risk 5 and the hiring plan.</td></tr>
+          <tr><td><strong>Retail distraction</strong></td><td>Seasons is now intentionally the first demand node. The real risk is capital or management complexity growing faster than proof — captured in risks 1 and 4.</td></tr>
+          <tr><td><strong>Founder attention</strong></td><td>Addressed through hiring and operating ownership. Not a standalone enterprise risk at this stage.</td></tr>
+          <tr><td><strong>Additional funding unavailable</strong></td><td>Replaced by "capital committed ahead of operating proof" — more actionable and directly relevant to the current model.</td></tr>
+          <tr><td><strong>B2B customers pay slowly</strong></td><td>Retained as a sub-risk within working capital controls. Not a top enterprise risk until TRACE extends meaningful credit.</td></tr>
+          <tr><td><strong>FX and import exposure</strong></td><td>Managed through selective imported equipment and avoiding fleet ownership initially. Noted within capital and procurement risks.</td></tr>
+          <tr><td><strong>Assortment complexity</strong></td><td>Absorbed into demand risk (controlled SKU gates) and capital risk (inventory turns and working capital management).</td></tr>
         </tbody>
       </table>
     </div>
 
+    <div class="disclaimer">
+      <strong>⚠ Review this register quarterly against operating data.</strong> Risks should move down in rating as proof points are established. If a risk is still rated HIGH after 6 months of operating data, it requires a formal response plan — not just a mitigation note.
+    </div>
+
+  </div>
 
   <div class="section-footer">
-    <span class="update-badge">⚠ Review quarterly — ratings pre-mitigation</span>
+    <span class="update-badge">⚠ Review quarterly — update ratings from operating evidence</span>
     <span class="conf-footer">TRACE · Confidential · Not for distribution</span>
   </div>
+
 </div>
 <!-- /SECTION:risks -->
 
