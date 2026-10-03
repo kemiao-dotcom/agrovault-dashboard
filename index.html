@@ -895,7 +895,7 @@
 
   <div class="header-right">
     <span class="conf-badge">⚑ Confidential</span>
-    <span class="version-badge">v3.1.0 · 2026-10-03</span>
+    <span class="version-badge">v3.2.0 · 2026-10-03</span>
   </div>
 </header>
 
@@ -1124,7 +1124,65 @@
   </div>
   <div class="sp-wrap">
 <div class="brief-banner"><strong>Operating principle:</strong> TRACE earns margin through buying discipline, saleable yield, supplier performance, inventory turns, route density and intelligent channel allocation—not by assuming premium pricing or asset ownership will solve weak operations.</div>
-<div class="sp-section"><div class="sp-section-title">The operating flow</div><table class="data-table" style="width:100%"><thead><tr><th>Step</th><th>Fresh / lot-controlled product</th><th>Packaged / batch-controlled product</th><th>Control point</th></tr></thead><tbody><tr><td>1. Plan demand</td><td>B2B standing orders + retail forecast</td><td>Category plan + reorder point</td><td>Approved purchase plan</td></tr><tr><td>2. Source</td><td>Direct farm, verified aggregator or market backup</td><td>Approved brand/vendor</td><td>Supplier terms and specification</td></tr><tr><td>3. Move</td><td>Partner pickup or consolidated collection</td><td>Vendor delivery or partner freight</td><td>Cost, condition and chain of custody</td></tr><tr><td>4. Receive</td><td>Weigh, photograph, inspect, Lot ID, grade</td><td>Count, batch, expiry, damage and compliance check</td><td>Accept / quarantine / reject</td></tr><tr><td>5. Hold &amp; allocate</td><td>FEFO by shelf life and channel suitability</td><td>FEFO by expiry and sell-through</td><td>Retail, B2B, markdown, processing or return</td></tr><tr><td>6. Fulfil</td><td>Pack to retail/B2B specification</td><td>Pick and dispatch by order/channel</td><td>Proof of delivery and inventory deduction</td></tr><tr><td>7. Close outcome</td><td>Sold, recovered, donated, unsafe or wasted</td><td>Sold, returned, expired or damaged</td><td>Contribution and root-cause record</td></tr></tbody></table></div>
+<div class="sp-section">
+  <div class="sp-section-title">The five-layer operating model</div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+
+    <div style="display:grid;grid-template-columns:72px 1.1fr 1.6fr 1.2fr;gap:14px;padding:16px;background:#ECFDF5;border-radius:7px;border-left:4px solid #15803D">
+      <div><div style="font-size:22px;font-weight:700;color:#15803D">01</div><div style="font-size:9px;font-weight:700;color:#15803D;letter-spacing:.08em">DEMAND</div></div>
+      <div><div style="font-size:13px;font-weight:700;margin-bottom:5px">Demand planning &amp; commercial commitments</div><div style="font-size:10px;color:var(--text3);line-height:1.55">Objective: know enough of the next buying cycle before product is purchased.</div></div>
+      <div style="font-size:11px;color:var(--text2);line-height:1.65"><strong>Work:</strong> combine retail history, seasonal events, B2B standing orders, promotions, availability and working-capital limits into an approved purchase plan. Separate committed demand from forecast demand.</div>
+      <div style="font-size:11px;color:var(--text2);line-height:1.65"><strong>Output:</strong> SKU × quantity × required date × target channel.<br><strong>Data:</strong> forecast accuracy, reorder rate, lost sales, basket attachment.</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:72px 1.1fr 1.6fr 1.2fr;gap:14px;padding:16px;background:#EFF6FF;border-radius:7px;border-left:4px solid #1565C0">
+      <div><div style="font-size:22px;font-weight:700;color:#1565C0">02</div><div style="font-size:9px;font-weight:700;color:#1565C0;letter-spacing:.08em">SUPPLY</div></div>
+      <div><div style="font-size:13px;font-weight:700;margin-bottom:5px">Supplier selection &amp; procurement</div><div style="font-size:10px;color:var(--text3);line-height:1.55">Objective: secure the right product, standard, timing and commercial terms.</div></div>
+      <div style="font-size:11px;color:var(--text2);line-height:1.65"><strong>Work:</strong> choose direct farm, verified aggregator, brand/vendor or market backup according to quality, reliability, landed economics and required volume. Issue the purchase order and confirm specification.</div>
+      <div style="font-size:11px;color:var(--text2);line-height:1.65"><strong>Output:</strong> confirmed supply and expected receipt.<br><strong>Data:</strong> price, lead time, fill rate, historical acceptance and payment terms.</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:72px 1.1fr 1.6fr 1.2fr;gap:14px;padding:16px;background:#FFF7ED;border-radius:7px;border-left:4px solid #B45309">
+      <div><div style="font-size:22px;font-weight:700;color:#B45309">03</div><div style="font-size:9px;font-weight:700;color:#B45309;letter-spacing:.08em">MOVEMENT</div></div>
+      <div><div style="font-size:13px;font-weight:700;margin-bottom:5px">Collection, transport &amp; receiving</div><div style="font-size:10px;color:var(--text3);line-height:1.55">Objective: move product in the right condition and create a reliable chain of custody.</div></div>
+      <div style="font-size:11px;color:var(--text2);line-height:1.65"><strong>Work:</strong> select the fit-for-product logistics partner, consolidate pickups, control loading, monitor exceptions, then count or weigh, inspect, photograph and accept, quarantine or reject at the node.</div>
+      <div style="font-size:11px;color:var(--text2);line-height:1.65"><strong>Output:</strong> received Lot ID or batch record.<br><strong>Data:</strong> transit time, damage, temperature where relevant, variance and cost/kg.</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:72px 1.1fr 1.6fr 1.2fr;gap:14px;padding:16px;background:#F5F3FF;border-radius:7px;border-left:4px solid #6D28D9">
+      <div><div style="font-size:22px;font-weight:700;color:#6D28D9">04</div><div style="font-size:9px;font-weight:700;color:#6D28D9;letter-spacing:.08em">NODE</div></div>
+      <div><div style="font-size:13px;font-weight:700;margin-bottom:5px">Quality, inventory &amp; allocation</div><div style="font-size:10px;color:var(--text3);line-height:1.55">Objective: preserve product value and place each unit in its best available channel.</div></div>
+      <div style="font-size:11px;color:var(--text2);line-height:1.65"><strong>Work:</strong> grade or compliance-check, label, store by requirement, enforce FEFO, reserve committed orders, replenish retail and trigger markdown, return, recovery or disposal before product becomes unexplained loss.</div>
+      <div style="font-size:11px;color:var(--text2);line-height:1.65"><strong>Output:</strong> available-to-promise inventory by channel.<br><strong>Data:</strong> yield, shelf life, inventory age, allocation and recovery status.</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:72px 1.1fr 1.6fr 1.2fr;gap:14px;padding:16px;background:#FDF2F8;border-radius:7px;border-left:4px solid #9F1239">
+      <div><div style="font-size:22px;font-weight:700;color:#9F1239">05</div><div style="font-size:9px;font-weight:700;color:#9F1239;letter-spacing:.08em">CUSTOMER</div></div>
+      <div><div style="font-size:13px;font-weight:700;margin-bottom:5px">Retail, B2B fulfilment &amp; outcome closure</div><div style="font-size:10px;color:var(--text3);line-height:1.55">Objective: fulfil the promise, collect the revenue and close the economic record.</div></div>
+      <div style="font-size:11px;color:var(--text2);line-height:1.65"><strong>Work:</strong> complete retail sale or B2B pick, pack and delivery; capture service exceptions, customer feedback, payment and the final disposition of every unit received.</div>
+      <div style="font-size:11px;color:var(--text2);line-height:1.65"><strong>Output:</strong> sale, return, recovery or recorded loss.<br><strong>Data:</strong> selling price, margin, OTIF, complaints, repeat purchase and final lot outcome.</div>
+    </div>
+
+  </div>
+  <div style="margin-top:12px;padding:14px 18px;background:var(--green2);border-radius:6px;color:white;font-size:11px;line-height:1.75"><strong>ERP &amp; intelligence run through every layer.</strong> Demand creates the purchase plan; procurement creates the expected receipt; receiving creates the lot or batch; inventory records every status and allocation; fulfilment closes the product and financial outcome. The weekly operating review feeds those outcomes back into the next demand and purchase decision.</div>
+</div>
+
+<div class="sp-section">
+  <div class="sp-section-title">Critical handoffs — where operating failures usually begin</div>
+  <table class="data-table" style="width:100%">
+    <thead><tr><th>Handoff</th><th>Required evidence</th><th>Decision owner</th><th>Failure if unclear</th></tr></thead>
+    <tbody>
+      <tr><td>Demand → Procurement</td><td>Approved quantity, date, channel and price/margin target</td><td>Commercial + supply</td><td>Speculative overbuying or avoidable stockout</td></tr>
+      <tr><td>Supplier → Logistics</td><td>Confirmed availability, packaging, pickup window and specification</td><td>Supply lead</td><td>Wrong product, delay or damage before transit begins</td></tr>
+      <tr><td>Logistics → Receiving</td><td>Dispatch record, expected quantity, condition and chain of custody</td><td>Receiving / quality</td><td>Untraceable variance and disputed damage</td></tr>
+      <tr><td>Receiving → Inventory</td><td>Accepted quantity, Lot ID/batch, grade/status, cost and shelf-life rule</td><td>Quality + inventory</td><td>Inventory exists physically but not commercially</td></tr>
+      <tr><td>Inventory → Channel</td><td>Reservation, pick/transfer record and service priority</td><td>Node operations</td><td>Retail and B2B compete for the same stock</td></tr>
+      <tr><td>Fulfilment → Finance/data</td><td>Sale/POD, payment state, variance, return or loss outcome</td><td>Channel owner + ERP owner</td><td>Revenue, margin and product outcome do not reconcile</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="sp-section"><div class="sp-section-title">Product flow by control type</div><table class="data-table" style="width:100%"><thead><tr><th>Step</th><th>Fresh / lot-controlled product</th><th>Packaged / batch-controlled product</th><th>Control point</th></tr></thead><tbody><tr><td>1. Plan demand</td><td>B2B standing orders + retail forecast</td><td>Category plan + reorder point</td><td>Approved purchase plan</td></tr><tr><td>2. Source</td><td>Direct farm, verified aggregator or market backup</td><td>Approved brand/vendor</td><td>Supplier terms and specification</td></tr><tr><td>3. Move</td><td>Partner pickup or consolidated collection</td><td>Vendor delivery or partner freight</td><td>Cost, condition and chain of custody</td></tr><tr><td>4. Receive</td><td>Weigh, photograph, inspect, Lot ID, grade</td><td>Count, batch, expiry, damage and compliance check</td><td>Accept / quarantine / reject</td></tr><tr><td>5. Hold &amp; allocate</td><td>FEFO by shelf life and channel suitability</td><td>FEFO by expiry and sell-through</td><td>Retail, B2B, markdown, processing or return</td></tr><tr><td>6. Fulfil</td><td>Pack to retail/B2B specification</td><td>Pick and dispatch by order/channel</td><td>Proof of delivery and inventory deduction</td></tr><tr><td>7. Close outcome</td><td>Sold, recovered, donated, unsafe or wasted</td><td>Sold, returned, expired or damaged</td><td>Contribution and root-cause record</td></tr></tbody></table></div>
 <div class="sp-section"><div class="sp-section-title">Day-1 management loops</div><div class="grid-3">
 <div class="card"><div style="font-family:'Courier New',monospace;font-size:10px;font-weight:700;color:#15803D;letter-spacing:.1em;margin-bottom:8px">DAILY</div><h3 style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px">Freshness and fulfilment</h3><p style="font-size:12px;color:var(--text2);line-height:1.7">Review intake, expiring inventory, B2B allocations, exceptions, sales, waste and data completeness.</p></div>
 <div class="card"><div style="font-family:'Courier New',monospace;font-size:10px;font-weight:700;color:#1565C0;letter-spacing:.1em;margin-bottom:8px">WEEKLY</div><h3 style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px">Buying and supplier decisions</h3><p style="font-size:12px;color:var(--text2);line-height:1.7">Review SKU turns, forecast error, landed sellable cost, fill rate, supplier scorecards and route performance.</p></div>
@@ -1162,6 +1220,71 @@
 <div class="card"><div style="font-family:'Courier New',monospace;font-size:10px;font-weight:700;color:#9F1239;letter-spacing:.1em;margin-bottom:8px">EXTERNAL INTELLIGENCE</div><h3 style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px">Benchmarks and market products</h3><p style="font-size:12px;color:var(--text2);line-height:1.7">Requires multiple channels, nodes and representative coverage—not one store.</p></div>
 </div></div>
 <div class="sp-section"><div class="sp-section-title">Decision intelligence produced from launch data</div><table class="data-table" style="width:100%"><thead><tr><th>Decision</th><th>Core evidence</th><th>Operating outcome</th></tr></thead><tbody><tr><td>What to buy</td><td>Sell-through, standing orders, availability, waste and forecast error</td><td>Smaller, better-timed purchases</td></tr><tr><td>Who to buy from</td><td>Fill rate, Grade A%, rejection, landed cost and reliability</td><td>Supplier allocation based on performance</td></tr><tr><td>Where to allocate</td><td>Condition, shelf life, demand, channel price and service obligation</td><td>Higher recovery and less avoidable shrink</td></tr><tr><td>Which route or partner</td><td>Cost/kg, time, damage, lateness and utilisation</td><td>Better logistics decisions</td></tr><tr><td>Which categories earn space</td><td>Sales/sqm, turns, margin, basket attachment and working capital</td><td>Assortment discipline</td></tr><tr><td>What infrastructure to deploy</td><td>Recurring bottleneck, throughput, partner cost and owned cost</td><td>Evidence-led capex</td></tr></tbody></table></div>
+
+<div class="sp-section">
+  <div class="sp-section-title">The competitive moat — built through use, not installed with software</div>
+  <div class="brief-banner" style="margin-bottom:14px"><strong>The database alone is not the moat.</strong> The moat is the combination of disciplined operating workflows, longitudinal product outcomes, supplier and customer relationships, allocation learning and increasing movement density. A competitor can buy software; it cannot immediately recreate TRACE's joined operating history or the decisions learned from it.</div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+    <div class="card" style="border-top:4px solid #15803D">
+      <div style="font-size:10px;font-weight:700;color:#15803D;letter-spacing:.08em;margin-bottom:7px">01 — OPERATING DISCIPLINE</div>
+      <h3 style="font-size:13px;margin-bottom:7px">Clean workflows create trustworthy records.</h3>
+      <p style="font-size:11px;color:var(--text2);line-height:1.65">Controlled masters, consistent receiving, lot/batch identity, FEFO, reconciliation and reason codes make the data comparable over time.</p>
+      <div style="margin-top:9px;font-size:10px;color:var(--text3)"><strong>Status:</strong> launch foundation · necessary but not sufficient</div>
+    </div>
+
+    <div class="card" style="border-top:4px solid #1565C0">
+      <div style="font-size:10px;font-weight:700;color:#1565C0;letter-spacing:.08em;margin-bottom:7px">02 — SUPPLIER PERFORMANCE MEMORY</div>
+      <h3 style="font-size:13px;margin-bottom:7px">TRACE learns who delivers usable value.</h3>
+      <p style="font-size:11px;color:var(--text2);line-height:1.65">Price is joined with fill rate, acceptance, grade/yield, timing, damage, rejection and downstream margin—not evaluated in isolation.</p>
+      <div style="margin-top:9px;font-size:10px;color:var(--text3)"><strong>Hard to copy because:</strong> it requires repeated commercial lots and honest outcomes</div>
+    </div>
+
+    <div class="card" style="border-top:4px solid #B45309">
+      <div style="font-size:10px;font-weight:700;color:#B45309;letter-spacing:.08em;margin-bottom:7px">03 — LANDED SELLABLE ECONOMICS</div>
+      <h3 style="font-size:13px;margin-bottom:7px">TRACE sees the complete cost of usable product.</h3>
+      <p style="font-size:11px;color:var(--text2);line-height:1.65">Purchase, movement, handling, yield, allocation, sale and recovery are connected at lot level, exposing which apparent bargains actually destroy margin.</p>
+      <div style="margin-top:9px;font-size:10px;color:var(--text3)"><strong>Advantage:</strong> better buying and route decisions than headline-price competitors</div>
+    </div>
+
+    <div class="card" style="border-top:4px solid #6D28D9">
+      <div style="font-size:10px;font-weight:700;color:#6D28D9;letter-spacing:.08em;margin-bottom:7px">04 — DEMAND &amp; ALLOCATION LEARNING</div>
+      <h3 style="font-size:13px;margin-bottom:7px">One product can have different value across channels.</h3>
+      <p style="font-size:11px;color:var(--text2);line-height:1.65">Retail missions, B2B specifications, price response, basket behaviour and shelf life teach TRACE what to buy and where each unit should go.</p>
+      <div style="margin-top:9px;font-size:10px;color:var(--text3)"><strong>Advantage:</strong> more total value realised from the same incoming supply</div>
+    </div>
+
+    <div class="card" style="border-top:4px solid #0F766E">
+      <div style="font-size:10px;font-weight:700;color:#0F766E;letter-spacing:.08em;margin-bottom:7px">05 — RELATIONSHIPS + DENSITY</div>
+      <h3 style="font-size:13px;margin-bottom:7px">Data improves a physical network competitors must rebuild.</h3>
+      <p style="font-size:11px;color:var(--text2);line-height:1.65">Reliable suppliers, repeat customers, denser orders and better partner terms lower friction and cost as TRACE operates more product through the same system.</p>
+      <div style="margin-top:9px;font-size:10px;color:var(--text3)"><strong>Advantage:</strong> the network and data reinforce each other</div>
+    </div>
+
+    <div class="card" style="border-top:4px solid #9F1239">
+      <div style="font-size:10px;font-weight:700;color:#9F1239;letter-spacing:.08em;margin-bottom:7px">06 — BETTER CAPITAL DECISIONS</div>
+      <h3 style="font-size:13px;margin-bottom:7px">TRACE knows which constraint is worth owning.</h3>
+      <p style="font-size:11px;color:var(--text2);line-height:1.65">Recurring bottlenecks, throughput, partner performance and avoided loss identify where vehicles, storage, processing or new nodes will improve economics.</p>
+      <div style="margin-top:9px;font-size:10px;color:var(--text3)"><strong>Advantage:</strong> infrastructure begins with evidence and higher expected utilisation</div>
+    </div>
+  </div>
+</div>
+
+<div class="sp-section">
+  <div class="sp-section-title">How the moat compounds</div>
+  <table class="data-table" style="width:100%">
+    <thead><tr><th>Operating cycle</th><th>What TRACE knows better</th><th>Decision improvement</th><th>Commercial effect</th></tr></thead>
+    <tbody>
+      <tr><td>More received lots</td><td>Supplier quality, yield and timing by SKU/season</td><td>Allocate purchase volume to better suppliers</td><td>Higher acceptance and saleable yield</td></tr>
+      <tr><td>More retail and B2B outcomes</td><td>Demand by mission, specification, neighbourhood and channel</td><td>Buy closer to real demand and reserve inventory earlier</td><td>Higher turns, availability and recovery</td></tr>
+      <tr><td>More partner movements</td><td>True cost, damage and reliability by route/provider</td><td>Consolidate loads and activate the right route</td><td>Lower cost and loss per delivered kg</td></tr>
+      <tr><td>More closed product outcomes</td><td>Full landed sellable cost and contribution</td><td>Change price, pack, supplier, channel or discontinue the SKU</td><td>Better category and account profitability</td></tr>
+      <tr><td>More repeated bottlenecks</td><td>Where partner capacity or infrastructure limits economics</td><td>Lease, finance or own the specific constraint</td><td>Better utilisation and capital productivity</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="padding:14px 18px;background:#FEF3C7;border-radius:6px;font-size:11px;color:#92400E;line-height:1.7;margin-bottom:18px"><strong>Moat discipline:</strong> one node creates valuable proprietary operating data, but not yet a representative market-intelligence product. TRACE should claim external intelligence only after multiple channels, locations and sufficient standardised history make the dataset broader than its own first catchment.</div>
 <div class="sp-section"><div class="sp-section-title">Launch governance</div><div class="grid-2"><div><div class="phase-item"><div class="phase-dot"></div><div>Named product owner and operational owners for every module.</div></div><div class="phase-item"><div class="phase-dot"></div><div>Critical workflows tested end-to-end with physical product before opening.</div></div><div class="phase-item"><div class="phase-dot"></div><div>Mobile-first staff flows with role-based access.</div></div><div class="phase-item"><div class="phase-dot"></div><div>Required fields kept minimal enough to be completed under real operating pressure.</div></div></div><div><div class="phase-item"><div class="phase-dot"></div><div>Daily exception queue for missing, negative or unreconciled inventory.</div></div><div class="phase-item"><div class="phase-dot"></div><div>Data completeness tracked as an operating KPI.</div></div><div class="phase-item"><div class="phase-dot"></div><div>Backups, audit history and recovery procedures tested before launch.</div></div><div class="phase-item"><div class="phase-dot"></div><div>ERP completion reported by working workflow—not by screens designed or code written.</div></div></div></div></div>
 <div class="disclaimer"><strong>Founder clarification reflected:</strong> readiness is defined by integrated launch-critical workflows—not by a calendar date or percentage-complete claim. A module-by-module integration plan, accountable owner and acceptance test still need to be inserted from the engineering plan.</div></div>
   <div class="section-footer">
